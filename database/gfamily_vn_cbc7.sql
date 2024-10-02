@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jul 21, 2021 at 11:00 AM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 7.3.27
+-- Host: localhost
+-- Generation Time: Oct 02, 2024 at 08:50 AM
+-- Server version: 10.6.3-MariaDB
+-- PHP Version: 7.3.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `dsdn`
+-- Database: `gfamily_vn_cbc7`
 --
 
 -- --------------------------------------------------------
@@ -37,6 +38,7 @@ CREATE TABLE `articles` (
   `cate_id` tinyint(4) NOT NULL,
   `content` text DEFAULT NULL,
   `created_at` datetime NOT NULL,
+  `parent_id` tinyint(4) DEFAULT NULL,
   `updated_at` datetime NOT NULL,
   `created_user` tinyint(4) NOT NULL,
   `updated_user` tinyint(4) NOT NULL,
@@ -47,15 +49,26 @@ CREATE TABLE `articles` (
   `meta_description` varchar(255) DEFAULT NULL,
   `meta_keywords` varchar(255) DEFAULT NULL,
   `custom_text` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `articles`
 --
 
-INSERT INTO `articles` (`id`, `title`, `slug`, `alias`, `description`, `image_url`, `cate_id`, `content`, `created_at`, `updated_at`, `created_user`, `updated_user`, `status`, `is_hot`, `display_order`, `meta_title`, `meta_description`, `meta_keywords`, `custom_text`) VALUES
-(9, 'Đánh giá laptop chơi game: MSI GT83VR Titan SLI', 'danh-gia-laptop-choi-game-msi-gt83vr-titan-sli', 'Danh gia laptop choi game: MSI GT83VR Titan SLI', 'Sản phẩm ghi điểm mạnh nhờ sở hữu hiệu suất và đồ họa \"trâu\", tốc độ nhanh, bàn phím cơ tuyệt vời.\r\n', '2016/11/21/danh-gia-laptop-choi-game-msi-gt83vr-titan-sli-1479700097.jpg', 1, '<div class=\"div-baiviet\" style=\"font-family: Arial, Helvetica, sans-serif; font-size: 12px; background-color: rgb(255, 255, 255);\">\r\n	<p class=\"baiviet-sapo\" style=\"font-size: 13px; line-height: 1.4; font-weight: 700; text-align: justify; padding-right: 10px; margin: 0px;\">\r\n		Sản phẩm ghi điểm mạnh nhờ sở hữu hiệu suất v&agrave; đồ họa &quot;tr&acirc;u&quot;, tốc độ nhanh, b&agrave;n ph&iacute;m cơ tuyệt vời.</p>\r\n	<div>\r\n		<br />\r\n		<div class=\"text-conent\" itemprop=\"articleBody\" style=\"text-align: justify;\">\r\n			<p style=\"font-size: 13px; line-height: 1.4;\">\r\n				MSI GT83VR Titan SLI được đ&aacute;nh gi&aacute; l&agrave; một &ldquo;qu&aacute;i vật&rdquo; 18,4 inch với cấu h&igrave;nh mạnh: Bộ xử l&yacute; Intel Core i7; ổ cứng SSD k&eacute;p PCI-e Super Raid 4; 2 bộ xử l&yacute; đồ họa GPU Nvidia GTX 1080. Tuy nhi&ecirc;n, thiết bị được b&aacute;n ở mức gi&aacute; kh&aacute; cao - 5099 USD (tương đương 113,3 triệu đồng) v&agrave; chỉ d&agrave;nh cho c&aacute;c game thủ chịu đầu tư lớn.</p>\r\n			<p style=\"font-size: 13px; line-height: 1.4;\">\r\n				<strong>Th&ocirc;ng số kỹ thuật ch&iacute;nh:</strong></p>\r\n			<p style=\"font-size: 13px; line-height: 1.4;\">\r\n				● Bộ xử l&yacute;: Intel Core i7- 6820HK, tốc độ 2,7 GHz</p>\r\n			<p style=\"font-size: 13px; line-height: 1.4;\">\r\n				● Hệ điều h&agrave;nh: Windows 10 Home</p>\r\n			<p style=\"font-size: 13px; line-height: 1.4;\">\r\n				● Bộ nhớ RAM: 64GB</p>\r\n			<p style=\"font-size: 13px; line-height: 1.4;\">\r\n				● Ổ cứng: 512GB k&eacute;p</p>\r\n			<p style=\"font-size: 13px; line-height: 1.4;\">\r\n				<strong>Thiết kế</strong></p>\r\n			<p align=\"center\" style=\"font-size: 13px; line-height: 1.4;\">\r\n				<img alt=\"Đánh giá laptop chơi game: MSI GT83VR Titan SLI - 1\" class=\"news-image\" src=\"http://image.24h.com.vn/upload/4-2016/images/2016-11-05/1478357113-147625538579627-msi-gt83vr-lead--1-.jpg\" style=\"border: 0px; max-width: 400px;\" /></p>\r\n			<p style=\"font-size: 13px; line-height: 1.4; color: rgb(0, 0, 255); font-style: italic; text-align: center;\">\r\n				Sản phẩm sở hữu thiết kế hầm hố</p>\r\n			<p style=\"font-size: 13px; line-height: 1.4;\">\r\n				MSI GT83VR nổi bật với thiết kế hầm hố, nắp nh&ocirc;m vững ch&atilde;i, đ&egrave;n LED đỏ c&ugrave;ng logo &ldquo;MSI&rdquo; v&agrave; h&igrave;nh rồng, kh&aacute; giống với m&ocirc; t&iacute;p của phi&ecirc;n bản GT72 Dominator Pro Dragon Edition. Ph&iacute;a b&ecirc;n trong m&aacute;y l&agrave; hệ thống b&agrave;n ph&iacute;m được bố tr&iacute; c&aacute;ch xa m&agrave;n h&igrave;nh. Cảm ứng Touchpad cũng được đặt ở ph&iacute;a b&ecirc;n phải b&agrave;n ph&iacute;m, mang lại nhiều thuận tiện hơn khi chơi game.</p>\r\n			<p style=\"font-size: 13px; line-height: 1.4;\">\r\n				Phần đ&aacute;y v&agrave; g&aacute;y đ&oacute;ng mở laptop được sử dụng chất liệu hợp kim magie m&agrave;u đen bền đẹp c&ugrave;ng hệ thống th&ocirc;ng hơi lớn, bao quanh bởi đ&egrave;n LED đỏ cực &ldquo;ngầu&rdquo;. Ph&iacute;a b&ecirc;n tr&aacute;i m&aacute;y t&iacute;nh được trang bị: hai cổng USB 3.0; một khay đĩa Blue ray, một đầu đọc thẻ 3 trong 1; giắc cắm tai nghe Hifi; cổng kết nối S/PDIF v&agrave; cổng Light out v&agrave; Light in (2 cổng chuyển đổi &acirc;m thanh).</p>\r\n			<p align=\"center\" style=\"font-size: 13px; line-height: 1.4;\">\r\n				<img alt=\"Đánh giá laptop chơi game: MSI GT83VR Titan SLI - 2\" class=\"news-image\" src=\"http://image.24h.com.vn/upload/4-2016/images/2016-11-05/1478357113-147625538519758-msi-gt83vr-power-splitter-2.jpg\" style=\"border: 0px; max-width: 400px;\" /></p>\r\n			<p style=\"font-size: 13px; line-height: 1.4; color: rgb(0, 0, 255); font-style: italic; text-align: center;\">\r\n				Phần cứng của m&aacute;y đ&aacute;p ứng mọi y&ecirc;u cầu của game thủ</p>\r\n			<p style=\"font-size: 13px; line-height: 1.4;\">\r\n				Đằng sau laptop được bố tr&iacute; một cổng Thunderbolt 3; một cổng HDMI 1.4; một cổng Mini DisplayPort; cổng Gigabit Ethernet (để truyền tải Internet tốc độ cao) v&agrave; cổng cắm nguồn.</p>\r\n			<p style=\"font-size: 13px; line-height: 1.4;\">\r\n				Với trọng lượng l&ecirc;n tới hơn 5,2 kg v&agrave; k&iacute;ch thước 8 x 13,3 x 1,7 ~ 2,7 inch, MSI GT83VR được mệnh danh l&agrave; mẫu laptop chơi game cỡ &ldquo;khủng&rdquo;, lớn hơn nhiều so với Acer Predator 17 X (10 pounds, 16,7 x 12,7 x 1,8 inch), Asus ROG G752VS OC Edition (8.9 pounds, 16,4 x 12,7 x 0,8 ~ 1,5 inch) v&agrave; MSI GT72VS Dominator (8.4 pounds , 16,9 x 11,6 x 1,9 inch).</p>\r\n			<p style=\"font-size: 13px; line-height: 1.4;\">\r\n				<strong>M&agrave;n h&igrave;nh</strong></p>\r\n			<p style=\"font-size: 13px; line-height: 1.4;\">\r\n				M&agrave;n h&igrave;nh Titan sở hữu k&iacute;ch cỡ lớn &ndash; 18,4 inch c&ugrave;ng độ ph&acirc;n giải 1920 x 1080 pixel. Th&ecirc;m v&agrave;o đ&oacute;, nhờ được được t&iacute;ch hợp m&agrave;n h&igrave;nh chống ch&oacute;i mắt IPS, người d&ugrave;ng vẫn c&oacute; thể thả sức chơi game với h&igrave;nh ảnh chất lượng cao m&agrave; kh&ocirc;ng sợ nhức hay ch&oacute;i mắt.</p>\r\n			<p align=\"center\" style=\"font-size: 13px; line-height: 1.4;\">\r\n				<img alt=\"Đánh giá laptop chơi game: MSI GT83VR Titan SLI - 3\" class=\"news-image\" src=\"http://image.24h.com.vn/upload/4-2016/images/2016-11-05/1478357113-147625538520718-msgt83vr-keyboard.jpg\" style=\"border: 0px; max-width: 400px;\" /></p>\r\n			<p style=\"font-size: 13px; line-height: 1.4; color: rgb(0, 0, 255); font-style: italic; text-align: center;\">\r\n				B&agrave;n ph&iacute;m của m&aacute;y kh&ocirc;ng c&oacute; khả năng t&ugrave;y chỉnh &aacute;nh s&aacute;ng</p>\r\n			<p style=\"font-size: 13px; line-height: 1.4;\">\r\n				Qua kiểm tra, sản phẩm đạt 111% tr&ecirc;n gam m&agrave;u sRGB, &ldquo;đ&aacute;nh bại&rdquo; Dominator (108%) v&agrave; cao hơn mức trung b&igrave;nh &ndash; 100%. Th&ecirc;m v&agrave;o đ&oacute;, độ ch&iacute;nh x&aacute;c m&agrave;u sắc Delta E của MSI GT83VR đạt 1,3 (c&agrave;ng gần 0 c&agrave;ng ch&iacute;nh x&aacute;c). Tuy nhi&ecirc;n, độ s&aacute;ng trung b&igrave;nh của m&aacute;y chỉ đạt 275 nit.</p>\r\n			<p style=\"font-size: 13px; line-height: 1.4;\">\r\n				<strong>B&agrave;n ph&iacute;m v&agrave; Touchpad</strong></p>\r\n			<p style=\"font-size: 13px; line-height: 1.4;\">\r\n				GT83VR Titan được đ&aacute;nh gi&aacute; l&agrave; một trong những mẫu m&aacute;y t&iacute;nh chơi game sở hữu b&agrave;n ph&iacute;m cơ học chất lượng cao, vừa c&oacute; thể đ&aacute;p ứng y&ecirc;u cầu chơi game, vừa phục vụ nhu cầu soạn thảo văn bản với tốc độ g&otilde; khoảng 70 từ/ ph&uacute;t, nhanh hơn tốc độ th&ocirc;ng thường.</p>\r\n			<p align=\"center\" style=\"font-size: 13px; line-height: 1.4;\">\r\n				<img alt=\"Đánh giá laptop chơi game: MSI GT83VR Titan SLI - 4\" class=\"news-image\" src=\"http://image.24h.com.vn/upload/4-2016/images/2016-11-05/1478357113-147625538547513-msi-gt83vr-right-side.jpg\" style=\"border: 0px; max-width: 400px;\" /></p>\r\n			<p style=\"font-size: 13px; line-height: 1.4; color: rgb(0, 0, 255); font-style: italic; text-align: center;\">\r\n				B&agrave;n ph&iacute;m cơ của m&aacute;y c&oacute; chất lượng cao</p>\r\n			<p style=\"font-size: 13px; line-height: 1.4;\">\r\n				Giống với phi&ecirc;n bản tiền nhiệm, thiết bị thiếu khả năng t&ugrave;y chỉnh &aacute;nh s&aacute;ng cho b&agrave;n ph&iacute;m. Touchpad của m&aacute;y được thiết kế h&igrave;nh chữ nhật, k&iacute;ch cỡ 2.3 x 3.4-inch, c&oacute; tương t&aacute;c nhanh v&agrave; ch&iacute;nh x&aacute;c.</p>\r\n			<p style=\"font-size: 13px; line-height: 1.4;\">\r\n				<strong>Đồ họa, game v&agrave; thực tế ảo</strong></p>\r\n			<p style=\"font-size: 13px; line-height: 1.4;\">\r\n				Qua kiểm tra thử nghiệm hiệu suất SteamVR (để x&aacute;c định hệ thống c&oacute; khả năng tương t&aacute;c với thực tế ảo hay kh&ocirc;ng), m&aacute;y t&iacute;nh đạt tới 10,1 điểm. Trải nghiệm thực tế game cũng cho thấy h&igrave;nh ảnh đem lại kh&aacute; &ldquo;mượt&rdquo;, tốc độ khung h&igrave;nh đạt 72 khung h&igrave;nh/ gi&acirc;y ở độ ph&acirc;n giải 1080p.</p>\r\n			<p style=\"font-size: 13px; line-height: 1.4;\">\r\n				<strong>Hiệu suất</strong></p>\r\n			<p style=\"font-size: 13px; line-height: 1.4;\">\r\n				MSI trang bị cho &ldquo;con qu&aacute;i vật&rdquo; n&agrave;y bộ xử l&yacute; Intel Core i7-6820HK, tốc độ 2,7 GHz c&ugrave;ng RAM 64GB. Do đ&oacute;, m&aacute;y c&oacute; khả năng đ&aacute;p ứng tới 20 tab Google Chrome (một tab mở phim chất lượng cao).</p>\r\n			<p align=\"center\" style=\"font-size: 13px; line-height: 1.4;\">\r\n				<img alt=\"Đánh giá laptop chơi game: MSI GT83VR Titan SLI - 5\" class=\"news-image\" src=\"http://image.24h.com.vn/upload/4-2016/images/2016-11-05/1478357114-147625538540671-msi-gt83vr-lid.jpg\" style=\"border: 0px; max-width: 400px;\" /></p>\r\n			<p style=\"font-size: 13px; line-height: 1.4; color: rgb(0, 0, 255); font-style: italic; text-align: center;\">\r\n				Hiệu suất cũng như đồ họa của MSI GT83VR kh&aacute; mạnh</p>\r\n			<p style=\"font-size: 13px; line-height: 1.4;\">\r\n				Tuy nhi&ecirc;n, MSI GT83VR chỉ ghi được 14.765 điểm tr&ecirc;n b&agrave;i kiểm tra hiệu năng Geekbench 3. Con số n&agrave;y thấp hơn mức điểm trung b&igrave;nh của d&ograve;ng m&aacute;y t&iacute;nh để b&agrave;n - 18.000 điểm. B&ugrave; lại, m&aacute;y c&oacute; khả năng truyền tập tin dung lượng 4.97GB chỉ trong 7 gi&acirc;y, tốc độ truyền l&ecirc;n đến 727 MB/ gi&acirc;y.</p>\r\n			<p style=\"font-size: 13px; line-height: 1.4;\">\r\n				<strong>Tuổi thọ pin</strong></p>\r\n			<p style=\"font-size: 13px; line-height: 1.4;\">\r\n				Tuổi thọ pin l&agrave; điểm yếu lớn nhất của chiếc m&aacute;y t&iacute;nh x&aacute;ch tay chơi game n&agrave;y. Qua thử nghiệm (lướt web li&ecirc;n tục qua Wi-Fi), thiết bị chỉ ghi nhận thời lượng 1 giờ 54 ph&uacute;t/ 1 lần sạc đầy. Thời gian n&agrave;y thấp hơn nhiều so với mức trung b&igrave;nh của d&ograve;ng m&aacute;y t&iacute;nh để b&agrave;n - 04:40.</p>\r\n			<p style=\"font-size: 13px; line-height: 1.4;\">\r\n				*Lưu &yacute;: Mức gi&aacute; tr&ecirc;n chỉ &aacute;p dụng cho thị trường Mỹ.</p>\r\n			<div>\r\n				&nbsp;</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n<br />\r\n', '2016-11-21 10:48:10', '2016-11-21 11:47:23', 0, 0, 1, 1, 0, '', '', '', ''),
-(11, '3 cách xem đời máy tính hay cho người dùng ', '3-cach-xem-doi-may-tinh-hay-cho-nguoi-dung', '3 cach xem doi may tinh hay cho nguoi dung ', 'Bạn không phải là dân IT nhưng muốn kiểm tra máy tính của mình thuộc đời nào thì đây là cách xem đời máy tính đơn giản có thể áp dụng. ', '2016/12/10/3-cach-xem-doi-may-tinh-hay-cho-nguoi-dung-3-1481336514.jpg', 4, 'Bạn kh&ocirc;ng phải l&agrave; d&acirc;n IT nhưng muốn kiểm tra m&aacute;y t&iacute;nh của m&igrave;nh thuộc đời n&agrave;o th&igrave; đ&acirc;y l&agrave; <strong><em>c&aacute;ch xem đời m&aacute;y t&iacute;nh</em></strong> đơn giản c&oacute; thể &aacute;p dụng.&nbsp;<br />\r\n<br />\r\nThực chất việc x&aacute;c định đời của c&aacute;c loại m&aacute;y t&iacute;nh ch&iacute;nh l&agrave; việc kiểm tra tất tần tật c&aacute;c th&ocirc;ng số của m&aacute;y. V&agrave; về cơ bản c&oacute; đến 3 c&aacute;ch xem đời m&aacute;y t&iacute;nh kh&aacute; ch&iacute;nh x&aacute;c dễ thực hiện.<br />\r\n<br />\r\n<p align=\"center\" class=\"imgP\" id=\"dataimg0\">\r\n	&nbsp;</p>\r\n<strong>Dưới đ&acirc;y</strong>&nbsp;<strong>3 c&aacute;ch xem đời m&aacute;y t&iacute;nh bạn n&ecirc;n biết</strong><br />\r\n<br />\r\n<strong>1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong><strong>Kiểm tra trong Computer Properties</strong><br />\r\n<br />\r\nĐ&acirc;y được xem l&agrave; c&aacute;ch đơn giản nhất. Bạn chỉ cần click chuột phải Computer<br />\r\nTr&ecirc;n m&agrave;n h&igrave;nh desktop rồi chọn Properties để xem c&aacute;c th&ocirc;ng số cơ bản của RAM, CPU, hệ điều h&agrave;nh cũng như c&aacute;c phần cứng kh&aacute;c.<br />\r\n&nbsp;<br />\r\nTại đ&acirc;y, bạn sẽ biết được đầy đủ th&ocirc;ng số kỹ thuật của hệ điều h&agrave;nh cũng như của CPU v&agrave; RAM. Việc kiểm tra n&agrave;y c&ograve;n gi&uacute;p bạn biết được t&igrave;nh trạng k&iacute;ch hoạt của Windows, t&ecirc;n của người d&ugrave;ng, t&ecirc;n m&aacute;y t&iacute;nh với một số thiết lập hệ thống kh&aacute;c tr&ecirc;n c&ugrave;ng một m&agrave;n h&igrave;nh hiện thị.<br />\r\n&nbsp;<br />\r\n<strong>2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong><strong>D&ugrave;ng lệnh dxdiag để kiểm tra đời m&aacute;y</strong><br />\r\nĐ&acirc;y được xem l&agrave; c&aacute;ch xem đời m&aacute;y chi tiết hơn. Với c&aacute;ch n&agrave;y c&aacute;c th&ocirc;ng số của m&aacute;y sẽ hiển thị ho&agrave;n to&agrave;n.<br />\r\nĐể thực hiện kiểm tra bằng lệnh n&agrave;y, bạn v&agrave;o icon cửa sổ g&oacute;c dưới c&ugrave;ng m&agrave;n h&igrave;nh m&aacute;y t&iacute;nh để mở run hoăc nhấn tổ hợp ph&iacute;m cửa sổ v&agrave; R, g&otilde;&nbsp;lệnh dxdiag&nbsp;rồi&nbsp;nhấn Enter.<br />\r\nTương tự như khi thao t&aacute;c với computer Properties cảng dxdiag sẽ hiển thị đầy đủ c&aacute;c th&ocirc;ng số kỹ thuật của m&aacute;y. Ngo&agrave;i ra, tr&ecirc;n bảng dxdiag c&ograve;n hiển thị th&ecirc;m c&aacute;c th&ocirc;ng số của m&agrave;n h&igrave;nh nằm trong phần Display, th&ocirc;ng số về &acirc;m thanh trong phần Sound với th&ocirc;ng số về c&aacute;c thiết bị nhập liệu, hỗ trợ trong phần Input.<br />\r\n&nbsp;<br />\r\n<strong>3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong><strong>Kiểm tra đời m&aacute;y bằng phần mềm CPU-Z</strong><br />\r\nCPU-Z l&agrave; phần mềm c&oacute; thể c&agrave;i đặt v&agrave;o m&aacute;y t&iacute;nh để kiểm tra th&ocirc;ng số cũng như tra th&ocirc;ng tin&nbsp; phần cứng. Với việc sử dụng phần mềm n&agrave;y, những th&ocirc;ng số c&oacute; trong m&aacute;y sẽ hiển thị to&agrave;n bộ.<br />\r\nKhi phần mềm CPU-Z c&agrave;i đặt xong, bạn sẽ thấy c&aacute;c th&ocirc;ng số như CPU, Caches, Mainboard, SPD, Graphics, Bench c&ugrave;ng About xuất hiện tr&ecirc;n giao diện của CPU-Z theo từng tab ri&ecirc;ng biệt. Mỗi tab sẽ hiển thị r&otilde; r&agrave;ng những th&ocirc;ng tin cần thiết của m&aacute;y t&iacute;nh.<br />\r\n&nbsp;<br />\r\nTheo đ&oacute;, tab CPU sẽ cho bạn biết về t&ecirc;n của CPU thuộc d&ograve;ng n&agrave;o, c&oacute; tốc độ xử l&yacute; bao nhi&ecirc;u cũng như m&aacute;y sẽ c&oacute; bao nhi&ecirc;u nh&acirc;n v&agrave; nguồn xử l&yacute;. Tab Caches sẽ cung cấp c&aacute;c th&ocirc;ng tin về bộ nhớ đệm của CPU. Tab Mainboard hiển thị th&ocirc;ng tin về bo mạch như t&ecirc;n của h&atilde;ng, mẫu, phi&ecirc;n bản BIOS,..<br />\r\n&nbsp;<br />\r\nTừng khe cắm RAM của m&aacute;y t&iacute;nh sẽ hiện tr&ecirc;n tab SPD. Th&ocirc;ng tin Card m&agrave;n h&igrave;nh sẽ hiện tr&ecirc;n tab Graphics. Tab Bench v&agrave; tab About sẽ l&agrave; nơi hiển thị lần lượt c&aacute;c th&ocirc;ng số sức khỏe của CPU chạy ở c&aacute;c chế độ kh&aacute;c nhau v&agrave; những th&ocirc;ng tin về phần mềm <strong>CPU-Z </strong>bạn đang sử dụng.<br />\r\n&nbsp;<br />\r\nTr&ecirc;n đ&acirc;y l&agrave; c&aacute;c <strong><em>c&aacute;ch xem đời m&aacute;y t&iacute;nh</em></strong> dễ d&agrave;ng m&agrave; kh&ocirc;ng cần nhờ đến d&acirc;n trong nghề. Ch&uacute;c c&aacute;c bạn th&agrave;nh c&ocirc;ng, lựa chọn cho m&igrave;nh chiếc m&aacute;y t&iacute;nh ưng &yacute;.<br />\r\n&nbsp;<br />\r\n&nbsp;<br />\r\n', '2016-12-10 09:22:49', '2016-12-12 14:52:17', 0, 0, 1, 0, 0, '3 cách xem đời máy tính hay cho người dùng ', 'Bạn không phải là dân IT nhưng muốn kiểm tra máy tính của mình thuộc đời nào thì đây là cách xem đời máy tính đơn giản có thể áp dụng. ', 'cách xem đời máy tính', '');
+INSERT INTO `articles` (`id`, `title`, `slug`, `alias`, `description`, `image_url`, `cate_id`, `content`, `created_at`, `parent_id`, `updated_at`, `created_user`, `updated_user`, `status`, `is_hot`, `display_order`, `meta_title`, `meta_description`, `meta_keywords`, `custom_text`) VALUES
+(9, 'Đậu hũ cay xốt nấm', 'dau-hu-cay-xot-nam', 'Dau hu cay xot nam', 'Đậu hũ xốt nấm có lẽ là một trong những món chay ăn cơm phổ biến nhất và G-Organic Family giúp bạn công thức nấu món này đơn giản mà thật ngon bạn nhé', '/uploads/images/Blogs/Cong-thuc-nau-an/Cac-mon-chay/Dau-hu-xot-nam.png', 1, '<div class=\"div-baiviet\" style=\"background-color:#ffffff; font-family:Arial,Helvetica,sans-serif; font-size:12px\">\r\n<p style=\"text-align:justify\"><span style=\"font-size:16px\">Đậu hũ l&agrave; m&oacute;n ăn chay kh&ocirc;ng b&eacute;o v&agrave; dường như kh&ocirc;ng bao giờ l&agrave;m bạn ng&aacute;n. H&atilde;y l&agrave;m m&oacute;n chay đậu hũ cay xốt nấm cho bữa cơm h&ocirc;m nay nh&eacute;. Đậu n&oacute;ng hổi, mềm mịn quyện trong nước sốt v&agrave; nấm ngon tuyệt c&uacute; m&egrave;o.</span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><span style=\"font-size:16px\"><strong>C&ocirc;ng thức nấu m&oacute;n Đậu hũ cay xốt nấm</strong><br />\r\n<br />\r\n<strong>1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nguy&ecirc;n liệu cần chuẩn bị</strong></span></p>\r\n\r\n<ul dir=\"ltr\">\r\n	<li><span style=\"font-size:16px\">300g Đậu hũ</span></li>\r\n	<li><span style=\"font-size:16px\">200g Nấm rơm</span></li>\r\n	<li><span style=\"font-size:16px\">1 b&oacute; H&agrave;nh ta xanh (c&oacute; đầu h&agrave;nh)</span></li>\r\n	<li><span style=\"font-size:16px\">2 quả Ớt đỏ&nbsp;(mua loại to vị cay nhẹ)</span></li>\r\n	<li><span style=\"font-size:16px\">1 th&igrave;a Tỏi băm</span></li>\r\n	<li><span style=\"font-size:16px\">Nửa quả c&agrave; chua</span></li>\r\n	<li><span style=\"font-size:16px\">1 th&igrave;a Muối hồng, Bột h&agrave;nh hay bột tỏi để n&ecirc;m</span></li>\r\n	<li><span style=\"font-size:16px\">1 th&igrave;a Hạt ti&ecirc;u</span></li>\r\n	<li><span style=\"font-size:16px\">1 th&igrave;a&nbsp;Đường</span></li>\r\n	<li><span style=\"font-size:16px\">50g Bột ng&ocirc;</span></li>\r\n	<li><span style=\"font-size:16px\">2 muỗng Dầu ăn</span></li>\r\n	<li><span style=\"font-size:16px\">Nửa ch&eacute;n nước lọc</span></li>\r\n</ul>\r\n\r\n<p><br />\r\n<span style=\"font-size:16px\"><strong>2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; C&aacute;c bước nấu m&oacute;n đậu hũ cay xốt nấm</strong></span></p>\r\n\r\n<p dir=\"ltr\"><span style=\"font-size:16px\"><strong><u><em>Bước 1:</em></u></strong> Sơ chế nguy&ecirc;n liệu</span></p>\r\n\r\n<ul dir=\"ltr\">\r\n	<li style=\"text-align:justify\"><span style=\"font-size:16px\">Đậu hũ rửa sạch cắt miếng vu&ocirc;ng mỏng, để r&aacute;o 1 ch&uacute;t.&nbsp;Bột ng&ocirc; bỏ ra đĩa, gắp từng miếng đậu tẩm qua bột, ch&uacute; &yacute; bột chỉ cần b&aacute;m sơ quanh miếng đậu l&agrave; được,&nbsp;rồi cho v&agrave;o chảo dầu n&oacute;ng r&aacute;n v&agrave;ng.</span></li>\r\n	<li style=\"text-align:justify\"><span style=\"font-size:16px\">Nấm rơm cắt bỏ phần ch&acirc;n gốc, nếu nấm to th&igrave; bạn cắt đ&ocirc;i nh&eacute;.&nbsp;Rửa sạch với nước muối pha lo&atilde;ng hoặc ng&acirc;m trong nước vo gạo khoảng 10 ph&uacute;t để nấm được l&agrave;m trắng, kh&ocirc;ng c&ograve;n d&iacute;nh tạp chất v&agrave; khử m&ugrave;i rơm b&aacute;m tr&ecirc;n nấm.&nbsp;Sau đ&oacute;, vớt nấm ra để r&aacute;o nước.</span></li>\r\n	<li style=\"text-align:justify\"><span style=\"font-size:16px\">C&agrave; chua cắt hạt lựu (c&oacute; thể chần qua nước s&ocirc;i lột vọ hay l&agrave;m tươi đều được)</span></li>\r\n	<li style=\"text-align:justify\"><span style=\"font-size:16px\">Đầu h&agrave;nh th&aacute;i nhỏ để phi, h&agrave;nh l&aacute; cắt hạt lựu để rắc mặt.</span></li>\r\n	<li style=\"text-align:justify\"><span style=\"font-size:16px\">Ớt đỏ tươi cắt l&aacute;t x&eacute;o.</span></li>\r\n</ul>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p dir=\"ltr\"><span style=\"font-size:16px\"><strong><em><u>Bước 2:</u></em></strong> Chế biến đậu hũ cay xốt nấm</span></p>\r\n\r\n<ul dir=\"ltr\">\r\n	<li style=\"text-align:justify\"><span style=\"font-size:16px\">Khi r&aacute;n đậu ch&uacute; &yacute; để lửa nhỏ để tr&aacute;nh bột bị ch&aacute;y. Đậu r&aacute;n vừa ch&iacute;n v&agrave;ng hai mặt th&igrave; cho ra đĩa, để sang một b&ecirc;n.</span></li>\r\n	<li style=\"text-align:justify\"><span style=\"font-size:16px\">Đặt chảo trở lại bếp, dầu ăn cho l&aacute;ng chảo, phi tỏi thơm. Cho đầu h&agrave;nh th&aacute;i nhỏ v&agrave;o phi c&ugrave;ng, tiếp đến cho ớt th&aacute;i l&aacute;t, c&agrave; chua th&aacute;i hạt lựu v&agrave;o đun. Cho một ch&uacute;t nước nếu chảo qu&aacute; kh&ocirc; v&agrave; đảo đều để tr&aacute;nh c&agrave; chua bị ch&aacute;y.</span></li>\r\n	<li style=\"text-align:justify\"><span style=\"font-size:16px\">Sau khi c&agrave; chua đ&atilde; nhừ th&agrave;nh nước sốt th&igrave; cho nấm v&agrave;o x&agrave;o, n&ecirc;m 1 th&igrave;a muối hồng, 1 th&igrave;a đường.</span></li>\r\n	<li style=\"text-align:justify\"><span style=\"font-size:16px\">Tiếp theo cho đậu đ&atilde;&nbsp;r&aacute;n v&agrave;o chảo, th&ecirc;m nửa ch&eacute;n nước, rồi mở lửa to đun s&ocirc;i khoảng 2-3 ph&uacute;t, n&ecirc;m nếm lại đường, muối, bột h&agrave;nh/tỏi&nbsp;cho vừa ăn.</span></li>\r\n	<li style=\"text-align:justify\"><span style=\"font-size:16px\">Nhỏ lửa &acirc;m ỉ cho đậu ngấm gia vị (khoảng 4-5 ph&uacute;t).&nbsp;Đun đến khi nước cạn bớt l&agrave; được.</span></li>\r\n	<li style=\"text-align:justify\"><span style=\"font-size:16px\">Khi đun tr&aacute;nh d&ugrave;ng đũa đảo nhiều, đậu sẽ bị vỡ. Trước khi tắt bếp rắc ch&uacute;t h&agrave;nh xanh th&aacute;i nhỏ.</span></li>\r\n</ul>\r\n\r\n<p><span style=\"font-size:16px\">&nbsp;<br />\r\n<strong>3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Thưởng thức Đậu hũ cay xốt nấm</strong></span></p>\r\n\r\n<ul>\r\n	<li style=\"text-align:justify\"><span style=\"font-size:16px\">Khi ăn n&ecirc;n x&uacute;c đậu hũ xốt nấm ra b&aacute;t to, rắc hạt ti&ecirc;u l&ecirc;n tr&ecirc;n, c&oacute; thể th&ecirc;m h&agrave;nh l&aacute; hoặc ng&ograve; ta th&ecirc;m để trang tr&iacute; v&agrave; dậy m&ugrave;i hơn.</span></li>\r\n	<li style=\"text-align:justify\"><span style=\"font-size:16px\">Lưu &yacute; nấm sẽ giữ nước v&agrave; nhiệt, vậy n&ecirc;n cẩn thận kẻo phỏng, nhất l&agrave; c&aacute;c b&uacute;p nấm chưa cắt đ&ocirc;i.</span></li>\r\n	<li style=\"text-align:justify\"><span style=\"font-size:16px\">Ăn n&oacute;ng với cơm sẽ ngon hơn để nguội.</span></li>\r\n</ul>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><img alt=\"\" src=\"/uploads/images/Blogs/Cong-thuc-nau-an/Cac-mon-chay/Dau-hu-xot-nam.png\" style=\"height:360px; width:540px\" />&nbsp;</span></p>\r\n\r\n<p style=\"text-align:justify\"><br />\r\n<span style=\"font-size:16px\">Tr&ecirc;n đ&acirc;y l&agrave; c&ocirc;ng thức nấu đậu hũ cay xốt nấm&nbsp;dễ d&agrave;ng cho bạn trong những bữa chay ngon l&agrave;nh.</span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:16px\">Ch&uacute;c c&aacute;c bạn th&agrave;nh c&ocirc;ng, G-Organic Family lu&ocirc;n đồng h&agrave;nh c&ugrave;ng bạn.</span></p>\r\n</div>\r\n', '2016-11-21 10:48:10', 1, '2024-08-23 14:49:31', 0, 0, 1, 1, 0, 'cách nấu món đậu hũ cay xốt nấm chay đơn giản mà ngon', 'Đậu hũ xốt nấm có lẽ là một trong những món chay ăn cơm phổ biến nhất và G-Organic Family giúp bạn công thức nấu món này đơn giản mà thật ngon bạn nhé', 'cách nấu món đậu hũ cay xốt nấm', ''),
+(11, 'Nấm rơm kho tiêu chay', 'nam-rom-kho-tieu-chay', 'Nam rom kho tieu chay', 'Nấm rơm kho tiêu có lẽ là món chay ăn cơm phổ biến nhất và G-Organic Family giúp bạn công thức nấu món này thật đơn giản mà ngon đưa cơm bạn nhé.', '/uploads/images/Blogs/Cong-thuc-nau-an/Cac-mon-chay/Nam-rom-kho-tieu.png', 1, '<p style=\"text-align:justify\"><span style=\"font-size:16px\">Nấm rơm kho ti&ecirc;u c&oacute; lẽ l&agrave; m&oacute;n chay ăn cơm phổ biến nhất v&agrave; G-Organic Family gi&uacute;p bạn c&ocirc;ng thức nấu m&oacute;n n&agrave;y thật đơn giản m&agrave; ngon đưa cơm bạn nh&eacute;.</span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:16px\"><strong>C&ocirc;ng thức nấu m&oacute;n Nấm rơm kho ti&ecirc;u chay</strong><br />\r\n<br />\r\n<strong>1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nguy&ecirc;n liệu cần chuẩn bị</strong></span></p>\r\n\r\n<ul>\r\n	<li style=\"text-align: justify;\"><span style=\"font-size:16px\">300g Nấm rơm (phần cho 1-2 người ăn)</span></li>\r\n	<li style=\"text-align: justify;\"><span style=\"font-size:16px\">3 th&igrave;a c&agrave; ph&ecirc; Nước tương</span></li>\r\n	<li style=\"text-align: justify;\"><span style=\"font-size:16px\">1 th&igrave;a c&agrave; ph&ecirc; Hạt n&ecirc;m (nếu ăn chay th&igrave; d&ugrave;ng hạt n&ecirc;m chay hoặc muối hồng để n&ecirc;m)</span></li>\r\n	<li style=\"text-align: justify;\"><span style=\"font-size:16px\">02 muỗng Dầu ăn</span></li>\r\n	<li style=\"text-align: justify;\"><span style=\"font-size:16px\">01 muỗng Dầu m&egrave;</span></li>\r\n	<li style=\"text-align: justify;\"><span style=\"font-size:16px\">1 th&igrave;a c&agrave; ph&ecirc; Ti&ecirc;u hoặc 2-3 c&agrave;nh ti&ecirc;u xanh</span></li>\r\n	<li style=\"text-align: justify;\"><span style=\"font-size:16px\">1-2 Ớt tươi đỏ nguy&ecirc;n tr&aacute;i</span></li>\r\n</ul>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:16px\"><strong><em><u>Lưu &yacute;:</u></em></strong> Để&nbsp;nấu nấm rơm kho ti&ecirc;u xanh thơm ngon chuẩn vị, bạn n&ecirc;n tỉ mỉ chọn những b&uacute;p nấm rơm&nbsp;nhỏ vừa, c&ograve;n cứng v&agrave; tr&ograve;n đều. Tr&aacute;nh chọn những b&uacute;p qu&aacute; to, đ&atilde; nở bung hay mềm nhũn kh&ocirc;ng ngon.&nbsp;</span></p>\r\n\r\n<p style=\"text-align:justify\"><br />\r\n<span style=\"font-size:16px\"><strong>2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; C&aacute;c bước nấu m&oacute;n nấm rơm kho ti&ecirc;u</strong></span></p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\"><span style=\"font-size:16px\"><strong><u><em>Bước 1:</em></u></strong> Sơ chế nguy&ecirc;n liệu</span></p>\r\n\r\n<ul dir=\"ltr\">\r\n	<li style=\"text-align: justify;\"><span style=\"font-size:16px\">Nấm rơm cắt bỏ phần ch&acirc;n gốc, nếu nấm to th&igrave; bạn cắt đ&ocirc;i nh&eacute;.</span></li>\r\n	<li style=\"text-align: justify;\"><span style=\"font-size:16px\">Rửa sạch với nước muối pha lo&atilde;ng hoặc ng&acirc;m trong nước vo gạo khoảng 10 ph&uacute;t để nấm được l&agrave;m trắng, kh&ocirc;ng c&ograve;n d&iacute;nh tạp chất v&agrave; khử m&ugrave;i rơm b&aacute;m tr&ecirc;n nấm.</span></li>\r\n	<li style=\"text-align: justify;\"><span style=\"font-size:16px\">Sau đ&oacute;, vớt nấm ra để r&aacute;o nước.</span></li>\r\n	<li style=\"text-align: justify;\"><span style=\"font-size:16px\">Nếu d&ugrave;ng ti&ecirc;u xanh th&igrave; rửa sạch nguy&ecirc;n c&agrave;nh (d&acirc;y quả), để r&aacute;o.</span></li>\r\n	<li style=\"text-align: justify;\"><span style=\"font-size:16px\">Ớt đỏ tươi để nguy&ecirc;n tr&aacute;i hoặc cắt l&aacute;t x&eacute;o.</span></li>\r\n</ul>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\"><span style=\"font-size:16px\"><strong><em><u>Bước 2:</u></em></strong> Ướp gia vị</span></p>\r\n\r\n<ul dir=\"ltr\">\r\n	<li style=\"text-align: justify;\"><span style=\"font-size:16px\">Sau khi nấm đ&atilde; r&aacute;o nước, bắt đầu cho nấm v&agrave;o xoong rồi lần lượt cho nước tương, hạt n&ecirc;m (muối hồng), dầu ăn v&agrave;o rồi trộn đều (c&oacute; thể gia giảm t&ugrave;y theo&nbsp;khẩu vị v&agrave; sở th&iacute;ch của bạn).</span></li>\r\n	<li style=\"text-align: justify;\"><span style=\"font-size:16px\">Ướp trong khoảng 15 ph&uacute;t (nấm ướp c&agrave;ng l&acirc;u th&igrave; c&aacute;ch chế biến nấm rơm kho ti&ecirc;u sẽ c&agrave;ng ngon v&agrave; thấm vị).</span></li>\r\n</ul>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\"><span style=\"font-size:16px\"><strong><em><u>Bước 3:</u></em></strong> Chế biến nấm rơm kho ti&ecirc;u xanh</span></p>\r\n\r\n<ul dir=\"ltr\">\r\n	<li style=\"text-align: justify;\"><span style=\"font-size:16px\">Đặt xoong nấm rơm đ&atilde; ướp l&ecirc;n bếp v&agrave; đun cho đến khi nước trong nồi sền sệt th&igrave; cho ti&ecirc;u (ti&ecirc;u&nbsp;xanh), ớt tươi nguy&ecirc;n tr&aacute;i (hoặc cắt l&aacute;t x&eacute;o) v&agrave; dầu m&egrave; v&agrave;o.</span></li>\r\n	<li style=\"text-align: justify;\"><span style=\"font-size:16px\">Nếu kh&ocirc;ng muốn ăn qu&aacute; cay th&igrave; ớt tươi n&ecirc;n để nguy&ecirc;n tr&aacute;i hoặc nếu cắt l&aacute;t th&igrave; n&ecirc;n đợi đến khi tắt bếp h&atilde;y để v&agrave;o.</span></li>\r\n	<li style=\"text-align: justify;\"><span style=\"font-size:16px\">Hạ lửa, đun liu riu để c&aacute;c gia vị ngấm đều v&agrave;o m&oacute;n ăn th&igrave; tắt bếp.</span></li>\r\n</ul>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:16px\">&nbsp;<br />\r\n<strong>3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong><strong>Thưởng thức&nbsp;m&oacute;n Nấm rơm kho ti&ecirc;u</strong></span></p>\r\n\r\n<ul>\r\n	<li style=\"text-align: justify;\"><span style=\"font-size:16px\">Nấm rơm kho ti&ecirc;u l&agrave; m&oacute;n chay ch&iacute;nh trong bữa cơm, n&ecirc;n c&oacute; thể t&ugrave;y theo khẩu vị mặn nhạt m&agrave; gia giảm n&ecirc;m nếm hoặc ăn k&egrave;m với ch&eacute;n nước tương.</span></li>\r\n	<li style=\"text-align: justify;\"><span style=\"font-size:16px\">Lưu &yacute; nấm kho sẽ giữ nước v&agrave; nhiệt, vậy n&ecirc;n cẩn thận kẻo phỏng, nhất l&agrave; c&aacute;c b&uacute;p nấm chưa cắt đ&ocirc;i.</span></li>\r\n	<li style=\"text-align: justify;\"><span style=\"font-size:16px\">Ăn n&oacute;ng sẽ ngon hơn để nguội.</span></li>\r\n</ul>\r\n\r\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><img alt=\"\" src=\"/uploads/images/Blogs/Cong-thuc-nau-an/Cac-mon-chay/Nam-rom-kho-tieu.png\" style=\"height:360px; width:540px\" />&nbsp;</span></p>\r\n\r\n<p style=\"text-align:justify\"><br />\r\n<span style=\"font-size:16px\">Tr&ecirc;n đ&acirc;y l&agrave; c&ocirc;ng thức nấu nấm rơm kho ti&ecirc;u&nbsp;dễ d&agrave;ng cho bạn trong những bữa chay ngon l&agrave;nh.</span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:16px\">Ch&uacute;c c&aacute;c bạn th&agrave;nh c&ocirc;ng, G-Organic Family lu&ocirc;n đồng h&agrave;nh c&ugrave;ng bạn.</span><br />\r\n&nbsp;</p>\r\n', '2016-12-10 09:22:49', 1, '2024-08-23 14:50:40', 0, 0, 1, 1, 0, 'cách nấu món nấm rơm kho tiêu chay đơn giản mà ngon', 'Nấm rơm kho tiêu có lẽ là món chay ăn cơm phổ biến nhất và G-Organic Family giúp bạn công thức nấu món này thật đơn giản mà ngon đưa cơm bạn nhé', 'cách nấu món nấm rơm kho tiêu chay', ''),
+(12, 'Ăn dặm cho bé - những điều nên làm mẹ nhé!', 'an-dam-cho-be-nhung-dieu-nen-lam-me-nhe', 'An dam cho be - nhung dieu nen lam me nhe!', 'Từ tháng thứ 6 trở đi, thức ăn dặm sẽ bổ sung hoàn thiện hơn cho bé các nhóm dinh dưỡng cần thiết ngoài sữa mẹ như tinh bột, các loại vitamin… Từ đây, mẹ sẽ cân đối để giảm dần lượng sữa mẹ, tăng lượng thức ăn dặm cho bé một cách phù hợp.', '/uploads/images/Blogs/An-dam-cho-be/An-dam-cho-be-2.png', 4, '<p dir=\"ltr\" style=\"text-align:justify\">Từ th&aacute;ng thứ 6 trở đi, thức ăn dặm sẽ bổ sung ho&agrave;n thiện hơn cho b&eacute; c&aacute;c nh&oacute;m dinh dưỡng cần thiết ngo&agrave;i sữa mẹ như tinh bột, c&aacute;c loại vitamin&hellip; Từ đ&acirc;y, mẹ sẽ c&acirc;n đối để giảm dần lượng sữa mẹ, tăng lượng thức ăn dặm cho b&eacute; một c&aacute;ch ph&ugrave; hợp.</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Ăn dặm hiện nay c&oacute; nhiều thực đơn kh&aacute;c nhau t&ugrave;y theo c&aacute;c phương ph&aacute;p như ăn dặm truyền thống, ăn dặm kiểu Nhật, ăn dặm tự chỉ huy (BLW). Mỗi phương ph&aacute;p đều c&oacute; ưu nhược điểm ri&ecirc;ng của m&igrave;nh.</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:center\"><img alt=\"\" src=\"/uploads/images/Blogs/An-dam-cho-be/An-dam-cho-be-1.png\" style=\"height:460px; width:690px\" /></p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Tuy nhi&ecirc;n vẫn c&oacute; một số nguy&ecirc;n tắc cần lưu &yacute; để mang đến cho trẻ chế độ ăn dặm ph&ugrave; hợp nhất:</p>\r\n\r\n<ul>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Kh&ocirc;ng n&ecirc;n cho trẻ ăn dặm qu&aacute; sớm hay qu&aacute; muộn, tốt nhất bắt đầu từ th&aacute;ng 6-7 trở đi.</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Cho b&eacute; ăn dặm từ &iacute;t đến nhiều: 1 bữa/ng&agrave;y với khoảng 5-10ml thức ăn dặm cho khoảng 3-5 ng&agrave;y đầu ti&ecirc;n v&agrave; tăng dần đến 2 bữa/ng&agrave;y, sau đ&oacute; c&oacute; th&ecirc;m bữa phụ với tr&aacute;i c&acirc;y, sữa chua&hellip;</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Chuyển từ lo&atilde;ng đến đặc: 3-5 ng&agrave;y đầu cho b&eacute; ăn bột lo&atilde;ng rồi h&atilde;y tăng dần độ đặc, độ th&ocirc; l&ecirc;n, chuyển dần từ bột sang ch&aacute;o lo&atilde;ng, ch&aacute;o nguy&ecirc;n hạt, cơm mềm (rời, n&aacute;t)...</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Ch&uacute; &yacute; kiểm so&aacute;t tỷ lệ muối v&agrave; đường trong thức ăn dặm (kh&ocirc;ng th&ecirc;m muối dưới 1 tuổi, kh&ocirc;ng qu&aacute; 20g/ng&agrave;y&hellip;)</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Đầy đủ c&aacute;c nh&oacute;m dinh dưỡng: nhất l&agrave; từ th&aacute;ng thứ 9 trở đi, h&atilde;y bổ sung cho b&eacute; đủ nh&oacute;m dinh dưỡng, c&aacute;c vitamin cần thiết.</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Hợp vệ sinh: v&igrave; hệ ti&ecirc;u h&oacute;a c&ograve;n nhỏ yếu, dễ bị khuẩn tấn c&ocirc;ng, n&ecirc;n cha mẹ h&atilde;y lựa chọn c&aacute;c loại thức ăn dặm hợp vệ sinh, nguồn gốc r&otilde; r&agrave;ng, n&ecirc;n ưu &aacute;i thực phẩm sạch, hữu cơ.</p>\r\n	</li>\r\n</ul>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:center\"><img alt=\"\" src=\"/uploads/images/Blogs/An-dam-cho-be/An-dam-cho-be-8.png\" style=\"height:460px; width:690px\" /></p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">G-Organic đồng h&agrave;nh c&ugrave;ng c&aacute;c bậc cha mẹ, chia sẻ c&aacute;c phương ph&aacute;p ăn dặm từ c&aacute;c chuy&ecirc;n gia, trung t&acirc;m v&agrave; cung cấp những thực phẩm ăn dặm ph&ugrave; hợp cho b&eacute;, như: nui m&igrave; ăn dặm, dầu ăn dặm, vitamin cho b&eacute; hay nhiều loại bổ sung trong giai đoạn ăn dặm của b&eacute;. H&atilde;y lưu &yacute; để c&oacute; một qu&aacute; tr&igrave;nh ăn dặm thật tuyệt vời cho b&eacute; mẹ nh&eacute;.</p>\r\n', '2024-07-18 19:04:33', 2, '2024-08-23 14:56:17', 0, 0, 1, 1, 0, 'những lưu ý cho giai đoạn ăn dặm của bé', 'Từ tháng thứ 6 trở đi, thức ăn dặm sẽ bổ sung hoàn thiện hơn cho bé các nhóm dinh dưỡng cần thiết ngoài sữa mẹ như tinh bột, các loại vitamin… Từ đây, mẹ sẽ cân đối để giảm dần lượng sữa mẹ, tăng lượng thức ăn dặm cho bé một cách phù hợp.', 'lưu ý để ăn dặm cho bé đúng cách', ''),
+(13, 'Về G-Family', 've-g-family', 'Ve G-Family', '', '/uploads/images/Ho-tro-chung/Shop-2.png', 11, '<h3 style=\"text-align:justify\"><strong>Về G-Organic Family:</strong></h3>\r\n\r\n<p style=\"text-align:justify\">G-Organic Family l&agrave; thương hiệu&nbsp;của C&ocirc;ng ty TNHH Sản xuất &amp; Thương mại G-Organic Family.<br />\r\nG-Organic Family l&agrave; một chuỗi cửa h&agrave;ng&nbsp;chuy&ecirc;n b&aacute;n sỉ lẻ c&aacute;c sản phẩm hữu cơ, bao gồm&nbsp;thực phẩm tươi - kh&ocirc;, mỹ phẩm - h&oacute;a phẩm gia dụng, chăm s&oacute;c sức khỏe, nh&agrave; cửa...&nbsp;đến với tất cả đối tượng kh&aacute;ch h&agrave;ng từ những kh&aacute;ch h&agrave;ng gia đ&igrave;nh trẻ, gia đ&igrave;nh c&oacute; trẻ em, người cao tuổi đến c&aacute;c bạn trẻ hiện đại.. với nh&igrave;n nhận cơ bản về sản phẩm hữu cơ v&agrave; lối sống l&agrave;nh mạnh, quan t&acirc;m đến sức khỏe, gi&aacute; trị cuộc sống.</p>\r\n\r\n<p style=\"text-align:justify\">G-Organic Family mang đến cho kh&aacute;ch h&agrave;ng những sản phẩm c&oacute; nguồn gốc r&otilde;&nbsp;r&agrave;ng, ch&iacute;nh h&atilde;ng, đảm bảo về chất lượng, c&oacute; chứng chỉ hữu cơ, an to&agrave;n v&agrave; tốt cho sức khỏe.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><img alt=\"\" src=\"/uploads/images/Ho-tro-chung/Shop-6.png\" /></p>\r\n\r\n<p style=\"text-align:justify\"><br />\r\nG-Organic Family đặt mục ti&ecirc;u trở th&agrave;nh hệ thống cửa h&agrave;ng hữu cơ quen thuộc với người d&acirc;n trong tương lai gần&nbsp;với c&aacute;c gi&aacute; trị tiện &iacute;ch:<br />\r\n-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Mang đến sản phẩm an to&agrave;n, tốt cho sức khỏe người ti&ecirc;u d&ugrave;ng.<br />\r\n-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Số lượng sản phẩm đa dạng, phong ph&uacute;.<br />\r\n-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ch&iacute;nh h&atilde;ng, đảm bảo xuất xứ&nbsp;v&agrave; đầy đủ chứng chỉ hữu cơ, thực phẩm sạch.<br />\r\n-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Thanh to&aacute;n an to&agrave;n, bảo mật.<br />\r\n-&nbsp; &nbsp; &nbsp; &nbsp;Giao dịch uy t&iacute;n, thuận tiện, nhanh ch&oacute;ng.<br />\r\n-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; N&oacute;i kh&ocirc;ng với h&agrave;ng x&aacute;ch tay, h&agrave;ng kh&ocirc;ng r&otilde; nguồn gốc.</p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:center\"><img alt=\"\" src=\"/uploads/images/Ho-tro-chung/Shop-3.png\" style=\"height:460px; width:690px\" /></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\">G-Organic Family t&acirc;m niệm giản đơn v&agrave; nhỏ b&eacute; trong sứ mệnh của m&igrave;nh, đặt sự an to&agrave;n v&agrave; tốt cho sức khỏe l&ecirc;n h&agrave;ng đầu, chăm s&oacute;c kh&aacute;ch h&agrave;ng như ch&iacute;nh bản th&acirc;n v&agrave; gia đ&igrave;nh m&igrave;nh, nhất l&agrave; trong giai đoạn x&atilde; hội phức tạp về thực phẩm bẩn, những nguy cơ về &ocirc; nhiễm, l&acirc;y lan nguồn bệnh, th&oacute;i quen ảnh hưởng đến sức khỏe thể chất lẫn tinh thần...</p>\r\n\r\n<p style=\"text-align:justify\">Kh&aacute;ch h&agrave;ng theo mức ưu ti&ecirc;n m&agrave; G-Organic Family hướng đến l&agrave; trẻ em, người cao tuổi, c&aacute;c b&agrave; bầu v&agrave; mẹ, gia đ&igrave;nh c&oacute; con v&agrave; c&aacute;c bạn trẻ hiện đại.</p>\r\n\r\n<p style=\"text-align:justify\">C&aacute;c gi&aacute; trị cốt l&otilde;i m&agrave; G-Organic Family theo đuổi l&agrave;:</p>\r\n\r\n<p style=\"text-align:justify\"><strong>Good(s)</strong>: l&agrave; mang đến những h&agrave;ng h&oacute;a sản phẩm tốt - cho cả sức khỏe lẫn tr&iacute; tuệ, tinh thần.</p>\r\n\r\n<p style=\"text-align:justify\"><strong>Green</strong>: lu&ocirc;n tươi&nbsp;xanh, sống xanh - thực sự trao gửi c&aacute;c&nbsp;gi&aacute; trị&nbsp;sức sống.</p>\r\n\r\n<p style=\"text-align:justify\"><strong>Growth</strong>: ph&aacute;t triển tự nhi&ecirc;n v&agrave;&nbsp;c&acirc;n bằng.</p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p><img alt=\"\" src=\"/uploads/images/Ho-tro-chung/Shop-2.png\" /></p>\r\n\r\n<h3 style=\"text-align:justify\"><br />\r\n<strong>Th&ocirc;ng tin li&ecirc;n lạc:</strong></h3>\r\n\r\n<ul>\r\n	<li style=\"text-align:justify\"><strong>Địa chỉ: </strong>Shop G-Organic Family số 98 đường số 19, Phường 8. Quận G&ograve; Vấp, TP. HCM</li>\r\n	<li style=\"text-align:justify\"><strong>Điện thoại/hotline:</strong><strong>&nbsp;096.888.2920</strong></li>\r\n	<li style=\"text-align:justify\"><strong>Email:</strong>&nbsp;gorganicfamily@gmail.com</li>\r\n</ul>\r\n\r\n<h3 style=\"text-align:justify\">&nbsp;</h3>\r\n\r\n<h3 style=\"text-align:justify\"><strong>Th&ocirc;ng tin về c&ocirc;ng ty:</strong></h3>\r\n\r\n<ul>\r\n	<li style=\"text-align:justify\">C&ocirc;ng ty TNHH Sản xuất v&agrave; Thương mại G-Organic Family</li>\r\n	<li style=\"text-align:justify\">Địa chỉ đăng k&yacute; kinh doanh: Số 98 đường số 19, Phường 8, Quận G&ograve; Vấp, TP. HCM</li>\r\n	<li style=\"text-align:justify\">Giấy chứng nhận Đăng k&yacute; Kinh doanh số 0318583177&nbsp;do Sở Kế hoạch v&agrave; Đầu tư Th&agrave;nh phố Hồ Ch&iacute; Minh cấp ng&agrave;y 23/07/2024</li>\r\n</ul>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p><img alt=\"\" src=\"/uploads/images/Ho-tro-chung/Shop-1.png\" /></p>\r\n', '2024-07-21 16:59:28', 0, '2024-09-07 18:36:38', 0, 0, 1, 0, 0, 'Về G-Family', 'Về G-Family', '', ''),
+(14, 'Sứ mệnh', 'su-menh', 'Su menh', '', '', 11, '', '2024-07-21 16:59:37', NULL, '2024-07-21 16:59:37', 0, 0, 1, 0, 0, 'Sứ mệnh', 'Sứ mệnh', '', ''),
+(15, 'Giá trị cốt lõi', 'gia-tri-cot-loi', 'Gia tri cot loi', '', '', 11, '', '2024-07-21 16:59:47', NULL, '2024-07-21 16:59:47', 0, 0, 1, 0, 0, 'Giá trị cốt lõi', '', '', ''),
+(16, 'Các cam kết & chứng chỉ', 'cac-cam-ket-chung-chi', 'Cac cam ket & chung chi', '', '', 11, '', '2024-07-21 17:00:00', NULL, '2024-07-21 17:00:00', 0, 0, 1, 0, 0, 'Các cam kết & chứng chỉ', '', '', ''),
+(17, 'Đối tác & NPP', 'doi-tac-npp', 'Doi tac & NPP', '', '', 11, '', '2024-07-21 17:00:10', NULL, '2024-07-21 17:00:10', 0, 0, 1, 0, 0, 'Đối tác & NPP', '', '', ''),
+(18, 'Gói thành viên G-Family', 'goi-thanh-vien-g-family', 'Goi thanh vien G-Family', '', '', 11, '', '2024-07-21 17:00:22', NULL, '2024-07-21 17:00:22', 0, 0, 1, 0, 0, 'Gói thành viên G-Family', '', '', ''),
+(19, 'Tiết lộ 10 bí quyết sống khỏe của người Nhật hiện đại', 'tiet-lo-10-bi-quyet-song-khoe-cua-nguoi-nhat-hien-dai', 'Tiet lo 10 bi quyet song khoe cua nguoi Nhat hien dai', '', '/uploads/images/Blogs/10%20bi%20quyet%20song%20khoe%20cua%20nguoi%20Nhat%20hien%20dai-min(1).png', 6, '<p style=\"text-align:justify\">Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1&nbsp;Text 1 .</p>\r\n\r\n<p style=\"text-align:justify\"><img alt=\"\" src=\"/uploads/images/Blogs/An%20uong%20sach%20va%20day%20du%20chat%20dinh%20duong-min(1).png\" style=\"height:549px; width:824px\" /></p>\r\n\r\n<p style=\"text-align:justify\">Text 2</p>\r\n\r\n<p style=\"text-align:justify\"><img alt=\"\" src=\"/uploads/images/Blogs/Tap%20the%20duc%20thuong%20xuyen%20va%20phu%20hop%20voi%20ban%20than-min(1).png\" style=\"height:553px; width:830px\" /></p>\r\n\r\n<p style=\"text-align:justify\">Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3&nbsp;Text 3.</p>\r\n\r\n<p style=\"text-align:justify\"><img alt=\"\" src=\"/uploads/images/Blogs/Tan%20huong%20anh%20nang%20mat%20troi%20va%20tam%20nang%20buoi%20som-min(1).png\" style=\"height:551px; width:826px\" /></p>\r\n\r\n<p style=\"text-align:justify\">Text 4</p>\r\n\r\n<p style=\"text-align:justify\"><img alt=\"\" src=\"/uploads/images/Blogs/Chu%20dong%20giam%20stress%20voi%20thien%2C%20yoga-min(1).png\" style=\"height:547px; width:820px\" /></p>\r\n\r\n<p style=\"text-align:justify\">Text 5</p>\r\n\r\n<p style=\"text-align:justify\"><img alt=\"\" src=\"/uploads/images/Blogs/Tang%20cuong%20he%20mien%20dich_%20ngu%20du%20giac%2C%20bo%20sung%20Kem%2C%20Vitamin%20C-min(1).png\" style=\"height:360px; width:540px\" /></p>\r\n\r\n<p style=\"text-align:justify\">Text 6</p>\r\n\r\n<p style=\"text-align:justify\"><img alt=\"\" src=\"/uploads/images/Blogs/Bo%20sung%20cac%20chat%20chong%20oxy%20hoa-min(1).png\" style=\"height:360px; width:540px\" /></p>\r\n\r\n<p style=\"text-align:justify\">Text 7</p>\r\n\r\n<p style=\"text-align:justify\"><img alt=\"\" src=\"/uploads/images/Blogs/Quan%20tam%20va%20bao%20ve%20suc%20khoe%20tim%20mach-min(1).png\" style=\"height:360px; width:540px\" /></p>\r\n\r\n<p style=\"text-align:justify\">Text 8</p>\r\n\r\n<p style=\"text-align:justify\"><img alt=\"\" src=\"/uploads/images/Blogs/Ren%20luyen%20tri%20nao%20voi%20cac%20mon%20co%2C%20tro%20choi-min(1).png\" style=\"height:360px; width:540px\" /></p>\r\n\r\n<p style=\"text-align:justify\">Text 9</p>\r\n\r\n<p style=\"text-align:justify\"><img alt=\"\" src=\"/uploads/images/Blogs/Choi%20dua%20cung%20voi%20thu%20cung-min(1).png\" style=\"height:360px; width:540px\" /></p>\r\n\r\n<p style=\"text-align:justify\">Text 10</p>\r\n\r\n<p style=\"text-align:justify\"><img alt=\"\" src=\"/uploads/images/Blogs/Tham%20gia%20cac%20hoat%20dong%20xa%20hoi%2C%20thien%20nhien-min(1).png\" style=\"height:360px; width:540px\" /></p>\r\n\r\n<p style=\"text-align:justify\">Text bonus</p>\r\n\r\n<p style=\"text-align:justify\"><img alt=\"\" src=\"/uploads/images/Blogs/Bonus_%20hay%20cuoi%20nhieu%20hon%20va%20tuoi%20hon%20moi%20ngay-min(1).png\" style=\"height:360px; width:540px\" /></p>\r\n\r\n<p style=\"text-align:justify\">Close</p>\r\n', '2024-07-31 00:33:15', 2, '2024-07-31 00:48:04', 0, 0, 1, 0, 0, '', '', '', ''),
+(20, 'Các nhóm thức ăn dặm bổ sung cho bé mà mẹ nên biết', 'cac-nhom-thuc-an-dam-bo-sung-cho-be-ma-me-nen-biet', 'Cac nhom thuc an dam bo sung cho be ma me nen biet', 'Ngoài những món chính yếu xay tán hay nấu tươi cho bé, thì mẹ cũng cần nên biết những thức ăn dặm bổ sung hoặc thay thế phù hợp, để thực đơn đa dạng, cung cấp đầy đủ dinh dưỡng cho con mà vẫn tối ưu được thời gian, công sức của ba mẹ.', '/uploads/images/Blogs/An-dam-cho-be/An-dam-cho-be-3.png', 4, '<p style=\"text-align:justify\">Ngo&agrave;i những m&oacute;n ch&iacute;nh yếu xay t&aacute;n hay nấu tươi cho b&eacute;, th&igrave; mẹ cũng cần n&ecirc;n biết những thức ăn dặm bổ sung hoặc thay thế ph&ugrave; hợp, để thực đơn đa dạng, cung cấp đầy đủ dinh dưỡng cho con m&agrave; vẫn tối ưu được thời gian, c&ocirc;ng sức của ba mẹ. H&atilde;y c&ugrave;ng G-Organic Family điểm qua c&aacute;c nh&oacute;m thức ăn dặm bổ sung cho b&eacute; c&aacute;c ba mẹ nh&eacute;.</p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<ul dir=\"ltr\">\r\n	<li><strong>Nui m&igrave; ăn dặm</strong></li>\r\n</ul>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Nui m&igrave; gần như chiếm trọn niềm tin của c&aacute;c bậc cha mẹ, với t&iacute;nh tiện lợi, tiết kiệm thời gian v&agrave; vẫn đảm bảo dinh dưỡng cho b&eacute;. Nui m&igrave; ăn dặm hữu cơ c&ograve;n c&oacute; nhiều ưu điểm như kh&ocirc;ng chất bảo quản, kh&ocirc;ng chất h&oacute;a học, an to&agrave;n cho hệ ti&ecirc;u h&oacute;a non nớt của trẻ; kh&ocirc;ng muối, &iacute;t gia vị, th&agrave;nh phần an to&agrave;n tự nhi&ecirc;n, nguồn gốc hữu cơ, k&iacute;ch cỡ sợi m&igrave; an to&agrave;n, được chế biến với c&ocirc;ng nghệ hiện đại, gi&uacute;p b&eacute; kh&aacute;m ph&aacute; hương vị, m&agrave;u sắc của c&aacute;c nguy&ecirc;n liệu kh&aacute;c nhau.</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Nui m&igrave; ăn dặm cũng chia nhiều giai đoạn, cơ bản nhất l&agrave; dưới 1 tuổi (kh&ocirc;ng muối ho&agrave;n to&agrave;n) v&agrave; tr&ecirc;n 1 tuổi. Cha mẹ c&oacute; thể lựa chọn hương vị, nguy&ecirc;n liệu m&igrave; m&agrave; b&eacute; th&iacute;ch ăn nhất hay c&oacute; thể thay đổi loại m&igrave; để khơi gợi hứng th&uacute; ăn dặm của b&eacute;.</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:center\"><img alt=\"\" src=\"/uploads/images/Blogs/An-dam-cho-be/An-dam-cho-be-4.png\" style=\"height:460px; width:690px\" /></p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<ul dir=\"ltr\">\r\n	<li><strong>Dầu ăn dặm</strong></li>\r\n</ul>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Dầu ăn dặm cho b&eacute; l&agrave; loại dầu ăn c&oacute; nguồn gốc từ thi&ecirc;n nhi&ecirc;n bao gồm dầu thực vật hoặc dầu c&aacute;, chứa h&agrave;m lượng chất b&eacute;o cao, cung cấp nguồn năng lượng v&agrave; chất dinh dưỡng cần thiết cho sự ph&aacute;t triển của b&eacute;. Đồng thời, ch&ugrave;ng c&ograve;n hỗ trợ cho việc hấp thu c&aacute;c vitamin của b&eacute; diễn ra nhanh hơn, cải thiện hệ miễn dịch, gi&uacute;p b&eacute; ăn ngon hơn.</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">H&atilde;y chọn c&aacute;c loại dầu ăn c&oacute; th&agrave;nh phần nguy&ecirc;n chất 100%, h&agrave;m lượng cholesterol vừa phải tốt cho tim mạch của b&eacute;, m&ugrave;i vị dịu thơm, kh&ocirc;ng qu&aacute; gắt nồng. Khi sử dụng cần lượng vừa đủ, c&acirc;n bằng giữa thức ăn dặm v&agrave; dầu ăn, n&ecirc;n kết hợp c&aacute;c loại dầu ăn giữa thực vật v&agrave; dầu c&aacute;, để gi&uacute;p b&eacute; kh&ocirc;ng ng&aacute;n, ăn dặm tốt hơn.</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Một số loại dầu ăn dặm tốt cho b&eacute; m&agrave; G-Organic đề xuất đến c&aacute;c bạn hiện nay như dầu olive, dầu m&egrave;, dầu &oacute;c ch&oacute;, dầu gấc, dầu t&iacute;a t&ocirc;, dầu c&aacute; hồi&hellip;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:center\"><img alt=\"\" src=\"/uploads/images/Blogs/An-dam-cho-be/An-dam-cho-be-5.png\" style=\"height:460px; width:690px\" /></p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<ul>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\"><strong>Vitamin &amp; kho&aacute;ng chất cho b&eacute;</strong></p>\r\n	</li>\r\n</ul>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Sau th&aacute;ng thứ 6, sữa mẹ hầu như kh&ocirc;ng c&ograve;n cung cấp đủ chất v&agrave; lượng ho&agrave;n hảo như giai đoạn b&eacute; sơ sinh, n&ecirc;n việc ăn dặm v&agrave; bổ sung vitamin, kho&aacute;ng chất l&uacute;c n&agrave;y trở n&ecirc;n cần thiết, nhất l&agrave; c&aacute;c vitamin A, B1, B2, C, D, E, canxi, sắt, kẽm, lysine, acid amin&hellip;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Việc đảm bảo đa dạng thực phẩm v&agrave;o thức ăn dặm cho b&eacute; kh&ocirc;ng phải l&uacute;c n&agrave;o cũng đầy đủ, chưa kể vitamin, kho&aacute;ng chất rất dễ bị hao hụt trong qu&aacute; tr&igrave;nh bảo quản, gọt rửa, chế biến, h&acirc;m đi h&acirc;m lại&hellip; Do vậy việc sử dụng vitamin tổng hợp sẽ gi&uacute;p b&eacute; tăng cường men vi sinh men ti&ecirc;u h&oacute;a đường ruột, acid amin, kho&aacute;ng chất&hellip; gi&uacute;p đề kh&aacute;ng b&eacute; khỏe mạnh hơn, ăn ngon miệng hơn.</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<ul dir=\"ltr\">\r\n	<li><strong>Thức ăn dặm bổ sung kh&aacute;c</strong></li>\r\n</ul>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Ngo&agrave;i nui m&igrave; v&agrave; dầu ăn dặm, c&aacute;c loại b&aacute;nh quy, b&aacute;nh snack, b&aacute;nh gạo&hellip; cũng l&agrave; những thực phẩm bổ sung&nbsp;kh&ocirc;ng c&ograve;n qu&aacute; xa lạ gi&uacute;p qu&aacute; tr&igrave;nh ăn dặm của b&eacute; hữu hiệu hơn.&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">C&aacute;c loại b&aacute;nh n&agrave;y kh&ocirc;ng chỉ bổ sung nguồn dinh dưỡng dồi d&agrave;o, gi&uacute;p mẹ tiết kiệm thời gian chế biến thức ăn, m&agrave; c&ograve;n hỗ trợ ph&aacute;t triển cơ h&agrave;m của b&eacute;, gi&uacute;p hứng th&uacute; hơn với việc ăn dặm, chống biếng ăn.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p style=\"text-align:center\"><img alt=\"\" src=\"/uploads/images/Blogs/An-dam-cho-be/An-dam-cho-be-6.png\" style=\"height:460px; width:690px\" /></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Tr&ecirc;n đ&acirc;y l&agrave; những nh&oacute;m thực phẩm ăn dặm bổ sung cho b&eacute; m&agrave; mẹ n&ecirc;n biết để bữa ăn của con th&ecirc;m đa dạng, đầy đủ dinh dưỡng m&agrave; vẫn tối ưu được thời gian, c&ocirc;ng sức của c&aacute;c ba mẹ.</p>\r\n\r\n<p>G-Organic Family lu&ocirc;n đồng h&agrave;nh v&agrave; ch&uacute;c c&aacute;c ba mẹ lu&ocirc;n nu&ocirc;i con khỏe dạy con ngoan.</p>\r\n\r\n<p>&nbsp;</p>\r\n', '2024-08-23 15:11:03', 2, '2024-08-23 15:11:03', 0, 0, 1, 0, 0, 'những thức ăn dặm bổ sung cho bé mà mẹ nên biết', 'Ngoài những món chính yếu xay tán hay nấu tươi cho bé, thì mẹ cũng cần nên biết những thức ăn dặm bổ sung hoặc thay thế phù hợp, để thực đơn đa dạng, cung cấp đầy đủ dinh dưỡng cho con mà vẫn tối ưu được thời gian, công sức của ba mẹ.', 'các nhóm thức ăn dặm bổ sung cho bé', '');
+INSERT INTO `articles` (`id`, `title`, `slug`, `alias`, `description`, `image_url`, `cate_id`, `content`, `created_at`, `parent_id`, `updated_at`, `created_user`, `updated_user`, `status`, `is_hot`, `display_order`, `meta_title`, `meta_description`, `meta_keywords`, `custom_text`) VALUES
+(21, 'Top các loại đậu hạt nhiều đạm thực vật nhất', 'top-cac-loai-dau-hat-nhieu-dam-thuc-vat-nhat', 'Top cac loai dau hat nhieu dam thuc vat nhat', 'Protein (chất đạm) là một trong những chất dinh dưỡng thiết yếu, đóng vai trò quan trọng đối với các chức năng hoạt động chính của cơ thể, đồng thời giúp tăng cường cơ bắp. Protein thường có nhiều trong thịt, tuy nhiên nếu bạn là một người đang thực hiện chế độ ăn chay hoặc thuần chay, bạn hoàn toàn có thể bổ sung thức ăn chứa đạm thực vật thông qua các loại rau và những loại thực phẩm khác, như top các loại đậu hạt dưới đây.', '/uploads/images/Blogs/Ngu-coc-dau-hat/CAC%20LOAI%20HAT%20VA%20NGU%20COC-min.png', 4, '<p dir=\"ltr\" style=\"text-align:justify\">Protein (chất đạm) l&agrave; một trong những chất dinh dưỡng thiết yếu, đ&oacute;ng vai tr&ograve; quan trọng đối với c&aacute;c chức năng hoạt động ch&iacute;nh của cơ thể, đồng thời gi&uacute;p tăng cường cơ bắp. Protein thường c&oacute; nhiều trong thịt, tuy nhi&ecirc;n nếu bạn l&agrave; một người đang thực hiện chế độ ăn chay hoặc thuần chay, bạn ho&agrave;n to&agrave;n c&oacute; thể bổ sung thức ăn chứa đạm thực vật th&ocirc;ng qua c&aacute;c loại rau v&agrave; những loại thực phẩm kh&aacute;c, như top c&aacute;c loại đậu hạt dưới đ&acirc;y.</p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<ol>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\"><strong>Đậu n&agrave;nh - đậu n&agrave;nh l&ocirc;ng, tempeh, đậu phụ v&agrave; sữa đậu n&agrave;nh</strong></p>\r\n	</li>\r\n</ol>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><img alt=\"\" src=\"/uploads/images/Blogs/Ngu-coc-dau-hat/DAU%20NANH%20LONG-min.png\" style=\"height:720px; width:1080px\" /></p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Đậu phụ, tempeh v&agrave; đậu n&agrave;nh l&ocirc;ng đều l&agrave; những loại thực phẩm c&oacute; nguồn gốc từ đậu n&agrave;nh. Ch&uacute;ng được xem l&agrave; một nguồn cung cấp protein to&agrave;n phần v&ocirc; c&ugrave;ng dồi d&agrave;o, đồng thời bổ sung th&ecirc;m nhiều axit amin thiết yếu kh&aacute;c cho cơ thể.</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Đậu n&agrave;nh l&ocirc;ng l&agrave; một loại đậu c&oacute; vị ngọt v&agrave; m&ugrave;i cỏ nhẹ. Đ&acirc;y l&agrave; loại đậu n&agrave;nh chưa trưởng th&agrave;nh, bạn n&ecirc;n luộc hoặc hấp ch&uacute;ng trước khi ăn. Th&ocirc;ng thường, đậu n&agrave;nh l&ocirc;ng c&oacute; thể được ăn ri&ecirc;ng hoặc ăn k&egrave;m với salad v&agrave; s&uacute;p.</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Đậu phụ được sản xuất theo một quy tr&igrave;nh tương tự như l&agrave;m pho m&aacute;t. Trong khi đ&oacute;, Tempeh được l&agrave;m bằng c&aacute;ch nấu ch&iacute;n v&agrave; một ch&uacute;t đậu n&agrave;nh trưởng th&agrave;nh l&ecirc;n men trước khi &eacute;p ch&uacute;ng th&agrave;nh c&aacute;c khối nhỏ như miếng b&aacute;nh. Mặc d&ugrave; đậu phụ kh&ocirc;ng c&oacute; nhiều m&ugrave;i vị, tuy nhi&ecirc;n ch&uacute;ng c&oacute; thể dễ d&agrave;ng hấp thụ hương vị của c&aacute;c nguy&ecirc;n liệu kh&aacute;c được chế biến c&ugrave;ng. Đối với Tempeh thường c&oacute; hương vị đặc trưng của hạt dẻ. Cả hai nguồn thực phẩm từ đậu n&agrave;nh n&agrave;y đều c&oacute; thể được sử dụng linh hoạt trong nhiều c&ocirc;ng thức chế biến thức ăn kh&aacute;c nhau, chẳng hạn như l&agrave;m nguy&ecirc;n liệu cho b&aacute;nh m&igrave; hoặc s&uacute;p.</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Ngo&agrave;i ra, đậu phụ, Tempeh v&agrave; đậu n&agrave;nh l&ocirc;ng c&oacute; chứa một lượng đ&aacute;ng kể canxi, sắt v&agrave; khoảng 10 &ndash; 19 gam protein / 100 gam mỗi loại. Chưa hết, đậu n&agrave;nh l&ocirc;ng cũng được c&aacute;c chuy&ecirc;n gia đ&aacute;nh gi&aacute; cao về c&aacute;c th&agrave;nh phần dinh dưỡng m&agrave; ch&uacute;ng cung cấp, bao gồm vitamin K, folate v&agrave; chất xơ. B&ecirc;n cạnh đ&oacute;, việc bổ sung th&ecirc;m Tempeh v&agrave;o chế độ ăn uống c&oacute; thể gi&uacute;p bạn nhận được một lượng lớn vitamin B, men vi sinh c&ugrave;ng c&aacute;c kho&aacute;ng chất c&oacute; lợi kh&aacute;c như phốt pho v&agrave; magie.</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Bạn c&oacute; thể sử dụng sữa được l&agrave;m từ đậu n&agrave;nh đ&atilde; được bổ sung th&ecirc;m c&aacute;c loại vitamin v&agrave; kho&aacute;ng chất để thay thế cho sữa b&ograve;. Bởi lẽ, trong khoảng một cốc sữa đậu n&agrave;nh, tương ứng với 240ml kh&ocirc;ng chỉ cung cấp tới 7g protein m&agrave; c&ograve;n c&oacute; c&aacute;c loại vitamin quan trọng kh&aacute;c, gồm vitamin D v&agrave; B12. Ngo&agrave;i ra, n&oacute; cũng l&agrave; một loại thực phẩm rất gi&agrave;u canxi.</p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<ol start=\"2\">\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\"><strong>Đậu lăng</strong></p>\r\n	</li>\r\n</ol>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><img alt=\"\" src=\"/uploads/images/Blogs/Ngu-coc-dau-hat/DAU%20LANG-min.png\" style=\"height:720px; width:1080px\" /></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Trong một cốc đậu lăng nấu ch&iacute;n, tương đương với 240 ml sẽ cung cấp khoảng 18 gam protein, do đ&oacute; n&oacute; được coi l&agrave; một trong những loại thực vật chứa nhiều chất đạm nhất. Bạn c&oacute; thể sử dụng loại đậu bổ dưỡng n&agrave;y để chế biến th&agrave;nh nhiều m&oacute;n ăn đa dạng, chẳng hạn như l&agrave;m salad, nước sốt, c&agrave; ri hoặc m&oacute;n s&uacute;p.</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">B&ecirc;n cạnh việc cung cấp một lượng lớn chất đạm thực vật, đậu lăng cũng rất gi&agrave;u loại carbs ti&ecirc;u h&oacute;a chậm. Trong 240ml đậu lăng sẽ chứa khoảng 50% lượng chất xơ cần thiết mỗi ng&agrave;y của bạn. Chưa hết, chất xơ c&oacute; trong loại đậu n&agrave;y c&ograve;n c&oacute; khả năng nu&ocirc;i dưỡng c&aacute;c loại vi khuẩn c&oacute; lợi sinh sống trong đường ruột của cơ thể, từ đ&oacute; cải thiện hệ ti&ecirc;u h&oacute;a khỏe mạnh hơn.</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Nhờ v&agrave;o những th&agrave;nh phần dinh dưỡng quan trọng m&agrave; đậu lăng được xem l&agrave; một loại thực phẩm v&ocirc; c&ugrave;ng th&acirc;n thiện đối với sức khỏe của bạn. N&oacute; rất gi&agrave;u mangan, folate, sắt, kali, c&aacute;c chất chống oxy h&oacute;a c&ugrave;ng một số hợp chất thực vật thiết yếu kh&aacute;c. Do đ&oacute;, việc bổ sung th&ecirc;m đậu lăng v&agrave;o bữa ăn mỗi ng&agrave;y c&oacute; thể gi&uacute;p bạn ngăn ngừa hoặc l&agrave;m giảm nguy cơ mắc c&aacute;c bệnh như tiểu đường, thừa c&acirc;n, b&eacute;o ph&igrave;, bệnh tim v&agrave; c&aacute;c loại bệnh ung thư nguy hiểm kh&aacute;c.</p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<ol start=\"3\">\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\"><strong>Đậu g&agrave; v&agrave; c&aacute;c loại đậu kh&aacute;c</strong></p>\r\n	</li>\r\n</ol>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><img alt=\"\" src=\"/uploads/images/Blogs/Ngu-coc-dau-hat/DAU%20GA-min.png\" style=\"height:720px; width:1080px\" /></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">N&oacute;i chung, đậu g&agrave; v&agrave; c&aacute;c loại đậu kh&aacute;c đều cung cấp một lượng lớn chất đạm thực vật, rất hữu &iacute;ch đối với sức khỏe.&nbsp;Trong khoảng 240 ml đậu g&agrave; nấu ch&iacute;n (một cốc) c&oacute; chứa khoảng 15 gam protein. Ngo&agrave;i ra, n&oacute; cũng l&agrave; một nguồn cung cấp carbs phức tạp v&ocirc; c&ugrave;ng dồi d&agrave;o, c&ugrave;ng với c&aacute;c chất xơ, folate, sắt, kali, phốt pho, mangan v&agrave; những hợp chất thực vật quan trọng kh&aacute;c đối với sức khỏe.</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Một số cuộc nghi&ecirc;n cứu mới đ&acirc;y đ&atilde; cho thấy, một chế độ ăn uống với nhiều đậu g&agrave; v&agrave; c&aacute;c loại đậu kh&aacute;c c&oacute; thể gi&uacute;p bạn kiểm so&aacute;t hiệu quả được lượng đường trong m&aacute;u, đồng thời l&agrave;m giảm mức cholesterol cao trong cơ thể, giảm huyết &aacute;p v&agrave; mỡ bụng.</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Bạn c&oacute; thể sử dụng đậu g&agrave; nguội hoặc n&oacute;ng, rất linh hoạt khi chế biến ch&uacute;ng với nhiều c&ocirc;ng thức kh&aacute;c nhau. N&oacute; cũng c&oacute; thể l&agrave;m nguy&ecirc;n liệu bổ sung cho c&aacute;c m&oacute;n như c&agrave; ri v&agrave; canh hầm.</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<ol start=\"4\">\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\"><strong>L&uacute;a m&igrave; - m&igrave; căn</strong></p>\r\n	</li>\r\n</ol>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\"><img alt=\"\" src=\"/uploads/images/Blogs/Ngu-coc-dau-hat/LUA%20MI-min.png\" style=\"height:720px; width:1080px\" /></p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">M&igrave; căn thường được l&agrave;m từ gluten trong l&uacute;a m&igrave;, đ&acirc;y l&agrave; một loại thực phẩm cung cấp chất đạm v&ocirc; c&ugrave;ng tuyệt vời cho những người thực hiện chế độ ăn chay hoặc thuần chay. N&oacute; thường được sử dụng để l&agrave;m thịt giả, v&igrave; sau khi nấu ch&iacute;n bạn c&oacute; thể nh&igrave;n thấy m&igrave; căn c&oacute; kết cấu v&agrave; h&igrave;nh d&aacute;ng giống như thịt.</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">M&igrave; căn c&ograve;n được biết đến với những c&aacute;i t&ecirc;n như &ldquo;gluten l&uacute;a m&igrave;&rdquo; hoặc &ldquo;thịt l&uacute;a m&igrave;&rdquo;. Trong 100 gam m&igrave; căn sẽ cung cấp khoảng 25 gam protein. Ch&iacute;nh v&igrave; vậy, n&oacute; đ&atilde; trở th&agrave;nh một nguồn protein thực vật phong ph&uacute; nhất so với c&aacute;c loại thực phẩm kh&aacute;c. Ngo&agrave;i ra, m&igrave; căn c&ograve;n chứa một lượng đ&aacute;ng kể selen, c&ugrave;ng với một h&agrave;m lượng nhỏ chất canxi, sắt v&agrave; phốt pho.</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Bạn c&oacute; thể chế biến m&igrave; căn theo nhiều phương ph&aacute;p kh&aacute;c nhau, chẳng hạn như nướng, &aacute;p chảo hoặc kết hợp với c&aacute;c thực phẩm kh&aacute;c. Tuy nhi&ecirc;n, những người nhạy cảm với gluten hoặc mắc bệnh Celiac kh&ocirc;ng n&ecirc;n sử dụng m&igrave; căn để tr&aacute;nh c&aacute;c phản ứng xấu c&oacute; thể xảy ra.</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<ol start=\"5\">\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\"><strong>Hạt gai dầu</strong></p>\r\n	</li>\r\n</ol>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><img alt=\"\" src=\"/uploads/images/Blogs/Ngu-coc-dau-hat/HAT%20GAI%20DAU-min.png\" style=\"height:720px; width:1080px\" /></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Loại hạt nổi tiếng n&agrave;y c&oacute; c&ugrave;ng họ h&agrave;ng với c&acirc;y cần sa, do đ&oacute; nguồn gốc của hạt gai dầu l&agrave; từ c&acirc;y Cần sa Sativa. Tuy nhi&ecirc;n, trong hạt gai dầu chỉ cung cấp một lượng kh&ocirc;ng đ&aacute;ng kể hợp chất tạo ra hiệu ứng ma t&uacute;y giống như cần sa, hay c&ograve;n được gọi l&agrave; THC.</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Trong 28 gam hạt gai dầu c&oacute; chứa khoảng 10 gam đạm, số lượng n&agrave;y c&ograve;n lớn hơn một nửa so với hạt lanh v&agrave; hạt Chia. B&ecirc;n cạnh đ&oacute;, n&oacute; cũng cung cấp nhiều chất dinh dưỡng quan trọng kh&aacute;c như sắt, magie, selen, canxi, kẽm, axit b&eacute;o omega-3 v&agrave; omega-6.</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Thậm ch&iacute;, nhiều kết quả nghi&ecirc;n cứu đ&atilde; cho thấy, chất b&eacute;o c&oacute; trong hạt gai dầu c&ograve;n c&oacute; t&aacute;c dụng giảm vi&ecirc;m, cải thiện c&aacute;c triệu chứng của m&atilde;n kinh, PMS v&agrave; một số vấn đề về da kh&aacute;c. Do đ&oacute;, bạn n&ecirc;n tăng cường bổ sung th&ecirc;m loại hạt n&agrave;y v&agrave;o chế độ ăn uống của m&igrave;nh, chẳng hạn như th&ecirc;m một ch&uacute;t v&agrave;o sinh tố hoặc sử dụng l&agrave;m nước sốt cho m&oacute;n salad.</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<ol start=\"6\">\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\"><strong>Hạt chia</strong></p>\r\n	</li>\r\n</ol>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><img alt=\"\" src=\"/uploads/images/Blogs/Ngu-coc-dau-hat/HAT%20CHIA-min.png\" style=\"height:720px; width:1080px\" /></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Hạt Chia được biết đến l&agrave; một loại hạt chứa &iacute;t calo nhưng gi&agrave;u chất xơ, cũng như c&aacute;c axit b&eacute;o Omega-3 rất c&oacute; lợi cho sức khỏe hệ tim mạch. Trong khoảng 35 gam hạt Chia sẽ cung cấp khoảng 13 gam chất xơ v&agrave; 6 gam protein, v&igrave; vậy n&oacute; được xếp v&agrave;o danh s&aacute;ch những thực phẩm gi&agrave;u chất đạm thực vật nhất.</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Mặt kh&aacute;c, loại hạt nhỏ nhắn n&agrave;y c&ograve;n chứa một loạt c&aacute;c chất dinh dưỡng quan trọng kh&aacute;c, chẳng hạn như canxi, selen, sắt, magie, c&aacute;c chất chống oxy h&oacute;a, axit b&eacute;o omega-3 v&agrave; những hợp chất thực vật c&oacute; lợi kh&aacute;c.</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">B&ecirc;n cạnh đ&oacute;, hạt Chia c&ograve;n c&oacute; khả năng h&uacute;t nước v&ocirc; c&ugrave;ng ấn tượng, nhờ đ&oacute; m&agrave; ch&uacute;ng c&oacute; thể trở th&agrave;nh một chất c&oacute; dạng gel, rất tốt đối với hệ ti&ecirc;u h&oacute;a của bạn. Do đ&oacute;, bạn c&oacute; thể bổ sung ch&uacute;ng cho nhiều m&oacute;n ăn kh&aacute;c nhau, chẳng hạn như l&agrave;m nguy&ecirc;n liệu cho b&aacute;nh nướng, sinh tố hoặc b&aacute;nh pudding.</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<ol start=\"7\">\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\"><strong>Yến mạch</strong></p>\r\n	</li>\r\n</ol>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><img alt=\"\" src=\"/uploads/images/Blogs/Ngu-coc-dau-hat/YEN%20MACH-min.png\" style=\"height:720px; width:1080px\" /></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Yến mạch l&agrave; một loại thực phẩm rất gi&agrave;u protein thực vật v&agrave; c&oacute; thể bổ sung một c&aacute;ch linh hoạt v&agrave;o bất kỳ chế độ ăn uống n&agrave;o. Trong 120 ml yến mạch kh&ocirc; (1/2 cốc) sẽ chứa khoảng 4 gam chất xơ v&agrave; 6 gam protein. Ngo&agrave;i ra, n&oacute; c&ograve;n cung cấp một lượng lớn c&aacute;c chất như kẽm, magie, folate v&agrave; phốt pho.</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Mặc d&ugrave; yến mạch kh&ocirc;ng phải l&agrave; một loại protein ho&agrave;n chỉnh, tuy nhi&ecirc;n n&oacute; c&oacute; chứa loại protein chất lượng cao hơn so với c&aacute;c loại ngũ cốc th&ocirc;ng dụng kh&aacute;c, v&iacute; dụ như l&uacute;a m&igrave; v&agrave; gạo. Bạn ho&agrave;n to&agrave;n c&oacute; thể sử dụng yến mạch để chế biến th&agrave;nh nhiều m&oacute;n ăn bổ dưỡng kh&aacute;c nhau, nghiền th&agrave;nh bột hoặc nướng.</p>\r\n', '2024-08-23 15:33:41', 2, '2024-09-08 00:41:04', 0, 0, 1, 0, 0, 'Những loại đậu hạt giàu đạm thực vật nhất', 'nếu bạn là một người đang thực hiện chế độ ăn chay hoặc thuần chay, bạn hoàn toàn có thể bổ sung thức ăn chứa đạm thực vật thông qua các loại rau và những loại thực phẩm khác, như top các loại đậu hạt dưới đây.', 'top các loại đậu hạt giàu đạm thực vật', '');
 
 -- --------------------------------------------------------
 
@@ -64,6 +77,50 @@ INSERT INTO `articles` (`id`, `title`, `slug`, `alias`, `description`, `image_ur
 --
 
 CREATE TABLE `articles_cate` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `alias` varchar(255) NOT NULL,
+  `description` varchar(500) DEFAULT NULL,
+  `image_url` varchar(255) DEFAULT NULL,
+  `parent_id` tinyint(4) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `parent` tinyint(4) DEFAULT NULL,
+  `updated_at` datetime NOT NULL,
+  `created_user` tinyint(4) NOT NULL,
+  `updated_user` tinyint(4) NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `display_order` tinyint(4) NOT NULL,
+  `meta_title` varchar(255) DEFAULT NULL,
+  `meta_description` varchar(255) DEFAULT NULL,
+  `meta_keywords` varchar(255) DEFAULT NULL,
+  `custom_text` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Dumping data for table `articles_cate`
+--
+
+INSERT INTO `articles_cate` (`id`, `name`, `slug`, `alias`, `description`, `image_url`, `parent_id`, `created_at`, `parent`, `updated_at`, `created_user`, `updated_user`, `status`, `display_order`, `meta_title`, `meta_description`, `meta_keywords`, `custom_text`) VALUES
+(1, 'Công thức nấu ăn', 'cong-thuc-nau-an', 'Cong thuc nau an', '', '', 1, '2016-07-24 06:34:20', NULL, '2024-07-21 16:54:08', 0, 0, 1, 0, 'Công thức nấu ăn', '', '', ''),
+(2, 'Công thức món uống', 'cong-thuc-mon-uong', 'Cong thuc mon uong', '', '', 1, '2016-09-22 12:59:06', NULL, '2024-07-21 16:53:41', 0, 0, 1, 0, 'Công thức món uống', 'Công thức món uống', '', ''),
+(3, 'Công thức trang điểm', 'cong-thuc-trang-diem', 'Cong thuc trang diem', '', '', 1, '2016-09-22 12:59:15', NULL, '2024-07-21 16:53:59', 0, 0, 1, 0, 'Công thức trang điểm', 'Công thức trang điểm', '', ''),
+(4, 'Góc dinh dưỡng', 'goc-dinh-duong', 'Goc dinh duong', '', '', 2, '2016-10-05 16:32:26', NULL, '2024-07-21 16:54:29', 0, 0, 1, 0, 'Góc dinh dưỡng', 'Góc dinh dưỡng', '', ''),
+(5, 'Góc thể dục', 'goc-the-duc', 'Goc the duc', '', '', 2, '2024-07-21 16:41:37', NULL, '2024-07-21 16:54:57', 0, 0, 1, 0, 'Góc thể dục', 'Góc thể dục', '', ''),
+(6, 'Góc tin tức', 'goc-tin-tuc', 'Goc tin tuc', '', '', 2, '2024-07-21 16:56:48', NULL, '2024-07-21 16:56:48', 0, 0, 1, 0, 'Góc tin tức', 'Góc tin tức', '', ''),
+(7, 'Góc giải trí', 'goc-giai-tri', 'Goc giai tri', '', '', 2, '2024-07-21 16:56:56', NULL, '2024-07-21 16:56:56', 0, 0, 1, 0, 'Góc giải trí', 'Góc giải trí', '', ''),
+(8, 'Workshop', 'workshop', 'Workshop', '', '', 3, '2024-07-21 16:57:08', NULL, '2024-07-21 16:57:08', 0, 0, 1, 0, 'Workshop', 'Workshop', '', ''),
+(9, 'Talkshow', 'talkshow', 'Talkshow', '', '', 3, '2024-07-21 16:57:14', NULL, '2024-07-21 16:57:14', 0, 0, 1, 0, 'Talkshow', '', '', ''),
+(10, 'Events', 'events', 'Events', '', '', 3, '2024-07-21 16:57:29', NULL, '2024-07-21 16:57:29', 0, 0, 1, 0, 'Events', '', '', ''),
+(11, 'Giới thiệu', 'gioi-thieu', 'Gioi thieu', '', '', 0, '2024-07-21 16:59:10', NULL, '2024-07-21 16:59:10', 0, 0, 1, 0, 'Giới thiệu', 'Giới thiệu', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `articles_cate_parent`
+--
+
+CREATE TABLE `articles_cate_parent` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `slug` varchar(255) NOT NULL,
@@ -80,17 +137,16 @@ CREATE TABLE `articles_cate` (
   `meta_description` varchar(255) DEFAULT NULL,
   `meta_keywords` varchar(255) DEFAULT NULL,
   `custom_text` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
--- Dumping data for table `articles_cate`
+-- Dumping data for table `articles_cate_parent`
 --
 
-INSERT INTO `articles_cate` (`id`, `name`, `slug`, `alias`, `description`, `image_url`, `created_at`, `updated_at`, `created_user`, `updated_user`, `status`, `display_order`, `meta_title`, `meta_description`, `meta_keywords`, `custom_text`) VALUES
-(1, 'Tin tức', 'tin-tuc', 'Tin tuc', '', NULL, '2016-07-24 06:34:20', '2016-07-24 06:37:09', 0, 0, 1, 0, 'Tin tức', '', '', ''),
-(2, 'Khuyến mãi', 'khuyen-mai', 'Khuyen mai', '', NULL, '2016-09-22 12:59:06', '2016-09-22 12:59:06', 0, 0, 1, 0, 'Khuyến mãi', 'Khuyến mãi', '', ''),
-(3, 'Tuyển dụng', 'tuyen-dung', 'Tuyen dung', '', NULL, '2016-09-22 12:59:15', '2016-09-22 12:59:15', 0, 0, 1, 0, 'Tuyển dụng', '', '', ''),
-(4, 'Kinh nghiệm hay', 'kinh-nghiem-hay', 'Kinh nghiem hay', '', NULL, '2016-10-05 16:32:26', '2016-10-09 05:55:29', 0, 0, 1, 0, 'Kinh nghiệm hay', '', '', '');
+INSERT INTO `articles_cate_parent` (`id`, `name`, `slug`, `alias`, `description`, `image_url`, `created_at`, `updated_at`, `created_user`, `updated_user`, `status`, `display_order`, `meta_title`, `meta_description`, `meta_keywords`, `custom_text`) VALUES
+(1, 'G-Family Recipes', 'g-family-recipes', 'G-Family Recipes', '', '', '2024-07-21 16:42:22', '2024-07-21 16:42:22', 0, 0, 1, 0, 'G-Family Recipes', '', '', ''),
+(2, 'G-Family Blogs', 'g-family-blogs', 'G-Family Blogs', '', '', '2024-07-21 16:43:58', '2024-07-21 16:43:58', 0, 0, 1, 0, 'G-Family Blogs', '', '', ''),
+(3, 'G-Family Events', 'g-family-events', 'G-Family Events', '', '', '2024-07-21 16:44:04', '2024-07-21 16:44:04', 0, 0, 1, 0, 'G-Family Events', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -105,6 +161,8 @@ CREATE TABLE `banner` (
   `time_start` int(11) NOT NULL,
   `time_end` int(11) NOT NULL,
   `object_id` bigint(20) NOT NULL,
+  `small_text` varchar(255) DEFAULT NULL,
+  `large_text` varchar(255) DEFAULT NULL,
   `object_type` tinyint(1) NOT NULL COMMENT '1 : danh muc cha , 2 : danh mục con',
   `type` int(11) NOT NULL COMMENT '1 : không liên kết, 2 : trỏ đến 1 trang, 3',
   `display_order` int(11) NOT NULL,
@@ -113,33 +171,39 @@ CREATE TABLE `banner` (
   `updated_at` datetime NOT NULL,
   `created_user` tinyint(4) NOT NULL,
   `updated_user` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `banner`
 --
 
-INSERT INTO `banner` (`id`, `image_url`, `ads_url`, `time_start`, `time_end`, `object_id`, `object_type`, `type`, `display_order`, `status`, `created_at`, `updated_at`, `created_user`, `updated_user`) VALUES
-(9, '2016/12/05/32-1480928224.png', '', 0, 0, 8, 1, 1, 0, 1, '2016-09-19 12:10:54', '2016-12-05 15:57:05', 1, 1),
-(15, '2016/11/26/banner-1-1480129676.png', '', 0, 0, 4, 3, 1, 0, 1, '2016-09-19 13:13:08', '2016-11-26 10:07:58', 1, 1),
-(19, '2016/12/05/61-1480928043.png', '', 0, 0, 3, 1, 1, 0, 1, '2016-10-06 07:58:06', '2016-12-05 15:54:08', 1, 1),
-(24, '2016/12/05/2-1480928247.png', '', 0, 0, 11, 1, 1, 0, 1, '2016-10-06 07:59:40', '2016-12-05 15:57:28', 1, 1),
-(25, '2016/12/05/1-1480928258.png', '', 0, 0, 12, 1, 1, 0, 1, '2016-10-06 07:59:58', '2016-12-05 15:57:40', 1, 1),
-(36, '2016/10/14/tablet190x555px-1476486097.png', '', 0, 0, 10, 1, 1, 0, 1, '2016-10-14 23:01:39', '2016-10-14 23:01:39', 1, 1),
-(40, '2016/12/05/7-1480928011.png', 'http://icho.vn/laptop.html', 0, 0, 2, 1, 2, 0, 1, '2016-10-25 09:52:12', '2016-12-05 15:53:33', 1, 1),
-(41, '2016/12/05/51-1480928066.png', 'http://icho.vn/phan-mem/antivirus', 0, 0, 4, 1, 2, 0, 1, '2016-10-25 10:38:52', '2016-12-05 15:54:29', 1, 1),
-(43, '2016/11/26/banner-1480129664.png', '', 0, 0, 3, 3, 1, 0, 1, '2016-10-25 15:02:27', '2016-11-26 10:07:45', 1, 1),
-(45, '2016/10/28/giao-hang-190-x-555-01-1477636887.jpg', '', 0, 0, 1, 1, 1, 0, 1, '2016-10-25 15:18:15', '2016-10-28 13:41:29', 1, 1),
-(47, '2016/10/28/mainboard-01-1477636982.jpg', '', 0, 0, 7, 1, 1, 0, 1, '2016-10-25 16:58:26', '2016-10-28 13:43:04', 1, 1),
-(48, '2016/12/05/wifi-1480928087.jpg', '', 0, 0, 5, 1, 1, 0, 1, '2016-10-25 17:23:58', '2016-12-05 15:54:50', 1, 1),
-(49, '2016/12/05/4-1480928116.png', 'http://icho.vn/van-phong/may-chieu', 0, 0, 6, 1, 2, 0, 1, '2016-10-26 09:08:20', '2016-12-05 15:55:19', 1, 1),
-(57, '2016/12/20/camera-02-1482222952.jpg', '', 0, 0, 17, 1, 1, 0, 1, '2016-11-29 19:25:16', '2016-12-20 15:35:54', 1, 1),
-(63, '2017/01/18/may-in-phun-1484704532.png', '', 0, 0, 13, 1, 1, 0, 1, '2017-01-03 13:55:53', '2017-01-18 08:55:36', 1, 1),
-(64, '2017/01/18/muc-in-1484704555.png', '', 0, 0, 19, 1, 1, 0, 1, '2017-01-03 13:56:12', '2017-01-18 08:55:58', 1, 1),
-(67, '2017/01/18/man-hinh-1484704564.png', '', 0, 0, 18, 1, 1, 0, 1, '2017-01-18 08:56:07', '2017-01-18 08:56:07', 1, 1),
-(74, '2017/04/27/banner-laptop-gia-si-01-1493276188.jpg', '', 0, 0, 1, 3, 1, 1, 1, '2017-04-27 13:56:32', '2017-04-27 13:56:32', 1, 1),
-(75, '2017/04/27/banner-man-hinh-gia-tot-01-1493276200.jpg', '', 0, 0, 1, 3, 1, 3, 1, '2017-04-27 13:56:44', '2017-04-27 13:56:44', 1, 1),
-(76, '2017/05/02/may-tram-workstation-1493694451.jpg', '', 0, 0, 1, 3, 1, 2, 1, '2017-05-02 10:07:33', '2017-05-02 10:07:33', 1, 1);
+INSERT INTO `banner` (`id`, `image_url`, `ads_url`, `time_start`, `time_end`, `object_id`, `small_text`, `large_text`, `object_type`, `type`, `display_order`, `status`, `created_at`, `updated_at`, `created_user`, `updated_user`) VALUES
+(9, '2016/12/05/32-1480928224.png', '', 0, 0, 8, NULL, NULL, 1, 1, 0, 1, '2016-09-19 12:10:54', '2016-12-05 15:57:05', 1, 1),
+(15, '/uploads/images/banner/thuc-pham-organic.jpg', '', 0, 0, 4, '', '', 3, 1, 0, 1, '2016-09-19 13:13:08', '2024-07-20 17:25:20', 1, 1),
+(19, '2016/12/05/61-1480928043.png', '', 0, 0, 3, NULL, NULL, 1, 1, 0, 1, '2016-10-06 07:58:06', '2016-12-05 15:54:08', 1, 1),
+(24, '2016/12/05/2-1480928247.png', '', 0, 0, 11, NULL, NULL, 1, 1, 0, 1, '2016-10-06 07:59:40', '2016-12-05 15:57:28', 1, 1),
+(25, '2016/12/05/1-1480928258.png', '', 0, 0, 12, NULL, NULL, 1, 1, 0, 1, '2016-10-06 07:59:58', '2016-12-05 15:57:40', 1, 1),
+(36, '2016/10/14/tablet190x555px-1476486097.png', '', 0, 0, 10, NULL, NULL, 1, 1, 0, 1, '2016-10-14 23:01:39', '2016-10-14 23:01:39', 1, 1),
+(40, '2016/12/05/7-1480928011.png', 'http://icho.vn/laptop.html', 0, 0, 2, NULL, NULL, 1, 2, 0, 1, '2016-10-25 09:52:12', '2016-12-05 15:53:33', 1, 1),
+(41, '2016/12/05/51-1480928066.png', 'http://icho.vn/phan-mem/antivirus', 0, 0, 4, NULL, NULL, 1, 2, 0, 1, '2016-10-25 10:38:52', '2016-12-05 15:54:29', 1, 1),
+(43, '/uploads/images/banner/THUCPHAM-ANTOAN-CHOCON.png', '', 0, 0, 3, '', '', 3, 1, 0, 1, '2016-10-25 15:02:27', '2024-08-09 11:28:55', 1, 1),
+(45, '2016/10/28/giao-hang-190-x-555-01-1477636887.jpg', '', 0, 0, 1, NULL, NULL, 1, 1, 0, 1, '2016-10-25 15:18:15', '2016-10-28 13:41:29', 1, 1),
+(47, '2016/10/28/mainboard-01-1477636982.jpg', '', 0, 0, 7, NULL, NULL, 1, 1, 0, 1, '2016-10-25 16:58:26', '2016-10-28 13:43:04', 1, 1),
+(48, '2016/12/05/wifi-1480928087.jpg', '', 0, 0, 5, NULL, NULL, 1, 1, 0, 1, '2016-10-25 17:23:58', '2016-12-05 15:54:50', 1, 1),
+(49, '2016/12/05/4-1480928116.png', 'http://icho.vn/van-phong/may-chieu', 0, 0, 6, NULL, NULL, 1, 2, 0, 1, '2016-10-26 09:08:20', '2016-12-05 15:55:19', 1, 1),
+(57, '2016/12/20/camera-02-1482222952.jpg', '', 0, 0, 17, NULL, NULL, 1, 1, 0, 1, '2016-11-29 19:25:16', '2016-12-20 15:35:54', 1, 1),
+(63, '2017/01/18/may-in-phun-1484704532.png', '', 0, 0, 13, NULL, NULL, 1, 1, 0, 1, '2017-01-03 13:55:53', '2017-01-18 08:55:36', 1, 1),
+(64, '2017/01/18/muc-in-1484704555.png', '', 0, 0, 19, NULL, NULL, 1, 1, 0, 1, '2017-01-03 13:56:12', '2017-01-18 08:55:58', 1, 1),
+(67, '2017/01/18/man-hinh-1484704564.png', '', 0, 0, 18, NULL, NULL, 1, 1, 0, 1, '2017-01-18 08:56:07', '2017-01-18 08:56:07', 1, 1),
+(77, '/uploads/images/banner/GIAVI-HUUCO-CHOBEP.png', '', 0, 0, 3, '', '', 3, 1, 0, 1, '2024-07-18 18:27:07', '2024-08-09 11:29:04', 1, 1),
+(78, '/uploads/images/banner/THAYDOI-THOIQUEN-ANUONG.png', '', 0, 0, 3, '', '', 3, 1, 0, 1, '2024-07-18 18:59:41', '2024-08-09 11:29:11', 1, 1),
+(79, '/uploads/images/banner/khac-nhau-01-1721304009.png', '', 0, 0, 4, '', '', 3, 1, 0, 1, '2024-07-18 19:00:15', '2024-07-20 17:25:26', 1, 1),
+(81, '/uploads/images/banner/RAU-CU-QUA-BANNER-01.png', 'http://gfamily.vn/thuc-pham-huu-co/trai-cay', 0, 0, 1, '', '', 3, 2, 1, 1, '2024-08-09 12:06:06', '2024-08-09 12:29:35', 1, 1),
+(82, '/uploads/images/banner/NGU-COC-DAU-HAT-BANNER-02-min.png', 'http://gfamily.vn/thuc-pham-huu-co/dau-hat', 0, 0, 1, '', '', 3, 2, 2, 1, '2024-08-09 12:06:20', '2024-08-09 12:28:08', 1, 1),
+(83, '/uploads/images/banner/GIA-VI-PHU-LIEU-BANNER-03-min.png', 'http://gfamily.vn/thuc-pham-huu-co/gia-vi-phu-lieu', 0, 0, 1, '', '', 3, 2, 3, 1, '2024-09-07 19:42:15', '2024-09-07 19:43:05', 1, 1),
+(84, '/uploads/images/banner/SUA-THUC-UONG-BANNER-05-min.png', 'http://gfamily.vn/thuc-pham-huu-co/sua', 0, 0, 1, '', '', 3, 2, 4, 1, '2024-09-07 19:43:57', '2024-09-07 19:43:57', 1, 1),
+(85, '/uploads/images/banner/MY-PHAM-BANNER-06-min.png', 'http://gfamily.vn/hoa-my-pham-huu-co/my-pham', 0, 0, 1, '', '', 3, 2, 5, 1, '2024-09-07 19:45:18', '2024-09-07 19:45:18', 1, 1),
+(86, '/uploads/images/banner/HOA-PHAM-GIA-DUNG-BANNER-07-min.png', 'http://gfamily.vn/hoa-my-pham-huu-co/hoa-pham-gia-dung', 0, 0, 1, '', '', 3, 2, 6, 1, '2024-09-07 19:45:54', '2024-09-07 19:45:54', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -167,7 +231,120 @@ CREATE TABLE `cate` (
   `bg_color` varchar(20) DEFAULT NULL,
   `status` tinyint(1) NOT NULL,
   `icon_url` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Dumping data for table `cate`
+--
+
+INSERT INTO `cate` (`id`, `name`, `alias`, `slug`, `description`, `menu_ngang`, `menu_doc`, `parent_id`, `display_order`, `home_style`, `created_user`, `updated_user`, `created_at`, `updated_at`, `meta_id`, `is_hot`, `bg_color`, `status`, `icon_url`) VALUES
+(1, 'Ăn dặm cho bé', 'An dam cho be', 'an-dam-cho-be', '', 1, 1, 1, 1, 0, 1, 1, '2024-07-18 13:29:49', '2024-08-18 15:24:19', 1485, 1, '#EE484F', 1, ''),
+(2, 'Ngũ cốc', 'Ngu coc', 'ngu-coc', '', 1, 1, 1, 3, 0, 1, 1, '2024-07-18 13:31:13', '2024-07-18 13:31:13', 1486, 0, '#EE484F', 1, ''),
+(3, 'Nguyên liệu chế biến', 'Nguyen lieu che bien', 'nguyen-lieu-che-bien', '', 1, 1, 1, 4, 0, 1, 1, '2024-07-18 13:31:20', '2024-07-18 13:31:20', 1487, 0, '#EE484F', 1, ''),
+(4, 'Gia vị phụ liệu', 'Gia vi phu lieu', 'gia-vi-phu-lieu', '', 1, 1, 1, 5, 0, 1, 1, '2024-07-18 13:31:27', '2024-07-18 13:31:27', 1488, 0, '#EE484F', 1, ''),
+(5, 'Đậu & Hạt', 'Dau & Hat', 'dau-hat', '', 1, 1, 1, 6, 0, 1, 1, '2024-07-18 13:31:33', '2024-07-18 13:31:33', 1489, 0, '#EE484F', 1, ''),
+(6, 'Trái cây khô', 'Trai cay kho', 'trai-cay-kho', '', 1, 1, 1, 7, 0, 1, 1, '2024-07-18 13:31:40', '2024-08-18 15:26:16', 1490, 0, '#EE484F', 1, ''),
+(7, 'Bánh kẹo hữu cơ', 'Banh keo huu co', 'banh-keo-huu-co', '', 1, 1, 1, 2, 0, 1, 1, '2024-07-18 13:31:46', '2024-07-18 13:31:46', 1491, 0, '#EE484F', 1, ''),
+(8, 'Cacao - Bơ - Mứt', 'Cacao - Bo - Mut', 'cacao-bo-mut', '', 1, 1, 1, 8, 0, 1, 1, '2024-07-18 13:31:54', '2024-07-18 13:31:54', 1492, 0, '#EE484F', 1, ''),
+(9, 'Thực phẩm chức năng', 'Thuc pham chuc nang', 'thuc-pham-chuc-nang', '', 1, 1, 1, 9, 0, 1, 1, '2024-07-18 13:32:11', '2024-07-18 13:32:11', 1493, 0, '#EE484F', 1, ''),
+(10, 'Siêu thực phẩm', 'Sieu thuc pham', 'sieu-thuc-pham', '', 1, 1, 1, 10, 0, 1, 1, '2024-07-18 13:32:18', '2024-07-18 13:32:18', 1494, 0, '#EE484F', 1, ''),
+(11, 'Thức uống hữu cơ', 'Thuc uong huu co', 'thuc-uong-huu-co', '', 1, 1, 1, 11, 0, 1, 1, '2024-07-18 13:32:24', '2024-07-18 13:32:24', 1495, 0, '#EE484F', 1, ''),
+(12, 'Rau củ hữu cơ', 'Rau cu huu co', 'rau-cu-huu-co', '', 1, 1, 1, 12, 0, 1, 1, '2024-07-18 13:32:32', '2024-08-18 15:25:41', 1496, 0, '#EE484F', 1, ''),
+(13, 'Thảo dược', 'Thao duoc', 'thao-duoc', '', 1, 1, 1, 13, 0, 1, 1, '2024-07-18 13:32:37', '2024-07-18 13:32:37', 1497, 0, '#EE484F', 1, ''),
+(14, 'Mỹ phẩm', 'My pham', 'my-pham', '', 1, 1, 2, 1, 0, 1, 1, '2024-07-18 13:32:51', '2024-07-18 13:32:51', 1498, 0, '#EE484F', 1, ''),
+(15, 'Chăm sóc sức khỏe', 'Cham soc suc khoe', 'cham-soc-suc-khoe', '', 1, 1, 2, 1, 0, 1, 1, '2024-07-18 13:32:57', '2024-07-18 13:32:57', 1499, 0, '#EE484F', 1, ''),
+(16, 'Hóa phẩm gia dụng', 'Hoa pham gia dung', 'hoa-pham-gia-dung', '', 1, 1, 2, 1, 0, 1, 1, '2024-07-18 13:33:02', '2024-07-18 13:33:02', 1500, 0, '#EE484F', 1, ''),
+(17, 'Hóa mỹ phẩm hữu cơ khác', 'Hoa my pham huu co khac', 'hoa-my-pham-huu-co-khac', '', 1, 1, 2, 1, 0, 1, 1, '2024-07-18 13:33:08', '2024-07-18 13:33:08', 1501, 0, '#EE484F', 1, ''),
+(18, 'Đặc sản 3 miền OCOP Việt', 'Dac san 3 mien OCOP Viet', 'dac-san-3-mien-ocop-viet', '', 1, 1, 3, 1, 0, 1, 1, '2024-07-18 13:33:20', '2024-07-18 13:33:20', 1502, 0, '#EE484F', 1, ''),
+(19, 'Giáo dục & Giải trí', 'Giao duc & Giai tri', 'giao-duc-giai-tri', '', 1, 1, 3, 1, 0, 1, 1, '2024-07-18 13:33:32', '2024-07-18 13:33:32', 1503, 0, '#EE484F', 1, ''),
+(20, 'SP Xanh khác', 'SP Xanh khac', 'sp-xanh-khac', '', 1, 1, 3, 1, 0, 1, 1, '2024-07-18 13:33:40', '2024-07-18 13:33:40', 1504, 0, '#EE484F', 1, ''),
+(22, 'Trà - Cafe', 'Tra - Cafe', 'tra-cafe', '', 1, 1, 1, 14, 0, 1, 1, '2024-08-18 15:26:57', '2024-08-18 15:26:57', 1697, 0, '#EE484F', 1, ''),
+(23, 'Sữa', 'Sua', 'sua', '', 1, 1, 1, 15, 0, 1, 1, '2024-08-18 15:27:27', '2024-08-18 15:27:27', 1698, 0, '#EE484F', 1, '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cate_child`
+--
+
+CREATE TABLE `cate_child` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `alias` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `description` varchar(500) DEFAULT NULL,
+  `menu_ngang` tinyint(1) NOT NULL DEFAULT 1,
+  `menu_doc` tinyint(1) NOT NULL DEFAULT 1,
+  `parent_id` tinyint(4) NOT NULL,
+  `cate_id` tinyint(4) DEFAULT NULL,
+  `display_order` tinyint(4) NOT NULL,
+  `home_style` tinyint(4) NOT NULL,
+  `created_user` tinyint(4) NOT NULL,
+  `updated_user` tinyint(4) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `meta_id` bigint(20) DEFAULT NULL,
+  `is_hot` tinyint(1) NOT NULL,
+  `bg_color` varchar(20) DEFAULT NULL,
+  `status` tinyint(1) NOT NULL,
+  `icon_url` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Dumping data for table `cate_child`
+--
+
+INSERT INTO `cate_child` (`id`, `name`, `alias`, `slug`, `description`, `menu_ngang`, `menu_doc`, `parent_id`, `cate_id`, `display_order`, `home_style`, `created_user`, `updated_user`, `created_at`, `updated_at`, `meta_id`, `is_hot`, `bg_color`, `status`, `icon_url`) VALUES
+(1, 'Nui mì ăn dặm', 'nui mi an dam', 'nui-mi-an-dam', '', 1, 1, 1, 1, 1, 0, 1, 1, '2024-07-18 14:13:13', '2024-07-18 14:18:27', 1505, 0, '#EE484F', 1, ''),
+(2, 'Dầu ăn dặm', 'dau an dam', 'dau-an-dam', '', 1, 1, 1, 1, 1, 0, 1, 1, '2024-07-18 14:18:48', '2024-07-18 14:18:48', 1506, 0, '', 1, ''),
+(3, 'Vitamin & khoáng chất cho bé', 'vitamin khoang chat cho be', 'vitamin-khoang-chat-cho-be', '', 1, 1, 1, 1, 1, 0, 1, 1, '2024-07-18 14:18:54', '2024-07-18 14:18:54', 1507, 0, '', 1, ''),
+(4, 'Sản phẩm ăn dặm khác', 'san pham an dam khac', 'san-pham-an-dam-khac', '', 1, 1, 1, 1, 1, 0, 1, 1, '2024-07-18 14:19:23', '2024-07-18 14:19:23', 1508, 0, '', 1, ''),
+(5, 'Ngũ cốc nguyên hạt ăn liền', 'ngu coc nguyen hat an lien', 'ngu-coc-nguyen-hat-an-lien', '', 1, 1, 1, 2, 1, 0, 1, 1, '2024-07-18 14:20:13', '2024-07-18 14:20:30', 1509, 0, '#EE484F', 1, ''),
+(6, 'Ngũ cốc bán thành phẩm', 'ngu coc ban thanh pham', 'ngu-coc-ban-thanh-pham', '', 1, 1, 1, 2, 1, 0, 1, 1, '2024-07-18 14:20:21', '2024-07-18 14:20:21', 1510, 0, '', 1, ''),
+(7, 'Nui mì', 'nui mi', 'nui-mi', '', 1, 1, 1, 3, 1, 0, 1, 1, '2024-07-18 14:21:13', '2024-07-18 14:21:13', 1511, 0, '', 1, ''),
+(8, 'Bột làm bánh', 'bot lam banh', 'nui-mi', '', 1, 1, 1, 3, 1, 0, 1, 1, '2024-07-18 14:21:21', '2024-07-18 14:21:21', 1512, 0, '', 1, ''),
+(9, 'Nguyên liệu làm bánh', 'nguyen lieu lam banh', 'nguyen-lieu-lam-banh', '', 1, 1, 1, 3, 1, 0, 1, 1, '2024-07-18 14:21:34', '2024-07-18 14:21:34', 1513, 0, '', 1, ''),
+(10, 'Bột gia vị', 'bot gia vi', 'bot-gia-vi', '', 1, 1, 1, 4, 1, 0, 1, 1, '2024-07-18 14:22:06', '2024-07-18 14:22:11', 1514, 0, '#EE484F', 1, ''),
+(11, 'Sốt gia vị', 'sot gia vi', 'sot-gia-vi', '', 1, 1, 1, 4, 1, 0, 1, 1, '2024-07-18 14:22:20', '2024-07-18 14:23:21', 1515, 0, '#EE484F', 1, ''),
+(12, 'Dầu & Giấm', 'dau giam', 'dau-giam', '', 1, 1, 1, 4, 1, 0, 1, 1, '2024-07-18 14:22:26', '2024-07-18 14:23:15', 1516, 0, '#EE484F', 1, ''),
+(13, 'Mật ong - Siro - Đường', 'mat ong siro duong', 'mat-ong-siro-duong', '', 1, 1, 1, 4, 1, 0, 1, 1, '2024-07-18 14:22:38', '2024-07-18 14:23:05', 1517, 0, '#EE484F', 1, ''),
+(14, 'Đậu & Hạt khô', 'dau hat kho', 'dau-hat-kho', '', 1, 1, 1, 5, 1, 0, 1, 1, '2024-07-18 14:22:45', '2024-07-18 14:22:45', 1518, 0, '', 1, ''),
+(15, 'Đậu & Hạt đóng hộp', 'dau hat dong hop', 'dau-hat-dong-hop', '', 1, 1, 1, 5, 1, 0, 1, 1, '2024-07-18 14:22:52', '2024-07-18 14:22:57', 1519, 0, '#EE484F', 1, ''),
+(16, 'Trái cây sấy khô', 'trai cay say kho', 'trai-cay-say-kho', '', 1, 1, 1, 6, 1, 0, 1, 1, '2024-07-18 14:25:15', '2024-07-18 14:25:15', 1520, 0, '', 1, ''),
+(17, 'Trái cây tươi', 'trai cay tuoi', 'trai-cay-tuoi', '', 1, 1, 1, 6, 1, 0, 1, 1, '2024-07-18 14:25:31', '2024-07-18 14:25:31', 1521, 0, '', 1, ''),
+(18, 'Vitamin', 'vitamin', 'vitamin', '', 1, 1, 1, 9, 1, 0, 1, 1, '2024-07-18 14:26:46', '2024-07-18 14:26:46', 1522, 0, '', 1, ''),
+(19, 'DHA', 'dha', 'dha', '', 1, 1, 1, 9, 1, 0, 1, 1, '2024-07-18 14:26:57', '2024-07-18 14:26:57', 1523, 0, '', 1, ''),
+(20, 'TPCN khác', 'tpcn khac', 'tpcn-khac', '', 1, 1, 1, 9, 1, 0, 1, 1, '2024-07-18 14:27:04', '2024-07-18 14:27:04', 1524, 0, '', 1, ''),
+(21, 'Bột siêu thực phẩm', 'bot sieu thuc pham', 'bot-sieu-thuc-pham', '', 1, 1, 1, 10, 1, 0, 1, 1, '2024-07-18 14:27:13', '2024-07-18 14:27:13', 1525, 0, '', 1, ''),
+(22, 'Bôt đạm thực vật', 'bot dam thuc vat', 'bot-dam-thuc-vat', '', 1, 1, 1, 10, 1, 0, 1, 1, '2024-07-18 14:27:19', '2024-07-18 14:27:19', 1526, 0, '', 1, ''),
+(23, 'Bột trái cây', 'bot trai cay', 'bot-trai-cay', '', 1, 1, 1, 10, 1, 0, 1, 1, '2024-07-18 14:27:25', '2024-07-18 14:27:25', 1527, 0, '', 1, ''),
+(24, 'Bột thảo mộc', 'bot thao moc', 'bot-thao-moc', '', 1, 1, 1, 10, 1, 0, 1, 1, '2024-07-18 14:27:31', '2024-07-18 14:27:31', 1528, 0, '', 1, ''),
+(25, 'Bột supermix', 'bot supermix', 'bot-supermix', '', 1, 1, 1, 10, 1, 0, 1, 1, '2024-07-18 14:27:37', '2024-07-18 14:27:37', 1529, 0, '', 1, ''),
+(27, 'Trà Kombucha', 'tra kombucha', 'tra-kombucha', '', 1, 1, 1, 11, 1, 0, 1, 1, '2024-07-18 14:27:53', '2024-07-18 14:27:53', 1531, 0, '', 1, ''),
+(29, 'Sinh tố & Nước trái cây', 'sinh to nuoc trai cay', 'sinh-to-nuoc-trai-cay', '', 1, 1, 1, 11, 1, 0, 1, 1, '2024-07-18 14:28:05', '2024-07-18 14:28:05', 1533, 0, '', 1, ''),
+(30, 'Thức uống khác', 'thuc uong khac', 'thuc-uong-khac', '', 1, 1, 1, 11, 1, 0, 1, 1, '2024-07-18 14:28:10', '2024-07-18 14:28:10', 1534, 0, '', 1, ''),
+(31, 'Dưỡng & Bảo vệ', 'duong bao ve', 'duong-bao-ve', '', 1, 1, 2, 14, 1, 0, 1, 1, '2024-07-18 14:28:22', '2024-07-18 14:28:22', 1535, 0, '', 1, ''),
+(32, 'Trang điểm', 'trang diem', 'trang-diem', '', 1, 1, 2, 14, 1, 0, 1, 1, '2024-07-18 14:28:33', '2024-07-18 14:28:33', 1536, 0, '', 1, ''),
+(33, 'Kem đánh răng', 'kem danh rang', 'kem-danh-rang', '', 1, 1, 2, 15, 1, 0, 1, 1, '2024-07-18 14:28:43', '2024-07-18 14:28:43', 1537, 0, '', 1, ''),
+(34, 'Dầu gội đầu', 'dau goi dau', 'dau-goi-dau', '', 1, 1, 2, 15, 1, 0, 1, 1, '2024-07-18 14:28:50', '2024-07-18 14:28:50', 1538, 0, '', 1, ''),
+(35, 'Sữa tắm', 'sua tam', 'sua-tam', '', 1, 1, 2, 15, 1, 0, 1, 1, '2024-07-18 14:28:55', '2024-07-18 14:28:55', 1539, 0, '', 1, ''),
+(36, 'Nước rửa tay', 'nuoc rua tay', 'nuoc-rua-tay', '', 1, 1, 2, 15, 1, 0, 1, 1, '2024-07-18 14:29:02', '2024-07-18 14:29:02', 1540, 0, '', 1, ''),
+(37, 'Gel, xịt & SP khác', 'gel xit sp khac', 'gel-xit-sp-khac', '', 1, 1, 2, 15, 1, 0, 1, 1, '2024-07-18 14:29:08', '2024-07-18 14:29:08', 1541, 0, '', 1, ''),
+(38, 'Nước rửa chén', 'nuoc rua chen', 'nuoc-rua-chen', '', 1, 1, 2, 16, 1, 0, 1, 1, '2024-07-18 14:29:18', '2024-07-18 14:29:18', 1542, 0, '', 1, ''),
+(39, 'Nước giặt đồ', 'nuoc giat do', 'nuoc-giat-do', '', 1, 1, 2, 16, 1, 0, 1, 1, '2024-07-18 14:29:59', '2024-07-18 14:29:59', 1543, 0, '', 1, ''),
+(40, 'Nước lau sàn', 'nuoc lau san', 'nuoc-lau-san', '', 1, 1, 2, 16, 1, 0, 1, 1, '2024-07-18 14:30:04', '2024-07-18 14:30:04', 1544, 0, '', 1, ''),
+(41, 'Xịt phòng, đuổi côn trùng', 'xit phong duoi con trung', 'xit-phong-duoi-con-trung', '', 1, 1, 2, 16, 1, 0, 1, 1, '2024-07-18 14:30:09', '2024-07-18 14:30:09', 1545, 0, '', 1, ''),
+(42, 'Đặc sản xứ Bắc', 'dac san xu bac', 'dac-san-xu-bac', '', 1, 1, 3, 18, 1, 0, 1, 1, '2024-07-18 14:30:19', '2024-07-18 14:30:19', 1546, 0, '', 1, ''),
+(43, 'Đặc sản miền Trung', 'dac san mien trung', 'dac-san-mien-trung', '', 1, 1, 3, 18, 1, 0, 1, 1, '2024-07-18 14:30:25', '2024-07-18 14:30:25', 1547, 0, '', 1, ''),
+(44, 'Đặc sản miệt vườn', 'dac san miet vuon', 'dac-san-miet-vuon', '', 1, 1, 3, 18, 1, 0, 1, 1, '2024-07-18 14:30:32', '2024-07-18 14:30:32', 1548, 0, '', 1, ''),
+(45, 'Đồ chơi gỗ', 'do choi go', 'do-choi-go', '', 1, 1, 3, 19, 1, 0, 1, 1, '2024-07-18 14:30:39', '2024-07-18 14:30:39', 1549, 0, '', 1, ''),
+(46, 'Giải trí', 'giai tri', 'giai-tri', '', 1, 1, 3, 19, 1, 0, 1, 1, '2024-07-18 14:30:43', '2024-07-18 14:30:43', 1550, 0, '', 1, ''),
+(47, 'Sách truyện', 'sach truyen', 'sach-truyen', '', 1, 1, 3, 19, 1, 0, 1, 1, '2024-07-18 14:30:50', '2024-07-18 14:30:50', 1551, 0, '', 1, ''),
+(48, 'Túi giấy', 'tui giay', 'tui-giay', '', 1, 1, 3, 20, 1, 0, 1, 1, '2024-07-18 14:30:58', '2024-07-18 14:30:58', 1552, 0, '', 1, ''),
+(49, 'Ống hút', 'ong hut', 'ong-hut', '', 1, 1, 3, 20, 1, 0, 1, 1, '2024-07-18 14:31:04', '2024-07-18 14:31:04', 1553, 0, '', 1, ''),
+(50, 'Vệ sinh bồn cầu', 've sinh bon cau', 've-sinh-bon-cau', '', 1, 1, 2, 16, 1, 0, 1, 1, '2024-08-18 15:31:08', '2024-08-18 15:31:08', 1699, 0, '', 1, ''),
+(51, 'Lau rửa đa năng', 'lau rua da nang', 'lau-rua-da-nang', '', 1, 1, 2, 16, 1, 0, 1, 1, '2024-08-18 15:31:32', '2024-08-18 15:31:47', 1700, 0, '#EE484F', 1, ''),
+(52, 'Giỏ đi chợ', 'gio di cho', 'gio-di-cho', '', 1, 1, 3, 20, 1, 0, 1, 1, '2024-08-18 15:33:07', '2024-08-18 15:33:07', 1701, 0, '', 1, '');
 
 -- --------------------------------------------------------
 
@@ -181,7 +358,7 @@ CREATE TABLE `city` (
   `alias` varchar(255) NOT NULL,
   `region_id` tinyint(4) NOT NULL COMMENT '1 : nam , 2 : trung, 3 : bac',
   `display_order` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `city`
@@ -262,7 +439,7 @@ CREATE TABLE `color` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `color_code` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `color`
@@ -289,7 +466,7 @@ INSERT INTO `color` (`id`, `name`, `color_code`) VALUES
 CREATE TABLE `compare` (
   `sp_1` int(11) NOT NULL,
   `sp_2` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `compare`
@@ -322,7 +499,7 @@ CREATE TABLE `contact` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `updated_user` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `contact`
@@ -362,7 +539,7 @@ CREATE TABLE `customers` (
   `address_type` tinyint(4) DEFAULT 0,
   `image_url` varchar(255) DEFAULT NULL,
   `key_reset` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -383,7 +560,7 @@ CREATE TABLE `customer_notification` (
   `seen_at` datetime NOT NULL,
   `created_user` int(11) NOT NULL,
   `updated_user` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -397,7 +574,7 @@ CREATE TABLE `district` (
   `alias` varchar(255) NOT NULL,
   `city_id` int(11) NOT NULL,
   `display_order` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `district`
@@ -1141,7 +1318,7 @@ CREATE TABLE `events` (
   `updated_user` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -1162,7 +1339,7 @@ CREATE TABLE `hang_sx` (
   `updated_user` tinyint(4) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -1176,7 +1353,7 @@ CREATE TABLE `hover_info` (
   `str_thuoctinh_id` varchar(50) NOT NULL,
   `parent_id` tinyint(4) NOT NULL,
   `display_order` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `hover_info`
@@ -1207,6 +1384,46 @@ INSERT INTO `hover_info` (`id`, `text_hien_thi`, `str_thuoctinh_id`, `parent_id`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `icons`
+--
+
+CREATE TABLE `icons` (
+  `id` int(11) NOT NULL,
+  `image_url` varchar(255) NOT NULL,
+  `content` varchar(255) DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT 1,
+  `display_order` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Dumping data for table `icons`
+--
+
+INSERT INTO `icons` (`id`, `image_url`, `content`, `status`, `display_order`) VALUES
+(2, '/uploads/images/icons/ICON-ORGANIC.PNG', 'THỰC PHẨM ĐẠT CHUẨN HỮU CƠ', 1, 2),
+(3, '/uploads/images/icons/EU.PNG', 'ĐẠT CHỨNG NHẬN HỮU CƠ CHÂU ÂU', 1, 3),
+(4, '/uploads/images/icons/ICON%20USDA.PNG', 'ĐẠT CHỨNG NHẬN HỮU CƠ MỸ', 1, 4),
+(5, '/uploads/images/icons/ORGANIC%20100.PNG', '100% HOÀN TOÀN HỮU CƠ', 1, 1),
+(6, '/uploads/images/icons/NON%20GMO.PNG', 'KHÔNG BIẾN ĐỔI GEN - NON GMO', 1, 5),
+(7, '/uploads/images/icons/NO%20CHOLESTEROL.PNG', 'KHÔNG CÓ CHOLESTEROL', 1, 6),
+(8, '/uploads/images/icons/PRESEVATIVES%20FREE.PNG', 'KHÔNG CHỨA CÁC CHẤT BẢO QUẢN', 1, 7),
+(9, '/uploads/images/icons/NO%20PESTICIDES.PNG', 'KHÔNG CÓ THUỐC BẢO VỆ THỰC VẬT', 1, 8),
+(10, '/uploads/images/icons/NO%20CHEMICALS.PNG', 'KHÔNG SỬ DỤNG HÓA CHẤT', 1, 9),
+(11, '/uploads/images/icons/TRANS%20FAT%20FREE.PNG', 'KHÔNG CHẤT BÉO CHUYỂN ĐỔI', 1, 10),
+(12, '/uploads/images/icons/DAIRY%20FREE.PNG', 'KHÔNG CHỨA SỮA VÀ CHẾ PHẨM TỪ SỮA', 1, 11),
+(13, '/uploads/images/icons/GLUTEN%20FREE.PNG', 'KHÔNG CHỨA PROTEIN GLUTEN', 1, 12),
+(14, '/uploads/images/icons/RANGE%20FREE.PNG', 'CHĂN THẢ TỰ NHIÊN, KHÔNG NUÔI NHỐT', 1, 13),
+(15, '/uploads/images/icons/LOW%20BLOOD%20GLUCOSE.PNG', 'ĐƯỜNG HUYẾT TRUNG BÌNH THẤP', 1, 14),
+(16, '/uploads/images/icons/VEGETARIAN.PNG', 'PHÙ HỢP CHẾ ĐỘ ĂN CHAY', 1, 15),
+(17, '/uploads/images/icons/ICON%20VEGAN.PNG', '100% HOÀN TOÀN THUẦN CHAY', 1, 16),
+(18, '/uploads/images/icons/ICON-BIO.PNG', 'BIO SẢN XUẤT CHUẨN SINH HỌC', 1, 17),
+(19, '/uploads/images/icons/ECO.PNG', 'THÂN THIỆN VỚI MÔI TRƯỜNG', 1, 18),
+(20, '/uploads/images/icons/SAFE%20FOR%20KIDS.PNG', 'AN TOÀN ĐỐI VỚI TRẺ EM', 1, 19),
+(21, '/uploads/images/icons/PREGNANCY%20SAFE.PNG', 'AN TOÀN ĐỐI VỚI BÀ BẦU', 1, 20);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `info_seo`
 --
 
@@ -1218,7 +1435,7 @@ CREATE TABLE `info_seo` (
   `keywords` varchar(255) NOT NULL,
   `custom_text` text NOT NULL,
   `image_url` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `info_seo`
@@ -1247,7 +1464,7 @@ CREATE TABLE `link_image` (
   `link_id` int(11) NOT NULL,
   `site_id` tinyint(4) NOT NULL,
   `image_url` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `link_image`
@@ -8157,7 +8374,7 @@ CREATE TABLE `link_site` (
   `id` int(11) NOT NULL,
   `link` varchar(500) NOT NULL,
   `site_id` tinyint(4) NOT NULL COMMENT '1 : android 2 : vez'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `link_site`
@@ -11897,7 +12114,7 @@ CREATE TABLE `loai_thuoc_tinh` (
   `updated_user` tinyint(4) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `loai_thuoc_tinh`
@@ -11947,7 +12164,7 @@ CREATE TABLE `location` (
   `name` varchar(244) NOT NULL,
   `parent_id` int(11) NOT NULL,
   `full_parent` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `location`
@@ -12728,7 +12945,7 @@ CREATE TABLE `meta_data` (
   `updated_user` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `meta_data`
@@ -14217,10 +14434,227 @@ INSERT INTO `meta_data` (`id`, `title`, `description`, `keywords`, `custom_text`
 (1478, 'sáafasfsaf', '', '', '', 1, 1, '2021-06-25 18:18:58', '2021-06-25 18:18:58'),
 (1479, 'sấ', '', '', '', 1, 1, '2021-06-25 18:22:30', '2021-06-25 18:22:30'),
 (1480, 'Nguyen Hoang sssss', '', '', '', 1, 1, '2021-06-26 10:33:35', '2021-06-26 10:48:17'),
-(1481, 'Hải sản khô', '', '', '', 1, 1, '2021-07-16 11:01:25', '2021-07-16 11:01:25'),
-(1482, 'Bánh kẹo', 'Bánh kẹo', '', '', 1, 1, '2021-07-16 11:01:40', '2021-07-16 11:01:40'),
-(1483, 'Nem chả', '', '', '', 1, 1, '2021-07-16 11:02:11', '2021-07-16 11:02:11'),
-(1484, '', '', '', '', 1, 1, '2021-07-16 11:06:02', '2021-07-16 11:06:02');
+(1481, 'Thực phẩm hữu cơ', '', '', '', 1, 1, '2021-07-16 11:01:25', '2024-07-18 13:28:07'),
+(1482, 'Hóa Mỹ Phẩm Hữu Cơ', 'Bánh kẹo', '', '', 1, 1, '2021-07-16 11:01:40', '2024-07-18 13:28:38'),
+(1483, 'Sản Phẩm Xanh', '', '', '', 1, 1, '2021-07-16 11:02:11', '2024-07-18 13:29:07'),
+(1484, '', '', '', '', 1, 1, '2021-07-16 11:06:02', '2021-07-16 11:06:02'),
+(1485, 'Thực phẩm ăn dặm cho bé', '', '', '', 1, 1, '2024-07-18 13:29:49', '2024-07-18 13:29:49'),
+(1486, 'Ngũ cốc', '', '', '', 1, 1, '2024-07-18 13:31:13', '2024-07-18 13:31:13'),
+(1487, 'Nguyên liệu chế biến', '', '', '', 1, 1, '2024-07-18 13:31:20', '2024-07-18 13:31:20'),
+(1488, 'Gia vị phụ liệu', '', '', '', 1, 1, '2024-07-18 13:31:27', '2024-07-18 13:31:27'),
+(1489, 'Đậu & Hạt', '', '', '', 1, 1, '2024-07-18 13:31:33', '2024-07-18 13:31:33'),
+(1490, 'Trái cây', '', '', '', 1, 1, '2024-07-18 13:31:40', '2024-07-18 13:31:40'),
+(1491, 'Bánh kẹo hữu cơ', '', '', '', 1, 1, '2024-07-18 13:31:46', '2024-07-18 13:31:46'),
+(1492, '', '', '', '', 1, 1, '2024-07-18 13:31:54', '2024-07-18 13:31:54'),
+(1493, 'Thực phẩm chức năng', '', '', '', 1, 1, '2024-07-18 13:32:11', '2024-07-18 13:32:11'),
+(1494, 'Siêu thực phẩm', '', '', '', 1, 1, '2024-07-18 13:32:18', '2024-07-18 13:32:18'),
+(1495, 'Thức uống hữu cơ', '', '', '', 1, 1, '2024-07-18 13:32:24', '2024-07-18 13:32:24'),
+(1496, 'Rau củ', '', '', '', 1, 1, '2024-07-18 13:32:32', '2024-07-18 13:32:32'),
+(1497, 'Thảo dược', '', '', '', 1, 1, '2024-07-18 13:32:37', '2024-07-18 13:32:37'),
+(1498, 'Mỹ phẩm', '', '', '', 1, 1, '2024-07-18 13:32:51', '2024-07-18 13:32:51'),
+(1499, 'Chăm sóc sức khỏe', '', '', '', 1, 1, '2024-07-18 13:32:57', '2024-07-18 13:32:57'),
+(1500, 'Hóa phẩm gia dụng', '', '', '', 1, 1, '2024-07-18 13:33:02', '2024-07-18 13:33:02'),
+(1501, 'Hóa mỹ phẩm hữu cơ khác', '', '', '', 1, 1, '2024-07-18 13:33:08', '2024-07-18 13:33:08'),
+(1502, 'Đặc sản 3 miền OCOP Việt', '', '', '', 1, 1, '2024-07-18 13:33:20', '2024-07-18 13:33:20'),
+(1503, 'Giáo dục & Giải trí', '', '', '', 1, 1, '2024-07-18 13:33:32', '2024-07-18 13:33:32'),
+(1504, 'SP Xanh khác', '', '', '', 1, 1, '2024-07-18 13:33:40', '2024-07-18 13:33:40'),
+(1505, 'Nui mì ăn dặm', '', '', '', 1, 1, '2024-07-18 14:13:13', '2024-07-18 14:18:27'),
+(1506, 'Dầu ăn dặm', '', '', '', 1, 1, '2024-07-18 14:18:48', '2024-07-18 14:18:48'),
+(1507, 'Vitamin & khoáng chất cho bé', '', '', '', 1, 1, '2024-07-18 14:18:54', '2024-07-18 14:18:54'),
+(1508, 'Sản phẩm ăn dặm khác', '', '', '', 1, 1, '2024-07-18 14:19:23', '2024-07-18 14:19:23'),
+(1509, 'Ngũ cốc nguyên hạt ăn liền', '', '', '', 1, 1, '2024-07-18 14:20:13', '2024-07-18 14:20:13'),
+(1510, 'Ngũ cốc bán thành phẩm', '', '', '', 1, 1, '2024-07-18 14:20:21', '2024-07-18 14:20:21'),
+(1511, 'Nui mì', '', '', '', 1, 1, '2024-07-18 14:21:13', '2024-07-18 14:21:13'),
+(1512, 'Bột làm bánh', '', '', '', 1, 1, '2024-07-18 14:21:21', '2024-07-18 14:21:21'),
+(1513, 'Nguyên liệu làm bánh', '', '', '', 1, 1, '2024-07-18 14:21:34', '2024-07-18 14:21:34'),
+(1514, 'Bột gia vị', '', '', '', 1, 1, '2024-07-18 14:22:06', '2024-07-18 14:22:06'),
+(1515, 'Sốt gia vị', '', '', '', 1, 1, '2024-07-18 14:22:20', '2024-07-18 14:22:20'),
+(1516, 'Dầu & Giấm', '', '', '', 1, 1, '2024-07-18 14:22:26', '2024-07-18 14:22:26'),
+(1517, 'Mật ong - Siro - Đường', '', '', '', 1, 1, '2024-07-18 14:22:38', '2024-07-18 14:22:38'),
+(1518, 'Đậu & Hạt khô', '', '', '', 1, 1, '2024-07-18 14:22:45', '2024-07-18 14:22:45'),
+(1519, 'Đậu & Hạt đóng hộp', '', '', '', 1, 1, '2024-07-18 14:22:52', '2024-07-18 14:22:52'),
+(1520, 'Trái cây sấy khô', '', '', '', 1, 1, '2024-07-18 14:25:15', '2024-07-18 14:25:15'),
+(1521, 'Trái cây tươi', '', '', '', 1, 1, '2024-07-18 14:25:31', '2024-07-18 14:25:31'),
+(1522, 'Vitamin', '', '', '', 1, 1, '2024-07-18 14:26:46', '2024-07-18 14:26:46'),
+(1523, 'DHA', '', '', '', 1, 1, '2024-07-18 14:26:57', '2024-07-18 14:26:57'),
+(1524, 'TPCN khác', '', '', '', 1, 1, '2024-07-18 14:27:04', '2024-07-18 14:27:04'),
+(1525, 'Bột siêu thực phẩm', '', '', '', 1, 1, '2024-07-18 14:27:13', '2024-07-18 14:27:13'),
+(1526, 'Bôt đạm thực vật', '', '', '', 1, 1, '2024-07-18 14:27:19', '2024-07-18 14:27:19'),
+(1527, 'Bột trái cây', '', '', '', 1, 1, '2024-07-18 14:27:25', '2024-07-18 14:27:25'),
+(1528, 'Bột thảo mộc', '', '', '', 1, 1, '2024-07-18 14:27:31', '2024-07-18 14:27:31'),
+(1529, 'Bột supermix', '', '', '', 1, 1, '2024-07-18 14:27:37', '2024-07-18 14:27:37'),
+(1530, 'Sữa', '', '', '', 1, 1, '2024-07-18 14:27:47', '2024-07-18 14:27:47'),
+(1531, 'Trà Kombucha', '', '', '', 1, 1, '2024-07-18 14:27:53', '2024-07-18 14:27:53'),
+(1532, 'Trà & Cafe', '', '', '', 1, 1, '2024-07-18 14:28:00', '2024-07-18 14:28:00'),
+(1533, 'Sinh tố & Nước trái cây', '', '', '', 1, 1, '2024-07-18 14:28:05', '2024-07-18 14:28:05'),
+(1534, 'Thức uống khác', '', '', '', 1, 1, '2024-07-18 14:28:10', '2024-07-18 14:28:10'),
+(1535, 'Dưỡng & Bảo vệ', '', '', '', 1, 1, '2024-07-18 14:28:22', '2024-07-18 14:28:22'),
+(1536, 'Trang điểm', '', '', '', 1, 1, '2024-07-18 14:28:33', '2024-07-18 14:28:33'),
+(1537, 'Kem đánh răng', '', '', '', 1, 1, '2024-07-18 14:28:43', '2024-07-18 14:28:43'),
+(1538, 'Dầu gội đầu', '', '', '', 1, 1, '2024-07-18 14:28:50', '2024-07-18 14:28:50'),
+(1539, 'Sữa tắm', '', '', '', 1, 1, '2024-07-18 14:28:55', '2024-07-18 14:28:55'),
+(1540, 'Nước rửa tay', '', '', '', 1, 1, '2024-07-18 14:29:02', '2024-07-18 14:29:02'),
+(1541, 'Gel, xịt & SP khác', '', '', '', 1, 1, '2024-07-18 14:29:08', '2024-07-18 14:29:08'),
+(1542, 'Nước rửa chén', '', '', '', 1, 1, '2024-07-18 14:29:18', '2024-07-18 14:29:18'),
+(1543, 'Nước giặt đồ', '', '', '', 1, 1, '2024-07-18 14:29:59', '2024-07-18 14:29:59'),
+(1544, 'Nước lau sàn', '', '', '', 1, 1, '2024-07-18 14:30:04', '2024-07-18 14:30:04'),
+(1545, 'Xịt phòng, đuổi côn trùng', '', '', '', 1, 1, '2024-07-18 14:30:09', '2024-07-18 14:30:09'),
+(1546, 'Đặc sản xứ Bắc', '', '', '', 1, 1, '2024-07-18 14:30:19', '2024-07-18 14:30:19'),
+(1547, 'Đặc sản miền Trung', '', '', '', 1, 1, '2024-07-18 14:30:25', '2024-07-18 14:30:25'),
+(1548, 'Đặc sản miệt vườn', '', '', '', 1, 1, '2024-07-18 14:30:32', '2024-07-18 14:30:32'),
+(1549, 'Đồ chơi gỗ', '', '', '', 1, 1, '2024-07-18 14:30:39', '2024-07-18 14:30:39'),
+(1550, 'Giải trí', '', '', '', 1, 1, '2024-07-18 14:30:43', '2024-07-18 14:30:43'),
+(1551, 'Sách truyện', '', '', '', 1, 1, '2024-07-18 14:30:50', '2024-07-18 14:30:50'),
+(1552, 'Túi giấy', '', '', '', 1, 1, '2024-07-18 14:30:58', '2024-07-18 14:30:58'),
+(1553, 'Ống hút', '', '', '', 1, 1, '2024-07-18 14:31:04', '2024-07-18 14:31:04'),
+(1554, '', '', '', '', 1, 1, '2024-07-18 15:06:34', '2024-07-18 15:06:34'),
+(1555, '', '', '', '', 1, 1, '2024-07-18 19:08:20', '2024-07-18 19:08:20'),
+(1556, '', '', '', '', 1, 1, '2024-07-18 19:08:59', '2024-07-18 19:08:59'),
+(1557, '', '', '', '', 1, 1, '2024-07-18 19:10:19', '2024-07-18 19:10:19'),
+(1558, '', '', '', '', 1, 1, '2024-07-18 19:22:19', '2024-07-18 19:22:19'),
+(1559, '', '', '', '', 1, 1, '2024-07-18 19:22:40', '2024-07-18 19:22:40'),
+(1560, '', '', '', '', 1, 1, '2024-07-18 19:22:56', '2024-07-18 19:22:56'),
+(1561, '', '', '', '', 1, 1, '2024-07-18 19:23:13', '2024-07-18 19:23:13'),
+(1562, '', '', '', '', 1, 1, '2024-07-24 12:10:09', '2024-07-24 12:10:09'),
+(1563, '', '', '', '', 1, 1, '2024-07-25 10:26:33', '2024-07-25 10:26:33'),
+(1564, '', '', '', '', 1, 1, '2024-07-25 10:32:26', '2024-07-25 10:32:26'),
+(1565, '', '', '', '', 1, 1, '2024-07-25 11:15:46', '2024-07-25 11:15:46'),
+(1566, '', '', '', '', 1, 1, '2024-07-25 11:16:12', '2024-07-25 11:16:12'),
+(1567, '', '', '', '', 1, 1, '2024-07-25 11:19:52', '2024-07-25 11:19:52'),
+(1568, '', '', '', '', 1, 1, '2024-07-25 11:30:44', '2024-07-25 11:30:44'),
+(1569, '', '', '', '', 1, 1, '2024-07-25 11:40:55', '2024-07-25 11:40:55'),
+(1570, '', '', '', '', 1, 1, '2024-07-29 22:47:56', '2024-07-29 22:47:56'),
+(1571, '', '', '', '', 1, 1, '2024-07-29 23:09:41', '2024-07-29 23:09:41'),
+(1572, '', '', '', '', 1, 1, '2024-07-29 23:14:11', '2024-07-29 23:14:11'),
+(1573, '', '', '', '', 1, 1, '2024-07-29 23:16:12', '2024-07-29 23:16:12'),
+(1574, '', '', '', '', 1, 1, '2024-07-29 23:16:47', '2024-07-29 23:16:47'),
+(1575, '', '', '', '', 1, 1, '2024-07-29 23:19:37', '2024-07-29 23:19:37'),
+(1576, '', '', '', '', 1, 1, '2024-07-29 23:22:53', '2024-07-29 23:22:53'),
+(1577, '', '', '', '', 1, 1, '2024-07-29 23:31:58', '2024-07-29 23:31:58'),
+(1578, '', '', '', '', 1, 1, '2024-07-29 23:41:36', '2024-07-29 23:41:36'),
+(1579, '', '', '', '', 1, 1, '2024-07-29 23:45:09', '2024-07-29 23:45:09'),
+(1580, '', '', '', '', 1, 1, '2024-07-29 23:54:12', '2024-07-29 23:54:12'),
+(1581, '', '', '', '', 1, 1, '2024-07-29 23:55:24', '2024-07-29 23:55:24'),
+(1582, '', '', '', '', 1, 1, '2024-07-29 23:58:24', '2024-07-29 23:58:24'),
+(1583, '', '', '', '', 1, 1, '2024-07-29 23:58:57', '2024-07-29 23:58:57'),
+(1584, '', '', '', '', 1, 1, '2024-07-30 00:01:11', '2024-07-30 00:01:11'),
+(1585, '', '', '', '', 1, 1, '2024-07-30 00:03:59', '2024-07-30 00:03:59'),
+(1586, '', '', '', '', 1, 1, '2024-07-30 00:05:55', '2024-07-30 00:05:55'),
+(1587, '', '', '', '', 1, 1, '2024-07-30 00:08:06', '2024-07-30 00:08:06'),
+(1588, '', '', '', '', 1, 1, '2024-07-30 00:09:00', '2024-07-30 00:09:00'),
+(1589, '', '', '', '', 1, 1, '2024-07-30 00:10:35', '2024-07-30 00:10:35'),
+(1590, '', '', '', '', 1, 1, '2024-07-30 00:12:16', '2024-07-30 00:12:16'),
+(1591, '', '', '', '', 1, 1, '2024-07-30 00:12:48', '2024-07-30 00:12:48'),
+(1592, '', '', '', '', 1, 1, '2024-07-30 00:16:31', '2024-07-30 00:16:31'),
+(1593, '', '', '', '', 1, 1, '2024-07-30 00:18:31', '2024-07-30 00:18:31'),
+(1594, '', '', '', '', 1, 1, '2024-07-30 00:20:28', '2024-07-30 00:20:28'),
+(1595, '', '', '', '', 1, 1, '2024-07-30 00:21:21', '2024-07-30 00:21:21'),
+(1596, '', '', '', '', 1, 1, '2024-07-30 00:23:03', '2024-07-30 00:23:03'),
+(1597, '', '', '', '', 1, 1, '2024-07-30 00:26:37', '2024-07-30 00:26:37'),
+(1598, '', '', '', '', 1, 1, '2024-07-30 00:31:18', '2024-07-30 00:31:18'),
+(1599, '', '', '', '', 1, 1, '2024-07-30 00:33:30', '2024-07-30 00:33:30'),
+(1600, '', '', '', '', 1, 1, '2024-07-30 00:34:51', '2024-07-30 00:34:51'),
+(1601, '', '', '', '', 1, 1, '2024-07-30 00:36:46', '2024-07-30 00:36:46'),
+(1602, '', '', '', '', 1, 1, '2024-07-30 00:39:51', '2024-07-30 00:39:51'),
+(1603, '', '', '', '', 1, 1, '2024-07-30 00:40:50', '2024-07-30 00:40:50'),
+(1604, '', '', '', '', 1, 1, '2024-07-30 00:42:24', '2024-07-30 00:42:24'),
+(1605, '', '', '', '', 1, 1, '2024-07-30 00:44:05', '2024-07-30 00:44:05'),
+(1606, '', '', '', '', 1, 1, '2024-07-30 00:45:03', '2024-07-30 00:45:03'),
+(1607, '', '', '', '', 1, 1, '2024-07-30 00:46:43', '2024-07-30 00:46:43'),
+(1608, '', '', '', '', 1, 1, '2024-07-30 00:47:19', '2024-07-30 00:47:19'),
+(1609, '', '', '', '', 1, 1, '2024-07-30 00:47:50', '2024-07-30 00:47:50'),
+(1610, '', '', '', '', 1, 1, '2024-07-30 09:04:49', '2024-07-30 09:04:49'),
+(1611, '', '', '', '', 1, 1, '2024-07-30 09:06:26', '2024-07-30 09:06:26'),
+(1612, '', '', '', '', 1, 1, '2024-07-30 09:08:17', '2024-07-30 09:08:17'),
+(1613, '', '', '', '', 1, 1, '2024-07-30 09:09:11', '2024-07-30 09:09:11'),
+(1614, '', '', '', '', 1, 1, '2024-07-30 09:11:13', '2024-07-30 09:11:13'),
+(1615, '', '', '', '', 1, 1, '2024-07-30 09:12:08', '2024-07-30 09:12:08'),
+(1616, '', '', '', '', 1, 1, '2024-07-30 09:23:08', '2024-07-30 09:23:08'),
+(1617, '', '', '', '', 1, 1, '2024-07-30 09:24:35', '2024-07-30 09:24:35'),
+(1618, '', '', '', '', 1, 1, '2024-07-30 09:25:21', '2024-07-30 09:25:21'),
+(1619, '', '', '', '', 1, 1, '2024-07-30 09:26:50', '2024-07-30 09:26:50'),
+(1620, '', '', '', '', 1, 1, '2024-07-30 09:27:52', '2024-07-30 09:27:52'),
+(1621, '', '', '', '', 1, 1, '2024-07-30 09:28:29', '2024-07-30 09:28:29'),
+(1622, '', '', '', '', 1, 1, '2024-07-30 09:29:25', '2024-07-30 09:29:25'),
+(1623, '', '', '', '', 1, 1, '2024-07-30 09:30:19', '2024-07-30 09:30:19'),
+(1624, '', '', '', '', 1, 1, '2024-07-30 09:32:58', '2024-07-30 09:32:58'),
+(1625, '', '', '', '', 1, 1, '2024-07-30 09:35:09', '2024-07-30 09:35:09'),
+(1626, '', '', '', '', 1, 1, '2024-07-30 09:38:28', '2024-07-30 09:38:28'),
+(1627, '', '', '', '', 1, 1, '2024-07-30 09:39:19', '2024-07-30 09:39:19'),
+(1628, '', '', '', '', 1, 1, '2024-07-30 09:39:55', '2024-07-30 09:39:55'),
+(1629, '', '', '', '', 1, 1, '2024-07-30 09:45:20', '2024-07-30 09:45:20'),
+(1630, '', '', '', '', 1, 1, '2024-07-30 09:46:36', '2024-07-30 09:46:36'),
+(1631, '', '', '', '', 1, 1, '2024-07-30 09:47:13', '2024-07-30 09:47:13'),
+(1632, '', '', '', '', 1, 1, '2024-07-30 09:50:53', '2024-07-30 09:50:53'),
+(1633, '', '', '', '', 1, 1, '2024-07-30 09:51:56', '2024-07-30 09:51:56'),
+(1634, '', '', '', '', 1, 1, '2024-07-30 09:54:33', '2024-07-30 09:54:33'),
+(1635, '', '', '', '', 1, 1, '2024-07-30 09:57:45', '2024-07-30 09:57:45'),
+(1636, '', '', '', '', 1, 1, '2024-07-30 09:58:31', '2024-07-30 09:58:31'),
+(1637, '', '', '', '', 1, 1, '2024-07-30 14:38:17', '2024-07-30 14:38:17'),
+(1638, '', '', '', '', 1, 1, '2024-07-30 14:41:35', '2024-07-30 14:41:35'),
+(1639, '', '', '', '', 1, 1, '2024-07-30 14:43:14', '2024-07-30 14:43:14'),
+(1640, '', '', '', '', 1, 1, '2024-07-30 14:44:44', '2024-07-30 14:44:44'),
+(1641, '', '', '', '', 1, 1, '2024-07-30 14:49:18', '2024-07-30 14:49:18'),
+(1642, '', '', '', '', 1, 1, '2024-07-30 14:52:24', '2024-07-30 14:52:24'),
+(1643, '', '', '', '', 1, 1, '2024-07-30 14:53:43', '2024-07-30 14:53:43'),
+(1644, '', '', '', '', 1, 1, '2024-07-30 14:55:55', '2024-07-30 14:55:55'),
+(1645, '', '', '', '', 1, 1, '2024-07-30 14:57:23', '2024-07-30 14:57:23'),
+(1646, '', '', '', '', 1, 1, '2024-07-30 14:58:28', '2024-07-30 14:58:28'),
+(1647, '', '', '', '', 1, 1, '2024-07-30 15:01:35', '2024-07-30 15:01:35'),
+(1648, '', '', '', '', 1, 1, '2024-07-30 15:04:13', '2024-07-30 15:04:13'),
+(1649, '', '', '', '', 1, 1, '2024-07-30 15:06:43', '2024-07-30 15:06:43'),
+(1650, '', '', '', '', 1, 1, '2024-07-30 15:07:39', '2024-07-30 15:07:39'),
+(1651, '', '', '', '', 1, 1, '2024-07-30 15:09:01', '2024-07-30 15:09:01'),
+(1652, '', '', '', '', 1, 1, '2024-07-30 15:14:45', '2024-07-30 15:14:45'),
+(1653, '', '', '', '', 1, 1, '2024-07-30 15:17:21', '2024-07-30 15:17:21'),
+(1654, '', '', '', '', 1, 1, '2024-07-30 15:19:33', '2024-07-30 15:19:33'),
+(1655, '', '', '', '', 1, 1, '2024-07-30 15:26:19', '2024-07-30 15:26:19'),
+(1656, '', '', '', '', 1, 1, '2024-07-30 15:28:46', '2024-07-30 15:28:46'),
+(1657, '', '', '', '', 1, 1, '2024-07-30 15:30:42', '2024-07-30 15:30:42'),
+(1658, '', '', '', '', 1, 1, '2024-07-30 15:56:56', '2024-07-30 15:56:56'),
+(1659, '', '', '', '', 1, 1, '2024-07-30 15:58:01', '2024-07-30 15:58:01'),
+(1660, '', '', '', '', 1, 1, '2024-07-30 16:01:18', '2024-07-30 16:01:18'),
+(1661, '', '', '', '', 1, 1, '2024-07-30 16:04:59', '2024-07-30 16:04:59'),
+(1662, '', '', '', '', 1, 1, '2024-07-30 16:09:57', '2024-07-30 16:09:57'),
+(1663, '', '', '', '', 1, 1, '2024-07-30 16:12:24', '2024-07-30 16:12:24'),
+(1664, '', '', '', '', 1, 1, '2024-07-30 16:15:20', '2024-07-30 16:15:20'),
+(1665, '', '', '', '', 1, 1, '2024-07-30 16:17:20', '2024-07-30 16:17:20'),
+(1666, '', '', '', '', 1, 1, '2024-07-30 16:18:32', '2024-07-30 16:18:32'),
+(1667, '', '', '', '', 1, 1, '2024-07-30 16:21:01', '2024-07-30 16:21:01'),
+(1668, '', '', '', '', 1, 1, '2024-07-30 16:23:12', '2024-07-30 16:23:12'),
+(1669, '', '', '', '', 1, 1, '2024-07-30 16:26:18', '2024-07-30 16:26:18'),
+(1670, '', '', '', '', 1, 1, '2024-07-30 16:38:57', '2024-07-30 16:38:57'),
+(1671, '', '', '', '', 1, 1, '2024-07-30 16:45:58', '2024-07-30 16:45:58'),
+(1672, '', '', '', '', 1, 1, '2024-07-30 16:46:33', '2024-07-30 16:46:33'),
+(1673, '', '', '', '', 1, 1, '2024-07-30 16:47:15', '2024-07-30 16:47:15'),
+(1674, '', '', '', '', 1, 1, '2024-07-30 16:52:01', '2024-07-30 16:52:01'),
+(1675, '', '', '', '', 1, 1, '2024-07-30 16:52:36', '2024-07-30 16:52:36'),
+(1676, '', '', '', '', 1, 1, '2024-07-30 16:53:50', '2024-07-30 16:53:50'),
+(1677, '', '', '', '', 1, 1, '2024-07-30 16:55:05', '2024-07-30 16:55:05'),
+(1678, '', '', '', '', 1, 1, '2024-07-30 16:57:11', '2024-07-30 16:57:11'),
+(1679, '', '', '', '', 1, 1, '2024-07-30 16:58:55', '2024-07-30 16:58:55'),
+(1680, '', '', '', '', 1, 1, '2024-07-30 17:00:41', '2024-07-30 17:00:41'),
+(1681, '', '', '', '', 1, 1, '2024-07-30 17:02:37', '2024-07-30 17:02:37'),
+(1682, '', '', '', '', 1, 1, '2024-07-30 17:04:09', '2024-07-30 17:04:09'),
+(1683, '', '', '', '', 1, 1, '2024-07-30 17:08:29', '2024-07-30 17:08:29'),
+(1684, '', '', '', '', 1, 1, '2024-07-30 17:09:37', '2024-07-30 17:09:37'),
+(1685, '', '', '', '', 1, 1, '2024-07-30 17:16:56', '2024-07-30 17:16:56'),
+(1686, '', '', '', '', 1, 1, '2024-07-30 17:17:34', '2024-07-30 17:17:34'),
+(1687, '', '', '', '', 1, 1, '2024-07-30 17:19:05', '2024-07-30 17:19:05'),
+(1688, '', '', '', '', 1, 1, '2024-07-30 17:19:45', '2024-07-30 17:19:45'),
+(1689, '', '', '', '', 1, 1, '2024-07-30 17:21:22', '2024-07-30 17:21:22'),
+(1690, '', '', '', '', 1, 1, '2024-07-30 17:21:51', '2024-07-30 17:21:51'),
+(1691, '', '', '', '', 1, 1, '2024-07-30 17:23:16', '2024-07-30 17:23:16'),
+(1692, '', '', '', '', 1, 1, '2024-07-30 17:25:17', '2024-07-30 17:25:17'),
+(1693, '', '', '', '', 1, 1, '2024-07-30 17:27:51', '2024-07-30 17:27:51'),
+(1694, '', '', '', '', 1, 1, '2024-07-30 17:31:17', '2024-07-30 17:31:17'),
+(1695, '', '', '', '', 1, 1, '2024-07-30 17:32:33', '2024-07-30 17:32:33'),
+(1696, '', '', '', '', 1, 1, '2024-07-30 17:34:08', '2024-07-30 17:34:08'),
+(1697, '', '', '', '', 1, 1, '2024-08-18 15:26:57', '2024-08-18 15:26:57'),
+(1698, '', '', '', '', 1, 1, '2024-08-18 15:27:27', '2024-08-18 15:27:27'),
+(1699, '', '', '', '', 1, 1, '2024-08-18 15:31:08', '2024-08-18 15:31:08'),
+(1700, '', '', '', '', 1, 1, '2024-08-18 15:31:32', '2024-08-18 15:31:32'),
+(1701, '', '', '', '', 1, 1, '2024-08-18 15:33:07', '2024-08-18 15:33:07');
 
 -- --------------------------------------------------------
 
@@ -14236,20 +14670,7 @@ CREATE TABLE `newsletter` (
   `updated_user` tinyint(4) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `newsletter`
---
-
-INSERT INTO `newsletter` (`id`, `email`, `is_member`, `status`, `updated_user`, `created_at`, `updated_at`) VALUES
-(1, 'hoangnhpublic@gmail.com', 1, 1, NULL, '2016-09-22 06:14:46', '2016-09-22 06:14:46'),
-(2, 'tungocsang88@gmail.com', 1, 1, NULL, '2016-09-26 11:20:29', '2016-09-26 11:20:29'),
-(3, 'dinhthanhtam1966@gmail.com', 0, 1, NULL, '2016-10-07 03:09:07', '2016-10-07 03:09:07'),
-(4, 'wqdqwd@gmail.com', 0, 1, NULL, '2016-10-11 07:30:13', '2016-10-11 07:30:13'),
-(5, 'hoangnhonline@gmail.com', 0, 1, NULL, '2016-10-30 17:54:26', '2016-10-30 17:54:26'),
-(6, 'vtran1483@gmail.com', 1, 1, NULL, '2016-11-06 22:34:56', '2016-11-06 22:34:56'),
-(7, 'hahanh380@gmai.com', 0, 1, NULL, '2017-01-15 15:32:50', '2017-01-15 15:32:50');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -14283,7 +14704,7 @@ CREATE TABLE `orders` (
   `phi_cod` int(11) NOT NULL DEFAULT 0,
   `service_fee` int(11) NOT NULL DEFAULT 0,
   `address_type` tinyint(4) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `orders`
@@ -14323,7 +14744,7 @@ CREATE TABLE `order_detail` (
   `so_dich_vu` tinyint(4) NOT NULL DEFAULT 0,
   `don_gia_dich_vu` int(11) NOT NULL DEFAULT 0,
   `tong_dich_vu` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `order_detail`
@@ -14370,19 +14791,19 @@ CREATE TABLE `pages` (
   `updated_user` tinyint(4) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `pages`
 --
 
 INSERT INTO `pages` (`id`, `title`, `alias`, `description`, `content`, `image_url`, `slug`, `status`, `meta_title`, `meta_description`, `meta_keywords`, `custom_text`, `created_user`, `updated_user`, `created_at`, `updated_at`) VALUES
-(1, 'Giới thiệu', 'Gioi thieu', '', '<p><strong>Về iChợ:</strong><br />\r\niChợ l&agrave; thương hiệu&nbsp;của C&ocirc;ng ty Cổ Phần I.P.L<br />\r\niChợ l&agrave; một m&ocirc; h&igrave;nh chợ c&ocirc;ng nghệ chuy&ecirc;n b&aacute;n sỉ online, cung cấp m&aacute;y t&iacute;nh, c&aacute;c sản phẩm thiết bị văn ph&ograve;ng đến với tất cả đối tượng kh&aacute;ch h&agrave;ng từ những kh&aacute;ch h&agrave;ng khối cơ quan nh&agrave; nước, khối doanh nghiệp, đai l&yacute;,&hellip;.. vượt trội cả về chủng loại v&agrave; số lượng, mang đến cho kh&aacute;ch h&agrave;ng những sản phẩm c&oacute; nguồn gốc rỏ r&agrave;ng, ch&iacute;nh h&atilde;ng, đảm bảo về chất lượng.<br />\r\niChợ đặt mục ti&ecirc;u trở th&agrave;nh hệ thống chợ b&aacute;n sỉ lớn nhất tr&ecirc;n to&agrave;n quốc. với c&aacute;c gi&aacute; trị tiện &iacute;ch:<br />\r\n-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Mức gi&aacute; sỉ cạnh tranh.<br />\r\n-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Số lượng sản phẩm đa dạng, phong ph&uacute;.<br />\r\n-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Bảo h&agrave;nh ch&iacute;nh h&atilde;ng.<br />\r\n-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Thanh to&aacute;n an to&agrave;n, bảo mật.<br />\r\n-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tốc độ giao h&agrave;ng vượt trội<br />\r\n-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Giao dịch uy t&iacute;n, thuận tiện, nhanh ch&oacute;ng.<br />\r\n-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; N&oacute;i kh&ocirc;ng với h&agrave;ng renew, h&agrave;ng đ&atilde; qua sử dụng.<br />\r\n<br />\r\n<strong>Th&ocirc;ng tin li&ecirc;n lạc:</strong></p>\r\n\r\n<ul>\r\n	<li><strong>Điện thoại:</strong><strong>&nbsp;1900 636 975</strong></li>\r\n	<li><strong>Email:</strong>&nbsp;Truy cập&nbsp;muahang@icho.vn</li>\r\n</ul>\r\n\r\n<h3>Th&ocirc;ng tin về c&ocirc;ng ty:</h3>\r\n\r\n<ul>\r\n	<li>C&ocirc;ng ty Cổ phần IPL</li>\r\n	<li>Địa chỉ đăng k&yacute; kinh doanh: 216 Ho&agrave;ng Văn Thụ, Phường 4, Quận T&acirc;n B&igrave;nh</li>\r\n	<li>Giấy chứng nhận Đăng k&yacute; Kinh doanh số 0310140399 do Sở Kế hoạch v&agrave; Đầu tư Th&agrave;nh phố Hồ Ch&iacute; Minh cấp ng&agrave;y 02/07/2010</li>\r\n</ul>\r\n', '', 'gioi-thieu', 1, '', '', '', '', 1, 1, '2016-09-22 07:14:21', '2017-03-17 06:58:42'),
-(3, 'Bảo mật thông tin', 'Bao mat thong tin', '', 'Ch&iacute;nh s&aacute;ch bảo mật th&ocirc;ng tin (Xem chi tiết tại điều 68 đến Điều 73 Nghị định 52/2013/NĐ-CP), bao gồm:\r\n<h3>\r\n	<strong>Th&ocirc;ng tin&nbsp;thu thập</strong></h3>\r\nNhững loại th&ocirc;ng tin iChợ cần&nbsp;bao gồm:\r\n<ul>\r\n	<li>\r\n		Họ v&agrave; t&ecirc;n kh&aacute;ch h&agrave;ng, địa chỉ li&ecirc;n hệ</li>\r\n	<li>\r\n		Email, số điện thoại di động, số điện thoại b&agrave;n</li>\r\n</ul>\r\n<h3>\r\n	<strong>Phạm vi sử dụng</strong></h3>\r\n<ul>\r\n	<li>\r\n		iChợ chỉ sử dụng th&ocirc;ng tin thu thập được cho mục đ&iacute;ch chăm s&oacute;c kh&aacute;ch h&agrave;ng</li>\r\n	<li>\r\n		iChợ c&oacute; thể sử dụng những th&ocirc;ng tin n&agrave;y để li&ecirc;n hệ với kh&aacute;ch h&agrave;ng bằng&nbsp;c&aacute;c h&igrave;nh thức như: thư ngỏ, đơn đặt h&agrave;ng, thư cảm ơn, th&ocirc;ng tin khuyến m&atilde;i hay dịch vụ mới</li>\r\n</ul>\r\n<h3>\r\n	<strong>Thời gian lưu trữ</strong></h3>\r\n<ul>\r\n	<li>\r\n		iChợ sẽ lưu trữ th&ocirc;ng tin do kh&aacute;ch h&agrave;ng cung cấp tr&ecirc;n hệ thống phần mềm CRM trong thời gian theo d&otilde;i bảo h&agrave;nh sản phẩm.</li>\r\n	<li>\r\n		iChợ sẽ tiến h&agrave;nh x&oacute;a th&ocirc;ng tin kh&aacute;ch h&agrave;ng khi sản phẩm đ&atilde; qua hết thời hạn bảo h&agrave;nh hoặc kh&aacute;ch h&agrave;ng c&oacute; y&ecirc;u cầu hủy th&ocirc;ng tin đ&atilde; cung cấp.</li>\r\n</ul>\r\n<h3>\r\n	<strong>Đơn vị thu thập v&agrave; quản l&yacute; th&ocirc;ng tin</strong></h3>\r\nShowroom: 240 V&otilde; Văn Ng&acirc;n, B&igrave;nh Thọ, Thủ Đức, Hồ Ch&iacute; Minh<br />\r\nHotline: 1900 636 975\r\n<h3>\r\n	<strong>Cập nhật th&ocirc;ng tin</strong></h3>\r\nKh&aacute;ch h&agrave;ng muốn chỉnh sửa hoặc thay đổi th&ocirc;ng tin vui l&ograve;ng li&ecirc;n hệ bộ phận chăm s&oacute;c kh&aacute;ch h&agrave;ng theo số 1900 636 975\r\n<h3>\r\n	<strong>Cam kết bảo mật&nbsp;</strong></h3>\r\niChợ kh&ocirc;ng được quyền chia sẻ th&ocirc;ng tin của Qu&yacute; kh&aacute;ch cho bất kỳ một đơn vị n&agrave;o kh&aacute;c. Trong trường hợp đặc biệt, iChợ c&oacute; thể bị y&ecirc;u cầu phải tiết lộ th&ocirc;ng tin kh&aacute;ch h&agrave;ng như: khi c&oacute; căn cứ cho việc cung cấp th&ocirc;ng tin l&agrave; cần thiết để ngăn chặn c&aacute;c mối đe dọa về t&iacute;nh mạng, sức khỏe, hay cho mục đ&iacute;ch thực thi ph&aacute;p luật m&agrave; được cơ quan c&oacute; thẩm quyền y&ecirc;u cầu bằng văn bản. iChợ cam kết tu&acirc;n thủ Luật&nbsp;bảo mật&nbsp;v&agrave; c&aacute;c Nguy&ecirc;n tắc bảo mật hiện h&agrave;nh của nước Cộng h&ograve;a X&atilde; hội Chủ Nghĩa Việt Nam.', '', 'bao-mat-thong-tin', 1, '', '', '', '', 1, 1, '2016-09-22 07:14:22', '2017-01-06 13:55:08'),
-(4, 'Phương thức thanh toán', 'Phuong thuc thanh toan', '', '<h3 style=\"text-align: justify;\">\r\n	<strong>Thanh to&aacute;n bằng tiền mặt khi nhận h&agrave;ng, h&igrave;nh thức COD (cash on delivery)</strong></h3>\r\n<p style=\"text-align: justify;\">\r\n	- &Aacute;p dụng cho tất cả kh&aacute;ch h&agrave;ng mua online qua dịch vụ chuyển ph&aacute;t nhanh, nhận h&agrave;ng, kiểm tra chất lượng, thanh to&aacute;n.</p>\r\n<h3 style=\"text-align: justify;\">\r\n	<strong>Thanh to&aacute;n trả trước chuyển khoản online</strong></h3>\r\n<p style=\"text-align: justify;\">\r\n	- &Aacute;p dụng cho kh&aacute;ch h&agrave;ng sử dụng phương thức thanh to&aacute;n online:</p>\r\n<ul style=\"text-align: justify;\">\r\n	<li>\r\n		T&ecirc;n t&agrave;i khoản:&nbsp;<strong>CHI NH&Aacute;NH THỦ ĐỨC -</strong> <strong>C&Ocirc;NG TY CỔ PHẦN I.P.L</strong></li>\r\n	<li>\r\n		Số t&agrave;i khoản:&nbsp;<strong>82901409</strong></li>\r\n	<li>\r\n		<strong>Ng&acirc;n h&agrave;ng Thương Mại Cổ Phần &Aacute; Ch&acirc;u (ACB) &ndash; CN THỦ ĐỨC</strong></li>\r\n</ul>\r\n<p style=\"text-align: justify;\">\r\n	&nbsp;</p>\r\n', '', 'phuong-thuc-thanh-toan', 1, '', '', '', '', 1, 1, '2016-09-22 07:14:22', '2017-01-06 13:56:13'),
-(5, 'Phí vận chuyển', 'Phi van chuyen', '', '<h3>\r\n	<strong>Khu vực giao h&agrave;ng</strong></h3>\r\n- Phạm vi giao h&agrave;ng to&agrave;n quốc.\r\n<h3>\r\n	<strong>Biểu ph&iacute; v&agrave; thời gian nhận h&agrave;ng</strong></h3>\r\n- iChợ &aacute;p dụng thời gian v&agrave; biểu ph&iacute; giao h&agrave;ng theo biểu gi&aacute; của C&ocirc;ng ty Cổ phần Bưu Ch&iacute;nh Viettel như sau:&nbsp;<u><a href=\"https://www.shipchung.vn/wp-content/uploads/2016/09/BangPhidichvuvanchuyen0108-2809-2016.pdf\" rel=\"nofollow\"><span style=\"color:#0000ff;\">Biểu ph&iacute; dịch vụ vận chuyển Viettel</span></a></u><br />\r\n<br />\r\n', '', 'hinh-thuc-van-chuyen', 1, '', '', '', '', 1, 1, '2016-09-22 07:14:22', '2017-01-07 06:30:58'),
-(6, 'Chính sách bảo hành', 'Chinh sach bao hanh', '', '<div>\r\n<div class=\"clearfix\">\r\n<h3 style=\"text-align:justify\"><strong>Bảo h&agrave;nh</strong></h3>\r\n\r\n<ul>\r\n	<li style=\"text-align:justify\">Sản phẩm b&aacute;n ra bị lỗi do sản xuất c&ograve;n trong thời hạn bảo h&agrave;nh;</li>\r\n	<li style=\"text-align:justify\">Sản phẩm bảo h&agrave;nh đủ điều kiện bảo h&agrave;nh của nh&agrave; sản xuất: chưa th&aacute;o mở, c&ograve;n tem, nh&atilde;n, serial number của nh&agrave; sản xuất v&agrave; nh&agrave; cung cấp;</li>\r\n	<li style=\"text-align:justify\">Sản phẩm được bảo h&agrave;nh khi c&oacute; phiếu bảo h&agrave;nh nh&agrave; cung cấp, phiếu bảo h&agrave;nh nh&agrave; sản xuất (nếu c&oacute; k&egrave;m theo);</li>\r\n	<li style=\"text-align:justify\">Đối với những sản phẩm bảo h&agrave;nh điện tử sẽ được bảo h&agrave;nh bằng Phiếu bảo h&agrave;nh nh&agrave; cung cấp với số IMEI, serial number tr&ecirc;n sản phẩm c&ograve;n nguy&ecirc;n vẹn;</li>\r\n</ul>\r\n\r\n<h3 style=\"text-align:justify\"><strong>Kh&ocirc;ng bảo h&agrave;nh</strong></h3>\r\n\r\n<ul>\r\n	<li style=\"text-align:justify\">Sản phẩm hết thời hạn bảo h&agrave;nh.</li>\r\n	<li>Sản phẩm c&oacute; sự&nbsp;can thiệp&nbsp;c&ograve;n trong thời hạn bảo h&agrave;nh của nh&agrave; sản xuất;</li>\r\n	<li>Sản phẩm bị va đập, rơi rớt, biến dạng so với hiện trạng ban đầu;</li>\r\n	<li>Sản phẩm bị sốc điện, g&acirc;y ch&aacute;y nỗ;</li>\r\n	<li>Sản phẩm bị nước, chất lỏng đổ v&agrave;o;</li>\r\n	<li>C&aacute;c phần mềm hoạt động tr&ecirc;n m&aacute;y, phần mềm ứng dụng được c&agrave;i đặt từ nh&agrave; sản xuất;</li>\r\n	<li>Qu&agrave; tặng trong c&aacute;c chương tr&igrave;nh khuyến m&atilde;i, c&aacute;c loại phụ kiện hao m&ograve;n trong qu&aacute; tr&igrave;nh sử dụng như: Mực m&aacute;y in, đầu phun mực, đầu kim, bao lụa, trống drum;</li>\r\n	<li>C&aacute;c dữ liệu được lưu trữ của kh&aacute;ch h&agrave;ng trong qu&aacute; tr&igrave;nh sử dụng khi gửi đến bảo h&agrave;nh;</li>\r\n</ul>\r\n\r\n<h3 style=\"text-align:justify\"><strong>C&aacute;c lưu &yacute; khi bảo h&agrave;nh</strong></h3>\r\n\r\n<ul>\r\n	<li style=\"text-align:justify\">Sản phẩm sửa chữa, thay thế linh kiện hoặc đổi sản phẩm kh&aacute;c phụ thuộc v&agrave;o nh&agrave; sản xuất tại thời điểm bảo h&agrave;nh;</li>\r\n	<li style=\"text-align:justify\">Thời gian trả bảo h&agrave;nh từ 3 đến 7 ng&agrave;y (trường hợp qu&aacute; 7 ng&agrave;y iChợ sẽ chủ động li&ecirc;n hệ với kh&aacute;ch h&agrave;ng);</li>\r\n	<li style=\"text-align:justify\">Đối với sản phẩm gửi bảo h&agrave;nh từ c&aacute;c tỉnh, chi ph&iacute; vận chuyển gửi v&agrave;o sẽ do kh&aacute;ch h&agrave;ng chi trả, chi ph&iacute; gửi trả sản phẩm sẽ do iChợ chi trả.</li>\r\n</ul>\r\n</div>\r\n</div>\r\n', '', 'chinh-sach-bao-hanh', 1, '', '', '', '', 1, 1, '2016-09-22 07:14:22', '2017-05-25 06:19:24'),
-(7, 'Chính sách đổi trả', 'Chinh sach doi tra', '', '<section>\r\n	<div>\r\n		<div class=\"clearfix\">\r\n			<h3 style=\"text-align: left;\">\r\n				<strong>Sản phẩm mới</strong></h3>\r\n			<table border=\"1\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">\r\n				<thead>\r\n					<tr>\r\n						<td style=\"text-align: center;\">\r\n							<b>SẢN PHẨM</b></td>\r\n						<td colspan=\"2\" style=\"text-align: center;\">\r\n							<strong>THỜI GIAN</strong></td>\r\n						<td style=\"text-align: center;\">\r\n							<strong>PH&Iacute; ĐỔI TRẢ</strong></td>\r\n					</tr>\r\n				</thead>\r\n				<tbody>\r\n					<tr>\r\n						<td rowspan=\"3\">\r\n							<p style=\"text-align: center;\">\r\n								<strong>Sản phẩm bị lỗi do&nbsp;sản xuất</strong></p>\r\n						</td>\r\n						<td rowspan=\"2\">\r\n							<p style=\"text-align: center;\">\r\n								Th&aacute;ng 1</p>\r\n						</td>\r\n						<td>\r\n							<p style=\"text-align: center;\">\r\n								7 ng&agrave;y đầu ti&ecirc;n</p>\r\n						</td>\r\n						<td>\r\n							<ul>\r\n								<li>\r\n									Miễn ph&iacute; 1 đổi 1:&nbsp;cùng model, cùng màu, cùng dung lượng</li>\r\n								<li>\r\n									Trường hợp hết sản phẩm để đổi kh&aacute;ch h&agrave;ng c&oacute; thể đổi sang sản phẩm kh&aacute;c c&oacute; gi&aacute; trị tương đương hoặc trả h&agrave;ng lấy lại tiền</li>\r\n							</ul>\r\n						</td>\r\n					</tr>\r\n					<tr>\r\n						<td>\r\n							<p style=\"text-align: center;\">\r\n								&gt;7 ng&agrave;y</p>\r\n						</td>\r\n						<td>\r\n							<p style=\"text-align: center;\">\r\n								Trừ 20% gi&aacute; tr&ecirc;n h&oacute;a đơn</p>\r\n						</td>\r\n					</tr>\r\n					<tr>\r\n						<td colspan=\"2\">\r\n							<p style=\"text-align: center;\">\r\n								Th&aacute;ng 2&nbsp;- 12</p>\r\n						</td>\r\n						<td>\r\n							<ul>\r\n								<li>\r\n									Trừ th&ecirc;m 5% mỗi th&aacute;ng so với th&aacute;ng thứ 1</li>\r\n								<li>\r\n									VD: Th&aacute;ng thứ 2 trừ 25% gi&aacute; tr&ecirc;n h&oacute;a đơn, th&aacute;ng thứ 3 trừ 30% gi&aacute; tr&ecirc;n h&oacute;a đơn</li>\r\n							</ul>\r\n						</td>\r\n					</tr>\r\n					<tr>\r\n						<td rowspan=\"2\">\r\n							<p style=\"text-align: center;\">\r\n								<strong>Sản phẩm kh&ocirc;ng bị lỗi</strong></p>\r\n						</td>\r\n						<td colspan=\"2\">\r\n							<p style=\"text-align: center;\">\r\n								Th&aacute;ng 1</p>\r\n						</td>\r\n						<td style=\"text-align: center;\">\r\n							Trừ 20% gi&aacute; tr&ecirc;n h&oacute;a đơn</td>\r\n					</tr>\r\n					<tr>\r\n						<td colspan=\"2\">\r\n							<p style=\"text-align: center;\">\r\n								Th&aacute;ng 2&nbsp;- 12</p>\r\n						</td>\r\n						<td>\r\n							<ul>\r\n								<li>\r\n									Trừ th&ecirc;m 5% mỗi th&aacute;ng so với th&aacute;ng thứ 1</li>\r\n								<li>\r\n									VD: Th&aacute;ng thứ 2 trừ 25% gi&aacute; tr&ecirc;n h&oacute;a đơn, th&aacute;ng thứ 3 trừ 30% gi&aacute; tr&ecirc;n h&oacute;a đơn</li>\r\n							</ul>\r\n						</td>\r\n					</tr>\r\n					<tr>\r\n						<td>\r\n							<p style=\"text-align: center;\">\r\n								<strong>Sản phẩm bị lỗi do người sử dụng</strong></p>\r\n						</td>\r\n						<td colspan=\"3\">\r\n							<ul>\r\n								<li>\r\n									Kh&ocirc;ng đủ điều kiện bảo h&agrave;nh theo qui định của h&atilde;ng</li>\r\n								<li>\r\n									M&aacute;y kh&ocirc;ng giữ nguy&ecirc;n 100% h&igrave;nh dạng ban đầu: bị rơi, va chạm, cấn m&oacute;p</li>\r\n								<li>\r\n									M&agrave;n h&igrave;nh bị trầy xước, v&agrave;o nước,&hellip;</li>\r\n							</ul>\r\n							=&gt; Kh&ocirc;ng &aacute;p dụng đổi trả. iChợ hỗ trợ chuyển bảo h&agrave;nh, kh&aacute;ch h&agrave;ng chịu chi ph&iacute; sửa chữa</td>\r\n					</tr>\r\n				</tbody>\r\n			</table>\r\n			<strong>Điều kiện đổi trả:</strong>\r\n			<ul>\r\n				<li>\r\n					C&ograve;n đầy đủ hộp sản phẩm (mất hộp thu ph&iacute; 2%)</li>\r\n				<li>\r\n					C&ograve;n đầy đủ phiếu bảo h&agrave;nh (nếu c&oacute;) v&agrave; phụ kiện đi k&egrave;m (mất thu ph&iacute; theo qui định v&agrave; lớn nhất l&agrave; 5% tr&ecirc;n gi&aacute; ho&aacute; đơn/mỗi phụ kiện mất)</li>\r\n				<li>\r\n					M&aacute;y trầy xước: thu ph&iacute; 5% gi&aacute; tr&ecirc;n h&oacute;a đơn</li>\r\n				<li>\r\n					Qu&agrave; khuyến m&atilde;i: thu ph&iacute; theo gi&aacute; mua lại do iChợ quy định</li>\r\n			</ul>\r\n			<strong>Lưu &yacute; đối với sản phẩm mua trả g&oacute;p:</strong>\r\n			<ul>\r\n				<li>\r\n					Trong 14 ng&agrave;y đầu ti&ecirc;n: huỷ hợp đồng, kh&ocirc;ng chịu ph&iacute;.</li>\r\n				<li>\r\n					Sau 14 ng&agrave;y: Qu&yacute; kh&aacute;ch phải thanh l&yacute; hợp đồng v&agrave; chịu ph&iacute; theo c&ocirc;ng ty trả g&oacute;p quy định</li>\r\n			</ul>\r\n			<h3>\r\n				<strong>Sản phẩm đ&atilde; qua sử dụng</strong></h3>\r\n			<table border=\"1\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">\r\n				<thead>\r\n					<tr>\r\n						<td>\r\n							<p style=\"text-align: center;\">\r\n								<strong>THỜI GIAN</strong></p>\r\n						</td>\r\n						<td style=\"text-align: center;\">\r\n							<strong>SẢN PHẨM BỊ LỖI DO SẢN XUẤT</strong></td>\r\n						<td style=\"text-align: center;\">\r\n							<b>SẢN PHẨM KH&Ocirc;NG BỊ LỖI</b></td>\r\n					</tr>\r\n				</thead>\r\n				<tbody>\r\n					<tr>\r\n						<td>\r\n							<p style=\"text-align: center;\">\r\n								<strong>7 ng&agrave;y đầu ti&ecirc;n</strong></p>\r\n						</td>\r\n						<td>\r\n							<ul>\r\n								<li>\r\n									Đổi sản phẩm miễn ph&iacute; tương đương: c&ugrave;ng model, c&ugrave;ng dung lượng, c&ugrave;ng thời gian bảo h&agrave;nh</li>\r\n								<li>\r\n									Trường hợp kh&ocirc;ng c&oacute; sản phẩm tương đương th&igrave; ho&agrave;n tiền 100% gi&aacute; tr&ecirc;n h&oacute;a đơn</li>\r\n							</ul>\r\n						</td>\r\n						<td>\r\n							<p style=\"text-align: center;\">\r\n								Kh&ocirc;ng &aacute;p dụng đổi trả</p>\r\n						</td>\r\n					</tr>\r\n					<tr>\r\n						<td>\r\n							<p style=\"text-align: center;\">\r\n								<strong>Tuần thứ 2 - Th&aacute;ng thứ 12</strong></p>\r\n						</td>\r\n						<td>\r\n							<p style=\"text-align: center;\">\r\n								Gửi m&aacute;y bảo h&agrave;nh theo đ&uacute;ng qui định của h&atilde;ng</p>\r\n						</td>\r\n						<td>\r\n							<p style=\"text-align: center;\">\r\n								Kh&ocirc;ng &aacute;p dụng đổi trả</p>\r\n						</td>\r\n					</tr>\r\n				</tbody>\r\n			</table>\r\n			<strong>Sản phẩm lỗi do người sử dụng:</strong>\r\n			<ul>\r\n				<li>\r\n					Kh&ocirc;ng đủ điều kiện bảo h&agrave;nh theo qui định của h&atilde;ng</li>\r\n				<li>\r\n					M&aacute;y kh&ocirc;ng giữ nguy&ecirc;n 100% h&igrave;nh dạng ban đầu: bị rơi, va chạm, cấn m&oacute;p</li>\r\n				<li>\r\n					M&agrave;n h&igrave;nh bị trầy xước, v&agrave;o nước</li>\r\n			</ul>\r\n			=&gt;&nbsp;Kh&ocirc;ng &aacute;p dụng bảo h&agrave;nh, đổi trả. iChợ hỗ trợ chuyển bảo h&agrave;nh, kh&aacute;ch h&agrave;ng chịu chi ph&iacute; sửa chữa <strong>Điều kiện đổi trả:</strong>\r\n			<ul>\r\n				<li>\r\n					C&ograve;n đầy đủ phiếu bảo h&agrave;nh v&agrave; phụ kiện đi k&egrave;m</li>\r\n				<li>\r\n					Mất phụ kiện đi k&egrave;m thu ph&iacute; 5% gi&aacute; tr&ecirc;n gi&aacute; ho&aacute; đơn/mỗi phụ kiện mất.</li>\r\n			</ul>\r\n			<h3>\r\n				<strong>C&aacute;c sản phẩm kh&ocirc;ng &aacute;p dụng ch&iacute;nh s&aacute;ch đổi trả</strong></h3>\r\n			<ul>\r\n				<li>\r\n					Phần mềm bản quyền: Microsoft Office, Microsoft Windows, phần mềm diệt virus&hellip;</li>\r\n				<li>\r\n					C&aacute;c sản phẩm phải th&aacute;o tem ni&ecirc;m phong: m&aacute;y in, m&aacute;y fax&hellip;</li>\r\n				<li>\r\n					C&aacute;c sản phẩm được tặng k&egrave;m trong c&aacute;c chương tr&igrave;nh khuyến m&atilde;i</li>\r\n			</ul>\r\n		</div>\r\n	</div>\r\n</section>\r\n', '', 'chinh-sach-doi-tra', 1, '', '', '', '', 1, 1, '2016-09-22 07:14:22', '2016-12-05 17:17:03');
+(1, 'Giới thiệu', 'Gioi thieu', '', '<h3 style=\"text-align:justify\"><strong>Về G-Organic Family:</strong></h3>\r\n\r\n<p style=\"text-align:justify\">G-Organic Family l&agrave; thương hiệu&nbsp;của C&ocirc;ng ty TNHH Sản xuất &amp; Thương mại G-Organic Family.<br />\r\nG-Organic Family l&agrave; một chuỗi cửa h&agrave;ng&nbsp;chuy&ecirc;n b&aacute;n sỉ lẻ c&aacute;c sản phẩm hữu cơ, bao gồm&nbsp;thực phẩm tươi - kh&ocirc;, mỹ phẩm - h&oacute;a phẩm gia dụng, chăm s&oacute;c sức khỏe, nh&agrave; cửa...&nbsp;đến với tất cả đối tượng kh&aacute;ch h&agrave;ng từ những kh&aacute;ch h&agrave;ng gia đ&igrave;nh trẻ, gia đ&igrave;nh c&oacute; trẻ em, người cao tuổi đến c&aacute;c bạn trẻ hiện đại.. với nh&igrave;n nhận cơ bản về sản phẩm hữu cơ v&agrave; lối sống l&agrave;nh mạnh, quan t&acirc;m đến sức khỏe, gi&aacute; trị cuộc sống.</p>\r\n\r\n<p style=\"text-align:justify\">G-Organic Family mang đến cho kh&aacute;ch h&agrave;ng những sản phẩm c&oacute; nguồn gốc r&otilde;&nbsp;r&agrave;ng, ch&iacute;nh h&atilde;ng, đảm bảo về chất lượng, c&oacute; chứng chỉ hữu cơ, an to&agrave;n v&agrave; tốt cho sức khỏe.</p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:center\"><img alt=\"\" src=\"/uploads/images/Ho-tro-chung/Shop-6.png\" style=\"height:460px; width:690px\" /></p>\r\n\r\n<p style=\"text-align:justify\"><br />\r\nG-Organic Family đặt mục ti&ecirc;u trở th&agrave;nh hệ thống cửa h&agrave;ng hữu cơ quen thuộc với người d&acirc;n trong tương lai gần&nbsp;với c&aacute;c gi&aacute; trị tiện &iacute;ch:<br />\r\n-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Mang đến sản phẩm an to&agrave;n, tốt cho sức khỏe người ti&ecirc;u d&ugrave;ng.<br />\r\n-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Số lượng sản phẩm đa dạng, phong ph&uacute;.<br />\r\n-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ch&iacute;nh h&atilde;ng, đảm bảo xuất xứ&nbsp;v&agrave; đầy đủ chứng chỉ hữu cơ, thực phẩm sạch.<br />\r\n-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Thanh to&aacute;n an to&agrave;n, bảo mật.<br />\r\n-&nbsp; &nbsp; &nbsp; &nbsp;Giao dịch uy t&iacute;n, thuận tiện, nhanh ch&oacute;ng.<br />\r\n-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; N&oacute;i kh&ocirc;ng với h&agrave;ng x&aacute;ch tay, h&agrave;ng kh&ocirc;ng r&otilde; nguồn gốc.</p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:center\"><img alt=\"\" src=\"/uploads/images/Ho-tro-chung/Shop-2.png\" style=\"height:460px; width:690px\" /></p>\r\n\r\n<h3 style=\"text-align:justify\"><br />\r\n<strong>Th&ocirc;ng tin li&ecirc;n lạc:</strong></h3>\r\n\r\n<ul>\r\n	<li style=\"text-align:justify\"><strong>Địa chỉ: </strong>Shop G-Organic Family số 98 đường số 19, Phường 8. Quận G&ograve; Vấp, TP. HCM</li>\r\n	<li style=\"text-align:justify\"><strong>Điện thoại/hotline:</strong><strong>&nbsp;096.888.2920</strong></li>\r\n	<li style=\"text-align:justify\"><strong>Email:</strong>&nbsp;gorganicfamily@gmail.com</li>\r\n</ul>\r\n\r\n<h3 style=\"text-align:justify\"><strong>Th&ocirc;ng tin về c&ocirc;ng ty:</strong></h3>\r\n\r\n<ul>\r\n	<li style=\"text-align:justify\">C&ocirc;ng ty TNHH Sản xuất v&agrave; Thương mại G-Organic Family</li>\r\n	<li style=\"text-align:justify\">Địa chỉ đăng k&yacute; kinh doanh: Số 98 đường số 19, Phường 8, Quận G&ograve; Vấp, TP. HCM</li>\r\n	<li style=\"text-align:justify\">Giấy chứng nhận Đăng k&yacute; Kinh doanh số 0318583177&nbsp;do Sở Kế hoạch v&agrave; Đầu tư Th&agrave;nh phố Hồ Ch&iacute; Minh cấp ng&agrave;y 23/07/2024</li>\r\n</ul>\r\n\r\n<p style=\"text-align:center\"><img alt=\"\" src=\"/uploads/images/Ho-tro-chung/Shop-1.png\" /></p>\r\n', '', 'gioi-thieu', 1, '', '', '', '', 1, 1, '2016-09-22 07:14:21', '2024-09-07 18:07:10'),
+(3, 'Bảo mật thông tin', 'Bao mat thong tin', '', '<p style=\"text-align:justify\">Ch&iacute;nh s&aacute;ch bảo mật th&ocirc;ng tin (Xem chi tiết tại điều 68 đến Điều 73 Nghị định 52/2013/NĐ-CP), bao gồm:</p>\r\n\r\n<h3 style=\"text-align:justify\"><strong>Th&ocirc;ng tin&nbsp;thu thập</strong></h3>\r\n\r\n<p style=\"text-align:justify\">Những loại th&ocirc;ng tin G-Organic Family cần&nbsp;bao gồm:</p>\r\n\r\n<ul>\r\n	<li style=\"text-align: justify;\">Họ v&agrave; t&ecirc;n kh&aacute;ch h&agrave;ng, địa chỉ li&ecirc;n hệ (giao h&agrave;ng)</li>\r\n	<li style=\"text-align: justify;\">Email, số điện thoại di động</li>\r\n	<li style=\"text-align: justify;\">Ng&agrave;y sinh kh&aacute;ch h&agrave;ng</li>\r\n</ul>\r\n\r\n<h3 style=\"text-align:justify\"><strong>Phạm vi sử dụng</strong></h3>\r\n\r\n<ul>\r\n	<li style=\"text-align: justify;\">G-Organic Family chỉ sử dụng th&ocirc;ng tin thu thập được cho mục đ&iacute;ch chăm s&oacute;c kh&aacute;ch h&agrave;ng</li>\r\n	<li style=\"text-align: justify;\">G-Organic Family c&oacute; thể sử dụng những th&ocirc;ng tin n&agrave;y để li&ecirc;n hệ với kh&aacute;ch h&agrave;ng bằng&nbsp;c&aacute;c h&igrave;nh thức như: thư ngỏ, đơn đặt h&agrave;ng, thư cảm ơn, th&ocirc;ng tin khuyến m&atilde;i hay dịch vụ mới</li>\r\n</ul>\r\n\r\n<h3 style=\"text-align:justify\"><strong>Thời gian lưu trữ</strong></h3>\r\n\r\n<ul>\r\n	<li style=\"text-align: justify;\">G-Organic Family sẽ lưu trữ th&ocirc;ng tin do kh&aacute;ch h&agrave;ng cung cấp tr&ecirc;n hệ thống phần mềm CRM trong thời gian theo d&otilde;i sử dụng&nbsp;sản phẩm.</li>\r\n	<li style=\"text-align: justify;\">G-Organic Family sẽ tiến h&agrave;nh x&oacute;a th&ocirc;ng tin kh&aacute;ch h&agrave;ng khi&nbsp;kh&aacute;ch h&agrave;ng c&oacute; y&ecirc;u cầu hủy th&ocirc;ng tin đ&atilde; cung cấp.</li>\r\n</ul>\r\n\r\n<h3 style=\"text-align:justify\"><strong>Đơn vị thu thập v&agrave; quản l&yacute; th&ocirc;ng tin</strong></h3>\r\n\r\n<p style=\"text-align:justify\">Shop G-Organic Family: 98 đường số 19, Phường 8, Quận G&ograve; Vấp, TP. Hồ Ch&iacute; Minh<br />\r\nHotline: 096.888.2920</p>\r\n\r\n<h3 style=\"text-align:justify\"><strong>Cập nhật th&ocirc;ng tin</strong></h3>\r\n\r\n<p style=\"text-align:justify\">Kh&aacute;ch h&agrave;ng muốn chỉnh sửa hoặc thay đổi th&ocirc;ng tin vui l&ograve;ng li&ecirc;n hệ hotline 096.888.2920</p>\r\n\r\n<h3 style=\"text-align:justify\"><strong>Cam kết bảo mật&nbsp;</strong></h3>\r\n\r\n<p style=\"text-align:justify\">G-Organic Family kh&ocirc;ng được quyền chia sẻ th&ocirc;ng tin của Qu&yacute; kh&aacute;ch cho bất kỳ một đơn vị n&agrave;o kh&aacute;c.</p>\r\n\r\n<p style=\"text-align:justify\">Trong trường hợp đặc biệt, G-Organic Family c&oacute; thể bị y&ecirc;u cầu phải tiết lộ th&ocirc;ng tin kh&aacute;ch h&agrave;ng như: khi c&oacute; căn cứ cho việc cung cấp th&ocirc;ng tin l&agrave; cần thiết để ngăn chặn c&aacute;c mối đe dọa về t&iacute;nh mạng, sức khỏe, hay cho mục đ&iacute;ch thực thi ph&aacute;p luật m&agrave; được cơ quan c&oacute; thẩm quyền y&ecirc;u cầu bằng văn bản.</p>\r\n\r\n<p style=\"text-align:justify\">G-Organic Family cam kết tu&acirc;n thủ Luật&nbsp;bảo mật&nbsp;v&agrave; c&aacute;c Nguy&ecirc;n tắc bảo mật hiện h&agrave;nh của nước Cộng h&ograve;a X&atilde; hội Chủ Nghĩa Việt Nam.</p>\r\n', '', 'bao-mat-thong-tin', 1, '', '', '', '', 1, 1, '2016-09-22 07:14:22', '2024-09-07 17:26:30'),
+(4, 'Phương thức thanh toán', 'Phuong thuc thanh toan', '', '<h3 style=\"text-align:justify\"><strong>H&igrave;nh thức thanh to&aacute;n:</strong></h3>\r\n\r\n<p>G-Family nhận thanh to&aacute;n bằng tiền mặt, COD (cash on delivery), thẻ VISA, MasterCard, v&iacute; điện tử MOMO v&agrave; c&aacute;c thẻ nội địa kh&aacute;c.</p>\r\n\r\n<h3 style=\"text-align:justify\"><strong>K&ecirc;nh thanh to&aacute;n:</strong></h3>\r\n\r\n<p style=\"text-align:justify\">- Kh&aacute;ch h&agrave;ng c&oacute; thể trực tiếp mua h&agrave;ng v&agrave; thanh to&aacute;n tại shop G-Organic Family:</p>\r\n\r\n<ul>\r\n	<li style=\"text-align: justify;\">Địa chỉ số 98 đường 19, Phường 8, Quận G&ograve; Vấp, Th&agrave;nh phố Hồ Ch&iacute; Minh, Việt Nam.</li>\r\n	<li style=\"text-align: justify;\">Thời gian mở cửa: 08h30 - 18h00 h&agrave;ng ng&agrave;y (kể cả T7, CN - nghỉ lễ sẽ c&oacute; th&ocirc;ng b&aacute;o).</li>\r\n</ul>\r\n\r\n<p style=\"text-align:justify\">- Kh&aacute;ch h&agrave;ng mua online qua website c&oacute; thể thanh to&aacute;n trước hoặc&nbsp;nhận h&agrave;ng từ dịch vụ chuyển ph&aacute;t nhanh,&nbsp;kiểm tra chất lượng sau đ&oacute;&nbsp;thanh to&aacute;n COD (cash on delivery).</p>\r\n\r\n<h3 style=\"text-align:justify\"><strong>Th&ocirc;ng tin thanh to&aacute;n trả trước:</strong></h3>\r\n\r\n<p style=\"text-align:justify\">- &Aacute;p dụng cho kh&aacute;ch h&agrave;ng sử dụng phương thức thanh to&aacute;n online trả trước hoặc cần xuất h&oacute;a đơn VAT:</p>\r\n\r\n<ul>\r\n	<li>T&ecirc;n t&agrave;i khoản: <strong>C&Ocirc;NG TY&nbsp;TNHH SẢN XUẤT &amp; THƯƠNG MẠI G-ORGANIC FAMILY</strong></li>\r\n	<li>Số t&agrave;i khoản:&nbsp;<strong>116002978792</strong></li>\r\n	<li><strong>Ng&acirc;n h&agrave;ng Thương Mại Cổ Phần C&ocirc;ng thương Việt Nam&nbsp;(Vietinbank) &ndash; CN 9 TP. HCM</strong></li>\r\n</ul>\r\n\r\n<p style=\"text-align:justify\">- Th&ocirc;ng tin thanh to&aacute;n dự ph&ograve;ng:</p>\r\n\r\n<ul>\r\n	<li>T&ecirc;n t&agrave;i khoản: <strong>NGUYEN KIM LY</strong></li>\r\n	<li>Số t&agrave;i khoản:&nbsp;<strong>0943251184</strong></li>\r\n	<li><strong>Ng&acirc;n h&agrave;ng Thương Mại Cổ Phần C&ocirc;ng thương Việt Nam&nbsp;(Vietinbank) &ndash; CN 9 TP. HCM</strong></li>\r\n</ul>\r\n', '', 'phuong-thuc-thanh-toan', 1, '', '', '', '', 1, 1, '2016-09-22 07:14:22', '2024-09-07 17:02:20'),
+(5, 'Phí vận chuyển', 'Phi van chuyen', '', '<h3 style=\"text-align:justify\"><strong>Khu vực giao h&agrave;ng</strong></h3>\r\n\r\n<ul>\r\n	<li style=\"text-align: justify;\">Phạm vi giao h&agrave;ng to&agrave;n quốc.</li>\r\n	<li style=\"text-align: justify;\">Kh&ocirc;ng bao gồm hải đảo v&agrave; c&aacute;c khu vực nằm ngo&agrave;i phạm vi giao h&agrave;ng th&ocirc;ng thường cũng như điều kiện bất thường về thời tiết, thi&ecirc;n tai, dịch bệnh, chiến tranh...</li>\r\n</ul>\r\n\r\n<h3 style=\"text-align:justify\"><strong>Biểu ph&iacute; v&agrave; thời gian nhận h&agrave;ng</strong></h3>\r\n\r\n<ul>\r\n	<li style=\"text-align: justify;\">G-Organic Family sẽ th&ocirc;ng b&aacute;o biểu ph&iacute; v&agrave; thời gian nhận h&agrave;ng t&ugrave;y theo thời gian cũng như th&ocirc;ng tin đơn h&agrave;ng (khối lượng, thể t&iacute;ch...) cho kh&aacute;ch h&agrave;ng c&ugrave;ng đối t&aacute;c giao h&agrave;ng.</li>\r\n	<li style=\"text-align: justify;\">G-Orgnanic Family chỉ tiến h&agrave;ng giao h&agrave;ng khi kh&aacute;ch h&agrave;ng đ&atilde; nắm v&agrave; đồng &yacute; th&ocirc;ng tin giao h&agrave;ng li&ecirc;n quan đến đơn h&agrave;ng của m&igrave;nh.<br />\r\n	&nbsp;</li>\r\n</ul>\r\n', '', 'hinh-thuc-van-chuyen', 1, '', '', '', '', 1, 1, '2016-09-22 07:14:22', '2024-09-07 17:22:11'),
+(6, 'Chính sách bảo hành', 'Chinh sach bao hanh', '', '<div>\r\n<div class=\"clearfix\">\r\n<h3 style=\"text-align:justify\"><strong>Bảo h&agrave;nh</strong></h3>\r\n\r\n<ul>\r\n	<li style=\"text-align:justify\">Sản phẩm b&aacute;n ra bị lỗi do sản xuất c&ograve;n trong thời hạn bảo h&agrave;nh;</li>\r\n	<li style=\"text-align:justify\">Sản phẩm bảo h&agrave;nh đủ điều kiện bảo h&agrave;nh của nh&agrave; sản xuất: chưa th&aacute;o mở, c&ograve;n tem, nh&atilde;n, serial number của nh&agrave; sản xuất v&agrave; nh&agrave; cung cấp;</li>\r\n	<li style=\"text-align:justify\">Sản phẩm được bảo h&agrave;nh khi c&oacute; phiếu bảo h&agrave;nh nh&agrave; cung cấp, phiếu bảo h&agrave;nh nh&agrave; sản xuất (nếu c&oacute; k&egrave;m theo);</li>\r\n	<li style=\"text-align:justify\">Đối với những sản phẩm bảo h&agrave;nh điện tử sẽ được bảo h&agrave;nh bằng Phiếu bảo h&agrave;nh nh&agrave; cung cấp với số IMEI, serial number tr&ecirc;n sản phẩm c&ograve;n nguy&ecirc;n vẹn;</li>\r\n</ul>\r\n\r\n<h3 style=\"text-align:justify\"><strong>Kh&ocirc;ng bảo h&agrave;nh</strong></h3>\r\n\r\n<ul>\r\n	<li style=\"text-align:justify\">Sản phẩm hết thời hạn bảo h&agrave;nh.</li>\r\n	<li>Sản phẩm c&oacute; sự&nbsp;can thiệp&nbsp;c&ograve;n trong thời hạn bảo h&agrave;nh của nh&agrave; sản xuất;</li>\r\n	<li>Sản phẩm bị va đập, rơi rớt, biến dạng so với hiện trạng ban đầu;</li>\r\n	<li>Sản phẩm bị sốc điện, g&acirc;y ch&aacute;y nỗ;</li>\r\n	<li>Sản phẩm bị nước, chất lỏng đổ v&agrave;o;</li>\r\n	<li>C&aacute;c phần mềm hoạt động tr&ecirc;n m&aacute;y, phần mềm ứng dụng được c&agrave;i đặt từ nh&agrave; sản xuất;</li>\r\n	<li>Qu&agrave; tặng trong c&aacute;c chương tr&igrave;nh khuyến m&atilde;i, c&aacute;c loại phụ kiện hao m&ograve;n trong qu&aacute; tr&igrave;nh sử dụng như: Mực m&aacute;y in, đầu phun mực, đầu kim, bao lụa, trống drum;</li>\r\n	<li>C&aacute;c dữ liệu được lưu trữ của kh&aacute;ch h&agrave;ng trong qu&aacute; tr&igrave;nh sử dụng khi gửi đến bảo h&agrave;nh;</li>\r\n</ul>\r\n\r\n<h3 style=\"text-align:justify\"><strong>C&aacute;c lưu &yacute; khi bảo h&agrave;nh</strong></h3>\r\n\r\n<ul>\r\n	<li style=\"text-align:justify\">Sản phẩm sửa chữa, thay thế linh kiện hoặc đổi sản phẩm kh&aacute;c phụ thuộc v&agrave;o nh&agrave; sản xuất tại thời điểm bảo h&agrave;nh;</li>\r\n	<li style=\"text-align:justify\">Thời gian trả bảo h&agrave;nh từ 3 đến 7 ng&agrave;y (trường hợp qu&aacute; 7 ng&agrave;y iChợ sẽ chủ động li&ecirc;n hệ với kh&aacute;ch h&agrave;ng);</li>\r\n	<li style=\"text-align:justify\">Đối với sản phẩm gửi bảo h&agrave;nh từ c&aacute;c tỉnh, chi ph&iacute; vận chuyển gửi v&agrave;o sẽ do kh&aacute;ch h&agrave;ng chi trả, chi ph&iacute; gửi trả sản phẩm sẽ do iChợ chi trả.</li>\r\n</ul>\r\n</div>\r\n</div>\r\n', '', 'chinh-sach-bao-hanh', 0, '', '', '', '', 1, 1, '2016-09-22 07:14:22', '2024-09-07 17:18:46'),
+(7, 'Chính sách đổi trả', 'Chinh sach doi tra', '', '<div class=\"clearfix\">\r\n<h3 style=\"text-align:left\"><strong>Sản phẩm thực phẩm kh&ocirc;, sữa, hạt, mỹ phẩm, h&oacute;a phẩm</strong></h3>\r\n\r\n<table border=\"1\" cellpadding=\"0\" cellspacing=\"0\" style=\"width:100%\">\r\n	<thead>\r\n		<tr>\r\n			<td style=\"text-align:center\"><strong>SẢN PHẨM</strong></td>\r\n			<td colspan=\"2\" style=\"text-align:center\"><strong>THỜI GIAN</strong></td>\r\n			<td style=\"text-align:center\"><strong>PH&Iacute; ĐỔI TRẢ</strong></td>\r\n		</tr>\r\n	</thead>\r\n	<tbody>\r\n		<tr>\r\n			<td rowspan=\"3\">\r\n			<p style=\"text-align:center\"><strong>Sản phẩm bị lỗi do&nbsp;sản xuất / NPP</strong></p>\r\n			</td>\r\n			<td rowspan=\"2\">\r\n			<p style=\"text-align:center\">Th&aacute;ng 1</p>\r\n			</td>\r\n			<td>\r\n			<p style=\"text-align:center\">7 ng&agrave;y đầu ti&ecirc;n</p>\r\n			</td>\r\n			<td>\r\n			<ul>\r\n				<li>Miễn ph&iacute; 1 đổi 1:&nbsp;cùng m&atilde; sản phẩm</li>\r\n				<li>Trường hợp hết sản phẩm để đổi kh&aacute;ch h&agrave;ng c&oacute; thể đổi sang sản phẩm kh&aacute;c c&oacute; gi&aacute; trị tương đương hoặc trả h&agrave;ng lấy lại tiền</li>\r\n			</ul>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td>\r\n			<p style=\"text-align:center\">&gt;7 ng&agrave;y</p>\r\n			</td>\r\n			<td>\r\n			<p style=\"text-align:center\">Miễn ph&iacute; đổi trả hoặc trừ 10% gi&aacute; tr&ecirc;n h&oacute;a đơn</p>\r\n\r\n			<p style=\"text-align:center\">(<em>t&ugrave;y theo thực tế giao h&agrave;ng &amp; kiểm tra sản phẩm</em>)</p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td colspan=\"2\">\r\n			<p style=\"text-align:center\">Th&aacute;ng 2&nbsp;- 12</p>\r\n			</td>\r\n			<td>\r\n			<ul>\r\n				<li>Trừ th&ecirc;m 5% mỗi th&aacute;ng so với th&aacute;ng thứ 1</li>\r\n				<li>Theo t&igrave;nh h&igrave;nh thực tế trao đổi tại thời điểm kh&aacute;ch&nbsp;li&ecirc;n hệ đổi trả</li>\r\n			</ul>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td rowspan=\"2\">\r\n			<p style=\"text-align:center\"><strong>Sản phẩm kh&ocirc;ng bị lỗi nhưng kh&ocirc;ng đ&uacute;ng nhu cầu kh&aacute;ch h&agrave;ng</strong></p>\r\n			</td>\r\n			<td colspan=\"2\">\r\n			<p style=\"text-align:center\">Th&aacute;ng 1</p>\r\n			</td>\r\n			<td style=\"text-align:center\">\r\n			<p>Trừ 20% gi&aacute; tr&ecirc;n h&oacute;a đơn hoặc c&oacute; thể hỗ trợ đổi trả</p>\r\n\r\n			<p><em>(t&ugrave;y theo ch&iacute;nh s&aacute;ch từ nh&atilde;n h&agrave;ng hay nh&agrave; ph&acirc;n phối)</em></p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td colspan=\"2\">\r\n			<p style=\"text-align:center\">Th&aacute;ng 2&nbsp;- 12</p>\r\n			</td>\r\n			<td>\r\n			<ul>\r\n				<li>Trừ th&ecirc;m 5% mỗi th&aacute;ng so với th&aacute;ng thứ 1</li>\r\n				<li>Theo t&igrave;nh h&igrave;nh thực tế trao đổi tại thời điểm kh&aacute;ch&nbsp;li&ecirc;n hệ đổi trả</li>\r\n			</ul>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td>\r\n			<p style=\"text-align:center\"><strong>Sản phẩm bị lỗi do người sử dụng</strong></p>\r\n			</td>\r\n			<td colspan=\"3\">\r\n			<ul>\r\n				<li>Kh&ocirc;ng đủ điều kiện đổi trả&nbsp;theo qui định của nh&atilde;n h&agrave;ng/NPP</li>\r\n				<li>Sản phẩm hư hỏng do kh&aacute;ch h&agrave;ng bảo quản kh&ocirc;ng đ&uacute;ng c&aacute;ch</li>\r\n			</ul>\r\n\r\n			<p>&nbsp; &nbsp;=&gt; Kh&ocirc;ng &aacute;p dụng đổi trả.</p>\r\n			</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Điều kiện đổi trả:</strong></p>\r\n\r\n<ul>\r\n	<li>C&ograve;n giữ h&oacute;a đơn mua h&agrave;ng v&agrave; một phần/đầy đủ bao b&igrave; sản phẩm (t&ugrave;y theo sản phẩm đ&atilde; khui/mở&nbsp;v&agrave; quy định của nh&atilde;n h&agrave;ng/NPP)</li>\r\n	<li>Qu&agrave; khuyến m&atilde;i: tặng kh&aacute;ch hoặc thu lại&nbsp;theo gi&aacute; mua lại do G-Organic Family quy định</li>\r\n	<li>C&aacute;c điều kiện kh&aacute;c theo thực tế thời điểm giữa kh&aacute;ch h&agrave;ng v&agrave; G-Organic Family trao đổi</li>\r\n</ul>\r\n\r\n<h3><strong>Sản phẩm thực phẩm tươi, rau củ quả, nước uống</strong></h3>\r\n\r\n<ul>\r\n	<li>\r\n	<p>C&aacute;c sản phẩm rau củ quả tươi, nước uống&nbsp;chỉ &aacute;p dụng trao đổi th&ocirc;ng tin đổi trả tối đa 24h sau khi mua h&agrave;ng</p>\r\n	</li>\r\n	<li>\r\n	<p>C&aacute;c sản phẩm rau củ quả, nước uống chỉ &aacute;p dụng h&igrave;nh thức đổi h&agrave;ng c&ugrave;ng mẫu sản phẩm hoặc tương đương</p>\r\n	</li>\r\n</ul>\r\n</div>\r\n', '', 'chinh-sach-doi-tra', 1, '', '', '', '', 1, 1, '2016-09-22 07:14:22', '2024-09-07 17:17:40');
 
 -- --------------------------------------------------------
 
@@ -14397,7 +14818,7 @@ CREATE TABLE `price_range` (
   `from` int(11) NOT NULL,
   `to` int(11) NOT NULL,
   `parent_id` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `price_range`
@@ -14499,12 +14920,19 @@ CREATE TABLE `product` (
   `so_luong_ton` int(11) NOT NULL DEFAULT 0,
   `so_luong_tam` int(11) NOT NULL DEFAULT 0,
   `views` int(11) NOT NULL DEFAULT 0,
+  `cate_child_id` int(11) DEFAULT NULL,
+  `thuonghieu_id` int(11) DEFAULT NULL,
+  `dung_tich` varchar(20) DEFAULT NULL,
+  `trong_luong` varchar(20) DEFAULT NULL,
   `display_order` tinyint(4) NOT NULL COMMENT 'danh cho sp hot',
   `so_lan_mua` int(11) NOT NULL DEFAULT 0,
   `sale_percent` tinyint(1) DEFAULT NULL,
   `is_primary` tinyint(1) NOT NULL DEFAULT 0,
   `name_primary` varchar(255) DEFAULT NULL,
   `color_id` tinyint(4) DEFAULT NULL,
+  `huong_dan` text DEFAULT NULL,
+  `bao_quan` text DEFAULT NULL,
+  `thanh_phan` text DEFAULT NULL,
   `pro_style` tinyint(1) NOT NULL COMMENT '1 : hover 2 :icon goc tren',
   `image_pro` varchar(255) NOT NULL,
   `status` tinyint(1) NOT NULL,
@@ -14514,14 +14942,159 @@ CREATE TABLE `product` (
   `updated_user` tinyint(4) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`id`, `ma_sp`, `name`, `name_extend`, `alias`, `alias_extend`, `slug`, `slug_extend`, `thumbnail_id`, `is_hot`, `is_sale`, `price`, `price_sale`, `parent_id`, `cate_id`, `mo_ta`, `xuat_xu`, `khuyen_mai`, `sp_phukien`, `sp_tuongtu`, `sp_sosanh`, `chi_tiet`, `bao_hanh`, `con_hang`, `can_nang`, `chieu_dai`, `chieu_rong`, `chieu_cao`, `khe_ram`, `so_luong_ton`, `so_luong_tam`, `views`, `display_order`, `so_lan_mua`, `sale_percent`, `is_primary`, `name_primary`, `color_id`, `pro_style`, `image_pro`, `status`, `meta_id`, `is_event`, `created_user`, `updated_user`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'Khô Mực', '', 'Kho Muc', '', 'kho-muc', '', 1, 1, 0, 1200000, NULL, 1, 0, '', NULL, '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, NULL, 1, '', NULL, 0, '', 1, 1484, 0, 1, 1, '2021-07-16 11:06:02', '2021-07-16 11:06:02');
+INSERT INTO `product` (`id`, `ma_sp`, `name`, `name_extend`, `alias`, `alias_extend`, `slug`, `slug_extend`, `thumbnail_id`, `is_hot`, `is_sale`, `price`, `price_sale`, `parent_id`, `cate_id`, `mo_ta`, `xuat_xu`, `khuyen_mai`, `sp_phukien`, `sp_tuongtu`, `sp_sosanh`, `chi_tiet`, `bao_hanh`, `con_hang`, `can_nang`, `chieu_dai`, `chieu_rong`, `chieu_cao`, `khe_ram`, `so_luong_ton`, `so_luong_tam`, `views`, `cate_child_id`, `thuonghieu_id`, `dung_tich`, `trong_luong`, `display_order`, `so_lan_mua`, `sale_percent`, `is_primary`, `name_primary`, `color_id`, `huong_dan`, `bao_quan`, `thanh_phan`, `pro_style`, `image_pro`, `status`, `meta_id`, `is_event`, `created_user`, `updated_user`, `created_at`, `updated_at`) VALUES
+(1, NULL, 'Khô Mực', '', 'kho muc', '', 'kho-muc', '', NULL, 1, 0, 1200000, 0, 1, 11, '', NULL, '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 1, 0, 0, NULL, NULL, NULL, NULL, 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 0, 1484, 0, 1, 1, '2021-07-16 11:06:02', '2024-07-20 12:11:53'),
+(2, NULL, 'Sản phẩm 2', '', 'san pham 2', '', 'san-pham-2', '', NULL, 1, 0, 1200000, 0, 1, 1, '', NULL, '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, NULL, NULL, NULL, 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 0, 1556, 0, 1, 1, '2024-07-18 19:07:58', '2024-07-20 17:30:00'),
+(3, NULL, 'Sản phẩm 1', '', 'San pham 1', '', 'san-pham-1', '', NULL, 1, 0, 1200000, 0, 1, 1, '', NULL, '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, NULL, NULL, NULL, 0, 0, NULL, 1, '', NULL, NULL, NULL, NULL, 0, '', 0, 1555, 0, 1, 1, '2024-07-18 19:08:20', '2024-07-20 17:29:58'),
+(4, NULL, 'Sản phẩm 3', '', 'San pham 3', '', 'san-pham-3', '', NULL, 1, 0, 58800, 0, 1, 1, '', NULL, '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 0, 0, 0, 3, NULL, NULL, NULL, 0, 0, NULL, 1, '', NULL, NULL, NULL, NULL, 0, '', 0, 1557, 0, 1, 1, '2024-07-18 19:10:19', '2024-07-20 17:29:57'),
+(5, NULL, 'Sản phẩm 4', '', 'san pham 4', '', 'san-pham-4', '', NULL, 1, 0, 309000, 0, 1, 1, '', NULL, '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, NULL, NULL, NULL, 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 0, 1558, 0, 1, 1, '2024-07-18 19:22:19', '2024-07-20 17:29:56'),
+(6, NULL, 'Sốt cà chua ăn dặm hữu cơ cho bé Bio Junior', '', 'sot ca chua an dam huu co cho be bio junior', '', 'sot-ca-chua-an-dam-huu-co-biojunior', '', NULL, 1, 0, 129000, 0, 1, 1, '<p>Sốt c&agrave; chua ăn dặm hữu cơ&nbsp;Bio Junior d&agrave;nh cho b&eacute; từ 8 th&aacute;ng tuổi trở l&ecirc;n gi&uacute;p b&eacute; ăn ngon miệng, bổ sung nhiều vitamin v&agrave; kho&aacute;ng chất, ph&ugrave; hợp cho cả m&igrave; ống, nui hay cơm.</p>\r\n', NULL, '', NULL, NULL, NULL, '<p>Sốt c&agrave; chua lu&ocirc;n l&agrave; một phụ liệu m&oacute;n ăn y&ecirc;u th&iacute;ch của trẻ con tr&ecirc;n to&agrave;n thế giới, kể cả l&agrave; c&aacute;c em b&eacute; nhỏ bước v&agrave;o giai đoạn ăn dặm. Với th&agrave;nh phần c&agrave; chua v&agrave; c&aacute;c rau củ hữu cơ bổ sung chất xơ v&agrave; vitamin, Bio Junior c&ograve;n kết hợp dầu olive nguy&ecirc;n chất v&agrave; c&aacute;c kho&aacute;ng chất ph&ugrave; hợp cho b&eacute; từ 8 th&aacute;ng trở l&ecirc;n.</p>\r\n\r\n<p>Kh&ocirc;ng những ph&ugrave; hợp với m&oacute;n m&igrave; ống, sốt c&agrave; chua ăn dặm hữu cơ Bio Junior c&ograve;n c&oacute; thể ăn k&egrave;m c&ugrave;ng nui, ch&aacute;o&nbsp;hay cơm. Mẹ đ&atilde; c&oacute; một m&oacute;n k&egrave;m k&iacute;ch th&iacute;ch từ hương vị, m&agrave;u sắc, gi&uacute;p&nbsp;cho b&eacute; ăn ngon miệng, b&eacute; khỏe hơn v&agrave; mẹ an t&acirc;m thật nhiều.</p>\r\n', NULL, 1, 0, 0, 0, 0, 0, 10, 0, 0, 4, NULL, NULL, NULL, 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 0, 1559, 0, 1, 1, '2024-07-18 19:22:40', '2024-07-20 17:29:54'),
+(7, NULL, 'Sản phẩm 7', '', 'San pham 7', '', 'san-pham-7', '', NULL, 1, 0, 85000, 0, 1, 1, '', NULL, '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, NULL, NULL, NULL, 0, 0, NULL, 1, '', NULL, NULL, NULL, NULL, 0, '', 0, 1560, 0, 1, 1, '2024-07-18 19:22:56', '2024-07-20 12:11:40'),
+(8, NULL, 'Nui mì ăn dặm hữu cơ Bio Junior 200g - Chữ cái', '', 'nui mi an dam huu co bio junior 200g chu cai', '', 'nui-mi-an-dam-huu-co-bio-junior-200g-chu-cai', '', 185, 0, 0, 79000, 0, 1, 1, '<p style=\"text-align:justify\">Nui m&igrave; ăn dặm hữu cơ Bio Junior l&agrave; một sản phẩm ti&ecirc;u biểu từ&nbsp;thương hiệu uy t&iacute;n d&agrave;nh cho c&aacute;c b&eacute; từ 8 th&aacute;ng trở l&ecirc;n, với h&igrave;nh d&aacute;ng c&aacute;c chữ c&aacute;i nhỏ xinh, sẽ gi&uacute;p c&aacute;c b&eacute; mau ăn ch&oacute;ng lớn, b&eacute; khỏe mẹ vui.</p>\r\n', 'Italia', '', NULL, NULL, NULL, '<p dir=\"ltr\" style=\"text-align:justify\">Nui m&igrave; gần như chiếm trọn niềm tin của c&aacute;c bậc cha mẹ, với t&iacute;nh tiện lợi, tiết kiệm thời gian v&agrave; vẫn đảm bảo dinh dưỡng cho b&eacute;. Nui m&igrave; ăn dặm hữu cơ c&ograve;n c&oacute; nhiều ưu điểm như kh&ocirc;ng chất bảo quản, kh&ocirc;ng chất h&oacute;a học, an to&agrave;n cho hệ ti&ecirc;u h&oacute;a non nớt của trẻ; kh&ocirc;ng muối, &iacute;t gia vị, th&agrave;nh phần an to&agrave;n tự nhi&ecirc;n, nguồn gốc hữu cơ, k&iacute;ch cỡ sợi m&igrave; an to&agrave;n, được chế biến với c&ocirc;ng nghệ hiện đại, gi&uacute;p b&eacute; kh&aacute;m ph&aacute; hương vị, m&agrave;u sắc của c&aacute;c nguy&ecirc;n liệu kh&aacute;c nhau.</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Nui m&igrave; ăn dặm cũng chia nhiều giai đoạn, cơ bản nhất l&agrave; dưới 1 tuổi (kh&ocirc;ng muối ho&agrave;n to&agrave;n) v&agrave; tr&ecirc;n 1 tuổi. Cha mẹ c&oacute; thể lựa chọn hương vị, nguy&ecirc;n liệu m&igrave; m&agrave; b&eacute; th&iacute;ch ăn nhất hay c&oacute; thể thay đổi loại m&igrave; để khơi gợi hứng th&uacute; ăn dặm của b&eacute;.</p>\r\n\r\n<p style=\"text-align:justify\">Chọn những thương hiệu, cửa h&agrave;ng uy t&iacute;n để lu&ocirc;n đảm bảo chất lượng, nguồn gốc thức ăn dặm cho b&eacute;, như G-Organic chẳng hạn. V&igrave; vậy, Nui m&igrave; ăn dặm hữu cơ Bio Junior 200gr - h&igrave;nh chữ c&aacute;i l&agrave; một đề cử h&agrave;ng đầu d&agrave;nh cho c&aacute;c b&eacute; đ&oacute; mẹ nh&eacute;.</p>\r\n', NULL, 1, 0, 0, 0, 0, 0, 5, 0, 0, 1, 9, '', '200g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1561, 0, 1, 1, '2024-07-18 19:23:13', '2024-08-07 15:35:55'),
+(9, NULL, 'Nui mì ăn dặm hữu cơ Bio Junior 200g - Vỏ sò', '', 'nui mi an dam huu co bio junior 200g vo so', '', 'nui-mi-an-dam-huu-co-bio-junior-200g-vo-so', '', 184, 1, 0, 79000, 0, 1, 1, '<p style=\"text-align:justify\">Nui m&igrave; ăn dặm hữu cơ Bio Junior l&agrave; một sản phẩm ti&ecirc;u biểu từ&nbsp;thương hiệu uy t&iacute;n d&agrave;nh cho c&aacute;c b&eacute; từ 10&nbsp;th&aacute;ng trở l&ecirc;n, với h&igrave;nh d&aacute;ng c&aacute;c vỏ s&ograve; tr&ograve;n tr&ograve;n&nbsp;nhỏ xinh, sẽ gi&uacute;p c&aacute;c b&eacute; mau ăn ch&oacute;ng lớn, b&eacute; khỏe mẹ vui.</p>\r\n', 'Italia', '', NULL, NULL, NULL, '<p dir=\"ltr\" style=\"text-align:justify\">Nui m&igrave; gần như chiếm trọn niềm tin của c&aacute;c bậc cha mẹ, với t&iacute;nh tiện lợi, tiết kiệm thời gian v&agrave; vẫn đảm bảo dinh dưỡng cho b&eacute;. Nui m&igrave; ăn dặm hữu cơ c&ograve;n c&oacute; nhiều ưu điểm như kh&ocirc;ng chất bảo quản, kh&ocirc;ng chất h&oacute;a học, an to&agrave;n cho hệ ti&ecirc;u h&oacute;a non nớt của trẻ; kh&ocirc;ng muối, &iacute;t gia vị, th&agrave;nh phần an to&agrave;n tự nhi&ecirc;n, nguồn gốc hữu cơ, k&iacute;ch cỡ sợi m&igrave; an to&agrave;n, được chế biến với c&ocirc;ng nghệ hiện đại, gi&uacute;p b&eacute; kh&aacute;m ph&aacute; hương vị, m&agrave;u sắc của c&aacute;c nguy&ecirc;n liệu kh&aacute;c nhau.</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Nui m&igrave; ăn dặm cũng chia nhiều giai đoạn, cơ bản nhất l&agrave; dưới 1 tuổi (kh&ocirc;ng muối ho&agrave;n to&agrave;n) v&agrave; tr&ecirc;n 1 tuổi. Cha mẹ c&oacute; thể lựa chọn hương vị, nguy&ecirc;n liệu m&igrave; m&agrave; b&eacute; th&iacute;ch ăn nhất hay c&oacute; thể thay đổi loại m&igrave; để khơi gợi hứng th&uacute; ăn dặm của b&eacute;.</p>\r\n\r\n<p style=\"text-align:justify\">Chọn những thương hiệu, cửa h&agrave;ng uy t&iacute;n để lu&ocirc;n đảm bảo chất lượng, nguồn gốc thức ăn dặm cho b&eacute;, như G-Organic chẳng hạn. V&igrave; vậy, Nui m&igrave; ăn dặm hữu cơ Bio Junior 200gr - h&igrave;nh vỏ s&ograve;&nbsp;l&agrave; một đề cử h&agrave;ng đầu d&agrave;nh cho c&aacute;c b&eacute; đ&oacute; mẹ nh&eacute;.</p>\r\n', NULL, 1, 0, 0, 0, 0, 0, 3, 0, 0, 1, 9, '', '200g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1562, 0, 1, 1, '2024-07-24 12:10:09', '2024-08-07 15:34:52'),
+(10, NULL, 'Rong biển hữu cơ rắc cơm Alvins vị rau củ', '', 'rong bien huu co rac com alvins vi rau cu', '', 'rong-bien-huu-co-rac-com-alvins-vi-rau-cu', '', 183, 1, 1, 110000, 99000, 1, 1, '<p>Rong biển hữu cơ rắc cơm Alvins vị rau củ&nbsp;l&agrave; sản phẩm c&oacute; xuất xứ từ H&agrave;n Quốc; được l&agrave;m từ nguồn nguy&ecirc;n liệu hữu cơ, sản phẩm gi&uacute;p b&eacute; l&agrave;m quen với nhiều loại hương vị trong giai đoạn tập ăn một c&aacute;ch an to&agrave;n.</p>\r\n', 'Hàn Quốc', '<p>Tuần lễ v&agrave;ng khai trương từ 22/07 đến 31/07, G-Organic Family ưu đ&atilde;i giảm gi&aacute; 10% c&aacute;c sản phẩm thực phẩm to&agrave;n cửa h&agrave;ng.</p>\r\n', NULL, NULL, NULL, '<p dir=\"ltr\" style=\"text-align:justify\"><strong>Ưu điểm nổi bật</strong></p>\r\n\r\n<p style=\"text-align:justify\">Đ&aacute;p ứng ti&ecirc;u chuẩn ATVSTP HACCP v&agrave; chuẩn hữu cơ USDA, chuẩn hữu cơ H&agrave;n Quốc, rong biển hữu cơ rắc cơm vị rau củ Alvins được l&agrave;m từ nguồn nguy&ecirc;n liệu an to&agrave;n với quy tr&igrave;nh sản xuất đạt chuẩn. Bố mẹ c&oacute; thể ho&agrave;n to&agrave;n an t&acirc;m cho b&eacute; y&ecirc;u sử dụng sản phẩm.&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\">Rong biển hữu cơ rắc cơm vị rau củ Alvins chứa nhiều dưỡng chất tốt cho con như:</p>\r\n\r\n<ul>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Gi&agrave;u chất xơ: tốt cho hệ ti&ecirc;u h&oacute;a của b&eacute;</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">C&oacute; t&iacute;nh kiềm gi&uacute;p trung h&ograve;a axit dạ d&agrave;y: gi&uacute;p hệ ti&ecirc;u h&oacute;a hoạt động tốt hơn</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Gi&agrave;u vitamin A, B, E, C, iot, sắt, canxi: th&agrave;nh phần tốt cho sự ph&aacute;t triển của cơ thể v&agrave; n&atilde;o bộ, gi&uacute;p xương v&agrave; răng chắc khỏe, tăng cường sức đề kh&aacute;ng cho cơ thể.&nbsp;</p>\r\n	</li>\r\n</ul>\r\n\r\n<p style=\"text-align:justify\">Với th&agrave;nh phần ch&iacute;nh từ rong biển, sản phẩm c&ograve;n c&oacute; t&iacute;nh h&agrave;n, mang đến c&ocirc;ng dụng giải nhiệt cơ thể cho b&eacute;, gi&uacute;p đ&agrave;o thải độc tố hiệu quả.&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\"><strong>Hướng dẫn sử dụng</strong></p>\r\n\r\n<p style=\"text-align:justify\">D&ugrave;ng trực tiếp sau khi mở bao b&igrave;.&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Bảo quản sản phẩm nơi kh&ocirc; r&aacute;o v&agrave; đậy k&iacute;n sau khi sử dụng.</p>\r\n\r\n<p style=\"text-align:justify\"><u><em>Lưu &yacute;:</em></u></p>\r\n\r\n<ul>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Cần sử dụng sản phẩm ngay sau khi mở d&ugrave; vẫn c&ograve;n hạn sử dụng.</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Ch&uacute; &yacute; cẩn thận bị thương do vật liệu đ&oacute;ng g&oacute;i khi mở hay khi ăn.</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Sản phẩm sử dụng c&ugrave;ng d&acirc;y chuyền sản xuất c&aacute;c sản phẩm trứng, sữa, kiều mạch, đậu phộng, c&aacute; thu, cua, hạt th&ocirc;ng, thịt lợn, đ&agrave;o, c&agrave; chua, quả &oacute;c ch&oacute;, thịt g&agrave;, thịt b&ograve;, mực v&agrave; một số động vật như h&agrave;u, b&agrave;o ngư, trai. Bố mẹ n&ecirc;n lưu &yacute; trước khi cho b&eacute; sử dụng nếu con dị ứng với những th&agrave;nh phần kể tr&ecirc;n.&nbsp;</p>\r\n	</li>\r\n</ul>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\"><strong>Hướng dẫn bảo quản&nbsp;</strong></p>\r\n\r\n<ul>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Bảo quản nơi tho&aacute;ng m&aacute;t, tr&aacute;nh độ ẩm cao v&agrave; &aacute;nh s&aacute;ng trực tiếp.&nbsp;</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Sau khi mở, cần đ&oacute;ng k&iacute;n v&agrave; bảo quản trong tủ lạnh hoặc tủ đ&ocirc;ng để giữ nguy&ecirc;n hương vị v&agrave; h&agrave;m lượng dinh dưỡng c&oacute; trong sản phẩm.</p>\r\n	</li>\r\n</ul>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\"><strong>Th&agrave;nh phần ch&iacute;nh&nbsp;</strong></p>\r\n\r\n<p style=\"text-align:justify\">Rong biển vụn hữu cơ ( H&agrave;n Quốc) 41%, dầu Canola hữu cơ ( Mỹ) 44%, đường hữu cơ (Brazil) 10%, dầu vừng ( H&agrave;n Quốc), muối (H&agrave;n Quốc), vừng (H&agrave;n Quốc)1%, bột cải thảo (H&agrave;n Quốc)0.6%, bột h&agrave;nh t&acirc;y (H&agrave;n Quốc) 0.6%, bột b&iacute; đỏ (H&agrave;n Quốc) 0.6%, bột c&agrave; rốt (H&agrave;n Quốc) 0.7%.</p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\"><strong>Th&ocirc;ng tin chi tiết</strong></p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">T&ecirc;n sản phẩm: Rong biển hữu cơ rắc cơm vị rau củ Alvins&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Thương hiệu: Alvins</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Xuất xứ: H&agrave;n Quốc</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Trọng lượng: 21g&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\">Hạn sử dụng: 12 th&aacute;ng kể từ NSX được in tr&ecirc;n bao b&igrave;</p>\r\n', NULL, 1, 0, 0, 0, 0, 0, 10, 0, 0, 4, 22, '', '21g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1563, 0, 1, 1, '2024-07-25 10:26:33', '2024-08-07 15:33:18'),
+(11, NULL, 'Rong biển hữu cơ rắc cơm Alvins vị hải sản', '', 'rong bien huu co rac com alvins vi hai san', '', 'rong-bien-huu-co-rac-com-alvins-vi-hai-san', '', 182, 0, 1, 110000, 99000, 1, 1, '<p style=\"text-align:justify\">Rong biển hữu cơ rắc cơm Alvins&nbsp; vị hải sản&nbsp;l&agrave; sản phẩm c&oacute; xuất xứ từ H&agrave;n Quốc; được l&agrave;m từ nguồn nguy&ecirc;n liệu hữu cơ, sản phẩm gi&uacute;p b&eacute; l&agrave;m quen với nhiều loại hương vị trong giai đoạn tập ăn một c&aacute;ch an to&agrave;n.</p>\r\n', 'Hàn Quốc', '', NULL, NULL, NULL, '<p dir=\"ltr\" style=\"text-align:justify\"><strong>Ưu điểm nổi bật</strong></p>\r\n\r\n<p style=\"text-align:justify\">Đ&aacute;p ứng ti&ecirc;u chuẩn ATVSTP HACCP v&agrave; chuẩn hữu cơ USDA, chuẩn hữu cơ H&agrave;n Quốc, rong biển hữu cơ rắc cơm vị hải sản Alvins được l&agrave;m từ nguồn nguy&ecirc;n liệu an to&agrave;n với quy tr&igrave;nh sản xuất đạt chuẩn. Bố mẹ c&oacute; thể ho&agrave;n to&agrave;n an t&acirc;m cho b&eacute; y&ecirc;u sử dụng sản phẩm.&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\">Rong biển hữu cơ rắc cơm vị hải sản Alvins chứa nhiều dưỡng chất tốt cho con như:</p>\r\n\r\n<ul>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Gi&agrave;u chất xơ: tốt cho hệ ti&ecirc;u h&oacute;a của b&eacute;</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">C&oacute; t&iacute;nh kiềm gi&uacute;p trung h&ograve;a axit dạ d&agrave;y: gi&uacute;p hệ ti&ecirc;u h&oacute;a hoạt động tốt hơn</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Gi&agrave;u vitamin A, B, E, C, iot, sắt, canxi: th&agrave;nh phần tốt cho sự ph&aacute;t triển của cơ thể v&agrave; n&atilde;o bộ, gi&uacute;p xương v&agrave; răng chắc khỏe, tăng cường sức đề kh&aacute;ng cho cơ thể.&nbsp;</p>\r\n	</li>\r\n</ul>\r\n\r\n<p style=\"text-align:justify\">Với th&agrave;nh phần ch&iacute;nh từ rong biển, sản phẩm c&ograve;n c&oacute; t&iacute;nh h&agrave;n, mang đến c&ocirc;ng dụng giải nhiệt cơ thể cho b&eacute;, gi&uacute;p đ&agrave;o thải độc tố hiệu quả.&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\"><strong>Hướng dẫn sử dụng</strong></p>\r\n\r\n<p style=\"text-align:justify\">D&ugrave;ng trực tiếp sau khi mở bao b&igrave;.&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Bảo quản sản phẩm nơi kh&ocirc; r&aacute;o v&agrave; đậy k&iacute;n sau khi sử dụng.</p>\r\n\r\n<p style=\"text-align:justify\"><u><em>Lưu &yacute;:</em></u></p>\r\n\r\n<ul>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Cần sử dụng sản phẩm ngay sau khi mở d&ugrave; vẫn c&ograve;n hạn sử dụng.</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Ch&uacute; &yacute; cẩn thận bị thương do vật liệu đ&oacute;ng g&oacute;i khi mở hay khi ăn.</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Sản phẩm sử dụng c&ugrave;ng d&acirc;y chuyền sản xuất c&aacute;c sản phẩm trứng, sữa, kiều mạch, đậu phộng, c&aacute; thu, cua, hạt th&ocirc;ng, thịt lợn, đ&agrave;o, c&agrave; chua, quả &oacute;c ch&oacute;, thịt g&agrave;, thịt b&ograve;, mực v&agrave; một số động vật như h&agrave;u, b&agrave;o ngư, trai. Bố mẹ n&ecirc;n lưu &yacute; trước khi cho b&eacute; sử dụng nếu con dị ứng với những th&agrave;nh phần kể tr&ecirc;n.&nbsp;</p>\r\n	</li>\r\n</ul>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\"><strong>Hướng dẫn bảo quản</strong>&nbsp;</p>\r\n\r\n<ul>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Bảo quản nơi tho&aacute;ng m&aacute;t, tr&aacute;nh độ ẩm cao v&agrave; &aacute;nh s&aacute;ng trực tiếp.&nbsp;</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Sau khi mở, cần đ&oacute;ng k&iacute;n v&agrave; bảo quản trong tủ lạnh hoặc tủ đ&ocirc;ng để giữ nguy&ecirc;n hương vị v&agrave; h&agrave;m lượng dinh dưỡng c&oacute; trong sản phẩm.</p>\r\n	</li>\r\n</ul>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\"><strong>Th&agrave;nh phần ch&iacute;nh&nbsp;</strong></p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Rong biển vụn hữu cơ ( H&agrave;n Quốc) 41%, dầu Canola hữu cơ ( Mỹ) 44%, đường hữu cơ (Brazil) 10%, vừng ( ngoại quốc, Nigeria Ethiopia, Ấn Độ...), muối biển (H&agrave;n quốc), t&ocirc;m kh&ocirc; (H&agrave;n Quốc) 0.2%, mực kh&ocirc;(H&agrave;n Quốc) 0.2%, c&aacute; cơm kh&ocirc; (H&agrave;n Quốc) 1.3%, dầu vừng ( h&agrave;n Quốc), mầm gạo ( H&agrave;n Quốc 0.7% (bao gồm t&ocirc;m).</p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\"><strong>Th&ocirc;ng tin chi tiết</strong></p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">T&ecirc;n sản phẩm: Rong biển hữu cơ rắc cơm vị hải sản Alvins&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Thương hiệu: Alvins</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Xuất xứ: H&agrave;n Quốc</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Trọng lượng: 21g&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Hạn sử dụng: 12 th&aacute;ng kể từ NSX được in tr&ecirc;n bao b&igrave;</p>\r\n', NULL, 1, 0, 0, 0, 0, 0, 10, 0, 0, 4, 22, '', '21g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1564, 0, 1, 1, '2024-07-25 10:32:25', '2024-08-07 15:32:13'),
+(12, NULL, 'Bánh gạo hữu cơ Nobi Nobi vị quả mọng', '', 'banh gao huu co nobi nobi vi qua mong', '', 'banh-gao-huu-co-nobi-nobi-vi-qua-mong', '', 37, 1, 0, 25000, 0, 1, 7, '<p style=\"text-align:justify\">L&agrave; thực phẩm bổ sung d&agrave;nh cho b&eacute;&nbsp;ăn dặm từ 08 th&aacute;ng tuổi v&agrave; cả trẻ em,&nbsp;b&aacute;nh gạo hữu cơ&nbsp;Nobi Nobi vị quả mọng 15g l&agrave; một thương hiệu đến từ top 10 của Th&aacute;i Lan v&agrave; uy t&iacute;n quốc tế.</p>\r\n', NULL, '', NULL, NULL, NULL, '<p><strong>Đặc điểm nổi bật của B&aacute;nh gạo ăn dặm hữu cơ cho b&eacute; Nobi Nobi vị quả mọng 15g:</strong></p>\r\n\r\n<ul>\r\n	<li>L&agrave;m từ&nbsp; gạo thơm Jasmine nguy&ecirc;n c&aacute;m hữu cơ - giống gạo nổi tiếng thơm ngon tại Th&aacute;i Lan.</li>\r\n	<li>Th&agrave;nh phần từ gạo n&ecirc;n b&aacute;nh cực dễ tan, hạn chế t&igrave;nh trạng h&oacute;c nghẹn</li>\r\n	<li>Sản phẩm c&oacute; kết cấu khoa học gi&uacute;p b&eacute; dễ cầm nắm, dễ nhai cắn</li>\r\n	<li>H&igrave;nh thỏ ngộ nghĩnh gi&uacute;p tạo hứng th&uacute; v&agrave; s&aacute;ng tạo khi ăn</li>\r\n	<li>Sử dụng c&ocirc;ng nghệ nướng ch&iacute;n, kh&ocirc;ng chi&ecirc;n qua dầu, an to&agrave;n cho b&eacute;</li>\r\n	<li>Bổ sung Canxi, sắt v&agrave; vitamin B1</li>\r\n	<li>Hương vị thanh thuần, thơm ngon, dễ ăn, vừa tay</li>\r\n	<li>Dạng t&uacute;i zip thuận tiện cho sử dụng v&agrave; bảo quản</li>\r\n	<li>Đặc biệt b&aacute;nh ho&agrave;n to&agrave;n kh&ocirc;ng chứa chất tạo m&agrave;u, kh&ocirc;ng chất bảo quản, kh&ocirc;ng hương liệu tổng hợp&nbsp;</li>\r\n	<li>Kh&ocirc;ng th&ecirc;m muối</li>\r\n	<li>Đạt chuẩn hữu cơ USDA đảm bảo an to&agrave;n, l&agrave;nh t&iacute;nh</li>\r\n</ul>\r\n\r\n<p><strong>Xuất xứ thương hiệu:</strong>&nbsp;Th&aacute;i Lan - Nobi Nobi</p>\r\n\r\n<p>Nobi Nobi l&agrave; thương hiệu thực phẩm cho b&eacute; ăn dặm Top 10 tại Th&aacute;i Lan. Được th&agrave;nh lập từ năm 2015, đến nay Nobi Nobi đ&atilde; c&oacute; 8 năm kinh nghiệm sản xuất thực phẩm ăn dặm cho b&eacute; đạt ti&ecirc;u chuẩn hữu cơ quốc tế.</p>\r\n\r\n<p>C&aacute;c sản phẩm Nobi Nobi được ch&uacute; trọng tỉ mỉ từ chất lượng cho đến hương vị v&agrave; cả kết cấu, h&igrave;nh d&aacute;ng của sản phẩm. Nhờ vậy kh&ocirc;ng chỉ cung cấp chất dinh dưỡng cho trẻ m&agrave; c&ograve;n g&oacute;p phần r&egrave;n luyện kỹ năng v&agrave; tạo sự hứng th&uacute; cho trẻ khi ăn.</p>\r\n\r\n<ul>\r\n	<li>\r\n	<p>Đạt chứng nhận GHPs, HACCP, FSSC 22000, USDA, EU</p>\r\n	</li>\r\n	<li>\r\n	<p>Thương hiệu nổi tiếng v&agrave; được nhiều ba mẹ ưa chuộng tại Th&aacute;i Lan</p>\r\n	</li>\r\n	<li>\r\n	<p>Hương vị thanh thuần, thơm ngon, dễ ăn, vừa tay</p>\r\n	</li>\r\n</ul>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Th&agrave;nh phần:</strong>&nbsp;Gạo Jasmine hữu cơ 85.54%, đường n&acirc;u hữu cơ 6.75%, hỗn hợp bột quả hữu cơ 4.84% (Bột lựu hữu cơ, bột d&acirc;u đen hữu cơ, bột nho hữu cơ, bột kỷ tử hữu cơ, bột nam việt quất hữu cơ, bột m&acirc;m x&ocirc;i hữu cơ, bột việt quất hữu cơ, bột l&yacute; chua đen hữu cơ, bột sơ ri hữu cơ, bột acai hữu cơ, bột maqui berry hữu cơ), gạo t&iacute;m hữu cơ 1.78%, hương vị việt quất tự nhi&ecirc;n 0.36%, Calci carbonat (INS 170(i)), vitamin E tự nhi&ecirc;n (INS 307(b)), hỗn hợp vitamin v&agrave; kho&aacute;ng chất.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Quy c&aacute;ch:</strong>&nbsp;15g<br />\r\n<strong>Hướng dẫn sử dụng:</strong>&nbsp;Ăn trực tiếp sau khi mở t&uacute;i<br />\r\n<strong>Độ tuổi khuyến nghị:</strong>&nbsp;Từ 8 th&aacute;ng tuổi trở l&ecirc;n<br />\r\n<strong>Hướng dẫn bảo quản:</strong>&nbsp;Nhiệt độ thường, nơi kh&ocirc; r&aacute;o tho&aacute;ng m&aacute;t, tr&aacute;nh &aacute;nh nắng trực tiếp</p>\r\n', NULL, 1, 0, 0, 0, 0, 0, 4, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1565, 0, 1, 1, '2024-07-25 10:48:09', '2024-07-25 11:15:46'),
+(13, NULL, 'Bánh gạo hữu cơ Nobi Nobi vị quả mọng', '', 'Banh gao huu co Nobi Nobi vi qua mong', '', 'banh-gao-huu-co-nobi-nobi-vi-qua-mong', '', NULL, 1, 0, 25000, 0, 1, 7, '<p style=\"text-align:justify\">L&agrave; thực phẩm bổ sung d&agrave;nh cho b&eacute;&nbsp;ăn dặm từ 08 th&aacute;ng tuổi v&agrave; cả trẻ em,&nbsp;b&aacute;nh gạo hữu cơ&nbsp;Nobi Nobi vị quả mọng 15g l&agrave; một thương hiệu đến từ top 10 của Th&aacute;i Lan v&agrave; uy t&iacute;n quốc tế.</p>\r\n', NULL, '', NULL, NULL, NULL, '<p><strong>Đặc điểm nổi bật của B&aacute;nh gạo ăn dặm hữu cơ cho b&eacute; Nobi Nobi vị quả mọng 15g:</strong></p>\r\n\r\n<ul>\r\n	<li>L&agrave;m từ&nbsp; gạo thơm Jasmine nguy&ecirc;n c&aacute;m hữu cơ - giống gạo nổi tiếng thơm ngon tại Th&aacute;i Lan.</li>\r\n	<li>Th&agrave;nh phần từ gạo n&ecirc;n b&aacute;nh cực dễ tan, hạn chế t&igrave;nh trạng h&oacute;c nghẹn</li>\r\n	<li>Sản phẩm c&oacute; kết cấu khoa học gi&uacute;p b&eacute; dễ cầm nắm, dễ nhai cắn</li>\r\n	<li>H&igrave;nh thỏ ngộ nghĩnh gi&uacute;p tạo hứng th&uacute; v&agrave; s&aacute;ng tạo khi ăn</li>\r\n	<li>Sử dụng c&ocirc;ng nghệ nướng ch&iacute;n, kh&ocirc;ng chi&ecirc;n qua dầu, an to&agrave;n cho b&eacute;</li>\r\n	<li>Bổ sung Canxi, sắt v&agrave; vitamin B1</li>\r\n	<li>Hương vị thanh thuần, thơm ngon, dễ ăn, vừa tay</li>\r\n	<li>Dạng t&uacute;i zip thuận tiện cho sử dụng v&agrave; bảo quản</li>\r\n	<li>Đặc biệt b&aacute;nh ho&agrave;n to&agrave;n kh&ocirc;ng chứa chất tạo m&agrave;u, kh&ocirc;ng chất bảo quản, kh&ocirc;ng hương liệu tổng hợp&nbsp;</li>\r\n	<li>Kh&ocirc;ng th&ecirc;m muối</li>\r\n	<li>Đạt chuẩn hữu cơ USDA đảm bảo an to&agrave;n, l&agrave;nh t&iacute;nh</li>\r\n</ul>\r\n\r\n<p><strong>Xuất xứ thương hiệu:</strong>&nbsp;Th&aacute;i Lan - Nobi Nobi</p>\r\n\r\n<p>Nobi Nobi l&agrave; thương hiệu thực phẩm cho b&eacute; ăn dặm Top 10 tại Th&aacute;i Lan. Được th&agrave;nh lập từ năm 2015, đến nay Nobi Nobi đ&atilde; c&oacute; 8 năm kinh nghiệm sản xuất thực phẩm ăn dặm cho b&eacute; đạt ti&ecirc;u chuẩn hữu cơ quốc tế.</p>\r\n\r\n<p>C&aacute;c sản phẩm Nobi Nobi được ch&uacute; trọng tỉ mỉ từ chất lượng cho đến hương vị v&agrave; cả kết cấu, h&igrave;nh d&aacute;ng của sản phẩm. Nhờ vậy kh&ocirc;ng chỉ cung cấp chất dinh dưỡng cho trẻ m&agrave; c&ograve;n g&oacute;p phần r&egrave;n luyện kỹ năng v&agrave; tạo sự hứng th&uacute; cho trẻ khi ăn.</p>\r\n\r\n<ul>\r\n	<li>\r\n	<p>Đạt chứng nhận GHPs, HACCP, FSSC 22000, USDA, EU</p>\r\n	</li>\r\n	<li>\r\n	<p>Thương hiệu nổi tiếng v&agrave; được nhiều ba mẹ ưa chuộng tại Th&aacute;i Lan</p>\r\n	</li>\r\n	<li>\r\n	<p>Hương vị thanh thuần, thơm ngon, dễ ăn, vừa tay</p>\r\n	</li>\r\n</ul>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Th&agrave;nh phần:</strong>&nbsp;Gạo Jasmine hữu cơ 85.54%, đường n&acirc;u hữu cơ 6.75%, hỗn hợp bột quả hữu cơ 4.84% (Bột lựu hữu cơ, bột d&acirc;u đen hữu cơ, bột nho hữu cơ, bột kỷ tử hữu cơ, bột nam việt quất hữu cơ, bột m&acirc;m x&ocirc;i hữu cơ, bột việt quất hữu cơ, bột l&yacute; chua đen hữu cơ, bột sơ ri hữu cơ, bột acai hữu cơ, bột maqui berry hữu cơ), gạo t&iacute;m hữu cơ 1.78%, hương vị việt quất tự nhi&ecirc;n 0.36%, Calci carbonat (INS 170(i)), vitamin E tự nhi&ecirc;n (INS 307(b)), hỗn hợp vitamin v&agrave; kho&aacute;ng chất.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Quy c&aacute;ch:</strong>&nbsp;15g<br />\r\n<strong>Hướng dẫn sử dụng:</strong>&nbsp;Ăn trực tiếp sau khi mở t&uacute;i<br />\r\n<strong>Độ tuổi khuyến nghị:</strong>&nbsp;Từ 8 th&aacute;ng tuổi trở l&ecirc;n<br />\r\n<strong>Hướng dẫn bảo quản:</strong>&nbsp;Nhiệt độ thường, nơi kh&ocirc; r&aacute;o tho&aacute;ng m&aacute;t, tr&aacute;nh &aacute;nh nắng trực tiếp</p>\r\n', NULL, 1, 0, 0, 0, 0, 0, 4, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, 1, '', NULL, NULL, NULL, NULL, 0, '', 0, NULL, 0, 1, 1, '2024-07-25 10:48:13', '2024-07-25 10:48:38'),
+(14, NULL, 'Bánh gạo hữu cơ Nobi Nobi vị chuối, bí đỏ, cà rốt', '', 'banh gao huu co nobi nobi vi chuoi bi do ca rot', '', 'banh-gao-huu-co-nobi-nobi-vi-chuoi-bi-do-ca-rot', '', 41, 0, 0, 25000, 0, 1, 7, '<p style=\"text-align:justify\">L&agrave; thực phẩm bổ sung d&agrave;nh cho b&eacute;&nbsp;ăn dặm từ 08 th&aacute;ng tuổi v&agrave; cả trẻ em,&nbsp;b&aacute;nh gạo hữu cơ&nbsp;Nobi Nobi vị chuối, b&iacute; đỏ, c&agrave; rốt&nbsp;15g l&agrave; một thương hiệu đến từ top 10 của Th&aacute;i Lan v&agrave; uy t&iacute;n quốc tế.</p>\r\n', NULL, '', NULL, NULL, NULL, '<p><strong>Đặc điểm nổi bật của B&aacute;nh gạo&nbsp;hữu cơ Nobi Nobi vị chuối, b&iacute; đỏ, c&agrave; rốt&nbsp;15g:</strong></p>\r\n\r\n<ul>\r\n	<li>L&agrave;m từ&nbsp; gạo thơm Jasmine nguy&ecirc;n c&aacute;m hữu cơ - giống gạo nổi tiếng thơm ngon tại Th&aacute;i Lan.</li>\r\n	<li>Th&agrave;nh phần từ gạo n&ecirc;n b&aacute;nh cực dễ tan, hạn chế t&igrave;nh trạng h&oacute;c nghẹn</li>\r\n	<li>Sản phẩm c&oacute; kết cấu khoa học gi&uacute;p b&eacute; dễ cầm nắm, dễ nhai cắn</li>\r\n	<li>H&igrave;nh thỏ ngộ nghĩnh gi&uacute;p tạo hứng th&uacute; v&agrave; s&aacute;ng tạo khi ăn</li>\r\n	<li>Sử dụng c&ocirc;ng nghệ nướng ch&iacute;n, kh&ocirc;ng chi&ecirc;n qua dầu, an to&agrave;n cho b&eacute;</li>\r\n	<li>Bổ sung Canxi, Sắt v&agrave; vitamin B1</li>\r\n	<li>Hương vị thanh thuần, thơm ngon, dễ ăn, vừa tay</li>\r\n	<li>Dạng t&uacute;i zip thuận tiện cho sử dụng v&agrave; bảo quản</li>\r\n	<li>Đặc biệt b&aacute;nh ho&agrave;n to&agrave;n kh&ocirc;ng chứa chất tạo m&agrave;u, kh&ocirc;ng chất bảo quản, kh&ocirc;ng hương liệu tổng hợp&nbsp;</li>\r\n	<li>Kh&ocirc;ng th&ecirc;m muối</li>\r\n	<li>Đạt chuẩn hữu cơ USDA đảm bảo an to&agrave;n, l&agrave;nh t&iacute;nh</li>\r\n</ul>\r\n\r\n<p><strong>Xuất xứ thương hiệu:</strong>&nbsp;Th&aacute;i Lan - Nobi Nobi</p>\r\n\r\n<p>Nobi Nobi l&agrave; thương hiệu thực phẩm cho b&eacute; ăn dặm Top 10 tại Th&aacute;i Lan. Được th&agrave;nh lập từ năm 2015, đến nay Nobi Nobi đ&atilde; c&oacute; 8 năm kinh nghiệm sản xuất thực phẩm ăn dặm cho b&eacute; đạt ti&ecirc;u chuẩn hữu cơ quốc tế.</p>\r\n\r\n<p>C&aacute;c sản phẩm Nobi Nobi được ch&uacute; trọng tỉ mỉ từ chất lượng cho đến hương vị v&agrave; cả kết cấu, h&igrave;nh d&aacute;ng của sản phẩm. Nhờ vậy kh&ocirc;ng chỉ cung cấp chất dinh dưỡng cho trẻ m&agrave; c&ograve;n g&oacute;p phần r&egrave;n luyện kỹ năng v&agrave; tạo sự hứng th&uacute; cho trẻ khi ăn.</p>\r\n\r\n<ul>\r\n	<li>\r\n	<p>Đạt chứng nhận GHPs, HACCP, FSSC 22000, USDA, EU</p>\r\n	</li>\r\n	<li>\r\n	<p>Thương hiệu nổi tiếng v&agrave; được nhiều ba mẹ ưa chuộng tại Th&aacute;i Lan</p>\r\n	</li>\r\n	<li>\r\n	<p>Hương vị thanh thuần, thơm ngon, dễ ăn, vừa tay</p>\r\n	</li>\r\n</ul>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Th&agrave;nh phần:</strong>&nbsp;Gạo Jasmine hữu cơ 83.23%, đường n&acirc;u hữu cơ 6.42%, bột chuối hữu cơ 5.03%, bột b&iacute; đỏ hữu cơ 2.51%, bột c&agrave; rốt hữu cơ 1.87%, hương chuối tự nhi&ecirc;n 0.25%, Calci carbonat (INS 170(i)), vitamin E tự nhi&ecirc;n (INS 307(b)), hỗn hợp vitamin v&agrave; kho&aacute;ng chất.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Quy c&aacute;ch:</strong>&nbsp;15g<br />\r\n<strong>Hướng dẫn sử dụng:</strong>&nbsp;Ăn trực tiếp sau khi mở t&uacute;i<br />\r\n<strong>Độ tuổi khuyến nghị:</strong>&nbsp;Từ 8 th&aacute;ng tuổi trở l&ecirc;n<br />\r\n<strong>Hướng dẫn bảo quản:</strong>&nbsp;Nhiệt độ thường, nơi kh&ocirc; r&aacute;o tho&aacute;ng m&aacute;t, tr&aacute;nh &aacute;nh nắng trực tiếp</p>\r\n', NULL, 1, 0, 0, 0, 0, 0, 4, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1566, 0, 1, 1, '2024-07-25 10:53:51', '2024-07-25 11:20:37'),
+(15, NULL, 'Bánh gạo hữu cơ Nobi Nobi vị cải xoăn, súp lơ, phô mai', '', 'banh gao huu co nobi nobi vi cai xoan sup lo pho mai', '', 'banh-gao-huu-co-nobi-nobi-vi-cai-xoan-sup-lo-pho-mai', '', 40, 0, 0, 25000, 0, 1, 7, '<p style=\"text-align:justify\">L&agrave; thực phẩm bổ sung d&agrave;nh cho b&eacute;&nbsp;ăn dặm từ 08 th&aacute;ng tuổi v&agrave; cả trẻ em,&nbsp;b&aacute;nh gạo hữu cơ&nbsp;Nobi Nobi vị chuối, b&iacute; đỏ, c&agrave; rốt&nbsp;15g l&agrave; một thương hiệu đến từ top 10 của Th&aacute;i Lan v&agrave; uy t&iacute;n quốc tế.</p>\r\n', NULL, '', NULL, NULL, NULL, '<p><strong>Đặc điểm nổi bật của B&aacute;nh gạo&nbsp;hữu cơ Nobi Nobi vị cải xoăn, s&uacute;p lơ, ph&ocirc; mai 15g:</strong></p>\r\n\r\n<ul>\r\n	<li>L&agrave;m từ&nbsp; gạo thơm Jasmine nguy&ecirc;n c&aacute;m hữu cơ - giống gạo nổi tiếng thơm ngon tại Th&aacute;i Lan.</li>\r\n	<li>Th&agrave;nh phần từ gạo n&ecirc;n b&aacute;nh cực dễ tan, hạn chế t&igrave;nh trạng h&oacute;c nghẹn</li>\r\n	<li>Sản phẩm c&oacute; kết cấu khoa học gi&uacute;p b&eacute; dễ cầm nắm, dễ nhai cắn</li>\r\n	<li>H&igrave;nh thỏ ngộ nghĩnh gi&uacute;p tạo hứng th&uacute; v&agrave; s&aacute;ng tạo khi ăn</li>\r\n	<li>Sử dụng c&ocirc;ng nghệ nướng ch&iacute;n, kh&ocirc;ng chi&ecirc;n qua dầu, an to&agrave;n cho b&eacute;</li>\r\n	<li>Bổ sung Canxi, Sắt v&agrave; vitamin B1</li>\r\n	<li>Hương vị thanh thuần, thơm ngon, dễ ăn, vừa tay</li>\r\n	<li>Dạng t&uacute;i zip thuận tiện cho sử dụng v&agrave; bảo quản</li>\r\n	<li>Đặc biệt b&aacute;nh ho&agrave;n to&agrave;n kh&ocirc;ng chứa chất tạo m&agrave;u, kh&ocirc;ng chất bảo quản, kh&ocirc;ng hương liệu tổng hợp&nbsp;</li>\r\n	<li>Kh&ocirc;ng th&ecirc;m muối</li>\r\n	<li>Đạt chuẩn hữu cơ USDA đảm bảo an to&agrave;n, l&agrave;nh t&iacute;nh</li>\r\n</ul>\r\n\r\n<p><strong>Xuất xứ thương hiệu:</strong>&nbsp;Th&aacute;i Lan - Nobi Nobi</p>\r\n\r\n<p>Nobi Nobi l&agrave; thương hiệu thực phẩm cho b&eacute; ăn dặm Top 10 tại Th&aacute;i Lan. Được th&agrave;nh lập từ năm 2015, đến nay Nobi Nobi đ&atilde; c&oacute; 8 năm kinh nghiệm sản xuất thực phẩm ăn dặm cho b&eacute; đạt ti&ecirc;u chuẩn hữu cơ quốc tế.</p>\r\n\r\n<p>C&aacute;c sản phẩm Nobi Nobi được ch&uacute; trọng tỉ mỉ từ chất lượng cho đến hương vị v&agrave; cả kết cấu, h&igrave;nh d&aacute;ng của sản phẩm. Nhờ vậy kh&ocirc;ng chỉ cung cấp chất dinh dưỡng cho trẻ m&agrave; c&ograve;n g&oacute;p phần r&egrave;n luyện kỹ năng v&agrave; tạo sự hứng th&uacute; cho trẻ khi ăn.</p>\r\n\r\n<ul>\r\n	<li>\r\n	<p>Đạt chứng nhận GHPs, HACCP, FSSC 22000, USDA, EU</p>\r\n	</li>\r\n	<li>\r\n	<p>Thương hiệu nổi tiếng v&agrave; được nhiều ba mẹ ưa chuộng tại Th&aacute;i Lan</p>\r\n	</li>\r\n	<li>\r\n	<p>Hương vị thanh thuần, thơm ngon, dễ ăn, vừa tay</p>\r\n	</li>\r\n</ul>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Th&agrave;nh phần:</strong>&nbsp;Gạo Jasmine hữu cơ 86.02%, đường n&acirc;u hữu cơ 7.15%, bột s&uacute;p lơ hữu cơ 2.54%, hương ph&ocirc; mai tự nhi&ecirc;n 2.04%, bột cải xoăn hữu cơ 0.88%, muối 0.68%, Calci carbonat (INS 170(i)), vitamin E tự nhi&ecirc;n (INS 307(b)), hỗn hợp vitamin v&agrave; kho&aacute;ng chất.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Quy c&aacute;ch:</strong>&nbsp;15g<br />\r\n<strong>Hướng dẫn sử dụng:</strong>&nbsp;Ăn trực tiếp sau khi mở t&uacute;i<br />\r\n<strong>Độ tuổi khuyến nghị:</strong>&nbsp;Từ 8 th&aacute;ng tuổi trở l&ecirc;n<br />\r\n<strong>Hướng dẫn bảo quản:</strong>&nbsp;Nhiệt độ thường, nơi kh&ocirc; r&aacute;o tho&aacute;ng m&aacute;t, tr&aacute;nh &aacute;nh nắng trực tiếp</p>\r\n', NULL, 1, 0, 0, 0, 0, 0, 4, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1567, 0, 1, 1, '2024-07-25 11:19:52', '2024-07-25 11:20:30'),
+(16, NULL, 'Nho khô hữu cơ Sunny Fruit 250g', '', 'nho kho huu co sunny fruit 250g', '', 'nho-kho-huu-co-sunny-fruit-250g', '', 252, 1, 0, 135000, 0, 1, 6, '<p style=\"text-align:justify\">Nho kh&ocirc; hữu cơ Sunny Fruit l&agrave; m&oacute;n ăn bổ dưỡng, ngọt l&agrave;nh từ v&ugrave;ng đất Thổ Nhĩ Kỳ nổi tiếng về tr&aacute;i c&acirc;y sấy kh&ocirc; từ giống, kh&iacute; hậu cho đến kỹ thuật thu hoạch, sơ chế. Đ&acirc;y ch&iacute;nh l&agrave; một lựa chọn ưu ti&ecirc;n h&agrave;ng đầu của c&aacute;c t&iacute;n đồ y&ecirc;u vị ngọt từ tr&aacute;i c&acirc;y sấy kh&ocirc;.</p>\r\n', 'Thổ Nhĩ Kỳ', '', NULL, NULL, NULL, '<p style=\"text-align:justify\"><strong>Đặc điểm nổi bật của Nho kh&ocirc; hữu cơ Sultana Sunny Fruit:</strong></p>\r\n\r\n<p style=\"text-align:justify\"><strong>- Kh&ocirc;ng c&oacute; Cholesterol</strong></p>\r\n\r\n<p style=\"text-align:justify\"><strong>- Kh&ocirc;ng c&oacute; c&aacute;c loại hạt</strong></p>\r\n\r\n<p style=\"text-align:justify\"><strong>- Kh&ocirc;ng c&oacute; Gluten</strong></p>\r\n\r\n<p style=\"text-align:justify\">Nho kh&ocirc; kh&ocirc;ng hạt hữu cơ của ch&uacute;ng t&ocirc;i l&agrave; một m&oacute;n ăn tuyệt vời để l&agrave;m h&agrave;i l&ograve;ng những t&iacute;n đồ th&iacute;ch ngọt nhưng vẫn tốt cho sức khoẻ v&agrave; bổ dưỡng. Bạn c&oacute; thể dễ d&agrave;ng mang theo v&agrave; thưởng thức bất cứ l&uacute;c n&agrave;o một c&aacute;ch tiện lợi, mang đến một bữa ăn nhẹ tươi ngon cho m&igrave;nh.&nbsp;Nho kh&ocirc; kh&ocirc;ng hạt hữu cơ Sunny Fruit Portion Pack rất th&iacute;ch hợp l&agrave;m m&oacute;n ăn nhẹ&nbsp;tại văn ph&ograve;ng, cũng như cho trẻ mang theo trong t&uacute;i để ăn trưa v&agrave; thậm ch&iacute; l&agrave;m bữa s&aacute;ng nhanh gọn cho những buổi s&aacute;ng bận rộn.</p>\r\n\r\n<p style=\"text-align:justify\"><strong>C&ocirc;ng dụng:</strong></p>\r\n\r\n<ul>\r\n	<li style=\"text-align: justify;\">D&ugrave;ng l&agrave;m m&oacute;n ăn nhẹ l&agrave;nh mạnh&nbsp;</li>\r\n	<li style=\"text-align: justify;\">Sử dụng với ngũ cốc, sữa chua,... để l&agrave;m m&oacute;n ăn s&aacute;ng</li>\r\n	<li style=\"text-align: justify;\">Cho trẻ mang đi học ăn trưa&nbsp;</li>\r\n	<li style=\"text-align: justify;\">Bổ sung cho c&aacute;c c&ocirc;ng thức bữa ăn tối</li>\r\n	<li style=\"text-align: justify;\">D&ugrave;ng với granola v&agrave; sữa chua.</li>\r\n	<li style=\"text-align: justify;\">D&ugrave;ng l&agrave;m m&oacute;n tr&aacute;ng miệng.</li>\r\n</ul>\r\n\r\n<p style=\"text-align:justify\"><strong>Xuất xứ thương hiệu:</strong>&nbsp;Thổ Nhĩ Kỳ&nbsp;- Sunny Fruit</p>\r\n\r\n<p style=\"text-align:justify\"><strong>Sunny Fruit&nbsp;</strong>khởi đầu từ nơi c&oacute; kh&iacute; hậu đặc biệt c&ugrave;ng&nbsp;đất&nbsp;đai&nbsp;m&agrave;u&nbsp;mỡ&nbsp;-&nbsp;<strong>Izmir, Thổ Nhĩ Kỳ</strong>. Hầu hết tr&aacute;i c&acirc;y kh&ocirc; của&nbsp;<strong>Sunny Fruit&nbsp;</strong>đều được trồng hữu cơ v&agrave; thu hoạch từ nơi n&agrave;y. Một số &iacute;t kh&aacute;c được nhập khẩu v&agrave; kiểm tra, đ&oacute;ng g&oacute;i theo quy tr&igrave;nh khắt khe của c&ocirc;ng ty.</p>\r\n\r\n<p style=\"text-align:justify\">Để đảm bảo độ ngọt l&yacute; tưởng v&agrave; h&igrave;nh ảnh sản phẩm như t&ecirc;n gọi,&nbsp;<strong>Sunny Fruit&nbsp;</strong>lu&ocirc;n chọn lượng kỹ lưỡng v&agrave; phơi kh&ocirc; tự nhi&ecirc;n c&aacute;c loại tr&aacute;i c&acirc;y dưới &aacute;nh nắng Mặt Trời sau khi thu hoạch. Với cam kết về độ tươi ngon cũng như chất lượng của sản phẩm khi đến tay người ti&ecirc;u d&ugrave;ng,&nbsp;<strong>Sunny Fruit&nbsp;</strong>kh&ocirc;ng hề th&ecirc;m đường,&nbsp;chất bảo quản hay bất kỳ chất h&oacute;a học&nbsp;n&agrave;o trong sản phẩm.&nbsp;<strong>Sunny Fruit&nbsp;</strong>tin tưởng rằng người ti&ecirc;u d&ugrave;ng sẽ t&igrave;m thấy cảm hứng bất tận trong cuộc sống h&agrave;ng ng&agrave;y cũng như trong nấu ăn khi sử dụng hoa quả kh&ocirc; hữu cơ của c&ocirc;ng ty.</p>\r\n\r\n<p style=\"text-align:justify\">D&ograve;ng&nbsp;<strong>tr&aacute;i c&acirc;y sấy Thổ Nhĩ Kỳ Sunny Fruit&reg;&nbsp;</strong>c&oacute; thể d&ugrave;ng như một loại snack bổ dưỡng, v&agrave; ph&ugrave; hợp cho sử dụng hằng ng&agrave;y ở mọi l&uacute;c mọi&nbsp;nơi,&nbsp;kết&nbsp;hợp tr&aacute;i c&acirc;y sấy với những m&oacute;n ăn kh&aacute;c như b&aacute;nh m&igrave;, sữa chua, kem&hellip;&nbsp;để&nbsp;tạo&nbsp;n&ecirc;n&nbsp;những&nbsp;m&oacute;n&nbsp;ăn&nbsp;thơm&nbsp;ngon&nbsp;bổ&nbsp;dưỡng.</p>\r\n\r\n<p style=\"text-align:justify\"><strong>Th&agrave;nh phần</strong>: nho kh&ocirc; hữu cơ, nước.</p>\r\n\r\n<p style=\"text-align:justify\"><strong>Bảo quản</strong>: Bảo quản nơi kh&ocirc; r&aacute;o, tho&aacute;ng m&aacute;t</p>\r\n\r\n<p style=\"text-align:justify\"><strong>Hướng dẫn sử dụng</strong>: D&ugrave;ng trực tiếp hoặc ăn c&ugrave;ng với ngũ cốc, sữa chua...</p>\r\n', NULL, 1, 0, 0, 0, 0, 0, 5, 0, 0, 16, 19, '', '250g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1568, 0, 1, 1, '2024-07-25 11:30:43', '2024-08-07 18:24:25'),
+(17, NULL, 'Snack khoai tây hữu cơ Bett\'r 160g', '', 'Snack khoai tay huu co Bett\'r 160g', '', 'snack-khoai-tay-huu-co-bettr', '', 43, 1, 0, 165000, 0, 1, 7, '<p style=\"text-align:justify\">Mỗi l&aacute;t&nbsp;<em>khoai t&acirc;y</em>&nbsp;từ snack khoai t&acirc;y hữu cơ Bett&#39;r đều rất gi&ograve;n v&agrave; rất mỏng, l&agrave; bữa phụ dinh dưỡng v&agrave; an to&agrave;n cho b&eacute; nhỏ, cho trẻ em hoặc m&oacute;n ăn vặt l&yacute; tưởng cho c&aacute;c bạn trẻ trong bữa xem phim hay buổi tụ tập nh&oacute;m bạn th&acirc;n.</p>\r\n', NULL, '', NULL, NULL, NULL, '<p><strong>Giới thiệu sản phẩm:</strong></p>\r\n\r\n<p><strong>Snack khoai t&acirc;y gi&ograve;n rụm</strong>&nbsp;Bett&rsquo;r c&oacute; một bất ngờ d&agrave;nh cho bạn v&agrave; gia đ&igrave;nh &ndash; đồ ăn vặt đ&atilde; trở n&ecirc;n lớn hơn! Ch&agrave;o mừng th&agrave;nh vi&ecirc;n MỚI của ch&uacute;ng ta, Mr. Khoai t&acirc;y chi&ecirc;n gi&ograve;n rụm Bett&rsquo;r hữu cơ, kh&ocirc;ng chứa dầu cọ v&agrave; cực kỳ gi&ograve;n.</p>\r\n\r\n<p>Tận hưởng đồ ăn vặt hữu cơ kh&ocirc;ng lo ảnh hưởng đến sức khỏe gi&uacute;p cả nh&agrave; an t&acirc;m tận hưởng niềm vui.</p>\r\n\r\n<ul>\r\n	<li>Kh&ocirc;ng chứa Gluten</li>\r\n	<li>Kh&ocirc;ng sử dụng th&ecirc;m chất tạo ngọt</li>\r\n	<li>100% hữu cơ</li>\r\n	<li>Thuần chay</li>\r\n	<li>1 g&oacute;i/ 15 lần sử dụng</li>\r\n	<li>Chế biến m&oacute;n ăn nhẹ, tr&aacute;ng miệng ngon miệng tiện lợi v&agrave; nhanh ch&oacute;ng.</li>\r\n</ul>\r\n\r\n<p><strong>C&aacute;ch sử dụng:</strong></p>\r\n\r\n<p>Ho&agrave;n hảo để l&agrave;m m&oacute;n khai vị với bạn b&egrave; hoặc nh&acirc;m nhi trong c&aacute;c buổi xem phim c&ugrave;ng gia đ&igrave;nh v&agrave; bạn b&egrave;.</p>\r\n\r\n<p><strong>Th&agrave;nh phần:</strong></p>\r\n\r\n<ul>\r\n	<li>Khoai t&acirc;y khử nước * (55%).</li>\r\n	<li>Dầu hoa hướng dương *</li>\r\n	<li>Bột gạo</li>\r\n	<li>Si r&ocirc; gạo</li>\r\n	<li>Tinh bột khoai t&acirc;y</li>\r\n	<li>Muối (1.1%)</li>\r\n	<li>Chất nhũ h&oacute;a: lecithin hạt hướng dương từ n&ocirc;ng nghiệp hữu cơ</li>\r\n</ul>\r\n\r\n<p><strong>Xuất xứ thương hiệu:</strong></p>\r\n\r\n<p>Bett&rsquo;r l&agrave; thương hiệu thực phẩm hữu cơ đến từ Bulgaria, cung cấp c&aacute;c sản phẩm đồ ăn vặt hữu cơ, hạt hữu cơ, b&aacute;nh kẹo hữu cơ, bơ hữu cơ, chocolate hữu cơ, snack hữu cơ&hellip;</p>\r\n', NULL, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, 1, '', NULL, NULL, NULL, NULL, 0, '', 1, 1569, 0, 1, 1, '2024-07-25 11:40:55', '2024-07-25 11:40:55');
+INSERT INTO `product` (`id`, `ma_sp`, `name`, `name_extend`, `alias`, `alias_extend`, `slug`, `slug_extend`, `thumbnail_id`, `is_hot`, `is_sale`, `price`, `price_sale`, `parent_id`, `cate_id`, `mo_ta`, `xuat_xu`, `khuyen_mai`, `sp_phukien`, `sp_tuongtu`, `sp_sosanh`, `chi_tiet`, `bao_hanh`, `con_hang`, `can_nang`, `chieu_dai`, `chieu_rong`, `chieu_cao`, `khe_ram`, `so_luong_ton`, `so_luong_tam`, `views`, `cate_child_id`, `thuonghieu_id`, `dung_tich`, `trong_luong`, `display_order`, `so_lan_mua`, `sale_percent`, `is_primary`, `name_primary`, `color_id`, `huong_dan`, `bao_quan`, `thanh_phan`, `pro_style`, `image_pro`, `status`, `meta_id`, `is_event`, `created_user`, `updated_user`, `created_at`, `updated_at`) VALUES
+(18, NULL, 'Gạo trắng hữu cơ ST25 HOASUAFOODS 1kg', '', 'gao trang huu co st25 hoasuafoods 1kg', '', 'gao-trang-huu-co-st25-hoasuafoods-1kg', '', 194, 1, 0, 62000, 0, 1, 2, '<p style=\"text-align:justify\">Đạt giải thưởng Gạo ngon nhất thế giới năm 2019, Gạo trắng hữu cơ ST25 Hoa Sữa 1kg&nbsp;mang vị ngọt tự nhi&ecirc;n, thơm thoảng m&ugrave;i l&aacute; dứa,&nbsp;chứa nhiều vitamin, h&agrave;m lượng Protein cao c&ugrave;ng c&aacute;c kho&aacute;ng chất.&nbsp;L&agrave; loại gạo th&iacute;ch hợp cho nh&oacute;m người c&oacute; nhu cầu về dinh dưỡng v&agrave; chất lượng cao, người cần kiểm so&aacute;t lượng đường huyết, người gi&agrave; v&agrave; trẻ em.</p>\r\n', 'Việt Nam', '', NULL, NULL, NULL, '<p dir=\"ltr\" style=\"text-align:justify\"><strong>Ưu điểm nổi bật</strong></p>\r\n\r\n<p style=\"text-align:justify\">ST25 l&agrave; một bảo chứng tuyệt vời d&agrave;nh cho một trong những loại gạo ngon nhất thế giới (đoạt giải 2019) với hạt gạo nhỏ, d&agrave;i, nấu ch&iacute;n th&agrave;nh cơm mềm, dẻo, r&aacute;o, kh&ocirc;ng bị kh&ocirc; cơm khi để nguội. Cơm ST25 mang vị ngọt tự nhi&ecirc;n, thơm thoảng m&ugrave;i l&aacute; dứa.</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Gạo ST25 chứa nhiều vitamin, h&agrave;m lượng Protein cao c&ugrave;ng c&aacute;c kho&aacute;ng chất kh&aacute;c như sắt, canxi, magie v&agrave; chất xơ. L&agrave; loại gạo th&iacute;ch hợp cho nh&oacute;m người c&oacute; nhu cầu về dinh dưỡng v&agrave; chất lượng cao, người cần kiểm so&aacute;t lượng đường huyết, người gi&agrave; v&agrave; trẻ em.</p>\r\n\r\n<p style=\"text-align:justify\">C&ugrave;ng với quy tr&igrave;nh canh t&aacute;c v&agrave; sơ chế hữu cơ đạt chuẩn quốc tế từ thương hiệu HoaSuaFoods, gạo trắng hữu cơ ST25 Hoa Sữa 1kg c&ograve;n c&oacute; nhiều ưu điểm vượt trội:</p>\r\n\r\n<ul>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Gạo ngon nhất thế giới năm 2019.</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Chỉ số đường huyết trung b&igrave;nh thấp.</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Kh&ocirc;ng chứa Cholesterol.</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">100% kh&ocirc;ng biến đổi gen (Non-GMO).</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">100% kh&ocirc;ng thuốc bảo vệ thực vật.</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">100% kh&ocirc;ng h&oacute;a chất.</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">100% kh&ocirc;ng chất bảo quản.</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Đạt chứng nhận hữu cơ của Mỹ v&agrave; Ch&acirc;u &Acirc;u.</p>\r\n	</li>\r\n</ul>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\"><strong>Xuất xứ thương hiệu: </strong>HoaSuaFoods - Việt Nam</p>\r\n\r\n<p style=\"text-align:justify\">Đằng sau mỗi c&aacute;i t&ecirc;n đều tồn tại một c&acirc;u chuyện.</p>\r\n\r\n<p style=\"text-align:justify\">Với thương hiệu HoaSuaFoods, đ&oacute; l&agrave; kh&aacute;t vọng &ldquo;gạo Việt Nam kh&ocirc;ng chỉ để ăn no m&agrave; c&ograve;n l&agrave; dược liệu gi&uacute;p bảo vệ v&agrave; n&acirc;ng cao sức khỏe con người&rdquo;. Mang sự đau đ&aacute;u trước nền n&ocirc;ng nghiệp nước nh&agrave;, C&ocirc;ng ty TNHH MTV TM &amp; SX Viễn Ph&uacute; quyết t&acirc;m nghi&ecirc;n cứu v&agrave; sản xuất giống gạo an to&agrave;n, ho&agrave;n to&agrave;n kh&ocirc;ng h&oacute;a chất v&agrave; c&oacute; gi&aacute; trị dinh dưỡng cao nhằm khẳng định n&ocirc;ng sản Việt Nam.</p>\r\n\r\n<p style=\"text-align:justify\">Với tất cả sự nỗ lực v&agrave; quyết t&acirc;m, HoaSuaFoods đ&atilde; th&agrave;nh c&ocirc;ng trong việc biến đồng đất hoang sơ U Minh Hạ - C&agrave; Mau th&agrave;nh một n&ocirc;ng trại chuy&ecirc;n sản xuất l&uacute;a hữu cơ sạch, với quy tr&igrave;nh canh t&aacute;c kh&eacute;p k&iacute;n, trở th&agrave;nh thương hiệu Việt Nam đầu ti&ecirc;n đạt chuẩn canh t&aacute;c hữu cơ của Hoa Kỳ (USDA) v&agrave; Ch&acirc;u &Acirc;u (EU).</p>\r\n\r\n<p style=\"text-align:justify\">Ngo&agrave;i sản phẩm Gạo hữu cơ, c&ograve;n c&oacute; c&aacute;c sản phẩm chế biến từ gạo như: B&Aacute;NH TR&Aacute;NG, B&Uacute;N, PHỞ, PHỞ ĂN LIỀN, NUI, TR&Agrave; cũng đạt chuẩn hữu cơ quốc tế EU v&agrave; USDA.</p>\r\n\r\n<p style=\"text-align:justify\">Hiện nay Gạo v&agrave; c&aacute;c sản phẩm chế biến từ gạo với thương hiệu Hoa Sữa tự h&agrave;o g&oacute;p mặt tr&ecirc;n thị trường quốc tế như MỸ, CANADA, ANH, PH&Aacute;P, ĐỨC, H&Agrave; LAN, NHẬT BẢN, &Uacute;C, SINGAPORE &hellip; qua đ&oacute; khẳng định gi&aacute; trị của nền văn minh l&uacute;a nước v&agrave; c&aacute;c sản phẩm đặc th&ugrave; của Việt Nam.</p>\r\n\r\n<p style=\"text-align:justify\">C&ugrave;ng HoaSuaFoods v&agrave; G-Organic Family mang y&ecirc;u thương đến từng bữa cơm gia đ&igrave;nh Việt Nam, d&ugrave; chỉ khởi đầu từ&nbsp;trong từng h&agrave;nh động v&agrave; lựa chọn nhỏ b&eacute;.</p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><strong>Hướng dẫn sử dụng</strong></p>\r\n\r\n<p style=\"text-align:justify\"><em>Nấu cơm với nồi thường/nồi cơm điện thường:</em></p>\r\n\r\n<ul>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Vo gạo một lần hoặc vo nhẹ nh&agrave;ng với nước sạch</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Cho gạo v&agrave; nước theo tỷ lệ 1:1</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Cho v&agrave;i giọt dầu Oliu v&agrave; &iacute;t muối biển để vị cơm ngon hơn (c&oacute; thể thử sử dụng nước luộc rau hoặc luộc g&agrave; để thay thế nước sạch nấu cơm)</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Lượng nước c&oacute; thể điều chỉnh t&ugrave;y theo khẩu vị của người d&ugrave;ng.</p>\r\n	</li>\r\n</ul>\r\n\r\n<p style=\"text-align:justify\"><em>Nấu cơm với nồi &aacute;p suất:</em></p>\r\n\r\n<ul>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Cho gạo v&agrave; nước theo tỷ lệ 1:0.8</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">C&aacute;c quy tắc kh&aacute;c như nấu nồi thường</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Điều chỉnh thời lượng nấu khoảng 25-30 ph&uacute;t.</p>\r\n	</li>\r\n</ul>\r\n\r\n<p style=\"text-align:justify\"><em>C&aacute;c m&oacute;n kh&aacute;c từ gạo trắng: </em>t&ugrave;y theo c&ocirc;ng thức.</p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\"><strong>Hướng dẫn bảo quản&nbsp;</strong></p>\r\n\r\n<p style=\"text-align:justify\">Bảo quản nơi kh&ocirc; r&aacute;o, tho&aacute;ng m&aacute;t, tr&aacute;nh &aacute;nh nắng trực tiếp.</p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\"><strong>Th&agrave;nh phần ch&iacute;nh&nbsp;</strong></p>\r\n\r\n<p style=\"text-align:justify\">Sản phẩm 100% gạo trắng hữu cơ ST25, được trồng từ giống l&uacute;a ST25, tạo n&ecirc;n loại gạo c&oacute; chất lượng ngon nhất thế giới.&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Gluten free, Non-GMO.&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Kh&ocirc;ng sử dụng h&oacute;a chất trong canh t&aacute;c, kh&ocirc;ng d&ugrave;ng chất bảo quản trong chế biến.</p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\"><strong>Th&ocirc;ng tin chi tiết</strong></p>\r\n\r\n<ul>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">T&ecirc;n sản phẩm: Gạo trắng hữu cơ ST25 Hoa Sữa 1kg</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Thương hiệu: HoaSuaFoods</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Xuất xứ: Việt Nam</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Trọng lượng: 1kg&nbsp;</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Hạn sử dụng: theo th&ocirc;ng tin&nbsp;được in tr&ecirc;n bao b&igrave;</p>\r\n	</li>\r\n</ul>\r\n', NULL, 1, 0, 0, 0, 0, 0, 10, 0, 0, 6, 5, '', '1kg', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1570, 0, 1, 1, '2024-07-29 22:47:56', '2024-08-07 16:33:18'),
+(19, NULL, 'Gạo lứt hoang dã hữu cơ HOASUAFOODS 1kg', '', 'gao lut hoang da huu co hoasuafoods 1kg', '', 'gao-lut-hoang-da-huu-co-hoasuafoods-1kg', '', 193, 1, 0, 90000, 0, 1, 2, '<p style=\"text-align:justify\">C&aacute;c b&agrave; mẹ nội trợ hiện nay đang bắt đầu thay thế gạo trắng bằng gạo lứt v&igrave; ch&uacute;ng c&oacute; nhiều chất xơ v&agrave; protein, chỉ số đường huyết thấp hơn so với gạo trắng n&ecirc;n an to&agrave;n cho sức khỏe. Trong c&aacute;c nh&oacute;m gạo lứt, nếu bạn muốn t&igrave;m kiếm một loại gạo thực sự chứa nhiều chất dinh dưỡng hơn, th&igrave; gạo Hoang d&atilde; hữu cơ Hoa Sữa&nbsp;sẽ l&agrave; lựa chọn ph&ugrave; hợp.</p>\r\n', 'Việt Nam', '', NULL, NULL, NULL, '<p dir=\"ltr\" style=\"text-align:justify\"><strong>Ưu điểm nổi bật</strong></p>\r\n\r\n<p style=\"text-align:justify\">Gạo c&oacute; tỷ lệ h&agrave;i h&ograve;a giữa c&aacute;c th&agrave;nh phần dinh dưỡng thiết yếu như protein, vitamin, kho&aacute;ng chất, chất xơ n&ecirc;n vừa cung cấp năng lượng thiết yếu vừa kh&ocirc;ng tăng mỡ m&aacute;u. Gạo chứa nhiều chất xơ n&ecirc;n rất tốt cho hệ ti&ecirc;u h&oacute;a v&agrave; gi&uacute;p giảm nồng độ cholesterol xấu.</p>\r\n\r\n<p style=\"text-align:justify\">Đồng thời, gạo lứt hoang d&atilde; hữu cơ&nbsp;đ&atilde; được chứng minh l&agrave; cải thiện sức khỏe hệ tim mạch, giảm nguy cơ mắc bệnh tim do c&oacute; đặc t&iacute;nh chống oxy h&oacute;a mạnh mẽ v&agrave; gi&agrave;u chất xơ, gi&uacute;p giữ lượng cholesterol ở mức thấp. Một số nghi&ecirc;n cứu đ&atilde; chỉ ra&nbsp;gạo rất c&oacute; lợi cho những người mắc bệnh tiểu đường loại 2.</p>\r\n\r\n<p style=\"text-align:justify\">V&agrave; cũng giống như hầu hết c&aacute;c loại ngũ cốc, gạo lứt hoang d&atilde; c&oacute; hiệu quả trong việc giảm cảm gi&aacute;c đ&oacute;i, c&ugrave;ng&nbsp;lượng calo kh&aacute; thấp v&agrave; gi&agrave;u chất xơ n&ecirc;n gạo trở th&agrave;nh lựa chọn h&agrave;ng đầu cho những người muốn giảm c&acirc;n.</p>\r\n\r\n<p style=\"text-align:justify\">Ngo&agrave;i ra, gạo lứt hoang d&atilde; hữu cơ&nbsp;của thương hiệu HOASUAFOODS được sản xuất theo quy tr&igrave;nh đạt chuẩn hữu cơ của Mỹ (USDA) v&agrave; Ch&acirc;u &Acirc;u (EU) n&ecirc;n mang lợi &iacute;ch sức khỏe tốt hơn. Người ti&ecirc;u d&ugrave;ng y&ecirc;n t&acirc;m về mức độ an to&agrave;n cho sức khỏe v&agrave; th&acirc;n thiện với m&ocirc;i trường của loại gạo n&agrave;y.</p>\r\n\r\n<ul>\r\n	<li><span style=\"text-align:justify\">Hạt gạo ốm d&agrave;i với chiều d&agrave;i trung b&igrave;nh 8.2mm v&agrave; nguy&ecirc;n c&aacute;m. Gạo c&oacute; m&agrave;u đen nhạt; khi nấu ch&iacute;n, cơm cũng cho ra m&agrave;u đen nhạt, mềm xốp, rời, &iacute;t dẻo, mang m&ugrave;i thơm nhẹ v&agrave; vị ngọt tự nhi&ecirc;n.</span></li>\r\n	<li><span style=\"text-align:justify\">Tỷ lệ h&agrave;i h&ograve;a giữa c&aacute;c th&agrave;nh phần dinh dưỡng thiết yếu bao gồm protein, vitamin, kho&aacute;ng chất, chất xơ n&ecirc;n vừa cung cấp năng lượng dồi d&agrave;o nhưng kh&ocirc;ng l&agrave;m tăng lượng mỡ trong m&aacute;u.</span></li>\r\n	<li><span style=\"text-align:justify\">Chứa nhiều chất xơ n&ecirc;n rất tốt cho hệ ti&ecirc;u h&oacute;a v&agrave; gi&uacute;p giảm nồng độ cholesterol xấu đồng thời kiểm so&aacute;t nồng độ đường trong m&aacute;u.</span></li>\r\n	<li><span style=\"text-align:justify\">Tốt cho người ăn ki&ecirc;ng, giảm c&acirc;n, cholesterol cao, người bị tiểu đường, ung thư, tim mạch&hellip;</span></li>\r\n	<li><span style=\"text-align:justify\">Kh&ocirc;ng chứa kim loại nặng.</span></li>\r\n</ul>\r\n\r\n<ul>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">100% kh&ocirc;ng biến đổi gen (Non-GMO).</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">100% kh&ocirc;ng thuốc bảo vệ thực vật.</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">100% kh&ocirc;ng h&oacute;a chất.</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">100% kh&ocirc;ng chất bảo quản.</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Đạt chứng nhận hữu cơ của Mỹ v&agrave; Ch&acirc;u &Acirc;u.</p>\r\n	</li>\r\n</ul>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\"><strong>Xuất xứ thương hiệu:</strong>&nbsp;HoaSuaFoods - Việt Nam</p>\r\n\r\n<p style=\"text-align:justify\">Đằng sau mỗi c&aacute;i t&ecirc;n đều tồn tại một c&acirc;u chuyện.</p>\r\n\r\n<p style=\"text-align:justify\">Với thương hiệu HoaSuaFoods, đ&oacute; l&agrave; kh&aacute;t vọng &ldquo;gạo Việt Nam kh&ocirc;ng chỉ để ăn no m&agrave; c&ograve;n l&agrave; dược liệu gi&uacute;p bảo vệ v&agrave; n&acirc;ng cao sức khỏe con người&rdquo;. Mang sự đau đ&aacute;u trước nền n&ocirc;ng nghiệp nước nh&agrave;, C&ocirc;ng ty TNHH MTV TM &amp; SX Viễn Ph&uacute; quyết t&acirc;m nghi&ecirc;n cứu v&agrave; sản xuất giống gạo an to&agrave;n, ho&agrave;n to&agrave;n kh&ocirc;ng h&oacute;a chất v&agrave; c&oacute; gi&aacute; trị dinh dưỡng cao nhằm khẳng định n&ocirc;ng sản Việt Nam.</p>\r\n\r\n<p style=\"text-align:justify\">Với tất cả sự nỗ lực v&agrave; quyết t&acirc;m, HoaSuaFoods đ&atilde; th&agrave;nh c&ocirc;ng trong việc biến đồng đất hoang sơ U Minh Hạ - C&agrave; Mau th&agrave;nh một n&ocirc;ng trại chuy&ecirc;n sản xuất l&uacute;a hữu cơ sạch, với quy tr&igrave;nh canh t&aacute;c kh&eacute;p k&iacute;n, trở th&agrave;nh thương hiệu Việt Nam đầu ti&ecirc;n đạt chuẩn canh t&aacute;c hữu cơ của Hoa Kỳ (USDA) v&agrave; Ch&acirc;u &Acirc;u (EU).</p>\r\n\r\n<p style=\"text-align:justify\">Ngo&agrave;i sản phẩm Gạo hữu cơ, c&ograve;n c&oacute; c&aacute;c sản phẩm chế biến từ gạo như: B&Aacute;NH TR&Aacute;NG, B&Uacute;N, PHỞ, PHỞ ĂN LIỀN, NUI, TR&Agrave; cũng đạt chuẩn hữu cơ quốc tế EU v&agrave; USDA.</p>\r\n\r\n<p style=\"text-align:justify\">Hiện nay Gạo v&agrave; c&aacute;c sản phẩm chế biến từ gạo với thương hiệu Hoa Sữa tự h&agrave;o g&oacute;p mặt tr&ecirc;n thị trường quốc tế như MỸ, CANADA, ANH, PH&Aacute;P, ĐỨC, H&Agrave; LAN, NHẬT BẢN, &Uacute;C, SINGAPORE &hellip; qua đ&oacute; khẳng định gi&aacute; trị của nền văn minh l&uacute;a nước v&agrave; c&aacute;c sản phẩm đặc th&ugrave; của Việt Nam.</p>\r\n\r\n<p style=\"text-align:justify\">C&ugrave;ng HoaSuaFoods v&agrave; G-Organic Family mang y&ecirc;u thương đến từng bữa cơm gia đ&igrave;nh Việt Nam, d&ugrave; chỉ khởi đầu từ&nbsp;trong từng h&agrave;nh động v&agrave; lựa chọn nhỏ b&eacute;.</p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><strong>Hướng dẫn sử dụng</strong></p>\r\n\r\n<p style=\"text-align:justify\"><em>Nấu cơm với nồi thường/nồi cơm điện thường:</em></p>\r\n\r\n<ul>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Vo gạo một lần hoặc vo nhẹ nh&agrave;ng với nước sạch</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Cho gạo v&agrave; nước theo tỷ lệ 1:1</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Cho v&agrave;i giọt dầu Oliu v&agrave; &iacute;t muối biển để vị cơm ngon hơn (c&oacute; thể thử sử dụng nước luộc rau hoặc luộc g&agrave; để thay thế nước sạch nấu cơm)</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Lượng nước c&oacute; thể điều chỉnh t&ugrave;y theo khẩu vị của người d&ugrave;ng.</p>\r\n	</li>\r\n</ul>\r\n\r\n<p style=\"text-align:justify\"><em>Nấu cơm với nồi &aacute;p suất:</em></p>\r\n\r\n<ul>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Cho gạo v&agrave; nước theo tỷ lệ 1:0.8</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">C&aacute;c quy tắc kh&aacute;c như nấu nồi thường</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Điều chỉnh thời lượng nấu khoảng 25-30 ph&uacute;t.</p>\r\n	</li>\r\n</ul>\r\n\r\n<p style=\"text-align:justify\"><em>C&aacute;c m&oacute;n kh&aacute;c từ gạo lứt:&nbsp;</em>t&ugrave;y theo c&ocirc;ng thức.</p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\"><strong>Hướng dẫn bảo quản&nbsp;</strong></p>\r\n\r\n<p style=\"text-align:justify\">Bảo quản nơi kh&ocirc; r&aacute;o, tho&aacute;ng m&aacute;t, tr&aacute;nh &aacute;nh nắng trực tiếp.</p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\"><strong>Th&agrave;nh phần ch&iacute;nh&nbsp;</strong></p>\r\n\r\n<p style=\"text-align:justify\">Sản phẩm từ&nbsp;giống gạo hoang d&atilde; được chọn lọc kỹ v&agrave; sản xuất theo quy tr&igrave;nh hữu cơ của thương hiệu HoaSuaFoods.&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Gluten free, Non-GMO.&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\">Kh&ocirc;ng sử dụng h&oacute;a chất trong canh t&aacute;c, kh&ocirc;ng d&ugrave;ng chất bảo quản trong chế biến.</p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p dir=\"ltr\" style=\"text-align:justify\"><strong>Th&ocirc;ng tin chi tiết</strong></p>\r\n\r\n<ul>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">T&ecirc;n sản phẩm: Gạo lứt hoang d&atilde;&nbsp;hữu cơ ST25 Hoa Sữa 1kg</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Thương hiệu: HoaSuaFoods</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Xuất xứ: Việt Nam</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Trọng lượng: 1kg&nbsp;</p>\r\n	</li>\r\n	<li dir=\"ltr\">\r\n	<p dir=\"ltr\" style=\"text-align:justify\">Hạn sử dụng: theo th&ocirc;ng tin&nbsp;được in tr&ecirc;n bao b&igrave;</p>\r\n	</li>\r\n</ul>\r\n', NULL, 1, 0, 0, 0, 0, 0, 5, 0, 0, 6, 5, '', '1kg', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1571, 0, 1, 1, '2024-07-29 23:09:40', '2024-08-07 16:32:15'),
+(20, NULL, 'Gạo lứt đỏ hữu cơ HOASUAFOODS 1kg', '', 'gao lut do huu co hoasuafoods 1kg', '', 'gao-lut-do-huu-co-hoasuafoods-1kg', '', 130, 1, 0, 75000, 0, 1, 2, '', 'Việt Nam', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 5, 0, 0, 0, 5, '', '1kg', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1572, 0, 1, 1, '2024-07-29 23:14:11', '2024-08-06 12:09:29'),
+(21, NULL, 'Bún gạo lứt hữu cơ HOASUAFOODS 250g', '', 'bun gao lut huu co hoasuafoods 250g', '', 'bun-gao-lut-huu-co-hoasuafoods-250g', '', 192, 1, 0, 33000, 0, 1, 2, '', 'Việt Nam', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 5, 0, 0, 6, 5, '', '250g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1573, 0, 1, 1, '2024-07-29 23:16:12', '2024-08-07 16:30:58'),
+(22, NULL, 'Bún gạo lứt hữu cơ HOASUAFOODS 500g', '', 'bun gao lut huu co hoasuafoods 500g', '', 'bun-gao-lut-huu-co-hoasuafoods-500g', '', 191, 1, 0, 53000, 0, 1, 2, '', 'Việt Nam', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 4, 0, 0, 6, 5, '', '500g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1574, 0, 1, 1, '2024-07-29 23:16:46', '2024-08-07 16:29:44'),
+(23, NULL, 'Mỳ spaghetti lứt hữu cơ Markal 500g', '', 'my spaghetti lut huu co markal 500g', '', 'my-spaghetti-lut-huu-co-markal-500g', '', 190, 1, 0, 78000, 0, 1, 2, '', 'Pháp', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 5, 0, 0, 6, 17, '', '500g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1575, 0, 1, 1, '2024-07-29 23:19:37', '2024-08-07 16:28:41'),
+(24, NULL, 'Gạo hỗn hợp 6 loại hạt hữu cơ AnBiO 450g', '', 'gao hon hop 6 loai hat huu co anbio 450g', '', 'gao-hon-hop-6-loai-hat-huu-co-anbio-450g', '', 189, 1, 0, 120000, 0, 1, 2, '', 'Việt Nam', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 11, 0, 0, 6, 10, '', '450g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1576, 0, 1, 1, '2024-07-29 23:22:53', '2024-08-07 15:48:31'),
+(25, NULL, 'Mì rau củ hữu cơ ăn dặm cho bé Mennosato 300g', '', 'mi rau cu huu co an dam cho be mennosato 300g', '', 'mi-rau-cu-huu-co-an-dam-cho-be-mennosato-300g', '', 180, 1, 0, 125000, 0, 1, 1, '', 'Malaysia', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 8, 0, 0, 1, 16, '', '300g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1577, 0, 1, 1, '2024-07-29 23:31:58', '2024-08-07 15:29:04'),
+(26, NULL, 'Nui rau củ hữu cơ cho bé Dalla Costa - Disney 300g', '', 'nui rau cu huu co cho be dalla costa disney 300g', '', 'nui-rau-cu-huu-co-cho-be-dalla-costa-disney-300g', '', 179, 1, 0, 125000, 0, 1, 1, '', 'Italia', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 15, '', '300g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1578, 0, 1, 1, '2024-07-29 23:41:36', '2024-08-07 15:27:19'),
+(27, NULL, 'Yến mạch hữu cơ cán mỏng ProBios 500g', '', 'yen mach huu co can mong probios 500g', '', 'yen-mach-huu-co-can-mong-probios-500g', '', 188, 0, 0, 98000, 0, 1, 2, '', 'Italia', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 3, 0, 0, 5, 14, '', '500g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1579, 0, 1, 1, '2024-07-29 23:45:09', '2024-08-07 15:45:48'),
+(28, NULL, 'Ngũ cốc hữu cơ ăn liền socola mảnh Sottolestelle 300g', '', 'ngu coc huu co an lien socola manh sottolestelle 300g', '', 'ngu-coc-huu-co-an-lien-socola-manh-sottolestelle-300g', '', 187, 1, 0, 165000, 0, 1, 2, '', 'Italia', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 2, 0, 0, 5, 6, '', '300g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1580, 0, 1, 1, '2024-07-29 23:54:12', '2024-08-07 15:43:31'),
+(29, NULL, 'Bún gạo hữu cơ Hoa Nắng 400g', '', 'bun gao huu co hoa nang 400g', '', 'bun-gao-huu-co-hoa-nang-400g', '', 186, 0, 0, 68000, 0, 1, 2, '', 'Việt Nam', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 5, 0, 0, 6, 38, '', '400g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1581, 0, 1, 1, '2024-07-29 23:55:24', '2024-08-07 15:42:03'),
+(30, NULL, 'Bánh tráng gạo trắng hữu cơ HOASUAFOODS 200g', '', 'banh trang gao trang huu co hoasuafoods 200g', '', 'banh-trang-gao-trang-huu-co-hoasuafoods-200g', '', 196, 0, 0, 33000, 0, 1, 3, '', 'Việt Nam', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 2, 0, 0, 9, 5, '', '200g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1582, 0, 1, 1, '2024-07-29 23:58:24', '2024-08-07 16:36:33'),
+(31, NULL, 'Bánh tráng gạo lứt hữu cơ HOASUAFOODS 200g', '', 'banh trang gao lut huu co hoasuafoods 200g', '', 'banh-trang-gao-lut-huu-co-hoasuafoods-200g', '', 195, 0, 0, 36000, 0, 1, 3, '', 'Việt Nam', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 5, 0, 0, 9, 5, '', '200g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1583, 0, 1, 1, '2024-07-29 23:58:56', '2024-08-07 16:35:06'),
+(32, NULL, 'Dầu hạt lanh hữu cơ NaturGreen 250ml', '', 'dau hat lanh huu co naturgreen 250ml', '', 'dau-hat-lanh-huu-co-naturgreen-250ml', '', 229, 0, 0, 179000, 0, 1, 4, '', 'Tây Ban Nha', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 2, 0, 0, 12, 13, '250ml', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1584, 0, 1, 1, '2024-07-30 00:01:11', '2024-08-07 18:03:53'),
+(33, NULL, 'Dầu ô liu siêu nguyên chất hữu cơ Bioitalia 250ml', '', 'dau o liu sieu nguyen chat huu co bioitalia 250ml', '', 'dau-o-liu-sieu-nguyen-chat-huu-co-bioitalia-250ml', '', 228, 0, 0, 199000, 0, 1, 4, '', 'Italia', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 2, 0, 0, 12, 12, '250ml', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1585, 0, 1, 1, '2024-07-30 00:03:59', '2024-08-07 18:01:20'),
+(34, NULL, 'Nước mắm cốt cá cơm đen Sành 500ml', '', 'nuoc mam cot ca com den sanh 500ml', '', 'nuoc-mam-cot-ca-com-den-sanh-500ml', '', 226, 0, 0, 125000, 0, 1, 4, '', 'Việt Nam', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 4, 0, 0, 11, 11, '500ml', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1586, 0, 1, 1, '2024-07-30 00:05:55', '2024-08-07 17:59:06'),
+(35, NULL, 'Nước mắm cốt cá cơm đặc biệt Sành 525ml', '', 'nuoc mam cot ca com dac biet sanh 525ml', '', 'nuoc-mam-cot-ca-com-dac-biet-sanh-525ml', '', 224, 0, 0, 85000, 0, 1, 4, '', 'Việt Nam', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 6, 0, 0, 11, 11, '525ml', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1587, 0, 1, 1, '2024-07-30 00:08:06', '2024-08-07 17:57:19'),
+(36, NULL, 'Nước mắm cốt cá cơm Sành 500ml', '', 'nuoc mam cot ca com sanh 500ml', '', 'nuoc-mam-cot-ca-com-sanh-500ml', '', 223, 0, 0, 65000, 0, 1, 4, '', 'Việt Nam', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 6, 0, 0, 11, 11, '500ml', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1588, 0, 1, 1, '2024-07-30 00:09:00', '2024-08-07 17:56:18'),
+(37, NULL, 'Muối hồng Himalaya AnBiO 500g', '', 'muoi hong himalaya anbio 500g', '', 'muoi-hong-himalaya-anbio-500g', '', 222, 0, 0, 50000, 0, 1, 4, '', 'Việt Nam', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 24, 0, 0, 10, 10, '', '500g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1589, 0, 1, 1, '2024-07-30 00:10:35', '2024-08-07 17:53:35'),
+(38, NULL, 'Nước tương đậu nành hữu cơ Thái Lan 300ml', '', 'nuoc tuong dau nanh huu co thai lan 300ml', '', 'nuoc-tuong-dau-nanh-huu-co-thai-lan-300ml', '', 221, 0, 0, 100000, 0, 1, 4, '', 'Thái Lan', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 10, 0, 0, 11, 41, '300ml', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1590, 0, 1, 1, '2024-07-30 00:12:16', '2024-08-07 17:52:22'),
+(39, NULL, 'Đường phèn thô Wangkanai Thái Lan 500g', '', 'duong phen tho wangkanai thai lan 500g', '', 'duong-phen-tho-wangkanai-thai-lan-500g', '', 220, 0, 0, 72000, 0, 1, 4, '', 'Thái Lan', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 10, 0, 0, 13, 40, '', '500g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1591, 0, 1, 1, '2024-07-30 00:12:48', '2024-08-07 17:49:11'),
+(40, NULL, 'Sốt cà chua ăn dặm hữu cơ cho bé Bio Junior 150g', '', 'sot ca chua an dam huu co cho be bio junior 150g', '', 'sot-ca-chua-an-dam-huu-co-cho-be-bio-junior-150g', '', 178, 1, 0, 130000, 0, 1, 1, '', 'Italia', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 7, 0, 0, 4, 9, '', '150g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1592, 0, 1, 1, '2024-07-30 00:16:30', '2024-08-07 15:25:55'),
+(41, NULL, 'Dầu hướng dương ép lạnh hữu cơ Sungarden 1 lít', '', 'dau huong duong ep lanh huu co sungarden 1 lit', '', 'dau-huong-duong-ep-lanh-huu-co-sungarden-1-lit', '', 218, 0, 0, 195000, 0, 1, 4, '', 'Slovakia', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 6, 0, 0, 12, 8, '1 lít', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1593, 0, 1, 1, '2024-07-30 00:18:30', '2024-08-07 17:45:20'),
+(42, NULL, 'Tương ớt chua ngọt hữu cơ Asian Organics 280ml', '', 'tuong ot chua ngot huu co asian organics 280ml', '', 'tuong-ot-chua-ngot-huu-co-asian-organics-280ml', '', 216, 0, 0, 96000, 0, 1, 4, '', 'Thái Lan', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 2, 0, 0, 11, 7, '280ml', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1594, 0, 1, 1, '2024-07-30 00:20:27', '2024-08-07 17:43:12'),
+(43, NULL, 'Tương ớt cay hữu cơ Asian Organics 280ml', '', 'tuong ot cay huu co asian organics 280ml', '', 'tuong-ot-cay-huu-co-asian-organics-280ml', '', 215, 0, 0, 94000, 0, 1, 4, '', 'Thái Lan', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 1, 0, 0, 11, 7, '280ml', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1595, 0, 1, 1, '2024-07-30 00:21:21', '2024-08-07 17:42:30'),
+(44, NULL, 'Muối hồng mịn Himalaya Sottolestelle 500g', '', 'muoi hong min himalaya sottolestelle 500g', '', 'muoi-hong-min-himalaya-sottolestelle-500g', '', 214, 0, 0, 125000, 0, 1, 4, '', 'Italia', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 1, 0, 0, 10, 6, '', '500g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1596, 0, 1, 1, '2024-07-30 00:23:03', '2024-08-07 17:19:08'),
+(45, NULL, 'Sốt đậu gà Hummus hữu cơ ProBios 180g', '', 'sot dau ga hummus huu co probios 180g', '', 'sot-dau-ga-hummus-huu-co-probios-180g', '', 213, 0, 0, 130000, 0, 1, 4, '', 'Italia', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 3, 0, 0, 11, 39, '', '180g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1597, 0, 1, 1, '2024-07-30 00:26:36', '2024-08-07 17:18:07'),
+(46, NULL, 'Tương cà hữu cơ Ketchup ProBios 310g', '', 'tuong ca huu co ketchup probios 310g', '', 'tuong-ca-huu-co-ketchup-probios-310g', '', 211, 0, 0, 135000, 0, 1, 4, '', 'Italia', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 3, 0, 0, 11, 14, '', '310g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1598, 0, 1, 1, '2024-07-30 00:31:18', '2024-08-07 17:12:20'),
+(47, NULL, 'Sốt Teriyaki hữu cơ Lumlum 200ml', '', 'sot teriyaki huu co lumlum 200ml', '', 'sot-teriyaki-huu-co-lumlum-200ml', '', 210, 0, 0, 85000, 0, 1, 4, '', 'Thái Lan', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 10, 0, 0, 11, 31, '200ml', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1599, 0, 1, 1, '2024-07-30 00:33:30', '2024-08-07 17:11:31'),
+(48, NULL, 'Tương ớt Sriracha hữu cơ Lumlum 250g', '', 'tuong ot sriracha huu co lumlum 250g', '', 'tuong-ot-sriracha-huu-co-lumlum-250g', '', 209, 0, 0, 82000, 0, 1, 4, '', 'Thái Lan', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 4, 0, 0, 11, 31, '', '250g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1600, 0, 1, 1, '2024-07-30 00:34:50', '2024-08-07 17:08:38'),
+(49, NULL, 'Sốt mè rang hữu cơ Lumlum 175ml', '', 'sot me rang huu co lumlum 175ml', '', 'sot-me-rang-huu-co-lumlum-175ml', '', 208, 0, 0, 95000, 0, 1, 4, '', 'Thái Lan', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 6, 0, 0, 11, 31, '175ml', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1601, 0, 1, 1, '2024-07-30 00:36:46', '2024-08-07 17:06:43'),
+(50, NULL, 'Giấm táo hữu cơ (có giấm cái) ProBios 500ml', '', 'giam tao huu co co giam cai probios 500ml', '', 'giam-tao-huu-co-co-giam-cai-probios-500ml', '', 206, 0, 0, 175000, 0, 1, 4, '', 'Italia', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 6, 0, 0, 12, 14, '500ml', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1602, 0, 1, 1, '2024-07-30 00:39:50', '2024-08-07 17:03:08'),
+(51, NULL, 'Giấm lựu hữu cơ (có giấm cái) ProBios 500ml', '', 'giam luu huu co co giam cai probios 500ml', '', 'giam-luu-huu-co-co-giam-cai-probios-500ml', '', 205, 0, 0, 240000, 0, 1, 4, '', 'Italia', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 6, 0, 0, 12, 14, '500ml', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1603, 0, 1, 1, '2024-07-30 00:40:50', '2024-08-07 17:01:10'),
+(52, NULL, 'Giấm táo hữu cơ Bragg 473ml', '', 'giam tao huu co bragg 473ml', '', 'giam-tao-huu-co-bragg-473ml', '', 204, 0, 0, 215000, 0, 1, 4, '', 'Mỹ', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 12, 0, 0, 12, 30, '473ml', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1604, 0, 1, 1, '2024-07-30 00:42:24', '2024-08-07 16:57:44'),
+(53, NULL, 'Dầu hào chay từ nấm hữu cơ Joyspring 210ml', '', 'dau hao chay tu nam huu co joyspring 210ml', '', 'dau-hao-chay-tu-nam-huu-co-joyspring-210ml', '', 203, 0, 0, 160000, 0, 1, 4, '', 'Đài Loan', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 5, 0, 0, 11, 29, '210ml', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1605, 0, 1, 1, '2024-07-30 00:44:04', '2024-08-07 16:54:20'),
+(54, NULL, 'Nước tương hữu cơ ít muối Joyspring 210ml', '', 'nuoc tuong huu co it muoi joyspring 210ml', '', 'nuoc-tuong-huu-co-it-muoi-joyspring-210ml', '', 202, 0, 0, 155000, 0, 1, 4, '', 'Đài Loan', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 4, 0, 0, 11, 29, '210ml', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1606, 0, 1, 1, '2024-07-30 00:45:03', '2024-08-07 16:52:02'),
+(55, NULL, 'Bột sả hữu cơ Vinasamex 50g', '', 'bot sa huu co vinasamex 50g', '', 'bot-sa-huu-co-vinasamex-50g', '', 200, 0, 0, 67000, 0, 1, 4, '', 'Việt Nam', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 5, 0, 0, 10, 28, '', '50g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1607, 0, 1, 1, '2024-07-30 00:46:42', '2024-08-07 16:43:10'),
+(56, NULL, 'Bột hành hữu cơ Vinasamex 50g', '', 'bot hanh huu co vinasamex 50g', '', 'bot-hanh-huu-co-vinasamex-50g', '', 199, 0, 0, 67000, 0, 1, 4, '', 'Việt Nam', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 5, 0, 0, 10, 28, '', '50g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1608, 0, 1, 1, '2024-07-30 00:47:19', '2024-08-07 16:42:14'),
+(57, NULL, 'Bột tỏi hữu cơ Vinasamex 50g', '', 'bot toi huu co vinasamex 50g', '', 'bot-toi-huu-co-vinasamex-50g', '', 198, 0, 0, 75000, 0, 1, 4, '', 'Việt Nam', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 5, 0, 0, 10, 28, '', '50g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1609, 0, 1, 1, '2024-07-30 00:47:49', '2024-08-07 16:41:06'),
+(58, NULL, 'Hạt lanh nâu hữu cơ Probios 500g', '', 'hat lanh nau huu co probios 500g', '', 'hat-lanh-nau-huu-co-probios-500g', '', 230, 0, 0, 120000, 0, 1, 5, '', 'Italia', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 3, 0, 0, 14, 14, '', '500g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1610, 0, 1, 1, '2024-07-30 09:04:49', '2024-08-07 18:05:15'),
+(59, NULL, 'Hạt chia hữu cơ Sottolestelle 250g', '', 'hat chia huu co sottolestelle 250g', '', 'hat-chia-huu-co-sottolestelle-250g', '', 232, 0, 0, 139000, 0, 1, 5, '', 'Italia', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 2, 0, 0, 14, 6, '', '250g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1611, 0, 1, 1, '2024-07-30 09:06:26', '2024-08-07 18:07:05'),
+(60, NULL, 'Hạt diêm mạch 3 màu hữu cơ Sottolestelle 500g', '', 'hat diem mach 3 mau huu co sottolestelle 500g', '', 'hat-diem-mach-3-mau-huu-co-sottolestelle-500g', '', 233, 0, 0, 205000, 0, 1, 5, '', 'Italia', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 3, 0, 0, 14, 6, '', '500g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1612, 0, 1, 1, '2024-07-30 09:08:17', '2024-08-07 18:07:43'),
+(61, NULL, 'Hạt diêm mạch trắng hữu cơ Sottolestelle 500g', '', 'hat diem mach trang huu co sottolestelle 500g', '', 'hat-diem-mach-trang-huu-co-sottolestelle-500g', '', 234, 0, 0, 187000, 0, 1, 5, '', 'Italia', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 6, 0, 0, 14, 6, '', '500g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1613, 0, 1, 1, '2024-07-30 09:09:11', '2024-08-07 18:08:23'),
+(62, NULL, 'Hạt kê bóc vỏ hữu cơ Sottolestelle 500g', '', 'hat ke boc vo huu co sottolestelle 500g', '', 'hat-ke-boc-vo-huu-co-sottolestelle-500g', '', 235, 0, 0, 125000, 0, 1, 5, '', 'Italia', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 6, 0, 0, 14, 6, '', '500g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1614, 0, 1, 1, '2024-07-30 09:11:13', '2024-08-07 18:09:04'),
+(63, NULL, 'Đậu lăng đỏ hữu cơ Sottolestelle 500g', '', 'dau lang do huu co sottolestelle 500g', '', 'dau-lang-do-huu-co-sottolestelle-500g', '', 236, 0, 0, 145000, 0, 1, 5, '', 'Italia', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 3, 0, 0, 14, 6, '', '500g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1615, 0, 1, 1, '2024-07-30 09:12:08', '2024-08-07 18:10:28'),
+(64, NULL, 'Đậu gà hữu cơ Sottolestelle 400g', '', 'dau ga huu co sottolestelle 400g', '', 'dau-ga-huu-co-sottolestelle-400g', '', 237, 0, 0, 109000, 0, 1, 5, '', 'Italia', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 3, 0, 0, 14, 6, '', '400g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1616, 0, 1, 1, '2024-07-30 09:23:08', '2024-08-07 18:11:17'),
+(65, NULL, 'Đậu đỏ Azuki hữu cơ AnBiO 200g', '', 'dau do azuki huu co anbio 200g', '', 'dau-do-azuki-huu-co-anbio-200g', '', 239, 0, 0, 48000, 0, 1, 5, '', 'Việt Nam', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 5, 0, 0, 14, 10, '', '200g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1617, 0, 1, 1, '2024-07-30 09:24:35', '2024-08-07 18:12:46'),
+(66, NULL, 'Đậu xanh hữu cơ AnBiO 200g', '', 'dau xanh huu co anbio 200g', '', 'dau-xanh-huu-co-anbio-200g', '', 240, 0, 0, 45000, 0, 1, 5, '', 'Việt Nam', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 5, 0, 0, 14, 10, '', '200g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1618, 0, 1, 1, '2024-07-30 09:25:21', '2024-08-07 18:13:38'),
+(67, NULL, 'Hỗn hợp hạt hữu cơ số 3 AnBio 100g', '', 'hon hop hat huu co so 3 anbio 100g', '', 'hon-hop-hat-huu-co-so-3-anbio-100g', '', 241, 0, 0, 45000, 0, 1, 5, '', 'Việt Nam', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 4, 0, 0, 14, 10, '', '100g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1619, 0, 1, 1, '2024-07-30 09:26:50', '2024-08-07 18:14:36'),
+(68, NULL, 'Hỗn hợp hạt hữu cơ số 8 AnBiO 100g', '', 'hon hop hat huu co so 8 anbio 100g', '', 'hon-hop-hat-huu-co-so-8-anbio-100g', '', 242, 0, 0, 45000, 0, 1, 5, '', 'Việt Nam', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 5, 0, 0, 14, 10, '', '100g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1620, 0, 1, 1, '2024-07-30 09:27:52', '2024-08-07 18:15:25'),
+(69, NULL, 'Hỗn hợp hạt hữu cơ số 11 AnBiO 100g', '', 'hon hop hat huu co so 11 anbio 100g', '', 'hon-hop-hat-huu-co-so-11-anbio-100g', '', 243, 0, 0, 45000, 0, 1, 5, '', 'Việt Nam', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 5, 0, 0, 14, 10, '', '100g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1621, 0, 1, 1, '2024-07-30 09:28:29', '2024-08-07 18:16:14'),
+(70, NULL, 'Hỗn hợp hạt hữu cơ số 13 AnBiO 100g', '', 'hon hop hat huu co so 13 anbio 100g', '', 'hon-hop-hat-huu-co-so-13-anbio-100g', '', 244, 0, 0, 50000, 0, 1, 5, '', 'Việt Nam', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 5, 0, 0, 14, 10, '', '100g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1622, 0, 1, 1, '2024-07-30 09:29:25', '2024-08-07 18:16:41'),
+(71, NULL, 'Hỗn hợp hạt hữu cơ số 6 AnBiO 100g', '', 'hon hop hat huu co so 6 anbio 100g', '', 'hon-hop-hat-huu-co-so-6-anbio-100g', '', 245, 0, 0, 45000, 0, 1, 5, '', 'Việt Nam', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 5, 0, 0, 14, 10, '', '100g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1623, 0, 1, 1, '2024-07-30 09:30:19', '2024-08-07 18:17:08'),
+(72, NULL, 'Chà là hữu cơ Smart Organic 200g', '', 'cha la huu co smart organic 200g', '', 'cha-la-huu-co-smart-organic-200g', '', 250, 0, 0, 150000, 0, 1, 6, '', 'Bulgari', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 2, 0, 0, 16, 27, '', '200g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1624, 0, 1, 1, '2024-07-30 09:32:57', '2024-08-07 18:23:08'),
+(73, NULL, 'Hắc kỷ tử hoang dã Organic Life 200g', '', 'hac ky tu hoang da organic life 200g', '', 'hac-ky-tu-hoang-da-organic-life-200g', '', 249, 0, 0, 195000, 0, 1, 6, '', 'Việt Nam', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 2, 0, 0, 16, 26, '', '200g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1625, 0, 1, 1, '2024-07-30 09:35:08', '2024-08-07 18:22:05'),
+(74, NULL, 'Kỷ tử hữu cơ Organic Life 90g', '', 'ky tu huu co organic life 90g', '', 'ky-tu-huu-co-organic-life-90g', '', 248, 0, 0, 97000, 0, 1, 6, '', 'Viêt Nam', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 8, 0, 0, 16, 26, '', '90g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1626, 0, 1, 1, '2024-07-30 09:38:28', '2024-08-07 18:21:18'),
+(75, NULL, 'Táo đỏ Tân Cương hữu cơ Organic Life 250g', '', 'tao do tan cuong huu co organic life 250g', '', 'tao-do-tan-cuong-huu-co-organic-life-250g', '', 247, 0, 0, 130000, 0, 1, 6, '', 'Việt Nam', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 9, 0, 0, 16, 26, '', '250g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1627, 0, 1, 1, '2024-07-30 09:39:18', '2024-08-07 18:20:39'),
+(76, NULL, 'Táo đỏ Tân Cương hữu cơ Organic Life 500g', '', 'tao do tan cuong huu co organic life 500g', '', 'tao-do-tan-cuong-huu-co-organic-life-500g', '', 246, 0, 0, 225000, 0, 1, 6, '', 'Việt Nam', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 8, 0, 0, 16, 26, '', '500g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1628, 0, 1, 1, '2024-07-30 09:39:55', '2024-08-07 18:19:10'),
+(77, NULL, 'Bánh gạo lứt hữu cơ Naeiae vị chuối 30g', '', 'Banh gao lut huu co Naeiae vi chuoi 30g', '', 'banh-gao-lut-huu-co-naeiae-vi-chuoi', '', 82, 0, 0, 75000, 0, 1, 7, '', NULL, '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 5, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, 1, '', NULL, NULL, NULL, NULL, 0, '', 1, 1629, 0, 1, 1, '2024-07-30 09:45:19', '2024-07-30 09:45:20'),
+(78, NULL, 'Bánh gạo lứt hữu cơ Naeiae vị táo 30g', '', 'Banh gao lut huu co Naeiae vi tao 30g', '', 'banh-gao-lut-huu-co-naeiae-vi-tao', '', 83, 0, 0, 75000, 0, 1, 7, '', NULL, '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 5, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, 1, '', NULL, NULL, NULL, NULL, 0, '', 1, 1630, 0, 1, 1, '2024-07-30 09:46:36', '2024-07-30 09:46:36'),
+(79, NULL, 'Bánh gạo lứt hữu cơ Naeiae vị dâu 30g', '', 'Banh gao lut huu co Naeiae vi dau 30g', '', 'banh-gao-lut-huu-co-naeiae-vi-dau-30g', '', 84, 0, 0, 75000, 0, 1, 7, '', NULL, '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 7, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, 1, '', NULL, NULL, NULL, NULL, 0, '', 1, 1631, 0, 1, 1, '2024-07-30 09:47:12', '2024-07-30 09:47:13'),
+(80, NULL, 'Rong biển tẩm dầu hạt cải hữu cơ Naeiae 20g', '', 'Rong bien tam dau hat cai huu co Naeiae 20g', '', 'rong-bien-tam-dau-hat-cai-huu-co-naeiae-20g', '', 85, 0, 0, 110000, 0, 1, 7, '', NULL, '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 9, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, 1, '', NULL, NULL, NULL, NULL, 0, '', 1, 1632, 0, 1, 1, '2024-07-30 09:50:53', '2024-07-30 09:50:53'),
+(81, NULL, 'Rong biển hữu cơ tách muối Naeiae 15g', '', 'Rong bien huu co tach muoi Naeiae 15g', '', 'rong-bien-huu-co-tach-muoi-naeiae-15g', '', 86, 0, 0, 100000, 0, 1, 7, '', NULL, '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 10, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, 1, '', NULL, NULL, NULL, NULL, 0, '', 1, 1633, 0, 1, 1, '2024-07-30 09:51:56', '2024-07-30 09:51:56'),
+(82, NULL, 'Kẹo chocolate sắc màu hữu cơ Bett\'r 70g', '', 'keo chocolate sac mau huu co bettr 70g', '', 'keo-chocolate-sac-mau-huu-co-bettr-70g', '', 258, 0, 0, 100000, 0, 1, 7, '', '', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, '', '', 0, 0, NULL, 0, '', NULL, '', '', '', 0, '', 1, 1634, 0, 1, 1, '2024-07-30 09:54:33', '2024-08-18 15:38:52'),
+(83, NULL, 'Bánh snack gạo hữu cơ Nobi Nobi vị chocolate 40g', '', 'Banh snack gao huu co Nobi Nobi vi chocolate 40g', '', 'banh-snack-gao-huu-co-nobi-nobi-vi-chocolate-40g', '', 87, 0, 0, 38000, 0, 1, 7, '', NULL, '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 7, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, 1, '', NULL, NULL, NULL, NULL, 0, '', 1, 1635, 0, 1, 1, '2024-07-30 09:57:45', '2024-07-30 09:57:45'),
+(84, NULL, 'Bánh snack gạo hữu cơ Nobi Nobi vị phô mai 40g', '', 'Banh snack gao huu co Nobi Nobi vi pho mai 40g', '', 'banh-snack-gao-huu-co-nobi-nobi-vi-pho-mai-40g', '', 88, 0, 0, 38000, 0, 1, 7, '', NULL, '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 7, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, 1, '', NULL, NULL, NULL, NULL, 0, '', 1, 1636, 0, 1, 1, '2024-07-30 09:58:31', '2024-07-30 09:58:31'),
+(85, NULL, 'Kẹo mút hữu cơ YumEarth - cây', '', 'keo mut huu co yumearth cay', '', 'keo-mut-huu-co-yumearth-cay', '', 253, 0, 0, 7000, 0, 1, 7, '', 'Mexico', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 11, 0, 0, 0, 20, '', '15g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1637, 0, 1, 1, '2024-07-30 14:38:17', '2024-08-07 21:23:34'),
+(86, NULL, 'Kẹo mút hữu cơ 4 hương vị trái cây YumEarth', '', 'keo mut huu co 4 huong vi trai cay yumearth', '', 'keo-mut-huu-co-4-huong-vi-trai-cay-yumearth', '', 257, 0, 0, 95000, 0, 1, 7, '', '', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, '', '', 0, 0, NULL, 0, '', NULL, '', '', '', 0, '', 1, 1638, 0, 1, 1, '2024-07-30 14:41:35', '2024-08-18 15:38:32'),
+(87, NULL, 'Kẹo dẻo hữu cơ vị trái cây YumEarth 50g', '', 'keo deo huu co vi trai cay yumearth 50g', '', 'keo-deo-huu-co-vi-trai-cay-yumearth-50g', '', 256, 0, 0, 55000, 0, 1, 7, '', '', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, '', '', 0, 0, NULL, 0, '', NULL, '', '', '', 0, '', 1, 1639, 0, 1, 1, '2024-07-30 14:43:14', '2024-08-18 15:38:09'),
+(88, NULL, 'Kẹo hữu cơ hình hạt đậu vị trái cây YumEarth 50g', '', 'keo huu co hinh hat dau vi trai cay yumearth 50g', '', 'keo-huu-co-hinh-hat-dau-vi-trai-cay-yumearth-50g', '', 255, 0, 0, 55000, 0, 1, 7, '', '', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, '', '', 0, 0, NULL, 0, '', NULL, '', '', '', 0, '', 1, 1640, 0, 1, 1, '2024-07-30 14:44:44', '2024-08-18 15:37:21'),
+(89, NULL, 'Bánh gạo lứt ăn dặm hữu cơ Alvins step 1 vị khoai lang tím 25g', '', 'Banh gao lut an dam huu co Alvins step 1 vi khoai lang tim 25g', '', 'banh-gao-lut-an-dam-huu-co-alvins-step-1-vi-khoai-lang-tim-25g', '', 89, 0, 0, 76000, 0, 1, 7, '', NULL, '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 3, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, 1, '', NULL, NULL, NULL, NULL, 0, '', 1, 1641, 0, 1, 1, '2024-07-30 14:49:18', '2024-07-30 14:49:18'),
+(90, NULL, 'Bánh gạo lứt ăn dặm hữu cơ Alvins step 1 vị bí ngô 25g', '', 'Banh gao lut an dam huu co Alvins step 1 vi bi ngo 25g', '', 'banh-gao-lut-an-dam-huu-co-alvins-step-1-vi-bi-ngo-25g', '', 90, 0, 0, 76000, 0, 1, 7, '', NULL, '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 3, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, 1, '', NULL, NULL, NULL, NULL, 0, '', 1, 1642, 0, 1, 1, '2024-07-30 14:52:24', '2024-07-30 14:52:24'),
+(91, NULL, 'Bánh gạo lứt ăn dặm hữu cơ Alvins step 1 vị bông cải 25g', '', 'Banh gao lut an dam huu co Alvins step 1 vi bong cai 25g', '', 'banh-gao-lut-an-dam-huu-co-alvins-step-1-vi-bong-cai-25g', '', 91, 0, 0, 76000, 0, 1, 7, '', NULL, '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 3, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, 1, '', NULL, NULL, NULL, NULL, 0, '', 1, 1643, 0, 1, 1, '2024-07-30 14:53:43', '2024-07-30 14:53:43'),
+(92, NULL, 'Bột cacao nguyên chất hữu cơ Dragon Superfoods 200g', '', 'Bot cacao nguyen chat huu co Dragon Superfoods 200g', '', 'bot-cacao-nguyen-chat-huu-co-dragon-superfoods-200g', '', 92, 0, 0, 240000, 0, 1, 8, '', NULL, '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, 1, '', NULL, NULL, NULL, NULL, 0, '', 1, 1644, 0, 1, 1, '2024-07-30 14:55:54', '2024-07-30 14:55:55'),
+(93, NULL, 'Bơ đậu phộng hữu cơ Bett\'r 250g', '', 'Bo dau phong huu co Bett\'r 250g', '', 'bo-dau-phong-huu-co-bettr-250g', '', 93, 0, 0, 185000, 0, 1, 8, '', NULL, '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, 1, '', NULL, NULL, NULL, NULL, 0, '', 1, 1645, 0, 1, 1, '2024-07-30 14:57:22', '2024-07-30 14:57:23'),
+(94, NULL, 'Bơ hạt phỉ chay hữu cơ Bionella 400g', '', 'bo hat phi chay huu co bionella 400g', '', 'bo-hat-phi-chay-huu-co-bionella-400g', '', 260, 0, 0, 245000, 0, 1, 8, '', 'Italia', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 3, 0, 0, 0, 14, '', '400g', 0, 0, NULL, 0, '', NULL, '<p style=\"text-align:justify\">Bơ Hạt phỉ cacao c&oacute; thể sử dụng để phết l&ecirc;n b&aacute;nh m&igrave;, b&aacute;nh ngọt d&ugrave;ng ăn s&aacute;ng hay c&aacute;c m&oacute;n tr&aacute;ng miệng hoặc trong c&aacute;c c&ocirc;ng thức l&agrave;m b&aacute;nh.&nbsp;Bơ phỉ&nbsp;cung cấp chất b&eacute;o, năng lượng cần thiết, ph&ugrave; hợp người ăn&nbsp;chay, thuần&nbsp;chay&nbsp;v&agrave; cả đang ăn ki&ecirc;ng.</p>\r\n', '<p style=\"text-align:justify\">Bảo quản ở nhiệt độ ph&ograve;ng, nơi kh&ocirc; r&aacute;o, tho&aacute;ng m&aacute;t v&agrave; tr&aacute;nh &aacute;nh s&aacute;ng.</p>\r\n\r\n<p style=\"text-align:justify\">Sau khi mở n&ecirc;n bảo quản trong tủ lạnh ở nhiệt độ &lt;9 độ C.</p>\r\n', '<p style=\"text-align:justify\"><strong>Bột Agave 23%, bột phỉ 18%, dầu hướng dương, bột gạo, bột ca cao &iacute;t b&eacute;o 12%, Maltodextrin, bơ ca cao, Lecithin hướng dương.</strong></p>\r\n\r\n<p style=\"text-align:justify\">Sản phẩm được sản xuất từ c&aacute;c th&agrave;nh phần thực vật hữu cơ, quy tr&igrave;nh sản xuất ho&agrave;n to&agrave;n kh&ocirc;ng c&oacute; sự tham gia của c&aacute;c chất h&oacute;a học nguy hại cho sức khỏe.</p>\r\n\r\n<p style=\"text-align:justify\">Hạt phỉ được trồng ở v&ugrave;ng Lazio, thuộc giống hạt Tonda Romana, được nướng ch&iacute;n ở nhiệt độ thấp. Qu&aacute; tr&igrave;nh sản xuất kh&ocirc;ng sử dụng chất nhũ h&oacute;a, độ kem của n&oacute; được tạo ra bởi quy tr&igrave;nh sản xuất&nbsp; trộn li&ecirc;n tục trong 18 giờ.</p>\r\n\r\n<p style=\"text-align:justify\">Cacao c&oacute; chứa h&agrave;m lượng chất đạm, chất b&eacute;o, carbohydrate, chất xơ, sắt, kẽm, đồng, canxi, magi&ecirc;&nbsp;v&agrave; lưu huỳnh. C&aacute;c th&agrave;nh phần ho&aacute; học bổ sung kh&aacute;c bao gồm chất chống oxy ho&aacute; v&agrave; c&aacute;c hợp chất phenylethylamine v&agrave; anandamide. Tất cả đều đ&oacute;ng vai tr&ograve; quan trọng trong việc cải thiện sức khoẻ con người v&agrave; khiến ch&uacute;ng ta cảm thấy thoải m&aacute;i hơn.</p>\r\n', 0, '', 1, 1646, 0, 1, 1, '2024-07-30 14:58:28', '2024-08-18 15:50:48');
+INSERT INTO `product` (`id`, `ma_sp`, `name`, `name_extend`, `alias`, `alias_extend`, `slug`, `slug_extend`, `thumbnail_id`, `is_hot`, `is_sale`, `price`, `price_sale`, `parent_id`, `cate_id`, `mo_ta`, `xuat_xu`, `khuyen_mai`, `sp_phukien`, `sp_tuongtu`, `sp_sosanh`, `chi_tiet`, `bao_hanh`, `con_hang`, `can_nang`, `chieu_dai`, `chieu_rong`, `chieu_cao`, `khe_ram`, `so_luong_ton`, `so_luong_tam`, `views`, `cate_child_id`, `thuonghieu_id`, `dung_tich`, `trong_luong`, `display_order`, `so_lan_mua`, `sale_percent`, `is_primary`, `name_primary`, `color_id`, `huong_dan`, `bao_quan`, `thanh_phan`, `pro_style`, `image_pro`, `status`, `meta_id`, `is_event`, `created_user`, `updated_user`, `created_at`, `updated_at`) VALUES
+(95, NULL, 'Hạt gai dầu hữu cơ Dragon Superfoods 200g', '', 'Hat gai dau huu co Dragon Superfoods 200g', '', 'hat-gai-dau-huu-co-dragon-superfoods-200g', '', 94, 0, 0, 225000, 0, 1, 10, '', NULL, '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, 1, '', NULL, NULL, NULL, NULL, 0, '', 1, 1647, 0, 1, 1, '2024-07-30 15:01:34', '2024-07-30 15:01:35'),
+(96, NULL, 'Vỏ hạt mã đề hữu cơ Dragon Superfoods 150g', '', 'Vo hat ma de huu co Dragon Superfoods 150g', '', 'vo-hat-ma-de-huu-co-dragon-superfoods-150g', '', 95, 0, 0, 240000, 0, 1, 10, '', NULL, '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 3, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, 1, '', NULL, NULL, NULL, NULL, 0, '', 1, 1648, 0, 1, 1, '2024-07-30 15:04:12', '2024-07-30 15:04:13'),
+(97, NULL, 'Bột Protein Shake hữu cơ Dragon Superfoods chuối dừa 450g', '', 'Bot Protein Shake huu co Dragon Superfoods chuoi dua 450g', '', 'bot-protein-shake-huu-co-dragon-superfoods-chuoi-dua-450g', '', 96, 0, 0, 695000, 0, 1, 10, '', NULL, '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, 1, '', NULL, NULL, NULL, NULL, 0, '', 1, 1649, 0, 1, 1, '2024-07-30 15:06:43', '2024-07-30 15:06:43'),
+(98, NULL, 'Bột Protein Shake hữu cơ Dragon Superfoods dâu dừa 450g', '', 'bot protein shake huu co dragon superfoods dau dua 450g', '', 'bot-protein-shake-huu-co-dragon-superfoods-dau-dua-450g', '', 98, 0, 0, 695000, 0, 1, 10, '', NULL, '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1650, 0, 1, 1, '2024-07-30 15:07:39', '2024-07-30 15:08:03'),
+(99, NULL, 'Bột Protein Shake hữu cơ Dragon Superfoods cacao vanilla 450g', '', 'Bot Protein Shake huu co Dragon Superfoods cacao vanilla 450g', '', 'bot-protein-shake-huu-co-dragon-superfoods-cacao-vanilla-450g', '', 99, 0, 0, 695000, 0, 1, 10, '', NULL, '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, 1, '', NULL, NULL, NULL, NULL, 0, '', 1, 1651, 0, 1, 1, '2024-07-30 15:09:00', '2024-07-30 15:09:01'),
+(100, NULL, 'Viên uống Detox hữu cơ Diet Food 150g', '', 'Vien uong Detox huu co Diet Food 150g', '', 'vien-uong-detox-huu-co-diet-food-150g', '', 100, 0, 0, 495000, 0, 1, 10, '', NULL, '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 6, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, 1, '', NULL, NULL, NULL, NULL, 0, '', 1, 1652, 0, 1, 1, '2024-07-30 15:14:45', '2024-07-30 15:14:45'),
+(101, NULL, 'Trà Kombucha hữu cơ vị nguyên bản Voelkel 750ml', '', 'Tra Kombucha huu co vi nguyen ban Voelkel 750ml', '', 'tra-kombucha-huu-co-vi-nguyen-ban-voelkel-750ml', '', 101, 0, 0, 174000, 0, 1, 11, '', NULL, '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 6, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, 1, '', NULL, NULL, NULL, NULL, 0, '', 1, 1653, 0, 1, 1, '2024-07-30 15:17:20', '2024-07-30 15:17:21'),
+(102, NULL, 'Trà Kombucha hữu cơ Voelkel vị chanh dây 330ml', '', 'tra kombucha huu co voelkel vi chanh day 330ml', '', 'tra-kombucha-huu-co-voelkel-vi-chanh-day-330ml', '', 102, 0, 0, 105000, 0, 1, 11, '', NULL, '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 6, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1654, 0, 1, 1, '2024-07-30 15:19:33', '2024-07-30 15:24:25'),
+(103, NULL, 'Kombucha quả dại Ba Lành 500ml', '', 'kombucha qua dai ba lanh 500ml', '', 'kombucha-qua-dai-ba-lanh-500ml', '', 105, 0, 0, 49000, 0, 1, 11, '', NULL, '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 40, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1655, 0, 1, 1, '2024-07-30 15:26:19', '2024-07-30 15:40:13'),
+(104, NULL, 'Nước ép nho đỏ hữu cơ Voelkel 750ml', '', 'Nuoc ep nho do huu co Voelkel 750ml', '', 'nuoc-ep-nho-do-huu-co-voelkel-750ml', '', 103, 0, 0, 175000, 0, 1, 11, '', NULL, '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 6, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, 1, '', NULL, NULL, NULL, NULL, 0, '', 1, 1656, 0, 1, 1, '2024-07-30 15:28:45', '2024-07-30 15:28:46'),
+(105, NULL, 'Nước ép cherry hữu cơ Voelkel 700ml', '', 'Nuoc ep cherry huu co Voelkel 700ml', '', 'nuoc-ep-cherry-huu-co-voelkel-700ml', '', 104, 0, 0, 190000, 0, 1, 11, '', NULL, '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 3, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, 1, '', NULL, NULL, NULL, NULL, 0, '', 1, 1657, 0, 1, 1, '2024-07-30 15:30:42', '2024-07-30 15:30:42'),
+(106, NULL, 'Băng vệ sinh hữu cơ siêu mỏng có cánh ban đêm 10 miếng Silver Care', '', 'bang ve sinh huu co sieu mong co canh ban dem 10 mieng silver care', '', 'bang-ve-sinh-huu-co-sieu-mong-co-canh-ban-dem-10-mieng-silver-care', '', 166, 0, 0, 146000, 0, 2, 15, '', 'Tây Ban Nha', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 2, 0, 0, 37, 4, '', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1658, 0, 1, 1, '2024-07-30 15:56:56', '2024-08-07 15:11:38'),
+(107, NULL, 'Băng vệ sinh hữu cơ siêu mỏng có cánh ban ngày 10 miếng Silver Care', '', 'bang ve sinh huu co sieu mong co canh ban ngay 10 mieng silver care', '', 'bang-ve-sinh-huu-co-sieu-mong-co-canh-ban-ngay-10-mieng-silver-care', '', 165, 0, 0, 135000, 0, 2, 15, '', 'Tây Ban Nha', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 3, 0, 0, 0, 4, '', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1659, 0, 1, 1, '2024-07-30 15:58:00', '2024-08-07 15:11:02'),
+(108, NULL, 'Băng vệ sinh hữu cơ hàng ngày 30 miếng Silver Care', '', 'bang ve sinh huu co hang ngay 30 mieng silver care', '', 'bang-ve-sinh-huu-co-hang-ngay-30-mieng-silver-care', '', 164, 0, 0, 109000, 0, 2, 15, '', 'Tây Ban Nha', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 3, 0, 0, 0, 4, '', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1660, 0, 1, 1, '2024-07-30 16:01:18', '2024-08-07 15:10:15'),
+(109, NULL, 'Bông tăm hữu cơ Silver Care hộp 200 cái', '', 'bong tam huu co silver care hop 200 cai', '', 'bong-tam-huu-co-silver-care-hop-200-cai', '', 163, 0, 0, 69000, 0, 2, 15, '', 'Tây Ban Nha', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 3, 0, 0, 0, 4, '', '200g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1661, 0, 1, 1, '2024-07-30 16:04:59', '2024-08-07 15:09:11'),
+(110, NULL, 'Kem đánh răng trẻ em hữu cơ Officina nature vị chuối 75ml', '', 'kem danh rang tre em huu co officina nature vi chuoi 75ml', '', 'kem-danh-rang-tre-em-huu-co-officina-nature-vi-chuoi-75ml', '', 162, 0, 0, 154000, 0, 2, 15, '', 'Italia', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 3, 0, 0, 33, 34, '75ml', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1662, 0, 1, 1, '2024-07-30 16:09:57', '2024-08-07 15:07:40'),
+(111, NULL, 'Kem đánh răng hữu cơ làm trắng hương bạc hà Coslys 100g', '', 'kem danh rang huu co lam trang huong bac ha coslys 100g', '', 'kem-danh-rang-huu-co-lam-trang-huong-bac-ha-coslys-100g', '', 154, 0, 0, 170000, 0, 2, 15, '', 'Pháp', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 1, 0, 0, 33, 1, '', '100g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1663, 0, 1, 1, '2024-07-30 16:12:24', '2024-08-07 14:57:16'),
+(112, NULL, 'Kem đánh răng hữu cơ trắng răng vị bạc hà Buccotherm 75ml', '', 'kem danh rang huu co trang rang vi bac ha buccotherm 75ml', '', 'kem-danh-rang-huu-co-trang-rang-vi-bac-ha-buccotherm-75ml', '', 161, 0, 0, 195000, 0, 2, 15, '', 'Pháp', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 1, 0, 0, 33, 33, '75ml', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1664, 0, 1, 1, '2024-07-30 16:15:19', '2024-08-07 15:06:13'),
+(113, NULL, 'Kem đánh răng cho răng nhạy cảm 2 trong 1 vị bạc hà Buccotherm 75ml', '', 'kem danh rang cho rang nhay cam 2 trong 1 vi bac ha buccotherm 75ml', '', 'kem-danh-rang-cho-rang-nhay-cam-2-trong-1-vi-bac-ha-buccotherm-75ml', '', 160, 0, 0, 175000, 0, 2, 15, '', 'Pháp', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 3, 0, 0, 33, 33, '75ml', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1665, 0, 1, 1, '2024-07-30 16:17:19', '2024-08-07 15:05:20'),
+(114, NULL, 'Kem đánh răng hữu cơ trẻ em vị dâu Buccotherm 50ml', '', 'kem danh rang huu co tre em vi dau buccotherm 50ml', '', 'kem-danh-rang-huu-co-tre-em-vi-dau-buccotherm-50ml', '', 159, 0, 0, 160000, 0, 2, 15, '', 'Pháp', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 0, 0, 0, 33, 33, '50ml', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1666, 0, 1, 1, '2024-07-30 16:18:32', '2024-08-07 15:04:05'),
+(115, NULL, 'Kem đánh răng hữu cơ trẻ em vị cam prebiotic Wooden Spoon 50ml', '', 'kem danh rang huu co tre em vi cam prebiotic wooden spoon 50ml', '', 'kem-danh-rang-huu-co-tre-em-vi-cam-prebiotic-wooden-spoon-50ml', '', 158, 0, 0, 220000, 0, 2, 15, '', 'Bulgari', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 0, 0, 0, 33, 2, '50ml', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1667, 0, 1, 1, '2024-07-30 16:21:00', '2024-08-07 15:03:01'),
+(116, NULL, 'Kem đánh răng tái khoáng làm trắng hữu cơ Wooden Spoon 75ml', '', 'kem danh rang tai khoang lam trang huu co wooden spoon 75ml', '', 'kem-danh-rang-tai-khoang-lam-trang-huu-co-wooden-spoon-75ml', '', 157, 0, 0, 250000, 0, 2, 15, '', 'Bulgari', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 0, 0, 0, 33, 2, '75ml', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1668, 0, 1, 1, '2024-07-30 16:23:12', '2024-08-07 15:01:41'),
+(117, NULL, 'Sữa tắm kem yến mạch hữu cơ Coslys 1l', '', 'sua tam kem yen mach huu co coslys 1l', '', 'sua-tam-kem-yen-mach-huu-co-coslys-1l', '', 156, 0, 0, 435000, 0, 2, 15, '', 'Pháp', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 2, 0, 0, 35, 1, '1l', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1669, 0, 1, 1, '2024-07-30 16:26:18', '2024-08-07 15:00:25'),
+(118, NULL, 'Sữa tắm gel dầu olive hữu cơ Coslys 1l', '', 'sua tam gel dau olive huu co coslys 1l', '', 'sua-tam-gel-dau-olive-huu-co-coslys-1l', '', 155, 0, 0, 435000, 0, 2, 15, '', 'Pháp', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 3, 0, 0, 35, 1, '1l', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1670, 0, 1, 1, '2024-07-30 16:38:57', '2024-08-07 14:59:35'),
+(119, NULL, 'Nước rửa tay enzyme hương quýt Fuwa3e 100ml', '', 'nuoc rua tay enzyme huong quyt fuwa3e 100ml', '', 'nuoc-rua-tay-enzyme-huong-quyt-fuwa3e-100ml', '', 153, 0, 0, 19000, 0, 2, 15, '', 'Việt Nam', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 5, 0, 0, 36, 3, '100ml', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1671, 0, 1, 1, '2024-07-30 16:45:58', '2024-08-07 14:55:43'),
+(120, NULL, 'Nước rửa tay enzyme hương quýt Fuwa3e 300ml', '', 'nuoc rua tay enzyme huong quyt fuwa3e 300ml', '', 'nuoc-rua-tay-enzyme-huong-quyt-fuwa3e-300ml', '', 141, 0, 0, 65000, 0, 2, 15, '', 'Việt Nam', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 5, 0, 0, 36, 3, '300ml', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1672, 0, 1, 1, '2024-07-30 16:46:33', '2024-08-07 14:37:08'),
+(121, NULL, 'Nước rửa tay enzyme hương quýt Fuwa3e 3.8l', '', 'nuoc rua tay enzyme huong quyt fuwa3e 38l', '', 'nuoc-rua-tay-enzyme-huong-quyt-fuwa3e-38l', '', 142, 0, 0, 425000, 0, 2, 15, '', 'Việt Nam', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 3, 0, 0, 0, 3, '3.8l', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1673, 0, 1, 1, '2024-07-30 16:47:15', '2024-08-07 14:37:30'),
+(122, NULL, 'Dung dịch vệ sinh hương hoa hồng Coslys 250ml', '', 'dung dich ve sinh huong hoa hong coslys 250ml', '', 'dung-dich-ve-sinh-huong-hoa-hong-coslys-250ml', '', 152, 0, 0, 250000, 0, 2, 15, '', 'Pháp', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 3, 0, 0, 37, 1, '250ml', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1674, 0, 1, 1, '2024-07-30 16:52:01', '2024-08-07 14:52:24'),
+(123, NULL, 'Dung dịch vệ sinh cho da nhạy cảm Coslys 500ml', '', 'dung dich ve sinh cho da nhay cam coslys 500ml', '', 'dung-dich-ve-sinh-cho-da-nhay-cam-coslys-500ml', '', 151, 0, 0, 370000, 0, 2, 15, '', 'Pháp', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 3, 0, 0, 37, 1, '500ml', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1675, 0, 1, 1, '2024-07-30 16:52:36', '2024-08-07 14:51:38'),
+(124, NULL, 'Dầu gội trẻ em chiết xuất táo lê hữu cơ Coslys 500ml', '', 'dau goi tre em chiet xuat tao le huu co coslys 500ml', '', 'dau-goi-tre-em-chiet-xuat-tao-le-huu-co-coslys-500ml', '', 150, 0, 0, 370000, 0, 2, 15, '', 'Pháp', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 3, 0, 0, 34, 1, '500ml', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1676, 0, 1, 1, '2024-07-30 16:53:50', '2024-08-07 14:50:50'),
+(125, NULL, 'Dầu gội dưỡng ẩm chuyên sâu hữu cơ Coslys 500ml', '', 'dau goi duong am chuyen sau huu co coslys 500ml', '', 'dau-goi-duong-am-chuyen-sau-huu-co-coslys-500ml', '', 149, 0, 0, 340000, 0, 2, 15, '', 'Pháp', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 1, 0, 0, 34, 1, '500ml', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1677, 0, 1, 1, '2024-07-30 16:55:05', '2024-08-07 14:48:20'),
+(126, NULL, 'Dầu gội đầu hữu cơ cho tóc thường Coslys 250ml', '', 'dau goi dau huu co cho toc thuong coslys 250ml', '', 'dau-goi-dau-huu-co-cho-toc-thuong-coslys-250ml', '', 148, 0, 0, 225000, 0, 2, 15, '', 'Pháp', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 3, 0, 0, 34, 1, '250ml', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1678, 0, 1, 1, '2024-07-30 16:57:11', '2024-08-07 14:47:35'),
+(127, NULL, 'Dầu xả hữu cơ bổ sung Biotin Avalon Organics 397ml', '', 'dau xa huu co bo sung biotin avalon organics 397ml', '', 'dau-xa-huu-co-bo-sung-biotin-avalon-organics-397ml', '', 147, 0, 0, 390000, 0, 2, 15, '', 'Mỹ', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 3, 0, 0, 34, 32, '397ml', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1679, 0, 1, 1, '2024-07-30 16:58:55', '2024-08-07 14:46:51'),
+(128, NULL, 'Dầu xả hữu cơ hương trà tràm Avalon Organics 312g', '', 'dau xa huu co huong tra tram avalon organics 312g', '', 'dau-xa-huu-co-huong-tra-tram-avalon-organics-312g', '', 146, 0, 0, 370000, 0, 2, 15, '', 'Mỹ', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 3, 0, 0, 34, 32, '', '312g', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1680, 0, 1, 1, '2024-07-30 17:00:41', '2024-08-07 14:45:49'),
+(129, NULL, 'Dầu gội hữu cơ cho tóc gàu Avalon Organics 414ml', '', 'dau goi huu co cho toc gau avalon organics 414ml', '', 'dau-goi-huu-co-cho-toc-gau-avalon-organics-414ml', '', 145, 0, 0, 390000, 0, 2, 15, '', 'Mỹ', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 2, 0, 0, 34, 32, '414ml', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1681, 0, 1, 1, '2024-07-30 17:02:36', '2024-08-07 14:44:20'),
+(130, NULL, 'Dầu gội hữu cơ hương bạc hà Avalon Organics 325ml', '', 'dau goi huu co huong bac ha avalon organics 325ml', '', 'dau-goi-huu-co-huong-bac-ha-avalon-organics-325ml', '', 144, 0, 0, 325000, 0, 2, 15, '', 'Mỹ', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 5, 0, 0, 34, 32, '325ml', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1682, 0, 1, 1, '2024-07-30 17:04:09', '2024-08-07 14:43:37'),
+(131, NULL, 'Tẩy tế bào chết cơ thể hạnh nhân hữu cơ Coslys 150g', '', 'tay te bao chet co the hanh nhan huu co coslys 150g', '', 'tay-te-bao-chet-co-the-hanh-nhan-huu-co-coslys-150g', '', 135, 0, 0, 275000, 0, 2, 14, '', '', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 3, 0, 0, 31, 0, '', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1683, 0, 1, 1, '2024-07-30 17:08:29', '2024-08-07 14:21:53'),
+(132, NULL, 'Nước tẩy trang hữu cơ cho da khô nhạy cảm Coslys 200ml', '', 'nuoc tay trang huu co cho da kho nhay cam coslys 200ml', '', 'nuoc-tay-trang-huu-co-cho-da-kho-nhay-cam-coslys-200ml', '', 134, 0, 0, 350000, 0, 2, 14, '', '', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 3, 0, 0, 31, 0, '', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1684, 0, 1, 1, '2024-07-30 17:09:37', '2024-08-07 14:21:38'),
+(133, NULL, 'Nước giặt enzyme hương cam Fuwa3e 3.5 lít', '', 'nuoc giat enzyme huong cam fuwa3e 35 lit', '', 'nuoc-giat-enzyme-huong-cam-fuwa3e-35-lit', '', 177, 0, 0, 325000, 0, 2, 16, '', 'Việt Nam', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 2, 0, 0, 39, 3, '3.5 lít', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1685, 0, 1, 1, '2024-07-30 17:16:56', '2024-08-07 15:24:08'),
+(134, NULL, 'Nước giặt enzyme hương cam Fuwa3e 500ml', '', 'nuoc giat enzyme huong cam fuwa3e 500ml', '', 'nuoc-giat-enzyme-huong-cam-fuwa3e-500ml', '', 176, 0, 0, 68000, 0, 2, 16, '', 'Việt Nam', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 5, 0, 0, 39, 3, '500ml', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1686, 0, 1, 1, '2024-07-30 17:17:34', '2024-08-07 15:23:28'),
+(135, NULL, 'Nước rửa chén enzyme Fuwa3e 500ml', '', 'nuoc rua chen enzyme fuwa3e 500ml', '', 'nuoc-rua-chen-enzyme-fuwa3e-500ml', '', 175, 0, 0, 58000, 0, 2, 16, '', 'Việt Nam', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 5, 0, 0, 38, 3, '500ml', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1687, 0, 1, 1, '2024-07-30 17:19:05', '2024-08-07 15:22:20'),
+(136, NULL, 'Nước rửa chén enzyme Fuwa3e 3.8 lít', '', 'nuoc rua chen enzyme fuwa3e 38 lit', '', 'nuoc-rua-chen-enzyme-fuwa3e-38-lit', '', 174, 0, 0, 335000, 0, 2, 16, '', 'Việt Nam', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 2, 0, 0, 38, 3, '3.8 lít', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1688, 0, 1, 1, '2024-07-30 17:19:45', '2024-08-07 15:21:13'),
+(137, NULL, 'Nước lau sàn hương quế Fuwa3e 1 lít', '', 'nuoc lau san huong que fuwa3e 1 lit', '', 'nuoc-lau-san-huong-que-fuwa3e-1-lit', '', 173, 0, 0, 95000, 0, 2, 16, '', 'Việt Nam', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 2, 0, 0, 40, 3, '1 lít', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1689, 0, 1, 1, '2024-07-30 17:21:22', '2024-08-07 15:20:13'),
+(138, NULL, 'Nước lau sàn hương sả chanh Fuwa3e 1 lít', '', 'nuoc lau san huong sa chanh fuwa3e 1 lit', '', 'nuoc-lau-san-huong-sa-chanh-fuwa3e-1-lit', '', 172, 0, 0, 95000, 0, 2, 16, '', 'Viêt Nam', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 2, 0, 0, 40, 3, '1 lít', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1690, 0, 1, 1, '2024-07-30 17:21:51', '2024-08-07 15:19:15'),
+(139, NULL, 'Nước ngâm rửa thực phẩm Fuwa3e 1 lít', '', 'nuoc ngam rua thuc pham fuwa3e 1 lit', '', 'nuoc-ngam-rua-thuc-pham-fuwa3e-1-lit', '', 171, 0, 0, 65000, 0, 2, 16, '', 'Việt Nam', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 4, 0, 0, 0, 3, '1 lít', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1691, 0, 1, 1, '2024-07-30 17:23:16', '2024-08-07 15:17:53'),
+(140, NULL, 'Dung dịch vệ sinh bồn cầu Fuwa3e 500ml', '', 'dung dich ve sinh bon cau fuwa3e 500ml', '', 'dung-dich-ve-sinh-bon-cau-fuwa3e-500ml', '', 169, 0, 0, 66000, 0, 2, 16, '', 'Việt Nam', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 7, 0, 0, 0, 3, '500ml', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1692, 0, 1, 1, '2024-07-30 17:25:17', '2024-08-07 15:15:42'),
+(141, NULL, 'Nước hoa hồng hữu cơ Wooden Spoon 200ml', '', 'Nuoc hoa hong huu co Wooden Spoon 200ml', '', 'nuoc-hoa-hong-huu-co-wooden-spoon-200ml', '', 122, 0, 0, 315000, 0, 2, 14, '', NULL, '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 2, 0, 0, 31, NULL, NULL, NULL, 0, 0, NULL, 1, '', NULL, NULL, NULL, NULL, 0, '', 1, 1693, 0, 1, 1, '2024-07-30 17:27:51', '2024-07-30 17:27:51'),
+(142, NULL, 'Kem chống nắng baby & family SPF50 Wooden Spoon 100ml', '', 'Kem chong nang baby & family SPF50 Wooden Spoon 100ml', '', 'kem-chong-nang-baby-family-spf50-wooden-spoon-100ml', '', 123, 0, 0, 650000, 0, 2, 14, '', NULL, '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 2, 0, 0, 31, NULL, NULL, NULL, 0, 0, NULL, 1, '', NULL, NULL, NULL, NULL, 0, '', 1, 1694, 0, 1, 1, '2024-07-30 17:31:17', '2024-07-30 17:31:17'),
+(143, NULL, 'Sữa rửa mặt bọt mềm tự nhiên Wooden Spoon 150ml', '', 'sua rua mat bot mem tu nhien wooden spoon 150ml', '', 'sua-rua-mat-bot-mem-tu-nhien-wooden-spoon-150ml', '', 126, 0, 0, 600000, 0, 2, 14, '', 'Bulgari', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 2, 0, 0, 31, 2, '150ml', '', 0, 0, NULL, 0, '', NULL, NULL, NULL, NULL, 0, '', 1, 1695, 0, 1, 1, '2024-07-30 17:32:33', '2024-08-05 19:09:03'),
+(144, NULL, 'Bông tẩy trang hữu cơ tròn Silver Care 80 miếng', '', 'bong tay trang huu co tron silver care 80 mieng', '', 'bong-tay-trang-huu-co-tron-silver-care-80-mieng', '', 254, 0, 0, 64000, 0, 2, 14, '', 'Tây Ban Nha', '', NULL, NULL, NULL, '', NULL, 1, 0, 0, 0, 0, 0, 1, 0, 0, 31, 4, '', '80g', 0, 0, NULL, 0, '', NULL, '<p>dđ</p>\r\n', '<p>qqqq</p>\r\n', '<p>gsdgdg</p>\r\n', 0, '', 1, 1696, 0, 1, 1, '2024-07-30 17:34:08', '2024-08-08 11:48:06');
 
 -- --------------------------------------------------------
 
@@ -14554,16 +15127,16 @@ CREATE TABLE `product_cate` (
   `icon_km` varchar(255) DEFAULT NULL,
   `banner_menu` varchar(255) DEFAULT NULL,
   `price_sort` tinyint(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `product_cate`
 --
 
 INSERT INTO `product_cate` (`id`, `name`, `alias`, `slug`, `description`, `icon_mau`, `bg_color`, `home_style`, `is_hover`, `display_order`, `is_hot`, `status`, `created_user`, `updated_user`, `created_at`, `updated_at`, `meta_id`, `menu_ngang`, `menu_doc`, `phi_dich_vu`, `icon_url`, `icon_km`, `banner_menu`, `price_sort`) VALUES
-(1, 'Hải sản khô', 'Hai san kho', 'hai-san-kho', '', '', '#EE484F', 1, 1, 1, 0, 1, 0, 0, '0000-00-00 00:00:00', '2021-07-16 11:01:25', 1481, 1, 1, 0, '', '', '', 0),
-(2, 'Bánh kẹo', 'Banh keo', 'banh-keo', '', '', '#EE484F', 1, 1, 2, 0, 1, 0, 0, '2021-07-16 11:01:40', '2021-07-16 11:01:40', 1482, 1, 1, 0, '', '', '', 0),
-(3, 'Nem chả', 'Nem cha', 'nem-cha', '', '', '#EE484F', 1, 1, 3, 0, 1, 0, 0, '2021-07-16 11:02:11', '2021-07-16 11:02:11', 1483, 1, 1, 0, '', '', '', 0);
+(1, 'Thực Phẩm Hữu Cơ', 'Thuc Pham Huu Co', 'thuc-pham-huu-co', '', '', '#EE484F', 1, 1, 1, 0, 1, 0, 0, '0000-00-00 00:00:00', '2024-07-18 15:04:28', 1481, 1, 1, 0, '', '', '', 0),
+(2, 'Hóa Mỹ Phẩm Hữu Cơ', 'Hoa My Pham Huu Co', 'hoa-my-pham-huu-co', '', '', '#EE484F', 1, 1, 2, 0, 1, 0, 0, '2021-07-16 11:01:40', '2024-07-18 13:28:38', 1482, 1, 1, 0, '', '', '', 0),
+(3, 'Sản Phẩm Xanh', 'San Pham Xanh', 'san-pham-xanh', '', '', '#EE484F', 1, 1, 3, 0, 1, 0, 0, '2021-07-16 11:02:11', '2024-07-18 13:29:07', 1483, 1, 1, 0, '', '', '', 0);
 
 -- --------------------------------------------------------
 
@@ -14585,7 +15158,837 @@ CREATE TABLE `product_event` (
   `updated_at` datetime NOT NULL,
   `created_user` int(11) NOT NULL,
   `updated_user` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_icon`
+--
+
+CREATE TABLE `product_icon` (
+  `product_id` int(11) NOT NULL,
+  `icon_id` int(11) NOT NULL,
+  `display_order` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Dumping data for table `product_icon`
+--
+
+INSERT INTO `product_icon` (`product_id`, `icon_id`, `display_order`) VALUES
+(8, 2, 2),
+(8, 3, 3),
+(8, 5, 1),
+(8, 6, 5),
+(8, 8, 7),
+(8, 9, 8),
+(8, 10, 9),
+(8, 17, 16),
+(8, 18, 17),
+(8, 20, 19),
+(9, 2, 2),
+(9, 3, 3),
+(9, 5, 1),
+(9, 6, 5),
+(9, 8, 7),
+(9, 9, 8),
+(9, 10, 9),
+(9, 17, 16),
+(9, 18, 17),
+(9, 20, 19),
+(10, 2, 2),
+(10, 3, 3),
+(10, 4, 4),
+(10, 5, 1),
+(10, 6, 5),
+(10, 8, 7),
+(10, 9, 8),
+(10, 10, 9),
+(10, 16, 15),
+(10, 18, 17),
+(10, 20, 19),
+(11, 2, 2),
+(11, 3, 3),
+(11, 4, 4),
+(11, 5, 1),
+(11, 6, 5),
+(11, 8, 7),
+(11, 9, 8),
+(11, 10, 9),
+(11, 18, 17),
+(11, 20, 19),
+(16, 3, 3),
+(16, 4, 4),
+(16, 5, 1),
+(16, 6, 5),
+(16, 8, 7),
+(16, 9, 8),
+(16, 10, 9),
+(16, 17, 16),
+(16, 18, 17),
+(16, 20, 19),
+(18, 2, 2),
+(18, 3, 3),
+(18, 4, 4),
+(18, 5, 1),
+(18, 6, 5),
+(18, 7, 6),
+(18, 8, 7),
+(18, 9, 8),
+(18, 10, 9),
+(18, 15, 14),
+(18, 17, 16),
+(18, 18, 17),
+(19, 2, 2),
+(19, 3, 3),
+(19, 4, 4),
+(19, 5, 1),
+(19, 6, 5),
+(19, 7, 6),
+(19, 8, 7),
+(19, 9, 8),
+(19, 10, 9),
+(19, 15, 14),
+(19, 17, 16),
+(19, 18, 17),
+(20, 3, 3),
+(20, 4, 4),
+(20, 6, 5),
+(20, 7, 6),
+(20, 8, 7),
+(20, 9, 8),
+(20, 10, 9),
+(20, 15, 14),
+(20, 17, 16),
+(20, 18, 17),
+(21, 2, 2),
+(21, 3, 3),
+(21, 4, 4),
+(21, 5, 1),
+(21, 6, 5),
+(21, 8, 7),
+(21, 9, 8),
+(21, 10, 9),
+(21, 15, 14),
+(21, 17, 16),
+(21, 18, 17),
+(22, 2, 2),
+(22, 3, 3),
+(22, 4, 4),
+(22, 5, 1),
+(22, 6, 5),
+(22, 8, 7),
+(22, 9, 8),
+(22, 10, 9),
+(22, 15, 14),
+(22, 17, 16),
+(22, 18, 17),
+(23, 2, 2),
+(23, 3, 3),
+(23, 4, 4),
+(23, 5, 1),
+(23, 6, 5),
+(23, 8, 7),
+(23, 9, 8),
+(23, 10, 9),
+(23, 17, 16),
+(23, 18, 17),
+(24, 2, 2),
+(24, 3, 3),
+(24, 4, 4),
+(24, 5, 1),
+(24, 6, 5),
+(24, 8, 7),
+(24, 9, 8),
+(24, 10, 9),
+(24, 15, 14),
+(24, 17, 16),
+(24, 18, 17),
+(25, 2, 2),
+(25, 3, 3),
+(25, 4, 4),
+(25, 5, 1),
+(25, 6, 5),
+(25, 8, 7),
+(25, 9, 8),
+(25, 10, 9),
+(25, 18, 17),
+(25, 20, 19),
+(26, 5, 1),
+(26, 6, 5),
+(26, 7, 6),
+(26, 8, 7),
+(26, 9, 8),
+(26, 10, 9),
+(26, 17, 16),
+(26, 18, 17),
+(26, 19, 18),
+(26, 20, 19),
+(27, 2, 2),
+(27, 3, 3),
+(27, 4, 4),
+(27, 5, 1),
+(27, 6, 5),
+(27, 8, 7),
+(27, 9, 8),
+(27, 10, 9),
+(27, 17, 16),
+(27, 18, 17),
+(28, 2, 2),
+(28, 3, 3),
+(28, 4, 4),
+(28, 5, 1),
+(28, 6, 5),
+(28, 8, 7),
+(28, 9, 8),
+(28, 10, 9),
+(28, 16, 15),
+(28, 18, 17),
+(28, 20, 19),
+(29, 2, 2),
+(29, 3, 3),
+(29, 4, 4),
+(29, 5, 1),
+(29, 6, 5),
+(29, 7, 6),
+(29, 8, 7),
+(29, 9, 8),
+(29, 10, 9),
+(29, 17, 16),
+(29, 18, 17),
+(30, 2, 2),
+(30, 3, 3),
+(30, 4, 4),
+(30, 5, 1),
+(30, 6, 5),
+(30, 8, 7),
+(30, 9, 8),
+(30, 10, 9),
+(30, 17, 16),
+(30, 18, 17),
+(31, 2, 2),
+(31, 3, 3),
+(31, 4, 4),
+(31, 5, 1),
+(31, 6, 5),
+(31, 8, 7),
+(31, 9, 8),
+(31, 10, 9),
+(31, 15, 14),
+(31, 17, 16),
+(31, 18, 17),
+(32, 3, 3),
+(32, 5, 1),
+(32, 6, 5),
+(32, 8, 7),
+(32, 9, 8),
+(32, 10, 9),
+(32, 17, 16),
+(32, 18, 17),
+(33, 3, 3),
+(33, 5, 1),
+(33, 6, 5),
+(33, 8, 7),
+(33, 9, 8),
+(33, 10, 9),
+(33, 17, 16),
+(33, 18, 17),
+(34, 6, 5),
+(34, 8, 7),
+(34, 10, 9),
+(34, 18, 17),
+(35, 6, 5),
+(35, 8, 7),
+(35, 10, 9),
+(35, 18, 17),
+(36, 6, 5),
+(36, 8, 7),
+(36, 10, 9),
+(36, 18, 17),
+(37, 2, 2),
+(37, 3, 3),
+(37, 4, 4),
+(37, 8, 7),
+(37, 9, 8),
+(37, 10, 9),
+(37, 17, 16),
+(37, 18, 17),
+(38, 2, 2),
+(38, 3, 3),
+(38, 5, 1),
+(38, 6, 5),
+(38, 8, 7),
+(38, 9, 8),
+(38, 10, 9),
+(38, 17, 16),
+(38, 18, 17),
+(39, 2, 2),
+(39, 6, 5),
+(39, 8, 7),
+(39, 9, 8),
+(39, 10, 9),
+(39, 17, 16),
+(39, 18, 17),
+(40, 3, 3),
+(40, 5, 1),
+(40, 6, 5),
+(40, 7, 6),
+(40, 8, 7),
+(40, 9, 8),
+(40, 10, 9),
+(40, 17, 16),
+(40, 18, 17),
+(40, 19, 18),
+(40, 20, 19),
+(41, 3, 3),
+(41, 5, 1),
+(41, 6, 5),
+(41, 8, 7),
+(41, 9, 8),
+(41, 10, 9),
+(41, 17, 16),
+(41, 18, 17),
+(42, 2, 2),
+(42, 3, 3),
+(42, 4, 4),
+(42, 5, 1),
+(42, 6, 5),
+(42, 8, 7),
+(42, 9, 8),
+(42, 10, 9),
+(42, 17, 16),
+(42, 18, 17),
+(43, 2, 2),
+(43, 3, 3),
+(43, 4, 4),
+(43, 5, 1),
+(43, 6, 5),
+(43, 8, 7),
+(43, 9, 8),
+(43, 10, 9),
+(43, 17, 16),
+(43, 18, 17),
+(44, 2, 2),
+(44, 3, 3),
+(44, 4, 4),
+(44, 5, 1),
+(44, 8, 7),
+(44, 10, 9),
+(44, 17, 16),
+(44, 18, 17),
+(45, 2, 2),
+(45, 3, 3),
+(45, 4, 4),
+(45, 5, 1),
+(45, 6, 5),
+(45, 8, 7),
+(45, 9, 8),
+(45, 10, 9),
+(45, 13, 12),
+(45, 17, 16),
+(45, 18, 17),
+(46, 2, 2),
+(46, 3, 3),
+(46, 4, 4),
+(46, 5, 1),
+(46, 6, 5),
+(46, 8, 7),
+(46, 9, 8),
+(46, 10, 9),
+(46, 17, 16),
+(46, 18, 17),
+(46, 20, 19),
+(47, 2, 2),
+(47, 3, 3),
+(47, 4, 4),
+(47, 5, 1),
+(47, 6, 5),
+(47, 8, 7),
+(47, 9, 8),
+(47, 10, 9),
+(47, 16, 15),
+(47, 18, 17),
+(48, 2, 2),
+(48, 3, 3),
+(48, 4, 4),
+(48, 5, 1),
+(48, 6, 5),
+(48, 8, 7),
+(48, 9, 8),
+(48, 10, 9),
+(48, 17, 16),
+(48, 18, 17),
+(49, 2, 2),
+(49, 3, 3),
+(49, 4, 4),
+(49, 5, 1),
+(49, 6, 5),
+(49, 8, 7),
+(49, 9, 8),
+(49, 10, 9),
+(49, 17, 16),
+(49, 18, 17),
+(50, 2, 2),
+(50, 3, 3),
+(50, 6, 5),
+(50, 8, 7),
+(50, 9, 8),
+(50, 10, 9),
+(50, 16, 15),
+(50, 18, 17),
+(51, 2, 2),
+(51, 3, 3),
+(51, 6, 5),
+(51, 8, 7),
+(51, 9, 8),
+(51, 10, 9),
+(51, 16, 15),
+(51, 18, 17),
+(52, 2, 2),
+(52, 4, 4),
+(52, 6, 5),
+(52, 8, 7),
+(52, 9, 8),
+(52, 10, 9),
+(52, 16, 15),
+(52, 18, 17),
+(53, 2, 2),
+(53, 4, 4),
+(53, 5, 1),
+(53, 6, 5),
+(53, 8, 7),
+(53, 9, 8),
+(53, 10, 9),
+(53, 13, 12),
+(53, 17, 16),
+(53, 18, 17),
+(54, 2, 2),
+(54, 4, 4),
+(54, 5, 1),
+(54, 6, 5),
+(54, 8, 7),
+(54, 9, 8),
+(54, 10, 9),
+(54, 13, 12),
+(54, 17, 16),
+(54, 18, 17),
+(55, 2, 2),
+(55, 3, 3),
+(55, 4, 4),
+(55, 8, 7),
+(55, 9, 8),
+(55, 10, 9),
+(55, 18, 17),
+(56, 2, 2),
+(56, 3, 3),
+(56, 4, 4),
+(56, 8, 7),
+(56, 9, 8),
+(56, 10, 9),
+(56, 18, 17),
+(57, 2, 2),
+(57, 3, 3),
+(57, 4, 4),
+(57, 8, 7),
+(57, 9, 8),
+(57, 10, 9),
+(57, 18, 17),
+(58, 3, 3),
+(58, 5, 1),
+(58, 6, 5),
+(58, 8, 7),
+(58, 9, 8),
+(58, 10, 9),
+(58, 17, 16),
+(58, 18, 17),
+(59, 3, 3),
+(59, 5, 1),
+(59, 6, 5),
+(59, 8, 7),
+(59, 9, 8),
+(59, 10, 9),
+(59, 17, 16),
+(59, 18, 17),
+(60, 3, 3),
+(60, 5, 1),
+(60, 6, 5),
+(60, 8, 7),
+(60, 9, 8),
+(60, 10, 9),
+(60, 17, 16),
+(60, 18, 17),
+(61, 3, 3),
+(61, 5, 1),
+(61, 6, 5),
+(61, 8, 7),
+(61, 9, 8),
+(61, 10, 9),
+(61, 17, 16),
+(61, 18, 17),
+(62, 3, 3),
+(62, 5, 1),
+(62, 6, 5),
+(62, 8, 7),
+(62, 9, 8),
+(62, 10, 9),
+(62, 17, 16),
+(62, 18, 17),
+(63, 3, 3),
+(63, 5, 1),
+(63, 6, 5),
+(63, 8, 7),
+(63, 9, 8),
+(63, 10, 9),
+(63, 17, 16),
+(63, 18, 17),
+(64, 3, 3),
+(64, 5, 1),
+(64, 6, 5),
+(64, 8, 7),
+(64, 9, 8),
+(64, 10, 9),
+(64, 17, 16),
+(64, 18, 17),
+(65, 3, 3),
+(65, 4, 4),
+(65, 5, 1),
+(65, 6, 5),
+(65, 8, 7),
+(65, 9, 8),
+(65, 10, 9),
+(65, 17, 16),
+(66, 3, 3),
+(66, 4, 4),
+(66, 5, 1),
+(66, 6, 5),
+(66, 8, 7),
+(66, 9, 8),
+(66, 10, 9),
+(66, 17, 16),
+(67, 3, 3),
+(67, 4, 4),
+(67, 5, 1),
+(67, 6, 5),
+(67, 8, 7),
+(67, 9, 8),
+(67, 10, 9),
+(67, 17, 16),
+(68, 3, 3),
+(68, 4, 4),
+(68, 5, 1),
+(68, 6, 5),
+(68, 8, 7),
+(68, 9, 8),
+(68, 10, 9),
+(68, 17, 16),
+(69, 3, 3),
+(69, 4, 4),
+(69, 5, 1),
+(69, 6, 5),
+(69, 8, 7),
+(69, 9, 8),
+(69, 10, 9),
+(69, 17, 16),
+(70, 3, 3),
+(70, 4, 4),
+(70, 5, 1),
+(70, 6, 5),
+(70, 8, 7),
+(70, 9, 8),
+(70, 10, 9),
+(70, 17, 16),
+(71, 3, 3),
+(71, 4, 4),
+(71, 5, 1),
+(71, 6, 5),
+(71, 8, 7),
+(71, 9, 8),
+(71, 10, 9),
+(71, 17, 16),
+(72, 3, 3),
+(72, 5, 1),
+(72, 6, 5),
+(72, 8, 7),
+(72, 9, 8),
+(72, 10, 9),
+(72, 17, 16),
+(72, 18, 17),
+(73, 3, 3),
+(73, 4, 4),
+(73, 5, 1),
+(73, 6, 5),
+(73, 8, 7),
+(73, 9, 8),
+(73, 10, 9),
+(73, 17, 16),
+(73, 18, 17),
+(73, 20, 19),
+(74, 3, 3),
+(74, 4, 4),
+(74, 5, 1),
+(74, 6, 5),
+(74, 8, 7),
+(74, 9, 8),
+(74, 10, 9),
+(74, 17, 16),
+(74, 18, 17),
+(74, 20, 19),
+(75, 3, 3),
+(75, 4, 4),
+(75, 5, 1),
+(75, 6, 5),
+(75, 8, 7),
+(75, 9, 8),
+(75, 10, 9),
+(75, 17, 16),
+(75, 18, 17),
+(75, 20, 19),
+(76, 3, 3),
+(76, 4, 4),
+(76, 5, 1),
+(76, 6, 5),
+(76, 8, 7),
+(76, 9, 8),
+(76, 10, 9),
+(76, 17, 16),
+(76, 18, 17),
+(76, 20, 19),
+(85, 2, 2),
+(85, 3, 3),
+(85, 4, 4),
+(85, 6, 5),
+(85, 8, 7),
+(85, 10, 9),
+(85, 18, 17),
+(85, 20, 19),
+(94, 3, 3),
+(94, 5, 1),
+(94, 6, 5),
+(94, 7, 6),
+(94, 8, 7),
+(94, 9, 8),
+(94, 10, 9),
+(94, 17, 16),
+(94, 18, 17),
+(94, 20, 19),
+(94, 21, 20),
+(106, 3, 3),
+(106, 6, 5),
+(106, 8, 7),
+(106, 9, 8),
+(106, 18, 17),
+(106, 19, 18),
+(107, 3, 3),
+(107, 6, 5),
+(107, 8, 7),
+(107, 9, 8),
+(107, 18, 17),
+(107, 19, 18),
+(108, 3, 3),
+(108, 6, 5),
+(108, 8, 7),
+(108, 9, 8),
+(108, 18, 17),
+(108, 19, 18),
+(109, 3, 3),
+(109, 6, 5),
+(109, 8, 7),
+(109, 9, 8),
+(109, 18, 17),
+(109, 19, 18),
+(109, 20, 19),
+(109, 21, 20),
+(110, 3, 3),
+(110, 6, 5),
+(110, 8, 7),
+(110, 9, 8),
+(110, 18, 17),
+(110, 19, 18),
+(110, 20, 19),
+(111, 3, 3),
+(111, 6, 5),
+(111, 8, 7),
+(111, 9, 8),
+(111, 18, 17),
+(111, 19, 18),
+(112, 3, 3),
+(112, 6, 5),
+(112, 8, 7),
+(112, 9, 8),
+(112, 18, 17),
+(112, 19, 18),
+(113, 3, 3),
+(113, 6, 5),
+(113, 8, 7),
+(113, 9, 8),
+(113, 18, 17),
+(113, 19, 18),
+(114, 3, 3),
+(114, 6, 5),
+(114, 8, 7),
+(114, 9, 8),
+(114, 18, 17),
+(114, 19, 18),
+(114, 20, 19),
+(115, 3, 3),
+(115, 6, 5),
+(115, 8, 7),
+(115, 9, 8),
+(115, 18, 17),
+(115, 19, 18),
+(115, 20, 19),
+(116, 3, 3),
+(116, 6, 5),
+(116, 8, 7),
+(116, 9, 8),
+(116, 18, 17),
+(116, 19, 18),
+(117, 3, 3),
+(117, 6, 5),
+(117, 8, 7),
+(117, 9, 8),
+(117, 18, 17),
+(117, 19, 18),
+(117, 21, 20),
+(118, 3, 3),
+(118, 6, 5),
+(118, 8, 7),
+(118, 9, 8),
+(118, 18, 17),
+(118, 19, 18),
+(118, 21, 20),
+(119, 2, 2),
+(119, 8, 7),
+(119, 9, 8),
+(119, 18, 17),
+(119, 19, 18),
+(119, 20, 19),
+(119, 21, 20),
+(120, 2, 2),
+(120, 8, 7),
+(120, 18, 17),
+(120, 19, 18),
+(120, 20, 19),
+(120, 21, 20),
+(121, 2, 2),
+(121, 8, 7),
+(121, 18, 17),
+(121, 19, 18),
+(121, 20, 19),
+(121, 21, 20),
+(122, 3, 3),
+(122, 6, 5),
+(122, 8, 7),
+(122, 9, 8),
+(122, 18, 17),
+(122, 19, 18),
+(122, 21, 20),
+(123, 3, 3),
+(123, 6, 5),
+(123, 8, 7),
+(123, 9, 8),
+(123, 18, 17),
+(123, 19, 18),
+(123, 21, 20),
+(124, 3, 3),
+(124, 6, 5),
+(124, 8, 7),
+(124, 9, 8),
+(124, 18, 17),
+(124, 19, 18),
+(124, 20, 19),
+(125, 3, 3),
+(125, 6, 5),
+(125, 8, 7),
+(125, 9, 8),
+(125, 18, 17),
+(125, 19, 18),
+(126, 3, 3),
+(126, 6, 5),
+(126, 8, 7),
+(126, 9, 8),
+(126, 18, 17),
+(126, 19, 18),
+(127, 4, 4),
+(127, 6, 5),
+(127, 8, 7),
+(127, 9, 8),
+(127, 18, 17),
+(127, 19, 18),
+(128, 4, 4),
+(128, 6, 5),
+(128, 8, 7),
+(128, 9, 8),
+(128, 18, 17),
+(128, 19, 18),
+(129, 4, 4),
+(129, 6, 5),
+(129, 8, 7),
+(129, 9, 8),
+(129, 18, 17),
+(129, 19, 18),
+(130, 4, 4),
+(130, 6, 5),
+(130, 8, 7),
+(130, 9, 8),
+(130, 18, 17),
+(130, 19, 18),
+(133, 5, 1),
+(133, 8, 7),
+(133, 9, 8),
+(133, 10, 9),
+(133, 18, 17),
+(133, 19, 18),
+(134, 5, 1),
+(134, 8, 7),
+(134, 9, 8),
+(134, 10, 9),
+(134, 18, 17),
+(134, 19, 18),
+(135, 5, 1),
+(135, 8, 7),
+(135, 9, 8),
+(135, 10, 9),
+(135, 18, 17),
+(135, 19, 18),
+(136, 5, 1),
+(136, 8, 7),
+(136, 9, 8),
+(136, 10, 9),
+(136, 18, 17),
+(136, 19, 18),
+(137, 5, 1),
+(137, 8, 7),
+(137, 9, 8),
+(137, 10, 9),
+(137, 18, 17),
+(137, 19, 18),
+(138, 5, 1),
+(138, 8, 7),
+(138, 9, 8),
+(138, 10, 9),
+(138, 18, 17),
+(138, 19, 18),
+(139, 5, 1),
+(139, 8, 7),
+(139, 9, 8),
+(139, 10, 9),
+(139, 18, 17),
+(139, 19, 18),
+(140, 5, 1),
+(140, 8, 7),
+(140, 9, 8),
+(140, 10, 9),
+(140, 18, 17),
+(140, 19, 18),
+(143, 10, 9),
+(143, 18, 17),
+(143, 21, 20),
+(144, 10, 9),
+(144, 18, 17),
+(144, 19, 18),
+(144, 21, 20);
 
 -- --------------------------------------------------------
 
@@ -14597,15 +16000,151 @@ CREATE TABLE `product_img` (
   `id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `image_url` varchar(255) NOT NULL,
-  `display_order` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `display_order` tinyint(4) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `product_img`
 --
 
-INSERT INTO `product_img` (`id`, `product_id`, `image_url`, `display_order`) VALUES
-(1, 1, '2021/07/16/kho-muc-1626408357.jpg', 1);
+INSERT INTO `product_img` (`id`, `product_id`, `image_url`, `display_order`, `status`) VALUES
+(37, 12, '/uploads/images/Nobi-Qua-mong.png', 1, 1),
+(40, 15, '/uploads/images/Nobi-Cai-sup-lo-pho-mai.png', 1, 1),
+(41, 14, '/uploads/images/Nobi-Chuoi-bi-carot.png', 1, 1),
+(43, 17, '/uploads/images/Bettr-Snack-khoai-tay.png', 1, 1),
+(82, 77, '/uploads/images/Naeia-Chuoi.png', 1, 1),
+(83, 78, '/uploads/images/Naeia-Tao.png', 1, 1),
+(84, 79, '/uploads/images/Naieia-Dau.png', 1, 1),
+(85, 80, '/uploads/images/Naeia-Rong-bien-tam-dau-hat-cai.png', 1, 1),
+(86, 81, '/uploads/images/Naeia-Rong-bien-tach-muoi.png', 1, 1),
+(87, 83, '/uploads/images/Nobi-Chocolate.png', 1, 1),
+(88, 84, '/uploads/images/Nobi-Chuoi.png', 1, 1),
+(89, 89, '/uploads/images/Alvins-Khoai-lang-tim.png', 1, 1),
+(90, 90, '/uploads/images/Alvins-Bi-ngo.png', 1, 1),
+(91, 91, '/uploads/images/Alvins-Bong-cai.png', 1, 1),
+(92, 92, '/uploads/images/Dragon-Superfood-Bot-cacao.png', 1, 1),
+(93, 93, '/uploads/images/Bettr-Bo-dau-phong.png', 1, 1),
+(94, 95, '/uploads/images/Dragon-Superfoods-Hat-gai-dau.png', 1, 1),
+(95, 96, '/uploads/images/Dragon-Superfood-Vo-hat-ma-de.png', 1, 1),
+(96, 97, '/uploads/images/Dragon-Food-Chuoi-dua.png', 1, 1),
+(98, 98, '/uploads/images/Dragon-Food-Dau-dua.png', 1, 1),
+(99, 99, '/uploads/images/Dragon-Superfood-cacao-vanilla.png', 1, 1),
+(100, 100, '/uploads/images/Vien-nen-detox.png', 1, 1),
+(101, 101, '/uploads/images/Voelkel-Tra-kombucha.png', 1, 1),
+(102, 102, '/uploads/images/Tra-kombucha-huu-co-Voelkel-chanh-day-330ml.png', 1, 1),
+(103, 104, '/uploads/images/Voelkel-Nuoc-ep-nho-do.png', 1, 1),
+(104, 105, '/uploads/images/Voelkel-Nuoc-ep-cherry.png', 1, 1),
+(105, 103, '/uploads/images/Kombucha-qua-dai-Ba-Lanh-500ml.png', 1, 1),
+(122, 141, '/uploads/images/WoodenSpoon-Nuoc-hoa-hong.png', 1, 1),
+(123, 142, '/uploads/images/WoodenSpoon-Kem-chong-nang.png', 1, 1),
+(126, 143, '/uploads/images/WoodenSpoon-Sua-rua-mat.png', 1, 1),
+(130, 20, '/uploads/images/Hoa-Sua-Gao-do.png', 1, 1),
+(134, 132, '/uploads/images/Hoa-pham-HC/COSLYS-TAY-TRANG-DA-KHO-200.png', 1, 1),
+(135, 131, '/uploads/images/Hoa-pham-HC/COSLYS-TAY-TBC-HANH-NHAN-150.png', 1, 1),
+(141, 120, '/uploads/images/Hoa-pham-HC/FUWA3E-NRT-QUYT-300.png', 1, 1),
+(142, 121, '/uploads/images/Hoa-pham-HC/FUWA3E-NRT-QUYT-38.png', 1, 1),
+(144, 130, '/uploads/images/Avalon-Dau-goi-Bac-ha.png', 1, 1),
+(145, 129, '/uploads/images/Avalon-Dau-goi-chong-rung-toc.png', 1, 1),
+(146, 128, '/uploads/images/Avalon-Dau-xa-tra-tram.png', 1, 1),
+(147, 127, '/uploads/images/Avalo-Dau-xa-bo-sung-Biotin.png', 1, 1),
+(148, 126, '/uploads/images/Coslys-Dau-goi-toc-thuong.png', 1, 1),
+(149, 125, '/uploads/images/Hoa-pham-HC/COSLYS-DAU-GOI-DUONG-AM-CS-500.png', 1, 1),
+(150, 124, '/uploads/images/Hoa-pham-HC/COSLYS-DAU-GOI-TE-TAO-LE.png', 1, 1),
+(151, 123, '/uploads/images/Hoa-pham-HC/COSLYS-DDVSPN-DA-NHAY-CAM.png', 1, 1),
+(152, 122, '/uploads/images/Hoa-pham-HC/COSLYS-DDVSPN-HOA-HONG.png', 1, 1),
+(153, 119, '/uploads/images/Hoa-pham-HC/FUWA3E-NRT-QUYT-300.png', 1, 1),
+(154, 111, '/uploads/images/Hoa-pham-HC/COSLYS-KDR-TRANG-RANG-BAC-HA-100.png', 1, 1),
+(155, 118, '/uploads/images/Coslys-Sua-tam-gel-olive.png', 1, 1),
+(156, 117, '/uploads/images/Coslys-Sua-tam-kem-yen-mach.png', 1, 1),
+(157, 116, '/uploads/images/WoodenSpoon-KDR-trang-rang.png', 1, 1),
+(158, 115, '/uploads/images/WoodenSpoon-KDR-TE-cam.png', 1, 1),
+(159, 114, '/uploads/images/Buccotherm-KDR-TE-dau.png', 1, 1),
+(160, 113, '/uploads/images/Buccotherm-KDR-2in1.png', 1, 1),
+(161, 112, '/uploads/images/Buccotherm-KDR-bac-ha.png', 1, 1),
+(162, 110, '/uploads/images/Hoa-pham-HC/OFFICINA-NATURE-KDR-TE-CHUOI.png', 1, 1),
+(163, 109, '/uploads/images/Hoa-pham-HC/SILVERCARE-TAM-BONG.png', 1, 1),
+(164, 108, '/uploads/images/SilverCare-BVS-hang-ngay-30m.png', 1, 1),
+(165, 107, '/uploads/images/SilverCare-Ban-ngay.png', 1, 1),
+(166, 106, '/uploads/images/SilverCare-Ban-dem.png', 1, 1),
+(169, 140, '/uploads/images/Hoa-pham-HC/FUWA3E-TAY-BON-CAU.png', 1, 1),
+(171, 139, '/uploads/images/Hoa-pham-HC/FUWA3E-NGAM-RUA-THUC-PHAM.png', 1, 1),
+(172, 138, '/uploads/images/Hoa-pham-HC/FUWA3E-NUOC-LAU-SAN-SA-CHANH.png', 1, 1),
+(173, 137, '/uploads/images/Hoa-pham-HC/FUWA3E-NUOC-LAU-SAN-QUE.png', 1, 1),
+(174, 136, '/uploads/images/Hoa-pham-HC/FUWA3E-NUOC-RUA-CHEN-38.png', 1, 1),
+(175, 135, '/uploads/images/Hoa-pham-HC/FUWA3E-NUOC-RUA-CHEN-500.png', 1, 1),
+(176, 134, '/uploads/images/Hoa-pham-HC/FUWA3E-NUOC-GIAT-500.png', 1, 1),
+(177, 133, '/uploads/images/Hoa-pham-HC/FUWA3E-NUOC-GIAT-35.png', 1, 1),
+(178, 40, '/uploads/images/BioJunior-Sot-ca-chua-an-dam.png', 1, 1),
+(179, 26, '/uploads/images/Nui-rau-cu-DallaCosta-Disney.png', 1, 1),
+(180, 25, '/uploads/images/Mi-rau-cu-huu-co-Mennosato.png', 1, 1),
+(182, 11, '/uploads/images/Alvins-RB-rac-com-vi-hai-san.png', 1, 1),
+(183, 10, '/uploads/images/Alvins-RB-rac-com-vi-rau-cu.png', 1, 1),
+(184, 9, '/uploads/images/Bio-Junior-Nui-an-dam-Vo-so.png', 1, 1),
+(185, 8, '/uploads/images/Bio-Junior-Nui-an-dam-Chu-cai.png', 1, 1),
+(186, 29, '/uploads/images/Thuc-pham-HC/Bun-tuoi-hoa-nang.png', 1, 1),
+(187, 28, '/uploads/images/Ngu-coc-huu-co-socola-Sottolestelle.png', 1, 1),
+(188, 27, '/uploads/images/Thuc-pham-HC/PROBIOS-YEN-MACH-CAN-MONG.png', 1, 1),
+(189, 24, '/uploads/images/Thuc-pham-HC/ANBIO-HH-GAO-6-LOAI.png', 1, 1),
+(190, 23, '/uploads/images/Thuc-pham-HC/MARKAL-MI-SPAGHETTI.png', 1, 1),
+(191, 22, '/uploads/images/Hoa-Sua-Bun-gao-lut-500.png', 1, 1),
+(192, 21, '/uploads/images/Hoa-Sua-Bun-gao-lut-250.png', 1, 1),
+(193, 19, '/uploads/images/Hoa-Sua-Gao-trang.png', 1, 1),
+(194, 18, '/uploads/images/Hoa-Sua-Gao-hoang-da.png', 1, 1),
+(195, 31, '/uploads/images/Hoa-Sua-Banh-trang-gao-lut.png', 1, 1),
+(196, 30, '/uploads/images/Hoa-Sua-Banh-trang-gao.png', 1, 1),
+(198, 57, '/uploads/images/Vinasamex-Bot-toi.png', 1, 1),
+(199, 56, '/uploads/images/Vinasamex-Bot-hanh.png', 1, 1),
+(200, 55, '/uploads/images/Vinasamex-Bot-sa.png', 1, 1),
+(202, 54, '/uploads/images/Joysprings-Nuoc-tuong-it-muoi.png', 1, 1),
+(203, 53, '/uploads/images/Joysprings-Dau-hao-chay-tu-nam.png', 1, 1),
+(204, 52, '/uploads/images/Bragg-Giam-tao.png', 1, 1),
+(205, 51, '/uploads/images/Thuc-pham-HC/PROBIOS-GIAM-LUU.png', 1, 1),
+(206, 50, '/uploads/images/Giam-tao-Probios.png', 1, 1),
+(208, 49, '/uploads/images/Lumlums-Sot-me-rang.png', 1, 1),
+(209, 48, '/uploads/images/Lumlums-Tuong-ot-Sriracha.png', 1, 1),
+(210, 47, '/uploads/images/Lumlums-Sot-Teriyaki.png', 1, 1),
+(211, 46, '/uploads/images/Ketchup-Tuong-ot.png', 1, 1),
+(213, 45, '/uploads/images/Hummus-Sot-dau-ga.png', 1, 1),
+(214, 44, '/uploads/images/Sottostelle-Muoi-hong-Himalaya.png', 1, 1),
+(215, 43, '/uploads/images/Asia-Organics-Tuong-ot-cay-Sriracha.png', 1, 1),
+(216, 42, '/uploads/images/Asia-Organics-Tuong-ot-chua-ngot.png', 1, 1),
+(218, 41, '/uploads/images/Sungarden-Dau-huong-duong.png', 1, 1),
+(220, 39, '/uploads/images/Thuc-pham-HC/THAILAND-Duong-phen.png', 1, 1),
+(221, 38, '/uploads/images/Thuc-pham-HC/THAILAND-XI-DAU.png', 1, 1),
+(222, 37, '/uploads/images/Thuc-pham-HC/ANBIO-MUOI-HONG.png', 1, 1),
+(223, 36, '/uploads/images/Thuc-pham-HC/SANH-NMCCC.png', 1, 1),
+(224, 35, '/uploads/images/Thuc-pham-HC/SANH-NMCCC-dac-biet.png', 1, 1),
+(226, 34, '/uploads/images/Thuc-pham-HC/SANH-NMCCC-DEN.png', 1, 1),
+(228, 33, '/uploads/images/Thuc-pham-HC/BIOITALIA-DAU-OLIVE.png', 1, 1),
+(229, 32, '/uploads/images/Thuc-pham-HC/NATURGREEN-DAU-HAT-LANH.png', 1, 1),
+(230, 58, '/uploads/images/Thuc-pham-HC/PROBIOS-HAT-LANH-NAU.png', 1, 1),
+(232, 59, '/uploads/images/Sottostelle-Chia.png', 1, 1),
+(233, 60, '/uploads/images/Sottostelle-Diem-mach-3-mau.png', 1, 1),
+(234, 61, '/uploads/images/Sottostelle-Diem-mach-trang.png', 1, 1),
+(235, 62, '/uploads/images/Sottostelle-Hat-ke-boc-vo.png', 1, 1),
+(236, 63, '/uploads/images/Thuc-pham-HC/SOTTOSTELLE-DAU-LANG-DO.png', 1, 1),
+(237, 64, '/uploads/images/Thuc-pham-HC/SOTTOSTELLE-DAU-GA.png', 1, 1),
+(239, 65, '/uploads/images/Thuc-pham-HC/ANBIO-DAU-DO-AZUKI.png', 1, 1),
+(240, 66, '/uploads/images/Thuc-pham-HC/ANBIO-DAU-XANH.png', 1, 1),
+(241, 67, '/uploads/images/Thuc-pham-HC/ANBIO-HH-HAT-3-6-8-11-13.png', 1, 1),
+(242, 68, '/uploads/images/Thuc-pham-HC/ANBIO-HH-HAT-3-6-8-11-13.png', 1, 1),
+(243, 69, '/uploads/images/Thuc-pham-HC/ANBIO-HH-HAT-3-6-8-11-13.png', 1, 1),
+(244, 70, '/uploads/images/Thuc-pham-HC/ANBIO-HH-HAT-3-6-8-11-13.png', 1, 1),
+(245, 71, '/uploads/images/Thuc-pham-HC/ANBIO-HH-HAT-3-6-8-11-13.png', 1, 1),
+(246, 76, '/uploads/images/Organic-Life-Tao-do-Tan-Cuong-500.png', 1, 1),
+(247, 75, '/uploads/images/Organic-Life-Tao-do-Tan-Cuong-250.png', 1, 1),
+(248, 74, '/uploads/images/Organic-Life-Ky-tu.png', 1, 1),
+(249, 73, '/uploads/images/Organic-Life-Hac-ky-tu-hoang-da.png', 1, 1),
+(250, 72, '/uploads/images/Smart-Organic-Cha-la.png', 1, 1),
+(252, 16, '/uploads/images/SunnyFruit-Nho-kho.png', 1, 1),
+(253, 85, '/uploads/images/Thuc-pham-HC/YUMEARTH-KEO-MUT-TC-CAY.png', 1, 1),
+(254, 144, '/uploads/images/Hoa-pham-HC/SILVERCARE-BONG-TAY-TRANG-80M.png', 1, 1),
+(255, 88, '/uploads/images/Thuc-pham-HC/YUMEARTH-KEO-HAT-DAU-TRAI-CAY.png', 1, 1),
+(256, 87, '/uploads/images/Thuc-pham-HC/YUMEARTH-KEO-DEO-TRAI-CAY.png', 1, 1),
+(257, 86, '/uploads/images/Thuc-pham-HC/YUMEARTH-KEO-MUT-TC.png', 1, 1),
+(258, 82, '/uploads/images/Thuc-pham-HC/BETT\'R-KEO-CHOCOLATE.png', 1, 1),
+(260, 94, '/uploads/images/Thuc-pham-HC/BIONELLA-BO-HAT-PHI.png', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -14618,7 +16157,7 @@ CREATE TABLE `product_price` (
   `no_from` int(11) NOT NULL,
   `no_to` int(11) NOT NULL,
   `price` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -14632,7 +16171,7 @@ CREATE TABLE `settings` (
   `value` longtext NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `settings`
@@ -14640,25 +16179,25 @@ CREATE TABLE `settings` (
 
 INSERT INTO `settings` (`id`, `name`, `value`, `created_at`, `updated_at`) VALUES
 (1, 'base_url', 'http://nghien.biz', '2016-07-27 14:37:52', '2016-07-27 14:37:52'),
-(2, 'site_title', 'Chợ đặc sản Đà Nẵng', '2016-07-27 14:37:52', '2021-07-16 11:12:26'),
-(3, 'site_description', 'Chợ đặc sản Đà Nẵng', '2016-07-27 14:37:52', '2021-07-16 11:12:26'),
-(4, 'site_keywords', 'Chợ đặc sản Đà Nẵng', '2016-07-27 14:37:52', '2021-07-16 11:12:26'),
+(2, 'site_title', 'G-Organic Family', '2016-07-27 14:37:52', '2024-07-18 13:26:50'),
+(3, 'site_description', 'G-Organic Family', '2016-07-27 14:37:52', '2024-07-18 13:26:50'),
+(4, 'site_keywords', 'G-Organic Family', '2016-07-27 14:37:52', '2024-07-18 13:26:50'),
 (5, 'admin_email', 'nghien.biz@gmail.com', '2016-07-27 14:37:52', '2016-07-27 14:37:52'),
 (22, 'mail_server', 'mail.example.com', '2016-07-27 14:37:52', '2016-07-27 14:37:52'),
 (23, 'mail_login_name', 'login@example.com', '2016-07-27 14:37:52', '2016-07-27 14:37:52'),
 (24, 'mail_password', 'password', '2016-07-27 14:37:52', '2016-07-27 14:37:52'),
-(105, 'site_name', 'Trang chủ', '2016-07-27 14:37:52', '2021-07-16 11:12:26'),
-(113, 'google_analystic', 'UA-63665479-6', '2016-07-27 14:37:52', '2021-07-16 11:12:26'),
-(114, 'facebook_appid', '', '2016-07-27 14:37:52', '2021-07-16 11:12:26'),
-(115, 'google_fanpage', '', '2016-07-27 14:37:52', '2021-07-16 11:12:26'),
-(116, 'facebook_fanpage', 'https://www.facebook.com/', '2016-07-27 14:37:52', '2021-07-16 11:12:26'),
-(117, 'twitter_fanpage', '', '2016-07-27 14:37:52', '2021-07-16 11:12:26'),
-(130, 'logo', '2016/12/28/logo-nam-moi-va-giang-sinh-09-1482923355.png', '2016-07-27 14:37:52', '2021-07-16 11:12:26'),
-(131, 'favicon', '2016/11/29/favicon-1480367931.png', '2016-07-27 14:37:52', '2021-07-16 11:12:26'),
-(141, 'banner', '2016/12/06/icho-vn-mua-online-gia-si-1480992823.jpg', '2016-07-27 14:37:52', '2021-07-16 11:12:26'),
-(142, 'custom_text', '', '2016-07-27 14:37:52', '2021-07-16 11:12:26'),
-(143, 'email_cc', 'hoangnhonline@gmail.com', '2016-11-11 00:00:00', '2021-07-16 11:12:26'),
-(144, 'mo_ta_sp', '', '2017-06-06 00:00:00', '2021-07-16 11:12:26');
+(105, 'site_name', 'Trang chủ', '2016-07-27 14:37:52', '2024-07-18 13:26:50'),
+(113, 'google_analystic', 'UA-63665479-6', '2016-07-27 14:37:52', '2024-07-18 13:26:50'),
+(114, 'facebook_appid', '', '2016-07-27 14:37:52', '2024-07-18 13:26:50'),
+(115, 'google_fanpage', '', '2016-07-27 14:37:52', '2024-07-18 13:26:50'),
+(116, 'facebook_fanpage', 'https://www.facebook.com/', '2016-07-27 14:37:52', '2024-07-18 13:26:50'),
+(117, 'twitter_fanpage', '', '2016-07-27 14:37:52', '2024-07-18 13:26:50'),
+(130, 'logo', '2024/07/18/logo-gfamily-1721283606.png', '2016-07-27 14:37:52', '2024-07-18 13:26:50'),
+(131, 'favicon', '2016/11/29/favicon-1480367931.png', '2016-07-27 14:37:52', '2024-07-18 13:26:50'),
+(141, 'banner', '2016/12/06/icho-vn-mua-online-gia-si-1480992823.jpg', '2016-07-27 14:37:52', '2024-07-18 13:26:50'),
+(142, 'custom_text', '', '2016-07-27 14:37:52', '2024-07-18 13:26:50'),
+(143, 'email_cc', 'hoangnhonline@gmail.com', '2016-11-11 00:00:00', '2024-07-18 13:26:50'),
+(144, 'mo_ta_sp', '', '2017-06-06 00:00:00', '2024-07-18 13:26:50');
 
 -- --------------------------------------------------------
 
@@ -14669,7 +16208,7 @@ INSERT INTO `settings` (`id`, `name`, `value`, `created_at`, `updated_at`) VALUE
 CREATE TABLE `sp_mucdich` (
   `sp_id` int(11) NOT NULL,
   `muc_dich` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -14680,7 +16219,7 @@ CREATE TABLE `sp_mucdich` (
 CREATE TABLE `sp_thuoctinh` (
   `sp_id` bigint(20) NOT NULL,
   `thuoc_tinh` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -14692,7 +16231,7 @@ CREATE TABLE `sp_tuongthich` (
   `sp_1` int(11) NOT NULL,
   `sp_2` int(11) NOT NULL,
   `cate_id` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -14712,70 +16251,7 @@ CREATE TABLE `tag` (
   `updated_user` tinyint(4) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
-
---
--- Dumping data for table `tag`
---
-
-INSERT INTO `tag` (`id`, `meta_id`, `slug`, `type`, `name`, `alias`, `description`, `created_user`, `updated_user`, `created_at`, `updated_at`) VALUES
-(1, 2, 'action-movies', '1', 'action movies', NULL, '', 1, 1, '2016-01-01 00:00:00', '2016-01-01 00:00:00'),
-(5, 19, 'the-flash', '1', 'The Flash', NULL, NULL, 1, 1, '2016-01-01 00:00:00', '2016-01-01 00:00:00'),
-(6, 20, 'the-flash-season-1', '1', 'The Flash Season 1', NULL, NULL, 1, 1, '2016-01-01 00:00:00', '2016-01-01 00:00:00'),
-(7, 21, 'tv-series', '1', 'TV Series', NULL, NULL, 1, 1, '2016-01-01 00:00:00', '2016-01-01 00:00:00'),
-(8, 24, 'marvel', '1', 'Marvel', NULL, NULL, 1, 1, '2016-01-01 00:00:00', '2016-01-01 00:00:00'),
-(9, 25, 'age-of-ultron', '1', 'Age Of Ultron', NULL, NULL, 1, 1, '2016-01-01 00:00:00', '2016-01-01 00:00:00'),
-(10, 26, 'avengers', '1', 'Avengers', NULL, NULL, 1, 1, '2016-01-01 00:00:00', '2016-01-01 00:00:00'),
-(11, 27, 'avengers-2015', '1', 'Avengers 2015', NULL, NULL, 1, 1, '2016-01-01 00:00:00', '2016-01-01 00:00:00'),
-(12, 28, 'ciname-movies', '1', 'ciname movies', NULL, NULL, 1, 1, '2016-01-01 00:00:00', '2016-01-01 00:00:00'),
-(13, 29, 'thriller', '1', 'thriller', NULL, NULL, 1, 1, '2016-01-01 00:00:00', '2016-01-01 00:00:00'),
-(14, 30, 'fast-and-furious-7', '1', 'Fast and Furious 7', NULL, NULL, 1, 1, '2016-01-01 00:00:00', '2016-01-01 00:00:00'),
-(15, 31, 'fast-7', '1', 'Fast 7', NULL, NULL, 1, 1, '2016-01-01 00:00:00', '2016-01-01 00:00:00'),
-(16, 34, 'kyoto-kenshin', '1', 'Kyoto Kenshin', NULL, NULL, 1, 1, '2016-01-01 00:00:00', '2016-01-01 00:00:00'),
-(17, 35, 'flying-swords-of-dragon-gate', '1', 'Flying Swords Of Dragon Gate', NULL, NULL, 1, 1, '2016-01-01 00:00:00', '2016-01-01 00:00:00'),
-(18, 42, 'cinema-movie', '1', 'cinema movie', NULL, NULL, 1, 1, '2016-01-01 00:00:00', '2016-01-01 00:00:00'),
-(19, 52, 'one-piece', '1', 'One Piece', NULL, NULL, 1, 1, '2016-01-01 00:00:00', '2016-01-01 00:00:00'),
-(20, 57, 'fantasy', '1', 'fantasy', NULL, NULL, 1, 1, '2016-01-01 00:00:00', '2016-01-01 00:00:00'),
-(21, 58, 'drama', '1', 'drama', NULL, NULL, 1, 1, '2016-01-01 00:00:00', '2016-01-01 00:00:00'),
-(22, 61, 'survivor-2015', '1', 'Survivor 2015', NULL, NULL, 1, 1, '2016-01-01 00:00:00', '2016-01-01 00:00:00'),
-(23, 63, 'jurassic', '1', 'Jurassic', NULL, NULL, 1, 1, '2016-01-01 00:00:00', '2016-01-01 00:00:00'),
-(24, 64, 'jurassic-park-3', '1', 'Jurassic Park 3', NULL, NULL, 1, 1, '2016-01-01 00:00:00', '2016-01-01 00:00:00'),
-(25, 65, 'jurassic-2001', '1', 'Jurassic 2001', NULL, NULL, 1, 1, '2016-01-01 00:00:00', '2016-01-01 00:00:00'),
-(26, 67, 'sifu-vs-vampire', '1', 'sifu vs vampire', NULL, NULL, 1, 1, '2016-01-01 00:00:00', '2016-01-01 00:00:00'),
-(27, 68, 'phim-ma', '1', 'phim ma', NULL, NULL, 1, 1, '2016-01-01 00:00:00', '2016-01-01 00:00:00'),
-(28, 69, 'ong-toi-la-cuong-thi', '1', 'ông tôi là cương thi', NULL, NULL, 1, 1, '2016-01-01 00:00:00', '2016-01-01 00:00:00'),
-(29, 70, 'cuong-thi', '1', 'cương thi', NULL, NULL, 1, 1, '2016-01-01 00:00:00', '2016-01-01 00:00:00'),
-(35, 80, 'the-revenant-tron-bo', '1', 'The Revenant trọn bộ', NULL, NULL, 1, 1, '2016-01-01 00:00:00', '2016-01-01 00:00:00'),
-(37, 89, 'lam-tam-nhu', '2', 'lâm tâm như', NULL, NULL, 1, 1, '2016-01-01 00:00:00', '2016-01-01 00:00:00'),
-(38, 90, 'hoac-kien-hoa', '2', 'hoắc kiến hoa', NULL, NULL, 1, 1, '2016-01-01 00:00:00', '2016-01-01 00:00:00'),
-(41, 94, 'apocalypse', '1', 'Apocalypse', NULL, NULL, 1, 1, '2016-01-01 00:00:00', '2016-01-01 00:00:00'),
-(42, 95, 'days-of-future-past', '1', 'Days of Future Past', NULL, NULL, 1, 1, '2016-01-01 00:00:00', '2016-01-01 00:00:00'),
-(43, 96, 'ky-an-nha-thanh', '1', 'kỳ án nhà thanh', NULL, NULL, 1, 1, '2016-01-01 00:00:00', '2016-01-01 00:00:00'),
-(44, 97, 'ky-an-nha-thanh-tap-1', '1', 'ky an nha thanh tap 1', NULL, NULL, 1, 1, '2016-01-01 00:00:00', '2016-01-01 00:00:00'),
-(45, 98, 'ky-an-nha-thanh-2', '1', 'ky an nha thanh 2', NULL, NULL, 1, 1, '2016-01-01 00:00:00', '2016-01-01 00:00:00'),
-(46, 100, 'naruto', '1', 'naruto', NULL, NULL, 1, 1, '2016-01-01 00:00:00', '2016-01-01 00:00:00'),
-(47, 101, 'naruto-shippuuden', '1', 'Naruto Shippuuden', NULL, NULL, 1, 1, '2016-01-01 00:00:00', '2016-01-01 00:00:00'),
-(48, 102, 'uzumaki-naruto', '1', 'Uzumaki Naruto', NULL, NULL, 1, 1, '2016-01-01 00:00:00', '2016-01-01 00:00:00'),
-(49, NULL, 'test', '1', 'test', 'test', '', 0, 0, '2016-08-07 14:03:15', '2016-08-07 14:03:15'),
-(50, 151, 'dsdagasdgasdg', '1', 'SDgsadg', 'SDgsadg', '', 1, 1, '2016-09-14 07:40:52', '2016-09-14 07:40:52'),
-(51, 152, 'dsgsagsadgasdgasdgasdg', '1', 'SDgsadg', 'SDgsadg', '', 1, 1, '2016-09-14 07:41:06', '2016-09-14 07:41:06'),
-(52, 153, 'fhfdhgjtfgj', '1', 'fhfdhgjtfgj', 'fhfdhgjtfgj', '', 1, 1, '2016-09-14 07:49:14', '2016-09-14 07:49:14'),
-(53, 154, 'fhfdhgjtfgjsdgasdg', '1', 'fhfdhgjtfgjdfgsadg', 'fhfdhgjtfgjdfgsadg', '', 1, 1, '2016-09-14 07:49:46', '2016-09-14 07:49:46'),
-(54, 155, 'gsdgasdg', '1', 'gsdgasdg', 'gsdgasdg', '', 1, 1, '2016-09-14 07:49:57', '2016-09-14 07:49:57'),
-(55, 156, 'dshfdjhgjrtj', '1', 'dshfdjhgjrtj', 'dshfdjhgjrtj', '', 1, 1, '2016-09-14 07:51:15', '2016-09-14 07:51:15'),
-(56, 157, 'dshfdjhgjrtjdgsgds', '1', 'dshfdjhgjrtjsdgasdgs', 'dshfdjhgjrtjsdgasdgs', '', 1, 1, '2016-09-14 07:51:35', '2016-09-14 07:51:35'),
-(57, 158, 'huy-hoang', '1', 'huy hoang', 'huy hoang', '', 1, 1, '2016-09-14 07:51:51', '2016-09-14 07:51:51'),
-(58, 159, 'huy-hoang1', '1', 'huy hoang 1', 'huy hoang 1', '', 1, 1, '2016-09-14 07:52:59', '2016-09-14 07:52:59'),
-(59, 160, 'fdhsdfhsdfhgsdhfdh', '1', 'gsdhfdh', 'gsdhfdh', '', 1, 1, '2016-09-14 07:53:12', '2016-09-14 07:53:12'),
-(60, 161, 'ffffffffffffff', '1', 'ffffffffffffff', 'ffffffffffffff', '', 1, 1, '2016-09-14 07:54:00', '2016-09-14 07:54:00'),
-(61, 162, 'llllllllllllll', '1', 'llllllllllllll', 'llllllllllllll', '', 1, 1, '2016-09-14 07:54:33', '2016-09-14 07:54:33'),
-(62, 163, 'hdfhdsfhdfhsdfhdfhsdfh', '1', 'hdfhdsfhdfhsdfhdfhsdfh', 'hdfhdsfhdfhsdfhdfhsdfh', '', 1, 1, '2016-09-14 07:54:59', '2016-09-14 07:54:59'),
-(63, 164, 'gvgggsedgewgtwetew', '1', 'gvgggsedgewgtwetew', 'gvgggsedgewgtwetew', '', 1, 1, '2016-09-14 07:56:27', '2016-09-14 07:56:27'),
-(64, 165, 'hgdfhdfshdfhsd', '1', 'hgdfhdfshdfhsd', 'hgdfhdfshdfhsd', '', 1, 1, '2016-09-14 08:01:31', '2016-09-14 08:01:31'),
-(65, 166, 'dgasdgdgasdg', '1', 'dgasdgdgasdg', 'dgasdgdgasdg', '', 1, 1, '2016-09-14 08:02:25', '2016-09-14 08:02:25'),
-(66, 167, '1fdhsfdhdfh', '1', 'gdfhsdfhdfh', 'gdfhsdfhdfh', 'dsgsdfg', 1, 1, '2016-09-14 08:02:45', '2016-09-14 08:02:45'),
-(67, NULL, 'test-123', '1', 'test 123', NULL, NULL, 1, 1, '2016-09-14 08:55:28', '2016-09-14 08:55:28'),
-(68, NULL, 'abcdef', '1', 'abcdef', NULL, NULL, 1, 1, '2016-09-14 08:57:31', '2016-09-14 08:57:31');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
 
@@ -14787,61 +16263,7 @@ CREATE TABLE `tag_objects` (
   `object_id` int(20) NOT NULL,
   `tag_id` int(20) NOT NULL,
   `type` tinyint(4) NOT NULL COMMENT '1 : film, 1 : tin tuc'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `tag_objects`
---
-
-INSERT INTO `tag_objects` (`object_id`, `tag_id`, `type`) VALUES
-(1, 5, 1),
-(1, 6, 1),
-(1, 7, 1),
-(2, 8, 1),
-(2, 9, 1),
-(2, 10, 1),
-(2, 11, 1),
-(3, 12, 1),
-(3, 13, 1),
-(4, 14, 1),
-(4, 15, 1),
-(5, 37, 2),
-(5, 38, 2),
-(6, 16, 1),
-(7, 17, 1),
-(11, 18, 1),
-(17, 26, 1),
-(17, 27, 1),
-(17, 28, 1),
-(17, 29, 1),
-(19, 19, 1),
-(22, 43, 1),
-(22, 44, 1),
-(22, 45, 1),
-(23, 6, 1),
-(23, 7, 1),
-(23, 8, 1),
-(25, 1, 1),
-(25, 22, 1),
-(26, 23, 1),
-(26, 24, 1),
-(26, 25, 1),
-(27, 5, 1),
-(27, 7, 1),
-(30, 35, 1),
-(32, 39, 1),
-(32, 40, 1),
-(32, 41, 1),
-(32, 42, 1),
-(33, 46, 1),
-(33, 47, 1),
-(33, 48, 1),
-(37, 6, 1),
-(39, 7, 1),
-(40, 7, 1),
-(43, 5, 1),
-(43, 6, 1),
-(43, 8, 1);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -14861,7 +16283,7 @@ CREATE TABLE `thuoc_tinh` (
   `updated_user` tinyint(4) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `thuoc_tinh`
@@ -15016,6 +16438,65 @@ INSERT INTO `thuoc_tinh` (`id`, `name`, `alias`, `display_order`, `parent_id`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `thuong_hieu`
+--
+
+CREATE TABLE `thuong_hieu` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `image_url` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Dumping data for table `thuong_hieu`
+--
+
+INSERT INTO `thuong_hieu` (`id`, `name`, `image_url`) VALUES
+(1, 'Coslys', NULL),
+(2, 'Wooden Spoon', NULL),
+(3, 'Fuwa3e', NULL),
+(4, 'SilverCare', NULL),
+(5, 'Hoa Sữa Foods', NULL),
+(6, 'Sottolestelle', NULL),
+(7, 'Asian Organics', NULL),
+(8, 'Sungarden', NULL),
+(9, 'Bio Junior', NULL),
+(10, 'AnBiO', NULL),
+(11, 'Sành', NULL),
+(12, 'Bioitalia', NULL),
+(13, 'NaturGreen', NULL),
+(14, 'ProBios', NULL),
+(15, 'Dalla Costa', NULL),
+(16, 'Mennosato', NULL),
+(17, 'Markal', NULL),
+(18, 'Bett\'r', NULL),
+(19, 'Sunny Fruit', NULL),
+(20, 'YumEarth', NULL),
+(21, 'Nobi Nobi', NULL),
+(22, 'Alvins', NULL),
+(23, 'Bionella', NULL),
+(24, 'Dragon Superfoods', NULL),
+(25, 'Naeiae', NULL),
+(26, 'Organic Life', NULL),
+(27, 'Smart Organic', NULL),
+(28, 'Vinasamex', NULL),
+(29, 'Joyspring', NULL),
+(30, 'Bragg', NULL),
+(31, 'Lumlum', NULL),
+(32, 'Avalon Organics', NULL),
+(33, 'Buccotherm', NULL),
+(34, 'Officina Nature', NULL),
+(35, 'Voelkel', NULL),
+(36, 'Ba Lành', NULL),
+(37, 'Diet Food', NULL),
+(38, 'Hoa Nắng', NULL),
+(39, 'ILl Nutrimento (ProBios)', NULL),
+(40, 'Wangkanai', NULL),
+(41, 'Healthy Boy', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tinh_thanh`
 --
 
@@ -15023,7 +16504,7 @@ CREATE TABLE `tinh_thanh` (
   `id` int(11) NOT NULL,
   `name` varchar(160) NOT NULL,
   `parent_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `tinh_thanh`
@@ -15806,14 +17287,14 @@ CREATE TABLE `users` (
   `updated_user` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `full_name`, `email`, `password`, `role`, `status`, `changed_password`, `remember_token`, `created_user`, `updated_user`, `created_at`, `updated_at`) VALUES
-(1, 'Super Admin', 'admin@chodacsandanang.com', '$2y$10$qsxpOb0wqDgz65zpC5lxXu068aAKdJ/fJOJcOqHzfoBF3IEPSdJ8m', 3, 1, 0, '34dYfJzq4P8nT3zjLWJymkJWXawRdMR8DHn6to1elH6586rObpq7wV7kY65h', 1, 1, '2016-08-27 05:26:18', '2021-06-26 17:31:16'),
+(1, 'Super Admin', 'admin@gfamily.vn', '$2y$10$3YJDb65jkZ4M0TQwdO6ep.4SrGHi8CKyFDYMGuRXwEgRdYE0kYjCu', 3, 1, 0, '34dYfJzq4P8nT3zjLWJymkJWXawRdMR8DHn6to1elH6586rObpq7wV7kY65h', 1, 1, '2016-08-27 05:26:18', '2024-07-20 12:11:18'),
 (6, 'Hoang Nguyen', 'hoangnhpublic@gmail.com', '$2y$10$8sMegaFE.07wPr6S74IhUe1a61CdrWjOOLEmFXvx2ATe/gVekhkEq', 1, 2, 0, '', 1, 1, '2016-08-27 05:26:18', '2016-12-10 20:52:19'),
 (7, 'Hương Lâm', 'huongll@icho.vn', '$2y$10$4IQPsVVUY8fx/q1YQ0Bnt.9T7IvrCp.k6r0aOHQkDqp07WjsWZQqG', 1, 1, 0, 'JiPmq2AXAlcVQSW0ZcfGRIAmtZENTaSgMT5oRVwOMbTm6j1cL0ZmvAADAQOe', 1, 1, '2016-10-05 00:00:00', '2017-01-06 13:53:43'),
 (8, 'Kim Dung', 'dungntk@icho.vn', '$2y$10$YsKQ3TntFhgVE8kJKNxqNOnVWnqban3cw5KYXJj1hxGUSdmZmyjMm', 1, 2, 0, '', 1, 1, '2016-10-12 00:00:00', '2016-12-26 15:55:51'),
@@ -15833,7 +17314,7 @@ CREATE TABLE `ward` (
   `district_id` int(11) NOT NULL,
   `city_id` int(11) NOT NULL,
   `display_order` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `ward`
@@ -27038,6 +28519,12 @@ ALTER TABLE `articles_cate`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `articles_cate_parent`
+--
+ALTER TABLE `articles_cate_parent`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `banner`
 --
 ALTER TABLE `banner`
@@ -27047,6 +28534,14 @@ ALTER TABLE `banner`
 -- Indexes for table `cate`
 --
 ALTER TABLE `cate`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `name` (`name`),
+  ADD KEY `slug` (`slug`);
+
+--
+-- Indexes for table `cate_child`
+--
+ALTER TABLE `cate_child`
   ADD PRIMARY KEY (`id`),
   ADD KEY `name` (`name`),
   ADD KEY `slug` (`slug`);
@@ -27128,6 +28623,12 @@ ALTER TABLE `hang_sx`
 ALTER TABLE `hover_info`
   ADD PRIMARY KEY (`id`),
   ADD KEY `parent_id` (`parent_id`);
+
+--
+-- Indexes for table `icons`
+--
+ALTER TABLE `icons`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `info_seo`
@@ -27221,6 +28722,13 @@ ALTER TABLE `product_event`
   ADD UNIQUE KEY `event_id` (`event_id`,`product_id`);
 
 --
+-- Indexes for table `product_icon`
+--
+ALTER TABLE `product_icon`
+  ADD PRIMARY KEY (`product_id`,`icon_id`),
+  ADD KEY `product_id` (`product_id`,`icon_id`);
+
+--
 -- Indexes for table `product_img`
 --
 ALTER TABLE `product_img`
@@ -27282,6 +28790,12 @@ ALTER TABLE `thuoc_tinh`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `thuong_hieu`
+--
+ALTER TABLE `thuong_hieu`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tinh_thanh`
 --
 ALTER TABLE `tinh_thanh`
@@ -27307,25 +28821,37 @@ ALTER TABLE `ward`
 -- AUTO_INCREMENT for table `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `articles_cate`
 --
 ALTER TABLE `articles_cate`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `articles_cate_parent`
+--
+ALTER TABLE `articles_cate_parent`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `banner`
 --
 ALTER TABLE `banner`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 
 --
 -- AUTO_INCREMENT for table `cate`
 --
 ALTER TABLE `cate`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
+-- AUTO_INCREMENT for table `cate_child`
+--
+ALTER TABLE `cate_child`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `city`
@@ -27382,6 +28908,12 @@ ALTER TABLE `hover_info`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
+-- AUTO_INCREMENT for table `icons`
+--
+ALTER TABLE `icons`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
 -- AUTO_INCREMENT for table `info_seo`
 --
 ALTER TABLE `info_seo`
@@ -27415,13 +28947,13 @@ ALTER TABLE `location`
 -- AUTO_INCREMENT for table `meta_data`
 --
 ALTER TABLE `meta_data`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1485;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1702;
 
 --
 -- AUTO_INCREMENT for table `newsletter`
 --
 ALTER TABLE `newsletter`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -27451,7 +28983,7 @@ ALTER TABLE `price_range`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=145;
 
 --
 -- AUTO_INCREMENT for table `product_cate`
@@ -27469,7 +29001,7 @@ ALTER TABLE `product_event`
 -- AUTO_INCREMENT for table `product_img`
 --
 ALTER TABLE `product_img`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=261;
 
 --
 -- AUTO_INCREMENT for table `settings`
@@ -27481,13 +29013,19 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT for table `tag`
 --
 ALTER TABLE `tag`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `thuoc_tinh`
 --
 ALTER TABLE `thuoc_tinh`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=146;
+
+--
+-- AUTO_INCREMENT for table `thuong_hieu`
+--
+ALTER TABLE `thuong_hieu`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `tinh_thanh`
